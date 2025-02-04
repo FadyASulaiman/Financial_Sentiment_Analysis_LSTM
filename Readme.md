@@ -8,6 +8,9 @@ To be taken all the way from data exploration to deployment.
 ```
 conda create -n env_name python=3.11
 conda activate env_name
-conda install ipykernel pandas numpy scikit-learn seaborn matplotlib spacy bs4
+conda install ipykernel pandas numpy scikit-learn seaborn matplotlib spacy bs4 gensim transformers pytorch
+
+<!-- you may need: conda install matplotlib seaborn --force-reinstall -->
+
 python -m spacy download en_core_web_sm
 ```
