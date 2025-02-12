@@ -1,0 +1,11 @@
+data:
+  raw_data_path: "data/raw"
+  processed_data_path: "data/processed"
+
+# model:
+#   max_features: 1000
+#   random_state: 42
+
+training:
+  test_size: 0.2
+  batch_size: 32
