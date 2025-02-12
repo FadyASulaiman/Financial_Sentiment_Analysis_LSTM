@@ -44,34 +44,31 @@ class FiqaDataLoading:
         self._enhance_data()
 
         return self.df
-    
+        
     def safe_literal_eval(self, x):
+        if isinstance(x, list):  # Handle pre-parsed lists
+            return x
         try:
-            if isinstance(x, str):
-                return ast.literal_eval(x)
-            else:
-                return []
-        except (SyntaxError, ValueError):
-            if isinstance(x, str):
-                return [x]
-            else:
-                return []
+            return ast.literal_eval(x.replace("'", "\""))
+        except:
+            return [str(x)]  # Fallback for malformed entries
 
     def _enhance_data(self):
         """Create additional features and clean data"""
 
         # Sentiment classification
-        bins = [-1, -0.33, 0.33, 1]
+        bins = [-1.0001, -0.33, 0.33, 1.0001]
         labels = ['negative', 'neutral', 'positive']
         self.df['sentiment_class'] = pd.cut(self.df['sentiment_score'], bins=bins, labels=labels, right=True, include_lowest=True)
 
         # Aspect hierarchy processing
         def extract_aspect(aspects, level):
+            if not aspects:
+                return None
+
             try:
-                if aspects and isinstance(aspects[0], str):
-                    return aspects[0].split('/')[level] if len(aspects[0].split('/')) > level else None
-                else:
-                    return None
+                parts = aspects[0].split('/')
+                return parts[level].strip() if level < len(parts) else None
             except (IndexError, TypeError):
                 return None
 
