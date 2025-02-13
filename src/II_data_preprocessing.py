@@ -211,7 +211,7 @@ class TextCleaner:
             if self._should_keep_token(token):
                 processed_token = token.lemma_ if self.lemmatize else token.text
                 tokens.append(processed_token.strip())
-                
+
         return " ".join(tokens)
 
     def _should_keep_token(self, token) -> bool:
