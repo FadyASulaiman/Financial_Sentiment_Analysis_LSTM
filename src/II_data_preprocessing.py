@@ -26,6 +26,12 @@ class PreprocessingStats:
     invalid_scores: int
     high_discrepancy_count: int
 
+
+
+# =================================================
+# ======= 1. Handle Nulls & Missing values ========
+# =================================================
+
 class MissingValueHandler:
     """Handles all missing value operations"""
     
@@ -76,6 +82,12 @@ class MissingValueHandler:
         self.logger.info(f"Original rows: {self.stats['original_rows']}")
         self.logger.info(f"Final rows: {self.stats['final_rows']}")
         self.logger.info(f"Removed rows: {self.stats['removed_rows']}")
+
+
+
+# =================================================
+# ========= 2. Preprocess String Columns ==========
+# =================================================
 
 class TextColumnProcessor:
     """Processes text columns with advanced features"""
@@ -142,6 +154,12 @@ class TextColumnProcessor:
         self.logger.info(f"Processed sentences: {self.stats['processed_sentences']}")
         self.logger.info(f"Generated snippets: {self.stats['generated_snippets']}")
 
+
+
+# =================================================
+# ============= 3. Clean Text Columns =============
+# =================================================
+
 class TextCleaner:
     """Enhanced text cleaning operations"""
     
@@ -203,6 +221,12 @@ class TextCleaner:
                  (token.is_stop or token.text in self.custom_stopwords))
         )
     
+
+
+# =================================================
+# ========== 4. Validate Full DataFrame  ==========
+# =================================================
+
 class DataValidator:
     """Enhanced data validation operations with detailed reporting"""
     
@@ -286,6 +310,12 @@ class DataValidator:
         self.logger.info(f"Invalid scores: {self.validation_stats['invalid_scores']['count']}")
         self.logger.info(f"High discrepancy cases: {self.validation_stats['discrepancies']['high_discrepancy_count']}")
         self.logger.info(f"Average discrepancy: {self.validation_stats['discrepancies']['avg_discrepancy']:.3f}")
+
+
+
+# =================================================
+# ========= 5. Balance Sentiment Classes  =========
+# =================================================
 
 class DataBalancer:
     """Enhanced class balancing with multiple strategies"""
@@ -406,6 +436,12 @@ class DataBalancer:
         self.logger.info(f"Class ratio after: {self.balance_stats['class_ratios']['after']:.2f}")
         self.logger.info(f"Total samples before: {self.balance_stats['total_samples']['before']}")
         self.logger.info(f"Total samples after: {self.balance_stats['total_samples']['after']}")
+
+
+
+# =================================================
+# ============ Main Preprocessing Class ===========
+# =================================================
 
 class DataPreprocessor(BaseEstimator, TransformerMixin):
     """Enhanced orchestrator for the preprocessing pipeline"""
@@ -529,6 +565,12 @@ class DataPreprocessor(BaseEstimator, TransformerMixin):
             'class_distribution': self.preprocessing_stats.class_distribution,
             'missing_values': self.preprocessing_stats.missing_values
         }
+
+
+
+# =================================================
+# ======= Save & Version Preprocessed Data ========
+# =================================================
 
 class PreprocessedDataVersioning:
     def save_versioned_dataframe(self, df: pd.DataFrame, base_path: str, base_filename: str):

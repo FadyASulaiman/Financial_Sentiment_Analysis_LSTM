@@ -9,8 +9,13 @@ from wordcloud import WordCloud
 import numpy as np
 from pathlib import Path
 
+
+# =================================================
+# =========== Data Loading & enhancement ==========
+# =================================================
+
 class FiqaDataLoading:
-    # Class constants
+    # Constants
     SENTIMENT_BINS = [-1.0001, -0.33, 0.33, 1.0001]
     SENTIMENT_LABELS = ['negative', 'neutral', 'positive']
     
@@ -104,8 +109,13 @@ class FiqaDataLoading:
             return None
 
 
+
+# =================================================
+# ======== Exploratory Data Analysis (EDA) ========
+# =================================================
+
 class FiqaEDA:
-    # Class constants
+    # Constants
     DEFAULT_FIGSIZE = (12, 6)
     WORDCLOUD_FIGSIZE = (18, 6)
     STOPWORDS = set(["a", "as", "and", "by", "on", "of", "to", "the", "in", 
