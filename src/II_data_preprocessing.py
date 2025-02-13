@@ -1,3 +1,4 @@
+import os
 import re
 import spacy
 import pandas as pd
@@ -178,6 +179,7 @@ class TextCleaner:
         return BeautifulSoup(text, "html.parser").get_text()
 
     def _remove_special_chars(self, text: str) -> str:
+        text = text.replace('...', '')
         return self.special_chars_pattern.sub('', text)
 
     def _normalize_whitespace(self, text: str) -> str:
@@ -527,6 +529,31 @@ class DataPreprocessor(BaseEstimator, TransformerMixin):
             'class_distribution': self.preprocessing_stats.class_distribution,
             'missing_values': self.preprocessing_stats.missing_values
         }
+
+class PreprocessedDataVersioning:
+    def save_versioned_dataframe(self, df: pd.DataFrame, base_path: str, base_filename: str):
+            
+        # Create directory if it doesn't exist
+        os.makedirs(base_path, exist_ok=True)
+        
+        # Get list of existing versions
+        existing_files = [f for f in os.listdir(base_path) 
+                        if f.startswith(base_filename) and f.endswith('.csv')]
+        
+        # Determine next version number
+        if not existing_files:
+            version = 1
+        else:
+            versions = [int(f.split('_v')[1].split('.')[0]) for f in existing_files]
+            version = max(versions) + 1
+        
+        filename = f"{base_filename}_v{version}.csv"
+        full_path = os.path.join(base_path, filename)
+        
+        df.to_csv(full_path, index=False)
+        print(f"DataFrame saved as: {filename}")
+        
+        return full_path
     
 
 if __name__ == "__main__":
@@ -547,6 +574,9 @@ if __name__ == "__main__":
 
     # Apply preprocessing
     cleaned_data = preprocessor.transform(df)
+
+    data_saver = PreprocessedDataVersioning()
+    data_saver.save_versioned_dataframe(cleaned_data, "data/processed", "fiqa_df_preprocessed")
 
     # Get preprocessing summary
     summary = preprocessor.get_preprocessing_summary()
