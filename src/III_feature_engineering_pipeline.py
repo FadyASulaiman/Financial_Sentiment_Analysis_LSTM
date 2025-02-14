@@ -2,6 +2,7 @@ import logging
 from pathlib import Path
 import time
 import scipy
+from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import RobustScaler, StandardScaler, MinMaxScaler
 from sklearn.decomposition import PCA, TruncatedSVD
 from sklearn.feature_selection import SelectKBest, mutual_info_regression, f_regression
@@ -37,7 +38,6 @@ class FeatureCombiner(BaseFeatureExtractor):
     
     VALID_SCALERS = {'standard', 'minmax', 'robust', None}
     VALID_REDUCERS = {'pca', 'truncated_svd', 'selection', None}
-    
     def __init__(self,
                  scaler: str = 'standard',
                  reducer: str = None,
@@ -45,6 +45,7 @@ class FeatureCombiner(BaseFeatureExtractor):
                  feature_selection_method: str = 'mutual_info',
                  correlation_threshold: float = 0.95,
                  min_variance: float = 0.01,
+                 imputation_strategy: str = 'mean',
                  random_state: int = 42):
         """
         Args:
@@ -54,6 +55,7 @@ class FeatureCombiner(BaseFeatureExtractor):
             feature_selection_method: Method for feature selection
             correlation_threshold: Threshold for correlation-based feature removal
             min_variance: Minimum variance threshold for feature removal
+            imputation_strategy: Strategy for handling missing values ('mean', 'median', 'most_frequent', 'constant')
             random_state: Random state for reproducibility
         """
         super().__init__()
@@ -69,9 +71,11 @@ class FeatureCombiner(BaseFeatureExtractor):
         self.feature_selection_method = feature_selection_method
         self.correlation_threshold = correlation_threshold
         self.min_variance = min_variance
+        self.imputation_strategy = imputation_strategy
         self.random_state = random_state
         
         # Initialize components
+        self.imputer = None
         self.scaler_obj = None
         self.reducer_obj = None
         self.selected_features = None
@@ -86,6 +90,10 @@ class FeatureCombiner(BaseFeatureExtractor):
             
             # Convert to DataFrame if necessary
             X = self._ensure_dataframe(X)
+            
+            # Initialize and fit imputer
+            self.imputer = SimpleImputer(strategy=self.imputation_strategy)
+            X = pd.DataFrame(self.imputer.fit_transform(X), columns=X.columns)
             
             # Remove low variance features
             X = self._remove_low_variance(X)
@@ -113,6 +121,7 @@ class FeatureCombiner(BaseFeatureExtractor):
             self.logger.error(f"Error fitting feature combiner: {str(e)}")
             raise
 
+
     def transform(self, X: Union[np.ndarray, pd.DataFrame]) -> np.ndarray:
         """Transform the features"""
         if not self._is_fitted:
@@ -120,6 +129,9 @@ class FeatureCombiner(BaseFeatureExtractor):
         
         try:
             X = self._ensure_dataframe(X)
+            
+            # Apply imputation
+            X = pd.DataFrame(self.imputer.transform(X), columns=X.columns)
             
             # Apply feature selection
             if self.selected_features is not None:
@@ -138,7 +150,7 @@ class FeatureCombiner(BaseFeatureExtractor):
         except Exception as e:
             self.logger.error(f"Error transforming features: {str(e)}")
             raise
-
+            
     def _ensure_dataframe(self, X: Union[np.ndarray, pd.DataFrame]) -> pd.DataFrame:
         """Ensure input is a DataFrame"""
         if isinstance(X, np.ndarray):
@@ -229,10 +241,14 @@ class FeatureCombiner(BaseFeatureExtractor):
             feature_importances=self.feature_importances_,
             correlation_matrix=self.correlation_matrix_,
             explained_variance_ratio=getattr(self.reducer_obj, 'explained_variance_ratio_', None),
+            imputation_stats={
+                'strategy': self.imputation_strategy,
+                'n_imputed_values': np.sum(self.imputer.statistics_),
+                'imputed_values_ratio': np.sum(self.imputer.statistics_) / (X.shape[0] * X.shape[1])
+            },
             memory_usage=X.memory_usage(deep=True).sum() / 1024**2,  # MB
             processing_time=processing_time
         )
-
 
 class FeatureEngineeringPipeline:
     """Orchestrates the complete feature engineering process"""
@@ -266,7 +282,7 @@ class FeatureEngineeringPipeline:
         
         self._initialize_pipeline()
 
-        
+
 
     def _initialize_pipeline(self):
         """Initialize all components of the pipeline"""
