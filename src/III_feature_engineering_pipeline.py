@@ -84,7 +84,7 @@ class FeatureCombiner(BaseFeatureExtractor):
         self.stats = None
 
     def fit(self, X: Union[np.ndarray, pd.DataFrame], y: Optional[pd.Series] = None) -> 'FeatureCombiner':
-        """Fit the feature combiner"""
+        """Fit the feature combiner with dimension validation"""
         try:
             start_time = time.time()
             
@@ -97,12 +97,18 @@ class FeatureCombiner(BaseFeatureExtractor):
             
             # Remove low variance features
             X = self._remove_low_variance(X)
+            if X.shape[1] == 0:
+                raise ValueError("No features left after variance threshold")
             
             # Remove highly correlated features
             X = self._remove_correlations(X)
+            if X.shape[1] == 0:
+                raise ValueError("No features left after correlation removal")
             
             # Initialize and fit scaler
-            self._fit_scaler(X)
+            if self.scaler:
+                self._fit_scaler(X)
+                X = pd.DataFrame(self.scaler_obj.transform(X), columns=X.columns)
             
             # Initialize and fit reducer
             if self.reducer:
@@ -118,9 +124,8 @@ class FeatureCombiner(BaseFeatureExtractor):
             return self
             
         except Exception as e:
-            self.logger.error(f"Error fitting feature combiner: {str(e)}")
+            self.logger.error(f"Error in feature combiner fitting: {str(e)}")
             raise
-
 
     def transform(self, X: Union[np.ndarray, pd.DataFrame]) -> np.ndarray:
         """Transform the features"""
@@ -198,24 +203,78 @@ class FeatureCombiner(BaseFeatureExtractor):
         if self.scaler_obj is not None:
             self.scaler_obj.fit(X)
 
-    def _fit_reducer(self, X: pd.DataFrame, y: Optional[pd.Series]):
-        """Initialize and fit the reducer"""
-        n_components = self.n_components
-        if isinstance(n_components, float) and 0 < n_components < 1:
-            n_components = max(1, int(X.shape[1] * n_components))
-        
-        if self.reducer == 'pca':
-            self.reducer_obj = PCA(n_components=n_components, random_state=self.random_state)
-        elif self.reducer == 'truncated_svd':
-            self.reducer_obj = TruncatedSVD(n_components=n_components, random_state=self.random_state)
-        elif self.reducer == 'selection':
-            self.reducer_obj = SelectKBest(
-                score_func=mutual_info_regression if self.feature_selection_method == 'mutual_info' else f_regression,
-                k=n_components
-            )
-        
-        if self.reducer_obj is not None:
+
+    def _fit_reducer(self, X: pd.DataFrame, y: Optional[pd.Series] = None):
+        """Initialize and fit the reducer with proper dimension validation"""
+        if self.reducer is None:
+            return
+        try:
+            # Validate and get appropriate number of components
+            n_components = self._validate_n_components(X)
+            
+            if self.reducer == 'pca':
+                # Choose appropriate SVD solver based on data dimensions
+                n_samples, n_features = X.shape
+                if n_components == 'mle':
+                    svd_solver = 'full'
+                elif n_components < 1:
+                    svd_solver = 'full'
+                elif n_components < min(n_features, n_samples):
+                    svd_solver = 'randomized'
+                else:
+                    svd_solver = 'full'
+
+                self.reducer_obj = PCA(
+                    n_components=n_components,
+                    svd_solver=svd_solver,
+                    random_state=self.random_state
+                )
+                
+            elif self.reducer == 'truncated_svd':
+                self.reducer_obj = TruncatedSVD(
+                    n_components=n_components,
+                    random_state=self.random_state
+                )
+                
+            elif self.reducer == 'selection':
+                self.reducer_obj = SelectKBest(
+                    score_func=mutual_info_regression 
+                    if self.feature_selection_method == 'mutual_info' 
+                    else f_regression,
+                    k=n_components
+                )
+
+            # Fit the reducer
             self.reducer_obj.fit(X, y)
+            
+            # Log explained variance if available
+            if hasattr(self.reducer_obj, 'explained_variance_ratio_'):
+                cumulative_variance = np.cumsum(self.reducer_obj.explained_variance_ratio_)
+                self.logger.info(f"Cumulative explained variance ratio: {cumulative_variance[-1]:.4f}")
+
+        except Exception as e:
+            self.logger.error(f"Error in dimension reduction: {str(e)}")
+            raise
+
+
+    def _get_optimal_n_components(self, X: pd.DataFrame, variance_threshold: float = 0.95) -> int:
+        """Determine optimal number of components using explained variance ratio"""
+        try:
+            # Fit a temporary PCA to analyze explained variance
+            temp_pca = PCA(n_components=min(X.shape[0], X.shape[1]), random_state=self.random_state)
+            temp_pca.fit(X)
+            
+            # Find number of components that explain desired variance
+            cumulative_variance = np.cumsum(temp_pca.explained_variance_ratio_)
+            n_components = np.argmax(cumulative_variance >= variance_threshold) + 1
+            
+            self.logger.info(f"Optimal n_components for {variance_threshold} variance: {n_components}")
+            return n_components
+            
+        except Exception as e:
+            self.logger.warning(f"Error in optimal n_components calculation: {str(e)}")
+            return min(X.shape[0], X.shape[1])
+        
 
     def _calculate_feature_importances(self, X: pd.DataFrame, y: Optional[pd.Series]):
         """Calculate feature importances"""
@@ -233,23 +292,24 @@ class FeatureCombiner(BaseFeatureExtractor):
         return feature.var()
 
     def _calculate_stats(self, X: pd.DataFrame, processing_time: float):
-        """Calculate and store combination statistics"""
-        self.stats = FeatureCombinerStats(
-            original_features=X.shape[1],
-            final_features=X.shape[1] if self.reducer_obj is None else self.reducer_obj.n_components_,
-            reduction_ratio=1 - (X.shape[1] if self.reducer_obj is None else self.reducer_obj.n_components_) / X.shape[1],
-            feature_importances=self.feature_importances_,
-            correlation_matrix=self.correlation_matrix_,
-            explained_variance_ratio=getattr(self.reducer_obj, 'explained_variance_ratio_', None),
-            imputation_stats={
+        """Calculate and store combination statistics with dimension information"""
+        n_samples, n_features = X.shape
+        self.stats = {
+            'original_shape': X.shape,
+            'n_components_possible': min(n_samples, n_features),
+            'n_components_used': getattr(self.reducer_obj, 'n_components_', n_features),
+            'explained_variance_ratio': getattr(self.reducer_obj, 'explained_variance_ratio_', None),
+            'n_features_removed': {
+                'variance': self._n_features_removed_variance,
+                'correlation': self._n_features_removed_correlation
+            },
+            'imputation_stats': {
                 'strategy': self.imputation_strategy,
                 'n_imputed_values': np.sum(self.imputer.statistics_),
-                'imputed_values_ratio': np.sum(self.imputer.statistics_) / (X.shape[0] * X.shape[1])
+                'imputed_values_ratio': np.sum(self.imputer.statistics_) / (n_samples * n_features)
             },
-            memory_usage=X.memory_usage(deep=True).sum() / 1024**2,  # MB
-            processing_time=processing_time
-        )
-
+            'processing_time': processing_time
+        }
 class FeatureEngineeringPipeline:
     """Orchestrates the complete feature engineering process"""
 
@@ -508,7 +568,9 @@ if __name__ == "__main__":
         'combiner': {
             'scaler': 'standard',
             'reducer': 'pca',
-            'n_components': 0.95
+            'n_components': 0.95,
+            'imputation_strategy':'mean',
+            'random_state':42
         }
     }
 

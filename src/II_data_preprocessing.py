@@ -444,7 +444,7 @@ class DataBalancer:
 # =================================================
 
 class DataPreprocessor(BaseEstimator, TransformerMixin):
-    """Enhanced orchestrator for the preprocessing pipeline"""
+    """Orchestrator for the preprocessing pipeline"""
     
     def __init__(self,
                  text_clean: bool = True,
