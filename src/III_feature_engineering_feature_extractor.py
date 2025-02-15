@@ -41,7 +41,7 @@ class LinguisticFeatureExtractor(BaseFeatureExtractor):
         self._is_fitted = True
         return self
 
-    def transform(self, X: pd.DataFrame) -> pd.DataFrame:
+    def transform(self, X: pd.DataFrame) -> np.ndarray:
         """Transform text data into linguistic features."""
         self._validate_input(X, ["clean_sentence"])
         if not self._is_fitted:
@@ -59,7 +59,7 @@ class LinguisticFeatureExtractor(BaseFeatureExtractor):
         self.stats = self._calculate_stats(features_df)
         self.stats.extraction_time = time.time() - start_time
 
-        return features_df
+        return features_df.astype(float).to_numpy()
 
 
     def _process_batch(self, batch: pd.DataFrame) -> pd.DataFrame:
@@ -132,7 +132,7 @@ class BusinessFeatureExtractor(BaseFeatureExtractor):
         self._is_fitted = True
         return self
 
-    def transform(self, X: pd.DataFrame) -> pd.DataFrame:
+    def transform(self, X: pd.DataFrame) -> np.ndarray:
         """Transform text data into business-specific features."""
 
         self._validate_input(X, ["clean_sentence"])
@@ -150,7 +150,7 @@ class BusinessFeatureExtractor(BaseFeatureExtractor):
         features_df = pd.concat(all_features, axis=0, ignore_index=True)
         self.stats = self._calculate_stats(features_df)
         self.stats.extraction_time = time.time() - start_time
-        return features_df
+        return features_df.astype(float).to_numpy()
 
     def _process_batch(self, batch: pd.DataFrame) -> pd.DataFrame:
         """Process a batch of texts and extract business features."""
