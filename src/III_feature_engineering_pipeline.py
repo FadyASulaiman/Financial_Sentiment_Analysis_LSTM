@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import FeatureUnion
 from sklearn.preprocessing import RobustScaler, StandardScaler
 
-from typing import Union, List, Dict, Optional, Tuple
+from typing import Union, Dict, Optional, Tuple
 import numpy as np
 import pandas as pd
 from dataclasses import dataclass
