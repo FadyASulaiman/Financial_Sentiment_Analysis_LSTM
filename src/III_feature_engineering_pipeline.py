@@ -223,6 +223,8 @@ if __name__ == "__main__":
     # Apply preprocessing
     cleaned_data = preprocessor.transform(df)
 
+    print(f"Shape of preprocessed DF: {cleaned_data.shape}")
+
 
     pipeline_config = {
         "embedding_path": None,  # Replace with your embedding file path or None
@@ -248,6 +250,7 @@ if __name__ == "__main__":
         cleaned_data, cleaned_data['sentiment_score'], test_size=0.2, random_state=42
     )
 
+
     # Fit and transform the training data
     X_train_transformed = pipeline.fit_transform(X_train, y=y_train)  # Pass y_train for fitting FeatureCombiner
 
@@ -257,3 +260,33 @@ if __name__ == "__main__":
     # Now you can use X_train_transformed and X_test_transformed with your machine learning model
     print("X_train transformed shape:", X_train_transformed.shape)
     print("X_test transformed shape:", X_test_transformed.shape)
+
+
+
+    # # Delete
+    # print("Any NaN values:", np.isnan(X).any())
+    # print("NaN locations:", np.where(np.isnan(X)))
+
+    # # 1. Check which features these columns correspond to
+    # print("Shape of X:", X.shape)
+
+    # # 2. If X was created from a DataFrame, check the original columns
+    # if isinstance(X, np.ndarray):
+    #     # Get the count of NaNs per column
+    #     nan_counts = np.isnan(X).sum(axis=0)
+    #     print("\nNumber of NaNs per column:")
+    #     for i, count in enumerate(nan_counts):
+    #         if count > 0:
+    #             print(f"Column {i}: {count} NaNs")
+
+    # # 3. Look at a sample of rows with NaNs
+    # print("\nSample of rows with NaNs:")
+    # nan_rows = np.where(np.isnan(X).any(axis=1))[0]
+    # print(X[nan_rows[0]])
+
+    # from sklearn.impute import SimpleImputer
+
+    # # Create imputer
+    # imputer = SimpleImputer(strategy='mean')  # for numerical features
+    # X = imputer.fit_transform(X)
+

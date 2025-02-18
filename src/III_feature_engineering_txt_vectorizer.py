@@ -17,7 +17,7 @@ class TextVectorizer(BaseFeatureExtractor):
     def __init__(
         self,
         method: str = "tfidf",
-        max_features: int = 5000,
+        max_features: int = 2000,
         ngram_range: tuple = (1, 2),
         min_df: Union[int, float] = 2,
         max_df: Union[int, float] = 0.95,

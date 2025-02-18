@@ -197,7 +197,13 @@ class TextCleaner:
         return BeautifulSoup(text, "html.parser").get_text()
 
     def _remove_special_chars(self, text: str) -> str:
-        text = text.replace('...', '')
+        text = text.replace('.', '')
+        text = text.replace(',', '')
+        text = text.replace(':', '')
+        text = text.replace('&', '')
+        text = text.replace('-', '')
+        text = text.replace('$', '')
+
         return self.special_chars_pattern.sub('', text)
 
     def _normalize_whitespace(self, text: str) -> str:
