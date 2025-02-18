@@ -25,53 +25,30 @@ logger = logging.getLogger(__name__)
 
 class FeatureCombiner:
     """Intelligent feature combiner with automatic type handling"""
-    
-    def __init__(self, n_components: int = 100):
-        self.n_components = n_components
-        self.scaler = None
+    def __init__(self, max_components: int = 100):
+        self.max_components = max_components
         self.reducer = None
-        self.feature_types_ = None
+        self.actual_components_ = None
 
     def fit_transform(self, X: np.ndarray) -> np.ndarray:
-        # Dynamically detect feature types
-        self.feature_types_ = self._detect_feature_types(X)
+        # Calculate safe component count
+        self.actual_components_ = self._calculate_safe_components(X)
         
-        # Build appropriate pipeline
-        if self.feature_types_ == 'text_only':
-            processor = PCA(n_components=self.n_components)
-        elif self.feature_types_ == 'non_text_only':
-            processor = Pipeline([
-                ('scaler', StandardScaler()),
-                ('reducer', PCA(n_components=self.n_components))
-            ])
-        else:
-            processor = Pipeline([
-                ('col_trans', ColumnTransformer([
-                    ('text', 'passthrough', slice(0, self.text_boundary_)),
-                    ('other', StandardScaler(), slice(self.text_boundary_, None))
-                ])),
-                ('reducer', PCA(n_components=self.n_components))
-            ])
-            
-        return processor.fit_transform(X)
+        # Only apply PCA if beneficial
+        if self.actual_components_ < X.shape[1] * 0.8:  # Only reduce if significant
+            self.reducer = PCA(n_components=self.actual_components_)
+            return self.reducer.fit_transform(X)
+        return X
 
-    def _detect_feature_types(self, X: np.ndarray) -> str:
-        """Identify feature composition types"""
-        # Implement your actual feature type detection logic here
-        # This example assumes first 5000 features are text-based
-        self.text_boundary_ = min(5000, X.shape[1])
-        
-        if X.shape[1] == 0:
-            raise ValueError("Received empty feature matrix")
-        elif self.text_boundary_ == X.shape[1]:
-            return 'text_only'
-        elif self.text_boundary_ == 0:
-            return 'non_text_only'
-        return 'mixed'
+    def _calculate_safe_components(self, X: np.ndarray) -> int:
+        """Dynamically determine maximum safe components"""
+        max_possible = min(X.shape[0], X.shape[1])
+        return min(self.max_components, max_possible)
 
     def transform(self, X: np.ndarray) -> np.ndarray:
-        # Implement corresponding transform logic
-        pass
+        if self.reducer:
+            return self.reducer.transform(X)
+        return X
 
 class FeatureEngineeringPipeline:
     """Optimized pipeline with financial-aware processing"""
@@ -103,28 +80,45 @@ class FeatureEngineeringPipeline:
         return self.combiner.fit_transform(combined)
 
 
+    
     def transform(self, X: pd.DataFrame) -> np.ndarray:
+        # Handle text preprocessing
         if "clean_sentence" not in X.columns:
             X["clean_sentence"] = X["sentence"].apply(self.preprocessor.clean_text)
-            
-        features = [
-            self.vectorizer.transform(X),
-            self.linguistic.transform(X),
-            self.business.transform(X)
-        ]
         
+        # Feature extraction with dimensional checks
+        features = []
+        for extractor in [self.vectorizer, self.linguistic, self.business]:
+            feat = extractor.transform(X)
+            features.append(self._ensure_2d(feat))
+            
         if self.embeddings:
-            features.append(self.embeddings.transform(X))
+            features.append(self._ensure_2d(self.embeddings.transform(X)))
+            
+        # Validate dimensions before stacking
+        self._validate_stack_dimensions(features)
             
         combined = np.hstack(features)
         return self.combiner.transform(combined)
-    
+
+    def _validate_stack_dimensions(self, features: list):
+        """Ensure all features have compatible dimensions"""
+        dims = [arr.ndim for arr in features]
+        if len(set(dims)) > 1:
+            raise ValueError(f"Inconsistent feature dimensions: {dims}")
+            
+        shapes = [arr.shape[0] for arr in features]
+        if len(set(shapes)) > 1:
+            raise ValueError(f"Mismatched sample counts: {shapes}")
+
     def _ensure_2d(self, array: Union[np.ndarray, scipy.sparse.spmatrix]) -> np.ndarray:
-        """Ensure all feature arrays are 2-dimensional"""
+        """Consistent dimensional enforcement"""
         if isinstance(array, scipy.sparse.spmatrix):
             array = array.toarray()
         if array.ndim == 1:
             return array.reshape(-1, 1)
+        if array.ndim == 3:  # Handle potential 3D outputs
+            return array.reshape(array.shape[0], -1)
         return array
 
 
@@ -178,11 +172,9 @@ if __name__ == "__main__":
     # Fit and transform
     X_train_transformed = pipeline.fit_transform(X_train)
 
-
-    # # Transform the test data
+    # Transform the test data
     X_test_transformed = pipeline.transform(X_test)
 
     # Now you can use X_train_transformed and X_test_transformed with your machine learning model
     print("X_train transformed shape:", X_train_transformed.shape)
     print("X_test transformed shape:", X_test_transformed.shape)
-
