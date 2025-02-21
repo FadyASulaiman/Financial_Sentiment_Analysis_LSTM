@@ -167,7 +167,7 @@ if __name__ == "__main__":
         cleaned_data, cleaned_data['sentiment_score'], test_size=0.2, random_state=42
     )
 
-    pipeline = FeatureEngineeringPipeline()
+    pipeline = FeatureEngineeringPipeline("data/embeddings")
 
     # Fit and transform
     X_train_transformed = pipeline.fit_transform(X_train)

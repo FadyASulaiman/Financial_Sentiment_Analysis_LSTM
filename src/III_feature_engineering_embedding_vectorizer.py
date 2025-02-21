@@ -1,15 +1,13 @@
 import logging
 from pathlib import Path
-import time
-from typing import List, Optional, Union
+
 
 import numpy as np
 import pandas as pd
-import torch
 from gensim.models import KeyedVectors
 from gensim.scripts.glove2word2vec import glove2word2vec
 from tqdm import tqdm
-from transformers import AutoModel, AutoTokenizer
+
 
 from III_feature_engineering_base import BaseFeatureExtractor
 
