@@ -9,3 +9,22 @@ data:
 training:
   test_size: 0.2
   batch_size: 32
+
+text_cleaner:
+  remove_stopwords: true
+  lemmatize: true
+
+tokenizer:
+  num_words: 20000
+  oov_token: '<OOV>'
+  max_length: 128
+  padding: 'post'
+  truncating: 'post'
+
+model:
+  embedding_dim: 100
+  lstm_units: 128
+  dropout_rate: 0.5
+  dense_units: 64
+  output_units: 3
+  activation: 'softmax'
