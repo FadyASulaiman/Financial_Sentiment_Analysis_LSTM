@@ -12,6 +12,7 @@ class TextCleaner(SequentialFeatureTransformer):
         self.stop_words = set(stopwords.words('english')) if remove_stopwords else set()
         self.lemmatizer = WordNetLemmatizer() if lemmatize else None
 
+# Now this shit must be refactored, I mean all of it, burned to the ground.
     def fit(self, X, y=None):
         return self  # Nothing to fit
 
