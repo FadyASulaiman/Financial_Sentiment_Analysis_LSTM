@@ -14,3 +14,4 @@ conda install ipykernel pandas numpy scikit-learn seaborn matplotlib spacy bs4 g
 
 python -m spacy download en_core_web_sm
 ```
+
