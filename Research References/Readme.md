@@ -14,3 +14,5 @@ The papers are Cited here arranged by magnitude of usefullness.
 9997. APPLICATION OF LSTM AND SENTIMENT ANALYSIS IN STOCK PRICE FORECASTING. Vinutha H M1, Harsh Mishra2, Shaishav2, Sumit Raj2, Trupthi K2. (nccds16.pdf)
 9998. Sentiment-Driven Forecasting LSTM Neural Networks for Stock Prediction-Case of China Bank Sector. Shangshang Jin. (Paper_1-Sentiment_Driven_Forecasting_LSTM_Neural_Networks)
 9999.  Sentiment Analysis on Financial Data Using Neural Networks Sudipta Kar, Suraj Maharjan and Thamar Solorio
+
+The papers provided valuable insights whein it came to data acquistion, data cleanign and manipulation, model structure, regularization, hyperparameter tuning, testing and validation.
