@@ -1,12 +1,12 @@
 Proposed project structure:
 
-**1. Data acquisition:** The papers mentioned that they had data over 10,000 examples, this amount is supposed to be publicly accessible.
+**1. Data acquisition:** The papers mentioned that they had data over 10,000 examples, this amount of data is supposed to be publicly accessible.
 
 **2. Data cleaning & Preprocessing:** The neccessary cleaning for the data would be:
     - Removing punctution marks (!, ?, ., :, ;, ,)
     - Removing HTML tags (<>) (unlikely to happen in this corpus)
     - Remove links (https://)
-    - Remove special chars ((, ), +, -, =, \, |, {, }, [, ])
+    - Remove special chars ((, ), +, -, =, \, |, {, }, [, ], @)
     - Remove extra whitespace
     - Remove space between digits and decimal points
     - Remove space before or after a comma in large numbers
@@ -15,13 +15,13 @@ Proposed project structure:
     - lowercasing
     - Stop word removal
     - Replace stock tickers (e.g., $AAPL) with a special token 'STOCK'
-    - Handle Currency symbols (£$) maybe with a token like <CUR>
+    - Handle Currency symbols (£, $) maybe with a token like <CUR>
     - lemmatization
     - tokenization
 
-**3. Data augmentation:** possible if we need more training data for the model to perform better
+**3. Data augmentation:** possible if we ended up needing more training data for the model to perform better, let's put synonym replacement and back translation into consideration.
 
-**4. Feature engineering:** feature engineering should not be hard for this dataset
+**4. Feature engineering:** feature engineering should not be hard for this dataset. note: we might need to use SMOTE for oversampling the minority class (negative sentiment)
 
 **5. model structure:**
     - We are using an LSTM model
@@ -30,9 +30,9 @@ Proposed project structure:
     - LSTM layer
     - Dropout layer (for regularization & to prevent overfitting)
     - LSTM layer (experiment with a single or double LSTM layer structure - Prone to overfitting)
-    - Output layer (with sigmoid activation (Optimal for binary classification))
+    - Output layer (with softmax activation (Optimal for multi-class classification))
     - loss function: Categorical crossentropy
-    - metrics: accuracy, f1, precision & recall
+    - metrics: accuracy, f1, precision, recall & confusion matrix
     - Optimizer: Adam
 
 **6. Hyperparameters:**
@@ -52,7 +52,7 @@ Proposed project structure:
         - preprocessing
         - Transformers (Via pickle)
 
-**9. Train/Test/CV split:** 70%/15%/15% (Also Experiment with 80/10/10)
+**9. Train/Test/CV split:** 70%/15%/15% (Also Experiment with 80/10/10). Make sure to use stratification.
 
 **10. Deployment:**
     - Cloud provider: GCP
