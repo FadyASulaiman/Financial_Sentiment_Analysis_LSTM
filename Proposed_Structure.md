@@ -38,7 +38,7 @@ Proposed project structure:
 **6. Hyperparameters:**
     - Embedding dimension (if not pre-trained)
     - LSTM hidden size
-    - Number of LSTM layers (1 vs 2) 
+    - Number of LSTM layers (1 vs 2)
     - Dropout rate
     - Learning rate for Adam
     - Batch size
