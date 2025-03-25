@@ -1,0 +1,6 @@
+2025-03-25 17:40:59,439 - FinanceSentimentEDA - INFO - EDA initialized, outputs will be saved to Analysis Output
+2025-03-25 17:41:00,230 - FinanceSentimentEDA - INFO - Started MLflow run with ID: a6a9dffbd4dc40489c81b1b5577f0510
+2025-03-25 17:41:00,232 - FinanceSentimentEDA - INFO - Step 1: Loading and preprocessing data
+2025-03-25 17:41:00,233 - FinanceSentimentEDA - ERROR - Error loading data: File not found: ../../data/data.csv
+2025-03-25 17:41:00,234 - FinanceSentimentEDA - ERROR - Error in EDA pipeline: File not found: ../../data/data.csv
+2025-03-25 17:41:00,234 - FinanceSentimentEDA - ERROR - Error in main function: File not found: ../../data/data.csv
