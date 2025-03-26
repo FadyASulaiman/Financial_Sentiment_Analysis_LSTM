@@ -6,7 +6,7 @@ from src.utils.logger import logger
 
 class StatsGenerator:
     """Class for generating numerical statistics about the dataset"""
-    
+
     def __init__(self, data, output_dir):
         """
         Initialize with a pandas DataFrame and output directory
@@ -17,23 +17,23 @@ class StatsGenerator:
         """
         self.data = data
         self.output_dir = output_dir
-    
+
     def generate_basic_stats(self):
         """Generate basic statistics about the dataset"""
         try:
             # Dataset size
             total_samples = len(self.data)
-            
+
             # Sentiment distribution
             sentiment_counts = self.data['Sentiment'].value_counts()
             sentiment_percentages = self.data['Sentiment'].value_counts(normalize=True) * 100
-            
+
             # Text length statistics
             length_stats = self.data['sentence_length'].describe()
-            
+
             # Word count statistics
             word_stats = self.data['word_count'].describe()
-            
+
             # Create summary DataFrame
             summary = pd.DataFrame({
                 'Metric': ['Total samples', 
@@ -47,42 +47,42 @@ class StatsGenerator:
                          f"{length_stats['mean']:.2f}", int(length_stats['min']), int(length_stats['max']),
                          f"{word_stats['mean']:.2f}", int(word_stats['min']), int(word_stats['max'])]
             })
-            
+
             # Save to file
             output_path = self.output_dir / 'basic_stats.csv'
             summary.to_csv(output_path, index=False)
-            
+
             logger.info(f"Basic statistics saved to {output_path}")
             return summary
         except Exception as e:
             logger.error(f"Error generating basic statistics: {str(e)}")
             raise
-    
+
     def generate_detailed_stats(self):
         """Generate more detailed statistics by sentiment"""
         try:
             # Group by sentiment
             grouped = self.data.groupby('Sentiment')
-            
+
             # Text length statistics by sentiment
             length_stats = grouped['sentence_length'].describe()
-            
+
             # Word count statistics by sentiment
             word_stats = grouped['word_count'].describe()
-            
+
             # Save to files
             length_path = self.output_dir / 'text_length_stats.csv'
             word_path = self.output_dir / 'word_count_stats.csv'
-            
+
             length_stats.to_csv(length_path)
             word_stats.to_csv(word_path)
-            
+
             logger.info(f"Detailed statistics saved to {length_path} and {word_path}")
             return length_stats, word_stats
         except Exception as e:
             logger.error(f"Error generating detailed statistics: {str(e)}")
             raise
-    
+
     def calculate_correlation_matrix(self):
         """Calculate correlation matrix for numerical features"""
         try:

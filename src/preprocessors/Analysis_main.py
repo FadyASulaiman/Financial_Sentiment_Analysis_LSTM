@@ -6,8 +6,8 @@ def main():
     """Main entry point for the application"""
     try:
         # Use static file path and output directory
-        file_path = "../../data/data.csv"
-        output_dir = "Analysis Output"
+        file_path = "data/data.csv"
+        output_dir = "Exploratory Analysis Output"
         
         # Initialize and run EDA with static file path
         eda = FinanceSentimentEDA(file_path=file_path, output_dir=output_dir)

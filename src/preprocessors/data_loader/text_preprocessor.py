@@ -17,10 +17,9 @@ class TextProcessor:
         Args:
             data (pd.DataFrame): Pandas DataFrame with text data
         """
+
         self.data = data
-        self.stop_words = set(stopwords.words('english'))
-        self.lemmatizer = WordNetLemmatizer()
-        
+
         # Download necessary NLTK resources if not already available
         try:
             nltk.data.find('tokenizers/punkt')
@@ -30,6 +29,11 @@ class TextProcessor:
             nltk.download('punkt')
             nltk.download('stopwords')
             nltk.download('wordnet')
+
+        self.stop_words = set(stopwords.words('english'))
+        self.lemmatizer = WordNetLemmatizer()
+        
+
     
     def clean_text(self, text):
         """Clean and normalize text data"""
