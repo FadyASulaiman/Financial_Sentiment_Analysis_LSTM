@@ -9,7 +9,6 @@ class PunctuationRemover(PreprocessorBase):
         self.punctuation_pattern = re.compile(r'[!?.:;,]')
     
     def fit(self, X, y=None):
-        """No fitting required"""
         return self
     
     def transform(self, X):

@@ -6,7 +6,6 @@ class HTMLCleaner(PreprocessorBase):
     """Class to remove HTML tags from text"""
     
     def fit(self, X, y=None):
-        """No fitting required"""
         return self
     
     def transform(self, X):

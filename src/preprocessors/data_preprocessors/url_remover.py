@@ -9,7 +9,6 @@ class URLRemover(PreprocessorBase):
         self.url_pattern = re.compile(r'https?://\S+|www\.\S+')
     
     def fit(self, X, y=None):
-        """No fitting required"""
         return self
     
     def transform(self, X):

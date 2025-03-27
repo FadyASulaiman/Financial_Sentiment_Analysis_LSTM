@@ -10,7 +10,6 @@ class SpecialCharRemover(PreprocessorBase):
         self.special_char_pattern = re.compile(r'[^\w\s$%.]')
     
     def fit(self, X, y=None):
-        """No fitting required"""
         return self
     
     def transform(self, X):
