@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from collections import Counter
-from src.utils.logger import logger
+from src.utils.eda_logger import logger
 
 class InsightExtractor:
     """Class for extracting meaningful insights from the data"""

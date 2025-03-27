@@ -5,11 +5,11 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from collections import Counter
 from sklearn.feature_extraction.text import TfidfVectorizer
-from src.utils.logger import logger
+from src.utils.eda_logger import logger
 
 class TextProcessor:
     """Class for text processing and feature extraction"""
-    
+
     def __init__(self, data):
         """
         Initialize with a pandas DataFrame
@@ -32,28 +32,28 @@ class TextProcessor:
 
         self.stop_words = set(stopwords.words('english'))
         self.lemmatizer = WordNetLemmatizer()
-        
 
-    
+
+
     def clean_text(self, text):
         """Clean and normalize text data"""
         try:
             if not isinstance(text, str):
                 return ""
-                
-            # Convert to lowercase
+
+            # lowercase
             text = text.lower()
-            
+
             # Remove special characters and digits
             text = re.sub(r'[^a-zA-Z\s]', '', text)
-            
+
             # Tokenize
             tokens = word_tokenize(text)
-            
+
             # Remove stopwords and lemmatize
             cleaned_tokens = [self.lemmatizer.lemmatize(token) for token in tokens 
                              if token not in self.stop_words and len(token) > 2]
-            
+
             return ' '.join(cleaned_tokens)
         except Exception as e:
             logger.error(f"Error cleaning text: {str(e)}")
@@ -73,21 +73,21 @@ class TextProcessor:
         try:
             # Filter data for the given sentiment
             filtered_data = self.data[self.data['Sentiment'] == sentiment]
-            
+
             # Join all cleaned text
             all_words = ' '.join(filtered_data['cleaned_text']).split()
-            
+
             # Count word frequencies
             word_counts = Counter(all_words)
-            
+
             # Get top N words
             top_words = word_counts.most_common(top_n)
-            
+
             return top_words
         except Exception as e:
             logger.error(f"Error getting most common words for {sentiment}: {str(e)}")
             return []
-    
+
     def generate_tfidf_features(self, max_features=1000):
         """Generate TF-IDF features from text"""
         try:
@@ -95,7 +95,7 @@ class TextProcessor:
                                          stop_words='english',
                                          ngram_range=(1, 2))
             tfidf_matrix = vectorizer.fit_transform(self.data['cleaned_text'])
-            
+
             feature_names = vectorizer.get_feature_names_out()
             return tfidf_matrix, feature_names
         except Exception as e:

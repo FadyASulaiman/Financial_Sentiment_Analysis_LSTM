@@ -3,12 +3,12 @@ import pandas as pd
 import mlflow
 
 from src.preprocessors.data_loader.data_loader import DataLoader
-from src.preprocessors.data_loader.text_preprocessor import TextProcessor
+from src.preprocessors.data_preprocessors.text_preprocessor import TextProcessor
 from src.preprocessors.EDA.sentiment_analyzer import SentimentAnalyzer
 from src.preprocessors.EDA.data_visualizer import DataVisualizer
 from src.preprocessors.EDA.stats_generator import StatsGenerator
 from src.preprocessors.EDA.insight_extractor import InsightExtractor
-from src.utils.logger import logger
+from src.utils.eda_logger import logger
 
 class FinanceSentimentEDA:
     """Main class to orchestrate the EDA process"""

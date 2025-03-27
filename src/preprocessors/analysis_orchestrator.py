@@ -1,6 +1,6 @@
 import pandas as pd
 from src.preprocessors.EDA.finance_sentiment_eda import FinanceSentimentEDA
-from src.utils.logger import logger
+from src.utils.eda_logger import logger
 
 def main():
     """Main entry point for the application"""
