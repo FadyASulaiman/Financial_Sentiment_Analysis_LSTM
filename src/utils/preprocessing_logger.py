@@ -3,7 +3,7 @@
 
 import logging
 
-def setup_logger(log_file="finance_preprocessing.log"):
+def setup_preprocessing_logger(log_file="finance_preprocessing.log"):
     """Configure and return a logger."""
     logging.basicConfig(
         level=logging.INFO,
@@ -16,3 +16,6 @@ def setup_logger(log_file="finance_preprocessing.log"):
     
     logger = logging.getLogger("FinancePreprocessing")
     return logger
+
+# Create a global logger instance
+logger = setup_preprocessing_logger()

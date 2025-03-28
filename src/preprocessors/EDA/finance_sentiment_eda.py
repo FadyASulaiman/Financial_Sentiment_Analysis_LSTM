@@ -10,8 +10,8 @@ from src.preprocessors.EDA.stats_generator import StatsGenerator
 from src.preprocessors.EDA.insight_extractor import InsightExtractor
 from src.utils.eda_logger import logger
 
-class FinanceSentimentEDA:
-    """Main class to orchestrate the EDA process"""
+class FinanceSentimentEDAOrchestrator:
+    """Main EDA Orchestrator"""
     
     def __init__(self, file_path=None, data=None, output_dir="Analysis output"):
         """

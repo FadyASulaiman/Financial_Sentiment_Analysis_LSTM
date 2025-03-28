@@ -1,7 +1,7 @@
 import re
 from src.preprocessors.data_preprocessors.base_preprocessor import PreprocessorBase
 from src.utils.preprocessing_logger import logger
-from utils.constants import SPECIAL_TOKENS
+from src.utils.constants import SPECIAL_TOKENS
 
 class DateTimeNormalizer(PreprocessorBase):
     """Class to normalize date and time expressions"""

@@ -222,3 +222,54 @@ positive    1852  19.90    18.0    2   57  10.60
 2025-03-26 13:33:05,474 - FinanceSentimentEDA - INFO - Summary report saved to Analysis Output/summary_report.html
 2025-03-26 13:33:05,475 - FinanceSentimentEDA - INFO - EDA completed successfully. Results saved to Analysis Output
 2025-03-26 13:33:05,477 - FinanceSentimentEDA - INFO - EDA completed successfully. Results saved to Analysis Output
+2025-03-28 12:08:30,881 - FinanceSentimentEDA - INFO - EDA initialized, outputs will be saved to Exploratory Analysis Output
+2025-03-28 12:08:31,037 - FinanceSentimentEDA - INFO - Started MLflow run with ID: aa2fb35f016948aab32741c5cf8794e0
+2025-03-28 12:08:31,039 - FinanceSentimentEDA - INFO - Step 1: Loading and preprocessing data
+2025-03-28 12:08:31,060 - FinanceSentimentEDA - INFO - Successfully loaded data from data/data.csv
+2025-03-28 12:08:31,064 - FinanceSentimentEDA - INFO - Missing values in dataset:
+Sentence     0
+Sentiment    0
+dtype: int64
+2025-03-28 12:08:31,084 - FinanceSentimentEDA - INFO - Step 2: Processing text
+2025-03-28 12:08:37,380 - FinanceSentimentEDA - INFO - Step 3: Analyzing sentiment distributions
+2025-03-28 12:08:37,385 - FinanceSentimentEDA - INFO - Sentiment distribution:
+           Count  Percentage
+Sentiment                   
+neutral     3130   53.577542
+positive    1852   31.701472
+negative     860   14.720986
+2025-03-28 12:08:37,397 - FinanceSentimentEDA - INFO - Text length statistics by sentiment:
+           count    mean  median  min  max    std
+Sentiment                                        
+negative     860  105.33    94.0   12  296  51.80
+neutral     3130  123.11   114.0    9  315  56.87
+positive    1852  112.16   100.0   10  298  56.41
+2025-03-28 12:08:37,403 - FinanceSentimentEDA - INFO - Word count statistics by sentiment:
+           count   mean  median  min  max    std
+Sentiment                                       
+negative     860  19.26    17.0    2   56  10.26
+neutral     3130  22.13    21.0    2   81  10.00
+positive    1852  19.90    18.0    2   57  10.60
+2025-03-28 12:08:37,411 - FinanceSentimentEDA - INFO - Step 4: Generating visualizations
+2025-03-28 12:08:37,827 - FinanceSentimentEDA - INFO - Sentiment distribution plot saved to Exploratory Analysis Output/sentiment_distribution.png
+2025-03-28 12:08:38,293 - FinanceSentimentEDA - INFO - Wordcloud for positive sentiment saved to Exploratory Analysis Output/wordcloud_positive.png
+2025-03-28 12:08:38,701 - FinanceSentimentEDA - INFO - Wordcloud for negative sentiment saved to Exploratory Analysis Output/wordcloud_negative.png
+2025-03-28 12:08:39,170 - FinanceSentimentEDA - INFO - Wordcloud for neutral sentiment saved to Exploratory Analysis Output/wordcloud_neutral.png
+2025-03-28 12:08:39,356 - FinanceSentimentEDA - INFO - Common words plot for positive sentiment saved to Exploratory Analysis Output/common_words_positive.png
+2025-03-28 12:08:39,536 - FinanceSentimentEDA - INFO - Common words plot for negative sentiment saved to Exploratory Analysis Output/common_words_negative.png
+2025-03-28 12:08:39,730 - FinanceSentimentEDA - INFO - Common words plot for neutral sentiment saved to Exploratory Analysis Output/common_words_neutral.png
+2025-03-28 12:08:50,032 - FinanceSentimentEDA - INFO - Text length distribution plots saved to Exploratory Analysis Output/text_length_distribution.png and Exploratory Analysis Output/text_length_violin.png
+2025-03-28 12:09:11,406 - FinanceSentimentEDA - INFO - Word count distribution plots saved to Exploratory Analysis Output/word_count_distribution.png and Exploratory Analysis Output/word_count_histogram.png
+2025-03-28 12:09:11,729 - FinanceSentimentEDA - INFO - Sentiment heatmap saved to Exploratory Analysis Output/sentiment_word_heatmap.png
+2025-03-28 12:09:11,730 - FinanceSentimentEDA - INFO - Step 5: Generating statistics
+2025-03-28 12:09:11,737 - FinanceSentimentEDA - INFO - Basic statistics saved to Exploratory Analysis Output/basic_stats.csv
+2025-03-28 12:09:11,749 - FinanceSentimentEDA - INFO - Detailed statistics saved to Exploratory Analysis Output/text_length_stats.csv and Exploratory Analysis Output/word_count_stats.csv
+2025-03-28 12:09:11,922 - FinanceSentimentEDA - INFO - Correlation matrix saved to Exploratory Analysis Output/correlation_matrix.csv and Exploratory Analysis Output/correlation_heatmap.png
+2025-03-28 12:09:11,923 - FinanceSentimentEDA - INFO - Step 6: Extracting insights
+2025-03-28 12:09:11,994 - FinanceSentimentEDA - INFO - Distinctive features saved to Exploratory Analysis Output/distinctive_features.csv
+2025-03-28 12:09:12,603 - FinanceSentimentEDA - INFO - Distinctive features plot saved to Exploratory Analysis Output/distinctive_features.png
+2025-03-28 12:09:12,665 - FinanceSentimentEDA - INFO - Key insights saved to Exploratory Analysis Output/key_insights.txt
+2025-03-28 12:09:12,668 - FinanceSentimentEDA - INFO - Step 7: Creating summary report
+2025-03-28 12:09:12,670 - FinanceSentimentEDA - INFO - Summary report saved to Exploratory Analysis Output/summary_report.html
+2025-03-28 12:09:12,671 - FinanceSentimentEDA - INFO - EDA completed successfully. Results saved to Exploratory Analysis Output
+2025-03-28 12:09:12,673 - FinanceSentimentEDA - INFO - EDA completed successfully. Results saved to Exploratory Analysis Output

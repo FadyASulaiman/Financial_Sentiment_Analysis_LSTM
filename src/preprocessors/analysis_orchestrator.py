@@ -1,5 +1,5 @@
 import pandas as pd
-from src.preprocessors.EDA.finance_sentiment_eda import FinanceSentimentEDA
+from src.preprocessors.EDA.finance_sentiment_eda import FinanceSentimentEDAOrchestrator
 from src.utils.eda_logger import logger
 
 def main():
@@ -10,8 +10,8 @@ def main():
         output_dir = "Exploratory Analysis Output"
         
         # Initialize and run EDA with static file path
-        eda = FinanceSentimentEDA(file_path=file_path, output_dir=output_dir)
-        
+        eda = FinanceSentimentEDAOrchestrator(file_path=file_path, output_dir=output_dir)
+
         # Run the EDA pipeline
         processed_data = eda.run_eda()
         

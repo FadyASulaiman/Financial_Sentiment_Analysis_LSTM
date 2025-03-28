@@ -1,8 +1,8 @@
 import numpy as np
-from tensorflow.keras.preprocessing.sequence import pad_sequences # type: ignore
+from keras.preprocessing.sequence import pad_sequences # type: ignore
 from src.preprocessors.data_preprocessors.base_preprocessor import PreprocessorBase
 from src.utils.preprocessing_logger import logger
-from utils.constants import SPECIAL_TOKENS
+from src.utils.constants import SPECIAL_TOKENS
 
 class SequencePadder(PreprocessorBase):
     """Class to pad/truncate sequences to a fixed length"""

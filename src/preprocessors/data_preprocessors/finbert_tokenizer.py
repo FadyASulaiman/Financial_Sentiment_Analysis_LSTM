@@ -2,7 +2,7 @@ import pandas as pd
 from transformers import BertTokenizer
 from src.preprocessors.data_preprocessors.base_preprocessor import PreprocessorBase
 from src.utils.preprocessing_logger import logger
-from utils.constants import SPECIAL_TOKENS
+from src.utils.constants import SPECIAL_TOKENS
 
 class FinBERTTokenizer(PreprocessorBase):
     """Class to tokenize text using FinBERT tokenizer"""
