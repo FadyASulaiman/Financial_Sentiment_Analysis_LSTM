@@ -14,7 +14,7 @@ from preprocessors.data_preprocessors import (
 )
 
 
-class FinanceTextPreprocessor:
+class FinanceTextPreprocessingOrchestrator:
     """Main preprocessing orchestrator"""
     
     def __init__(self, max_sequence_length=128, domain_specific_stopwords=None):
