@@ -582,3 +582,184 @@
 2025-03-31 14:17:31,829 - FinancePreprocessing - INFO - Removing punctuation marks
 2025-03-31 14:17:31,830 - FinancePreprocessing - INFO - Removing punctuation marks
 2025-03-31 14:17:31,831 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-03-31 15:09:18,511 - FinancePreprocessing - INFO - Started MLflow run with ID: 9d1cb45f99464754bba33b8c3d779495
+2025-03-31 15:09:18,515 - FinancePreprocessing - INFO - Loading data from data/data.csv
+2025-03-31 15:09:18,556 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-03-31 15:09:19,322 - FinancePreprocessing - INFO - Removing HTML tags
+2025-03-31 15:09:19,491 - FinancePreprocessing - INFO - Removing URLs
+2025-03-31 15:09:19,500 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-03-31 15:09:19,509 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-03-31 15:09:19,513 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-03-31 15:09:19,710 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-03-31 15:09:19,798 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-03-31 15:09:19,848 - FinancePreprocessing - INFO - Removing special characters
+2025-03-31 15:09:19,863 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-03-31 15:09:19,938 - FinancePreprocessing - INFO - Lowercasing text
+2025-03-31 15:09:19,960 - FinancePreprocessing - INFO - Removing stop words
+2025-03-31 15:09:20,008 - FinancePreprocessing - INFO - Cleaned text (pre-tokenization) saved to data/cleaned_text.csv
+2025-03-31 15:09:20,009 - FinancePreprocessing - INFO - Loading FinBERT tokenizer from ProsusAI/finbert
+2025-03-31 15:09:20,338 - FinancePreprocessing - INFO - Tokenizing text using FinBERT tokenizer
+2025-03-31 15:09:21,877 - FinancePreprocessing - INFO - Loading spaCy model en_core_web_sm
+2025-03-31 15:09:22,423 - FinancePreprocessing - INFO - Lemmatizing text using spaCy
+2025-03-31 15:09:59,947 - FinancePreprocessing - INFO - Padding/truncating sequences to length 128
+2025-03-31 15:10:00,270 - FinancePreprocessing - INFO - Preprocessing completed in 40.95 seconds
+2025-03-31 15:10:00,395 - FinancePreprocessing - INFO - Processed data saved to data/processed_data.csv
+2025-03-31 15:10:00,561 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
+2025-03-31 15:10:00,578 - FinancePreprocessing - INFO - Preprocessing completed successfully
+2025-03-31 15:11:34,529 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-03-31 15:11:34,531 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-03-31 15:11:34,532 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-03-31 15:17:56,443 - FinancePreprocessing - INFO - Started MLflow run with ID: 1b3f0acfff9f4ec98b635967387db4bd
+2025-03-31 15:17:56,446 - FinancePreprocessing - INFO - Loading data from data/data.csv
+2025-03-31 15:17:56,466 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-03-31 15:17:56,472 - FinancePreprocessing - ERROR - Error in preprocessing: unterminated character set at position 0
+2025-03-31 15:17:56,472 - FinancePreprocessing - ERROR - Error in main: unterminated character set at position 0
+2025-03-31 15:18:23,200 - FinancePreprocessing - INFO - Started MLflow run with ID: d19038eb003f429b8445972fd01c628d
+2025-03-31 15:18:23,202 - FinancePreprocessing - INFO - Loading data from data/data.csv
+2025-03-31 15:18:23,221 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-03-31 15:18:23,227 - FinancePreprocessing - ERROR - Error in preprocessing: unterminated character set at position 0
+2025-03-31 15:18:23,227 - FinancePreprocessing - ERROR - Error in main: unterminated character set at position 0
+2025-03-31 15:19:15,799 - FinancePreprocessing - INFO - Started MLflow run with ID: 349e81cc15d74fda813d88e36089e1cf
+2025-03-31 15:19:15,801 - FinancePreprocessing - INFO - Loading data from data/data.csv
+2025-03-31 15:19:15,822 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-03-31 15:19:16,552 - FinancePreprocessing - INFO - Removing HTML tags
+2025-03-31 15:19:16,712 - FinancePreprocessing - INFO - Removing URLs
+2025-03-31 15:19:16,721 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-03-31 15:19:16,732 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-03-31 15:19:16,735 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-03-31 15:19:16,926 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-03-31 15:19:17,000 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-03-31 15:19:17,053 - FinancePreprocessing - INFO - Removing special characters
+2025-03-31 15:19:17,065 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-03-31 15:19:17,101 - FinancePreprocessing - INFO - Lowercasing text
+2025-03-31 15:19:17,111 - FinancePreprocessing - INFO - Removing stop words
+2025-03-31 15:19:17,150 - FinancePreprocessing - INFO - Cleaned text (pre-tokenization) saved to data/cleaned_text.csv
+2025-03-31 15:19:17,150 - FinancePreprocessing - INFO - Loading FinBERT tokenizer from ProsusAI/finbert
+2025-03-31 15:19:17,476 - FinancePreprocessing - INFO - Tokenizing text using FinBERT tokenizer
+2025-03-31 15:19:19,102 - FinancePreprocessing - INFO - Loading spaCy model en_core_web_sm
+2025-03-31 15:19:19,656 - FinancePreprocessing - INFO - Lemmatizing text using spaCy
+2025-03-31 15:19:53,087 - FinancePreprocessing - INFO - Padding/truncating sequences to length 128
+2025-03-31 15:19:53,403 - FinancePreprocessing - INFO - Preprocessing completed in 36.85 seconds
+2025-03-31 15:19:53,538 - FinancePreprocessing - INFO - Processed data saved to data/processed_data.csv
+2025-03-31 15:19:53,691 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
+2025-03-31 15:19:53,705 - FinancePreprocessing - INFO - Preprocessing completed successfully
+2025-03-31 15:36:24,805 - FinancePreprocessing - INFO - Started MLflow run with ID: 633a2fadca164fc4bdf78c53433a9c66
+2025-03-31 15:36:24,808 - FinancePreprocessing - INFO - Loading data from data/data.csv
+2025-03-31 15:36:24,828 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-03-31 15:36:25,661 - FinancePreprocessing - INFO - Removing HTML tags
+2025-03-31 15:36:25,819 - FinancePreprocessing - INFO - Removing URLs
+2025-03-31 15:36:25,828 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-03-31 15:36:25,837 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-03-31 15:36:25,840 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-03-31 15:36:26,011 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-03-31 15:36:26,122 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-03-31 15:36:26,174 - FinancePreprocessing - INFO - Removing special characters
+2025-03-31 15:36:26,186 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-03-31 15:36:26,222 - FinancePreprocessing - INFO - Lowercasing text
+2025-03-31 15:36:26,232 - FinancePreprocessing - INFO - Removing stop words
+2025-03-31 15:36:26,274 - FinancePreprocessing - INFO - Cleaned text (pre-tokenization) saved to data/cleaned_text.csv
+2025-03-31 15:36:26,274 - FinancePreprocessing - INFO - Loading FinBERT tokenizer from ProsusAI/finbert
+2025-03-31 15:36:26,651 - FinancePreprocessing - INFO - Tokenizing text using FinBERT tokenizer
+2025-03-31 15:36:28,179 - FinancePreprocessing - INFO - Loading spaCy model en_core_web_sm
+2025-03-31 15:36:28,716 - FinancePreprocessing - INFO - Lemmatizing text using spaCy
+2025-03-31 15:37:07,836 - FinancePreprocessing - INFO - Padding/truncating sequences to length 128
+2025-03-31 15:37:08,163 - FinancePreprocessing - INFO - Preprocessing completed in 42.50 seconds
+2025-03-31 15:37:08,290 - FinancePreprocessing - INFO - Processed data saved to data/processed_data.csv
+2025-03-31 15:37:08,466 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
+2025-03-31 15:37:08,487 - FinancePreprocessing - INFO - Preprocessing completed successfully
+2025-03-31 15:41:59,869 - FinancePreprocessing - INFO - Started MLflow run with ID: 40457efd11414cb3869434806237accf
+2025-03-31 15:41:59,872 - FinancePreprocessing - INFO - Loading data from data/data.csv
+2025-03-31 15:41:59,903 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-03-31 15:42:00,614 - FinancePreprocessing - INFO - Removing HTML tags
+2025-03-31 15:42:00,772 - FinancePreprocessing - INFO - Removing URLs
+2025-03-31 15:42:00,782 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-03-31 15:42:00,863 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-03-31 15:42:00,865 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-03-31 15:42:01,036 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-03-31 15:42:01,127 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-03-31 15:42:01,198 - FinancePreprocessing - INFO - Removing special characters
+2025-03-31 15:42:01,210 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-03-31 15:42:01,247 - FinancePreprocessing - INFO - Lowercasing text
+2025-03-31 15:42:01,258 - FinancePreprocessing - INFO - Removing stop words
+2025-03-31 15:42:01,363 - FinancePreprocessing - INFO - Cleaned text (pre-tokenization) saved to data/cleaned_text.csv
+2025-03-31 15:42:01,363 - FinancePreprocessing - INFO - Loading FinBERT tokenizer from ProsusAI/finbert
+2025-03-31 15:42:01,707 - FinancePreprocessing - INFO - Tokenizing text using FinBERT tokenizer
+2025-03-31 15:42:03,237 - FinancePreprocessing - INFO - Loading spaCy model en_core_web_sm
+2025-03-31 15:42:03,775 - FinancePreprocessing - INFO - Lemmatizing text using spaCy
+2025-03-31 15:42:43,903 - FinancePreprocessing - INFO - Padding/truncating sequences to length 128
+2025-03-31 15:42:44,226 - FinancePreprocessing - INFO - Preprocessing completed in 43.61 seconds
+2025-03-31 15:42:44,346 - FinancePreprocessing - INFO - Processed data saved to data/processed_data.csv
+2025-03-31 15:42:44,516 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
+2025-03-31 15:42:44,537 - FinancePreprocessing - INFO - Preprocessing completed successfully
+2025-03-31 15:47:39,539 - FinancePreprocessing - INFO - Started MLflow run with ID: fdae22171612451ea2fc26fbb8fd3566
+2025-03-31 15:47:39,541 - FinancePreprocessing - INFO - Loading data from data/data.csv
+2025-03-31 15:47:39,562 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-03-31 15:47:40,245 - FinancePreprocessing - INFO - Removing HTML tags
+2025-03-31 15:47:40,404 - FinancePreprocessing - INFO - Removing URLs
+2025-03-31 15:47:40,413 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-03-31 15:47:40,517 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-03-31 15:47:40,519 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-03-31 15:47:40,712 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-03-31 15:47:40,800 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-03-31 15:47:40,849 - FinancePreprocessing - INFO - Removing special characters
+2025-03-31 15:47:40,862 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-03-31 15:47:40,897 - FinancePreprocessing - INFO - Lowercasing text
+2025-03-31 15:47:40,907 - FinancePreprocessing - INFO - Removing stop words
+2025-03-31 15:47:40,946 - FinancePreprocessing - INFO - Cleaned text (pre-tokenization) saved to data/cleaned_text.csv
+2025-03-31 15:47:40,947 - FinancePreprocessing - INFO - Loading FinBERT tokenizer from ProsusAI/finbert
+2025-03-31 15:47:41,264 - FinancePreprocessing - INFO - Tokenizing text using FinBERT tokenizer
+2025-03-31 15:47:42,856 - FinancePreprocessing - INFO - Loading spaCy model en_core_web_sm
+2025-03-31 15:47:43,365 - FinancePreprocessing - INFO - Lemmatizing text using spaCy
+2025-03-31 15:48:20,029 - FinancePreprocessing - INFO - Padding/truncating sequences to length 128
+2025-03-31 15:48:20,352 - FinancePreprocessing - INFO - Preprocessing completed in 40.10 seconds
+2025-03-31 15:48:20,540 - FinancePreprocessing - INFO - Processed data saved to data/processed_data.csv
+2025-03-31 15:48:20,693 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
+2025-03-31 15:48:20,712 - FinancePreprocessing - INFO - Preprocessing completed successfully
+2025-03-31 15:49:21,267 - FinancePreprocessing - INFO - Started MLflow run with ID: 4666206d46c64965a9e21bfb9e6896a8
+2025-03-31 15:49:21,269 - FinancePreprocessing - INFO - Loading data from data/data.csv
+2025-03-31 15:49:21,289 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-03-31 15:49:21,897 - FinancePreprocessing - INFO - Removing HTML tags
+2025-03-31 15:49:22,054 - FinancePreprocessing - INFO - Removing URLs
+2025-03-31 15:49:22,063 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-03-31 15:49:22,169 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-03-31 15:49:22,172 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-03-31 15:49:22,345 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-03-31 15:49:22,476 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-03-31 15:49:22,545 - FinancePreprocessing - INFO - Removing special characters
+2025-03-31 15:49:22,564 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-03-31 15:49:22,615 - FinancePreprocessing - INFO - Lowercasing text
+2025-03-31 15:49:22,627 - FinancePreprocessing - INFO - Removing stop words
+2025-03-31 15:49:22,674 - FinancePreprocessing - INFO - Cleaned text (pre-tokenization) saved to data/cleaned_text.csv
+2025-03-31 15:49:22,675 - FinancePreprocessing - INFO - Loading FinBERT tokenizer from ProsusAI/finbert
+2025-03-31 15:49:22,977 - FinancePreprocessing - INFO - Tokenizing text using FinBERT tokenizer
+2025-03-31 15:49:24,574 - FinancePreprocessing - INFO - Loading spaCy model en_core_web_sm
+2025-03-31 15:49:25,047 - FinancePreprocessing - INFO - Lemmatizing text using spaCy
+2025-03-31 15:50:04,895 - FinancePreprocessing - INFO - Padding/truncating sequences to length 128
+2025-03-31 15:50:04,981 - FinancePreprocessing - INFO - Preprocessing completed in 43.08 seconds
+2025-03-31 15:50:05,328 - FinancePreprocessing - INFO - Processed data saved to data/processed_data.csv
+2025-03-31 15:50:05,482 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
+2025-03-31 15:50:05,499 - FinancePreprocessing - INFO - Preprocessing completed successfully
+2025-03-31 15:52:25,590 - FinancePreprocessing - INFO - Started MLflow run with ID: 04b260bb37854e768f40ee8bd4e1bb3b
+2025-03-31 15:52:25,593 - FinancePreprocessing - INFO - Loading data from data/data.csv
+2025-03-31 15:52:25,610 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-03-31 15:52:26,335 - FinancePreprocessing - INFO - Removing HTML tags
+2025-03-31 15:52:26,492 - FinancePreprocessing - INFO - Removing URLs
+2025-03-31 15:52:26,500 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-03-31 15:52:26,635 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-03-31 15:52:26,638 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-03-31 15:52:26,809 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-03-31 15:52:26,904 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-03-31 15:52:27,000 - FinancePreprocessing - INFO - Removing special characters
+2025-03-31 15:52:27,014 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-03-31 15:52:27,049 - FinancePreprocessing - INFO - Lowercasing text
+2025-03-31 15:52:27,060 - FinancePreprocessing - INFO - Removing stop words
+2025-03-31 15:52:27,099 - FinancePreprocessing - INFO - Cleaned text (pre-tokenization) saved to data/cleaned_text.csv
+2025-03-31 15:52:27,099 - FinancePreprocessing - INFO - Loading FinBERT tokenizer from ProsusAI/finbert
+2025-03-31 15:52:27,402 - FinancePreprocessing - INFO - Tokenizing text using FinBERT tokenizer
+2025-03-31 15:52:29,148 - FinancePreprocessing - INFO - Loading spaCy model en_core_web_sm
+2025-03-31 15:52:29,689 - FinancePreprocessing - INFO - Lemmatizing text using spaCy
+2025-03-31 15:53:08,408 - FinancePreprocessing - INFO - Padding/truncating sequences to length 128
+2025-03-31 15:53:08,730 - FinancePreprocessing - INFO - Preprocessing completed in 42.39 seconds
+2025-03-31 15:53:08,844 - FinancePreprocessing - INFO - Processed data saved to data/processed_data.csv
+2025-03-31 15:53:09,010 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
+2025-03-31 15:53:09,026 - FinancePreprocessing - INFO - Preprocessing completed successfully

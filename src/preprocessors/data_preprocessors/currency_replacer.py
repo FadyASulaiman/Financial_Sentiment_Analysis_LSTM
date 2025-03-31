@@ -8,7 +8,7 @@ class CurrencyReplacer(PreprocessorBase):
 
     def __init__(self):
         # Currency pattern
-        self.currency_pattern = re.compile(r'(?:\$|£|€|EUR|USD|GBP|AUD|JPY|CHF|CAD)\s*(?=\d)')
+        self.currency_pattern = re.compile(r'(?:\$|£|€|EUR|USD|GBP|AUD|JPY|CHF|CAD|EGP|INR|AED|EURO|DOLLAR|FRANC|DIRHAM|YEN)\s*(?=\d)|(?<=\d)\s*(?:DOLLARS?|POUNDS?|EUROS?|FRANCS?|DIRHAMS?|YEN|EUR|USD|GBP|AUD|JPY|CHF|CAD|EGP|INR|AED|EURO|DOLLAR|FRANC|DIRHAM)', re.IGNORECASE)
 
     def fit(self, X, y=None):
         return self

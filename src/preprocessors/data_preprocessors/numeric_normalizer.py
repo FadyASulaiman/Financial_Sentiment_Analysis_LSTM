@@ -11,6 +11,7 @@ class NumericNormalizer(PreprocessorBase):
         self.decimal_pattern = re.compile(r'(\d+)\s+(\.\s*)(\d+)')
         self.large_number_pattern = re.compile(r'(\d+)\s*,\s*(\d+)')
         self.percentage_pattern = re.compile(r'(\d+(?:\.\d+)?)\s*(?:percent|%)')
+        self.spaced_digits_pattern = re.compile(r'(\d+)(?:\s+(\d+))+')
 
     def fit(self, X, y=None):
         return self
@@ -25,6 +26,8 @@ class NumericNormalizer(PreprocessorBase):
         X = X.apply(lambda text: self.large_number_pattern.sub(r'\1,\2', str(text)))
         # Handle percentages
         X = X.apply(lambda text: self._convert_percentages(text))
+        # Handle spaced digits
+        X = X.apply(lambda text: self._fix_spaced_digits(text))
 
         return X
 
@@ -39,3 +42,12 @@ class NumericNormalizer(PreprocessorBase):
                 return match.group(0)
         
         return self.percentage_pattern.sub(replace_percent, str(text))
+
+    def _fix_spaced_digits(self, text):
+        """Remove spaces between digits in numbers"""
+        def replace_spaced_digits(match):
+            # Combine all digit groups by removing spaces
+            full_match = match.group(0)
+            return ''.join(full_match.split())
+        
+        return self.spaced_digits_pattern.sub(replace_spaced_digits, str(text))

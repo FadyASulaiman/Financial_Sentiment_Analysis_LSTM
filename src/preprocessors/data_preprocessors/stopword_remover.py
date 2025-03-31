@@ -7,7 +7,6 @@ class StopWordRemover(PreprocessorBase):
     def __init__(self, domain_specific_stopwords=None):
         self.domain_specific_stopwords = domain_specific_stopwords or []
         
-        # Load standard English stop words
         try:
             import nltk
             from nltk.corpus import stopwords

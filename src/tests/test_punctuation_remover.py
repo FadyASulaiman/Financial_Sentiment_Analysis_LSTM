@@ -46,6 +46,7 @@ class TestPunctuationRemover(unittest.TestCase):
         """Test more complex cases and edge cases"""
         data = pd.Series([
             "Multiple...dots!?",
+            "At 12.59 pm , the OMX Helsinki 25 index was 0.32 pct lower at 2,694.81 .",
             "2,614.81.",
             "Comma , with spaces",
             "2.5, 3.5, 4.5", # Decimal points in numbers should be preserved
@@ -54,6 +55,7 @@ class TestPunctuationRemover(unittest.TestCase):
         ])
         expected = pd.Series([
             "Multiple   dots  ",
+            "At 12.59 pm   the OMX Helsinki 25 index was 0.32 pct lower at 2,694.81  ",
             "2,614.81 ",
             "Comma   with spaces",
             "2.5  3.5  4.5", # Preserving decimal points
