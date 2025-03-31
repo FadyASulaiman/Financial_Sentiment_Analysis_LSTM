@@ -18,7 +18,7 @@ class StopWordRemover(PreprocessorBase):
             self.stop_words = set(stopwords.words('english'))
         except ImportError:
             logger.warning("NLTK not available, using a minimal set of stop words")
-            self.stop_words = {'a', 'an', 'the', 'and', 'or', 'but', 'if', 'in', 'of', 'on', 'to', 'with'}
+            self.stop_words = {'a', 'an', 'the', 'and', 'or', 'but', 'if', 'in', 'of', 'on', 'to', 'with','s'}
         
         # Add domain-specific stop words
         self.stop_words.update(self.domain_specific_stopwords)
@@ -38,4 +38,10 @@ class StopWordRemover(PreprocessorBase):
             # Join back to text
             return ' '.join(filtered_tokens)
         
-        return X.apply(remove_stops)
+        X = X.apply(remove_stops)
+
+        cleaned_text_df = X.copy()
+        cleaned_text_df.to_csv('data/cleaned_text.csv', index=False)
+        logger.info("Cleaned text (pre-tokenization) saved to data/cleaned_text.csv")
+        
+        return X

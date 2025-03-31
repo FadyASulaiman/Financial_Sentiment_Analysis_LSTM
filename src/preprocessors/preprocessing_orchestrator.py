@@ -5,13 +5,13 @@ import pandas as pd
 from datetime import datetime
 from sklearn.pipeline import Pipeline
 from src.utils.preprocessing_logger import logger
-from utils.constants import SPECIAL_TOKENS
-from preprocessors.data_preprocessors import (
+from src.preprocessors.data_preprocessors import (
     HTMLCleaner, URLRemover, PunctuationRemover, SpecialCharRemover,
     WhitespaceNormalizer, NumericNormalizer, DateTimeNormalizer,
     StockTickerReplacer, CurrencyReplacer, TextLowercaser,
     StopWordRemover, FinBERTTokenizer, SpacyLemmatizer, SequencePadder
 )
+from src.utils.constants import  MAX_SEQUENCE_LENGTH
 
 
 class FinanceTextPreprocessingOrchestrator:
@@ -162,3 +162,27 @@ class FinanceTextPreprocessingOrchestrator:
         except Exception as e:
             logger.error(f"Error loading pipeline: {str(e)}")
             raise
+
+
+
+
+def main():
+    """Main entry point for the preprocessing pipeline."""
+
+    data_path = "data/data.csv"
+    output_dir = os.path.dirname(data_path)
+    
+    try:
+        # Create preprocessor
+        preprocessor = FinanceTextPreprocessingOrchestrator(max_sequence_length=MAX_SEQUENCE_LENGTH)
+
+        # Preprocess data
+        processed_df = preprocessor.preprocess(data_path=data_path, output_dir=output_dir)
+
+        logger.info("Preprocessing completed successfully")
+    except Exception as e:
+        logger.error(f"Error in main: {str(e)}")
+        raise
+
+if __name__ == "__main__":
+    main()
