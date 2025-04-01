@@ -1,0 +1,103 @@
+data:
+  raw_data_path: "data/raw"
+  processed_data_path: "data/processed"
+
+# Configuration
+
+version: "1.0.0"
+
+random_seed: 42
+
+features:
+  # N-gram extractor parameters
+  n_gram_range: [1, 3]
+  min_df: 5
+  max_df: 0.9
+  tfidf_max_features: 5000
+  
+  # Entity extraction parameters
+  entity_extraction:
+    use_spacy: true
+    use_regex: true
+    use_gazetteer: true
+    min_entity_length: 2
+    max_entity_length: 30
+  
+  # Performance indicator parameters
+  performance_indicators:
+    context_window_size: 5
+    require_context: true
+    
+  # Growth/decline quantifier parameters
+  growth_decline:
+    min_percentage: 0.1
+    max_percentage: 500.0
+    window_size: 5
+    
+  # Industry/sector categorization parameters
+  industry_sector:
+    min_confidence: 0.6
+    enable_unknown_category: true
+    
+  # Financial event classifier parameters
+  financial_event:
+    min_event_terms: 1
+    context_window_size: 10
+    
+  # Relative change extractor parameters
+  relative_change:
+    context_window_size: 30
+    include_neutral: false
+
+# Feature engineering output configuration
+output:
+  file_name: "feature_engineered_data.csv"
+  include_intermediate: false
+  save_pipeline: true
+  
+# MLflow tracking configuration
+mlflow:
+  experiment_name: "financial_feature_engineering"
+  tracking_uri: ""
+  register_model: true
+  artifact_path: "models"
+  
+# Logging config
+logging:
+  level: "INFO"
+  log_file: "feature_engineering.log"
+  console_output: true
+  
+# Resource config
+resources:
+  n_jobs: -1  # Use all available cores
+  memory_limit: null  # No specific memory limit
+  
+# Advanced configuration
+advanced:
+  feature_selection:
+    enabled: false
+    max_features: 500
+    method: "mutual_info"  # Options: mutual_info, chi2, f_value
+  
+  dimensionality_reduction:
+    enabled: false
+    method: "pca"  # Options: pca, tsne, umap
+    n_components: 50
+
+
+tokenizer:
+  num_words: 20000
+  oov_token: '<OOV>'
+  max_length: 128
+  padding: 'post'
+  truncating: 'post'
+
+
+model:
+  embedding_dim: 100
+  lstm_units: 128
+  dropout_rate: 0.5
+  dense_units: 64
+  output_units: 3
+  activation: 'softmax'

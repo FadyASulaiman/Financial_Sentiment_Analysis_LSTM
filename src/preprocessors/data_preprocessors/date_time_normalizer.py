@@ -26,7 +26,7 @@ class DateTimeNormalizer(PreprocessorBase):
                                         re.IGNORECASE
                                     )
             
-        # Time pattern (e.g., 3:37 p.m.)
+
         self.time_pattern = re.compile(
             r'\b(?:'
             # 12-hour clock with AM/PM (various formats with colon or period separator)

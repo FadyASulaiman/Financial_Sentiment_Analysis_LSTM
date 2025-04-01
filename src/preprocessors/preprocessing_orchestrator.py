@@ -49,9 +49,9 @@ class FinanceTextPreprocessingOrchestrator:
             ('whitespace_normalizer', WhitespaceNormalizer()),
             ('lowercaser', TextLowercaser()),
             ('stop_word_remover', StopWordRemover(self.domain_specific_stopwords)),
-            ('tokenizer', FinBERTTokenizer()),
+            # ('tokenizer', FinBERTTokenizer()),
             ('lemmatizer', SpacyLemmatizer()),
-            ('padder', SequencePadder(self.max_sequence_length))
+            # ('padder', SequencePadder(self.max_sequence_length))
         ])
         
         return self.preprocessing_pipeline
