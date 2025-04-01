@@ -763,3 +763,27 @@
 2025-03-31 15:53:08,844 - FinancePreprocessing - INFO - Processed data saved to data/processed_data.csv
 2025-03-31 15:53:09,010 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
 2025-03-31 15:53:09,026 - FinancePreprocessing - INFO - Preprocessing completed successfully
+2025-03-31 16:06:11,669 - FinancePreprocessing - INFO - Started MLflow run with ID: babb690971004c18bdc9183c0d13e29d
+2025-03-31 16:06:11,671 - FinancePreprocessing - INFO - Loading data from data/data.csv
+2025-03-31 16:06:11,690 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-03-31 16:06:12,470 - FinancePreprocessing - INFO - Removing HTML tags
+2025-03-31 16:06:12,627 - FinancePreprocessing - INFO - Removing URLs
+2025-03-31 16:06:12,636 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-03-31 16:06:12,767 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-03-31 16:06:12,769 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-03-31 16:06:12,967 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-03-31 16:06:13,057 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-03-31 16:06:13,106 - FinancePreprocessing - INFO - Removing special characters
+2025-03-31 16:06:13,118 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-03-31 16:06:13,154 - FinancePreprocessing - INFO - Lowercasing text
+2025-03-31 16:06:13,165 - FinancePreprocessing - INFO - Removing stop words
+2025-03-31 16:06:13,205 - FinancePreprocessing - INFO - Cleaned text (pre-tokenization) saved to data/cleaned_text.csv
+2025-03-31 16:06:13,206 - FinancePreprocessing - INFO - Loading FinBERT tokenizer from ProsusAI/finbert
+2025-03-31 16:06:13,519 - FinancePreprocessing - INFO - Tokenizing text using FinBERT tokenizer
+2025-03-31 16:06:15,045 - FinancePreprocessing - INFO - Loading spaCy model en_core_web_sm
+2025-03-31 16:06:15,509 - FinancePreprocessing - INFO - Lemmatizing text using spaCy
+2025-03-31 16:06:48,667 - FinancePreprocessing - INFO - Padding/truncating sequences to length 128
+2025-03-31 16:06:48,995 - FinancePreprocessing - INFO - Preprocessing completed in 36.52 seconds
+2025-03-31 16:06:49,111 - FinancePreprocessing - INFO - Processed data saved to data/processed_data.csv
+2025-03-31 16:06:49,273 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
+2025-03-31 16:06:49,292 - FinancePreprocessing - INFO - Preprocessing completed successfully

@@ -8,7 +8,7 @@ class StockTickerReplacer(PreprocessorBase):
     
     def __init__(self):
         # Stock ticker pattern (e.g., $AAPL)
-        self.ticker_pattern = re.compile(r'\$[A-Z]{1,5}\b')
+        self.ticker_pattern = re.compile(r'\$[A-Za-z]{1,5}\b')
     
     def fit(self, X, y=None):
         return self
