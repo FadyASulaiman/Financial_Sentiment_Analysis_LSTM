@@ -1,6 +1,7 @@
 import tensorflow as tf
 
-from src.transformers.base import SequentialFeatureTransformer
+from src.legacy.transformers.base import SequentialFeatureTransformer
+
 
 class TokenizerTransformer(SequentialFeatureTransformer):
     def __init__(self, num_words=20000, oov_token='<OOV>', max_length=128, padding='post', truncating='post'):

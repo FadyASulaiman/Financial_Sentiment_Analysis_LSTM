@@ -3,7 +3,8 @@ import string
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
-from src.transformers.base import SequentialFeatureTransformer
+from src.legacy.transformers.base import SequentialFeatureTransformer
+
 
 class TextCleaner(SequentialFeatureTransformer):
     def __init__(self, remove_stopwords=True, lemmatize=True):
