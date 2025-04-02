@@ -1,5 +1,5 @@
 class FinancialLexicon:
-    """Financial lexicons and gazetteers for feature engineering"""
+    '''Financial lexicons and gazetteers for feature engineering'''
     
     # Financial sentiment lexicon
     POSITIVE_TERMS = {
@@ -69,13 +69,14 @@ class FinancialLexicon:
         'finance': ['bank', 'financial', 'insurance', 'fintech', 'credit', 'loan', 'mortgage', 'invest', 'asset'],
         'healthcare': ['health', 'medical', 'pharma', 'biotech', 'drug', 'therapeutics', 'hospital', 'patient'],
         'energy': ['oil', 'gas', 'energy', 'renewable', 'solar', 'wind', 'petroleum', 'power', 'utility'],
-        'consumer': ['retail', 'consumer', 'goods', 'apparel', 'food', 'beverage', 'restaurant', 'e-commerce'],
-        'industrial': ['manufacturing', 'industrial', 'construction', 'machinery', 'aerospace', 'defense', 'chemical'],
         'telecom': ['telecom', 'communication', 'wireless', 'broadband', 'network', 'mobile', 'phone'],
         'automotive': ['auto', 'automotive', 'vehicle', 'car', 'electric', 'ev', 'transportation', 'mobility'],
         'materials': ['materials', 'mining', 'metal', 'steel', 'chemicals', 'paper', 'packaging', 'commodity'],
         'media': ['media', 'entertainment', 'streaming', 'content', 'advertising', 'publishing', 'broadcast'],
-        'realestate': ['real estate', 'property', 'reit', 'housing', 'commercial', 'residential', 'development']
+        'realestate': ['real estate', 'property', 'reit', 'housing', 'commercial', 'residential', 'development'],
+        'retail': ['retail', 'store', 'shop', 'consumer', 'mall', 'outlet', 'e-commerce', 'merchandise', 'brand', 'product', 'customer', 'sales'],
+        'manufacturing': ['manufacturing', 'factory', 'production', 'industrial', 'machinery', 'equipment', 'assembly', 'fabrication', 'engineering', 'raw material', 'aerospace', 'defense', 'chemical'],
+        'services': ['service', 'consulting', 'outsourcing', 'professional', 'support', 'solution', 'assistance', 'client', 'provider'],
     }
     
     # Financial performance indicators

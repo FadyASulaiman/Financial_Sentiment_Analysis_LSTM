@@ -1,10 +1,11 @@
-data:
-  raw_data_path: "data/raw"
-  processed_data_path: "data/processed"
 
 # Configuration
 
 version: "1.0.0"
+
+data:
+  raw_data_path: "data/raw"
+  processed_data_path: "data/processed"
 
 random_seed: 42
 

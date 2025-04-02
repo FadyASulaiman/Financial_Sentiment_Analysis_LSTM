@@ -5,35 +5,26 @@ from typing import Dict, Any, Optional
 
 logger = logging.getLogger(__name__)
 
-# Default configuration file path
-DEFAULT_CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config.yaml")
-
 def load_config(config_path: Optional[str] = None) -> Dict[str, Any]:
-    """Load configuration from file or use default.
-    
-    Args:
-        config_path: Path to configuration YAML file
-        
-    Returns:
-        Dict containing configuration
     """
-    try:
-        if os.path.exists(DEFAULT_CONFIG_PATH):
-            with open(DEFAULT_CONFIG_PATH, 'r') as file:
+    Load configuration from file or use default.
+    """
+
+    if config_path and os.path.exists(config_path):
+        try:
+            with open(config_path, 'r') as file:
                 config = yaml.safe_load(file)
-                logger.info(f"Loaded default configuration from {DEFAULT_CONFIG_PATH}")
+                logger.info(f"Loaded configuration from {config_path}")
                 return config
-    except Exception as e:
-        logger.error(f"Error loading default configuration: {str(e)}")
-    
-    # If all else fails, use hardcoded default config
+        except Exception as e:
+            logger.error(f"Error loading configuration from {config_path}: {str(e)}")
+
+    # If config import fails, use hardcoded default config
     logger.warning("Using hardcoded default configuration")
     return get_hardcoded_default_config()
 
 def get_hardcoded_default_config() -> Dict[str, Any]:
-    """
-    Return hardcoded default configuration.
-    """
+
     return {
         "version": "1.0.0",
         "random_seed": 42,
