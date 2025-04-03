@@ -1,4 +1,4 @@
-Proposed project structure:
+### Proposed project structure:
 
 **1. Data acquisition:** The papers mentioned that they had data over 10,000 examples, this amount of data is supposed to be publicly accessible.
 
