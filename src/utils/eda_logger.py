@@ -1,7 +1,7 @@
 import logging
 from pathlib import Path
 
-def setup_eda_logger(log_file="finance_sentiment_eda.log"):
+def setup_eda_logger(log_file="logs/finance_sentiment_eda.log"):
     """Configure and return a logger"""
     logging.basicConfig(
         level=logging.INFO,

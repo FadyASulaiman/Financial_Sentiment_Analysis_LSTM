@@ -1,7 +1,7 @@
 import logging
 import os
 
-def setup_feature_engineering_pipeline_logging(log_file: str = "feature_engineering.log", level=logging.INFO):
+def setup_feature_engineering_pipeline_logging(log_file: str = "logs/feature_engineering.log", level=logging.INFO):
     """Setup logging configuration.
     
     Args:

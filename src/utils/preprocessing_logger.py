@@ -3,7 +3,7 @@
 
 import logging
 
-def setup_preprocessing_logger(log_file="finance_preprocessing.log"):
+def setup_preprocessing_logger(log_file="logs/finance_preprocessing.log"):
     """Configure and return a logger."""
     logging.basicConfig(
         level=logging.INFO,

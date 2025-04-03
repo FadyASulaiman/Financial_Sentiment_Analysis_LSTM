@@ -1,0 +1,243 @@
+2025-04-02 15:14:58,444 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:15:04,373 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:15:04,383 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:15:04,390 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:15:04,397 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:15:04,805 - src.utils.feat_eng_pipeline_logger - ERROR - Error in feature engineering pipeline: Could not find experiment with ID 0
+2025-04-02 15:15:04,805 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: Could not find experiment with ID 0
+2025-04-02 15:16:49,555 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:16:53,584 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:16:53,594 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:16:53,600 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:16:53,607 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:16:53,980 - src.utils.feat_eng_pipeline_logger - ERROR - Error in feature engineering pipeline: Could not find experiment with ID 0
+2025-04-02 15:16:53,980 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: Could not find experiment with ID 0
+2025-04-02 15:19:38,568 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:19:44,229 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:19:44,239 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:19:44,246 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:19:44,254 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:19:44,736 - src.utils.feat_eng_pipeline_logger - ERROR - Error in RelativeChangeExtractor: expected string or bytes-like object, got 'float'
+2025-04-02 15:19:44,737 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:19:44,738 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:19:44,738 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:19:44,739 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:19:44,739 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:19:44,740 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:19:44,741 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:19:44,750 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:19:44,846 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 0 features.
+2025-04-02 15:19:44,848 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: [Errno 21] Is a directory: 'data'
+2025-04-02 15:23:13,190 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:23:17,674 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:23:17,684 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:23:17,690 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:23:17,698 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:23:18,124 - src.utils.feat_eng_pipeline_logger - ERROR - Error in RelativeChangeExtractor: expected string or bytes-like object, got 'float'
+2025-04-02 15:23:18,124 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:23:18,125 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:23:18,125 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:23:18,125 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:23:18,126 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:23:18,126 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:23:18,127 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:23:18,135 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:23:18,215 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 0 features.
+2025-04-02 15:23:18,218 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:23:18,219 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 15:23:18,219 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving configuration: [Errno 2] No such file or directory: ''
+2025-04-02 15:24:24,134 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:24:28,297 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:24:28,306 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:24:28,306 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: cannot access local variable 'config_path' where it is not associated with a value
+2025-04-02 15:24:49,115 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:24:53,028 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:24:53,038 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:24:53,038 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: cannot access local variable 'config_path' where it is not associated with a value
+2025-04-02 15:25:27,429 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:25:31,342 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:25:31,351 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:25:31,357 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:25:31,365 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:25:31,784 - src.utils.feat_eng_pipeline_logger - ERROR - Error in RelativeChangeExtractor: expected string or bytes-like object, got 'float'
+2025-04-02 15:25:31,785 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:25:31,785 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:25:31,785 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:25:31,786 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:25:31,787 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:25:31,787 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:25:31,788 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:25:31,798 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:25:31,878 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 0 features.
+2025-04-02 15:25:31,881 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:25:31,882 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 15:25:31,882 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving configuration: [Errno 2] No such file or directory: ''
+2025-04-02 15:26:28,775 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:26:32,925 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:26:32,934 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:26:32,941 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:26:32,948 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:26:33,374 - src.utils.feat_eng_pipeline_logger - ERROR - Error in RelativeChangeExtractor: expected string or bytes-like object, got 'float'
+2025-04-02 15:26:33,375 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:26:33,375 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:26:33,375 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:26:33,375 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:26:33,376 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:26:33,376 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:26:33,377 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:26:33,386 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:26:33,469 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 0 features.
+2025-04-02 15:26:33,472 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:26:33,472 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 15:31:19,791 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:31:23,935 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:31:23,945 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:31:23,945 - src.utils.feat_eng_pipeline_logger - INFO - Columns in the dataset: ['Sentence', 'Sentiment']
+2025-04-02 15:31:23,946 - src.utils.feat_eng_pipeline_logger - INFO - Data types: Sentence     object
+Sentiment    object
+dtype: object
+2025-04-02 15:31:23,947 - src.utils.feat_eng_pipeline_logger - INFO - NaN values: Sentence     1
+Sentiment    0
+dtype: int64
+2025-04-02 15:31:23,953 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:31:23,960 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:31:24,395 - src.utils.feat_eng_pipeline_logger - ERROR - Error in RelativeChangeExtractor: expected string or bytes-like object, got 'float'
+2025-04-02 15:31:24,396 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:31:24,396 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:31:24,397 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:31:24,398 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:31:24,399 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:31:24,399 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:31:24,400 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:31:24,408 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:31:24,500 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 0 features.
+2025-04-02 15:31:24,503 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:31:24,503 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 15:37:32,394 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:37:36,590 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:37:36,600 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:37:36,608 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:37:36,616 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:37:37,530 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:37:37,530 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:37:37,531 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:37:37,532 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:37:37,532 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:37:37,533 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:37:37,533 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:37:37,539 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:37:37,603 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 0 features.
+2025-04-02 15:37:37,605 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:37:37,606 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 15:48:42,413 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:48:49,818 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:48:49,833 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:48:49,848 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:48:49,856 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:48:50,935 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:48:50,935 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:48:50,936 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:48:50,937 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:48:50,937 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:48:50,938 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:48:50,938 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:48:50,944 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:48:51,011 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 1 features.
+2025-04-02 15:48:51,016 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:48:51,016 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 15:50:17,391 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:50:22,752 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:50:22,763 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:50:22,772 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:50:22,780 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:50:23,884 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:50:23,884 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:50:23,885 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:50:23,886 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:50:23,886 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:50:23,887 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:50:23,887 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:50:23,893 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:50:23,956 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 1 features.
+2025-04-02 15:50:23,961 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:50:23,962 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 15:51:42,984 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:51:47,675 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:51:47,684 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:51:47,692 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:51:47,699 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:51:48,416 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:51:48,416 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:51:48,417 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:51:48,418 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:51:48,418 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:51:48,418 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:51:48,419 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:51:48,424 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:51:48,491 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 1 features.
+2025-04-02 15:51:48,494 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:51:48,494 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 15:58:23,105 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:58:27,117 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:58:27,126 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:58:27,134 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:58:27,141 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:58:27,862 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: The 'ngram_range' parameter of TfidfVectorizer must be an instance of 'tuple'. Got [1, 3] instead.
+2025-04-02 15:58:27,908 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: The TF-IDF vectorizer is not fitted
+2025-04-02 15:58:27,909 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:58:27,910 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:58:27,910 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:58:27,910 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:58:27,911 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:58:27,916 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:58:27,983 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 1 features.
+2025-04-02 15:58:27,987 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:58:27,987 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 16:00:16,738 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 16:00:21,537 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 16:00:21,547 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 16:00:21,555 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 16:00:21,564 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 16:00:22,350 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: The 'ngram_range' parameter of TfidfVectorizer must be an instance of 'tuple'. Got '(1, 3)' instead.
+2025-04-02 16:00:22,394 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: The TF-IDF vectorizer is not fitted
+2025-04-02 16:00:22,395 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 16:00:22,396 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 16:00:22,396 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 16:00:22,396 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 16:00:22,397 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 16:00:22,403 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 16:00:22,474 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 1 features.
+2025-04-02 16:00:22,479 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 16:00:22,479 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 16:02:03,969 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 16:02:09,885 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 16:02:09,894 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 16:02:09,903 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 16:02:09,910 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 16:02:11,583 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 16:02:11,595 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 16:02:11,595 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 16:02:11,596 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 16:02:11,597 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 16:02:11,673 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 1 features.
+2025-04-02 16:02:11,678 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 16:02:11,679 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 16:05:44,664 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 16:05:48,785 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 16:05:48,794 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 16:05:48,802 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 16:05:48,809 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 16:06:17,050 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: "['industry_industrial'] not in index"
+2025-04-02 16:06:17,062 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 16:06:17,137 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 1 features.
+2025-04-02 16:06:17,143 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 16:06:17,143 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 16:07:59,899 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 16:08:06,075 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 16:08:06,089 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 16:08:06,098 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 16:08:06,106 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 16:08:41,291 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: "['industry_industrial'] not in index"
+2025-04-02 16:08:43,738 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 3811 features.
+2025-04-02 16:08:53,443 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 16:08:53,443 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
