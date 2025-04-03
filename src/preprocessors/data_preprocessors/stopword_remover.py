@@ -38,9 +38,5 @@ class StopWordRemover(PreprocessorBase):
             return ' '.join(filtered_tokens)
         
         X = X.apply(remove_stops)
-
-        cleaned_text_df = X.copy()
-        cleaned_text_df.to_csv('data/cleaned_text.csv', index=False)
-        logger.info("Cleaned text (pre-tokenization) saved to data/cleaned_text.csv")
         
         return X

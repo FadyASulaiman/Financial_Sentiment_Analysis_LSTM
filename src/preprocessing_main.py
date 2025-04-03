@@ -1,6 +1,6 @@
 import os
 from src.utils.constants import MAX_SEQUENCE_LENGTH
-from utils.preprocessing_logger import logger
+from src.utils.preprocessing_logger import logger
 from src.preprocessors.preprocessing_orchestrator import FinanceTextPreprocessingOrchestrator
 
 

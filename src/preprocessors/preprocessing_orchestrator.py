@@ -48,7 +48,7 @@ class FinanceTextPreprocessingOrchestrator:
             ('lowercaser', TextLowercaser()),
             ('stop_word_remover', StopWordRemover(self.domain_specific_stopwords)),
             # ('tokenizer', FinBERTTokenizer()),
-            ('lemmatizer', SpacyLemmatizer()),
+            # ('lemmatizer', SpacyLemmatizer()),
             # ('padder', SequencePadder(self.max_sequence_length))
         ])
         
@@ -97,7 +97,7 @@ class FinanceTextPreprocessingOrchestrator:
                 start_time = datetime.now()
                 
                 # Apply preprocessing pipeline
-                processed_sequences = self.preprocessing_pipeline.fit_transform(sentences)
+                processed_sentences = self.preprocessing_pipeline.fit_transform(sentences)
                 
                 # Track end time and duration
                 end_time = datetime.now()
@@ -107,12 +107,12 @@ class FinanceTextPreprocessingOrchestrator:
                 
                 # Create a new DataFrame with the processed data
                 processed_df = pd.DataFrame({
-                    'Sequence': [seq.tolist() for seq in processed_sequences],
+                    'Sentence': processed_sentences,
                     'Sentiment': sentiments
                 })
                 
                 # Save the processed data
-                output_path = os.path.join(output_dir, 'processed_data.csv')
+                output_path = os.path.join(output_dir, 'cleaned_data.csv')
                 processed_df.to_csv(output_path, index=False)
                 logger.info(f"Processed data saved to {output_path}")
                 
