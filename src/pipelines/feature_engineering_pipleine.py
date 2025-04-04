@@ -13,12 +13,11 @@ from sklearn.pipeline import Pipeline
 from src.config.config_loader import load_config
 from src.feature_extractors.extractor_base import FeatureExtractorBase
 from src.feature_extractors.financial_entity import FinancialEntityExtractor
-from src.feature_extractors.financial_event import FinancialEventClassifier
-from src.feature_extractors.financial_ngram import FinancialNGramExtractor
-from src.feature_extractors.growth_decline import GrowthDeclineQuantifier
-from src.feature_extractors.industry_sector import IndustrySectorCategorizer
-from src.feature_extractors.performace_indicator import FinancialPerformanceIndicatorExtractor
-from src.feature_extractors.relative_change import RelativeChangeExtractor
+
+
+# from src.feature_extractors.retired.performace_indicator import FinancialPerformanceIndicatorExtractor
+# from src.feature_extractors.retired.relative_change import RelativeChangeExtractor
+# from src.feature_extractors.retired.financial_ngram import FinancialNGramExtractor
 
 from src.utils.feat_eng_pipeline_logger import logger
 
@@ -49,15 +48,15 @@ class FeatureEngineeringPipeline:
     def _create_transformers(self) -> List[FeatureExtractorBase]:
         """Create transformer objects based on configuration"""
         return [
-            RelativeChangeExtractor(self.config),
-            FinancialNGramExtractor(self.config),
-            FinancialEntityExtractor(self.config),
-            FinancialPerformanceIndicatorExtractor(self.config),
-            GrowthDeclineQuantifier(self.config),
-            IndustrySectorCategorizer(self.config),
-            FinancialEventClassifier(self.config)
+            FinancialEntityExtractor(self.config)
+            # FinVADERSentimentExtractor(self.config),  # Sentiment is most important
+            # FinancialEntityExtractor(self.config),    # Entity recognition is valuable
+            # GrowthDeclineQuantifier(self.config),     # Numeric trends are important
+            # CompositeFeatureExtractor(self.config),   # High-level combined features
+            # IndustrySectorCategorizer(self.config),
+            # FinancialEventClassifier(self.config)
         ]
-    
+        
     def fit_transform(self, data: pd.DataFrame) -> pd.DataFrame:
         """Fit the pipeline to data and transform it"""
         try:
@@ -74,8 +73,8 @@ class FeatureEngineeringPipeline:
             end_time = datetime.datetime.now()
             
             # Add original target if present
-            if 'sentiment' in data.columns:
-                transformed_data['sentiment'] = data['sentiment']
+            if 'Sentiment' in data.columns:
+                transformed_data['Sentiment'] = data['Sentiment']
             
             # Log metrics
             self._log_metrics(data, transformed_data, start_time, end_time)

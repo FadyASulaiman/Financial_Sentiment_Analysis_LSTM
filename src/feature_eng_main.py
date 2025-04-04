@@ -1,5 +1,4 @@
 import os
-import argparse
 from src.utils.feat_eng_pipeline_logger import logger
 import pandas as pd
 
@@ -8,7 +7,7 @@ from src.pipelines.feature_engineering_pipleine import FeatureEngineeringPipelin
 def main():
     """Main entry point for the feature engineering pipeline"""
 
-    data_path = "data/cleaned_data.csv"
+    data_path = "data/data.csv"
     output_dir = os.path.dirname(data_path)
     config_path = "src/config/config.yaml"
     
@@ -35,7 +34,7 @@ def main():
         
         # Save pipeline
         pipeline_path = os.path.join(
-            os.path.dirname(output_dir),
+            output_dir,
             f"feature_pipeline_v{pipeline.version}.pkl"
         )
         pipeline.save_pipeline(pipeline_path)

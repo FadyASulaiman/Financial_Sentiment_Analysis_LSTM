@@ -1,4 +1,3 @@
-
 # Configuration
 
 version: "1.0.0"
@@ -14,7 +13,12 @@ features:
   n_gram_range: (1, 3)
   min_df: 5
   max_df: 0.9
-  tfidf_max_features: 5000
+  tfidf_max_features: 200
+  # Top entities to consider
+  top_companies: 15
+  top_indicators: 10
+  min_financial_term_freq: 0.005  # Term must appear in at least 0.5% of documents
+
   
   # Entity extraction parameters
   entity_extraction:
@@ -24,11 +28,24 @@ features:
     min_entity_length: 2
     max_entity_length: 30
   
+  finvader:
+    use_sentence_segmentation: true
+    use_domain_specific_lexicon: true
+    lexicon_path: "src/lexicons/financial_lexicon.json"
+    threshold_neutral: 0.05
+  
   # Performance indicator parameters
   performance_indicators:
     context_window_size: 5
     require_context: true
-    
+  
+  # Feature selection parameters
+  feature_selection:
+    min_non_zero_ratio: 0.01
+    max_features_per_extractor: 50
+    enable_variance_filter: true
+    min_variance: 0.001
+  
   # Growth/decline quantifier parameters
   growth_decline:
     min_percentage: 0.1

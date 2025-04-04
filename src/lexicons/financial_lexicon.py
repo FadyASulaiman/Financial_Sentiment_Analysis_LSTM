@@ -49,19 +49,166 @@ class FinancialLexicon:
         'deficit', 'surplus', 'debt', 'earnings', 'revenue', 'eps', 'p/e', 'ratio'
     }
     
-    # Financial events
-    FINANCIAL_EVENTS = {
-        'earnings': ['earnings', 'quarterly', 'q1', 'q2', 'q3', 'q4', 'report', 'reported'],
-        'merger_acquisition': ['merger', 'acquisition', 'acquire', 'acquired', 'buyout', 'takeover'],
-        'product_launch': ['launch', 'launched', 'introduce', 'introduced', 'unveil', 'unveiled', 'release', 'released'],
-        'leadership_change': ['ceo', 'executive', 'appoint', 'appointed', 'resign', 'resigned', 'management'],
-        'regulatory': ['regulation', 'regulatory', 'compliance', 'regulator', 'sec', 'fined', 'penalty'],
-        'investment': ['invest', 'investment', 'funding', 'fund', 'capital', 'venture', 'stake'],
-        'restructuring': ['restructure', 'restructuring', 'layoff', 'layoffs', 'downsize', 'downsizing', 'cost-cutting'],
-        'dividend': ['dividend', 'dividends', 'payout', 'yield', 'shareholder', 'stockholder'],
-        'litigation': ['lawsuit', 'litigation', 'legal', 'sue', 'sued', 'court', 'settlement'],
-        'market_expansion': ['expansion', 'expand', 'global', 'international', 'enter', 'entered', 'market']
-    }
+    # Define the 15 most common financial events
+    FINANCIAL_EVENTS = [
+        "merger_acquisition",   # Mergers, acquisitions, takeovers
+        "earnings",             # Earnings reports, profit/loss statements
+        "dividend",             # Dividend announcements, changes
+        "product_launch",       # New product/service announcements
+        "investment",           # Investments, funding rounds
+        "restructuring",        # Restructuring, reorganization
+        "litigation",           # Legal proceedings, lawsuits
+        "executive_change",     # Leadership changes, executive appointments
+        "expansion",            # Expansion to new markets, opening facilities
+        "layoff",               # Layoffs, job cuts
+        "partnership",          # Strategic partnerships, collaborations
+        "regulatory",           # Regulatory issues, approvals, compliance
+        "stock_movement",       # Stock price changes, trading activity
+        "debt_financing",       # Debt issues, loans, bonds
+        "contract_deal"         # New contracts or deals
+    ]
+
+
+    FINANCIAL_EVENT_PATTERNS = {
+            "merger_acquisition": [
+                r"(merger|acquisition|takeover|acquire|merge|bid|buyout|consolidat)",
+                r"(purchas\w+|bought|buy) (company|stake|share|business)",
+                r"(take\w+) (over|control)",
+                r"(percent|%) stake",
+                r"(join\w+) forces"
+            ],
+            
+            "earnings": [
+                r"(earnings|revenue|profit|loss|income|EBITDA|EPS)",
+                r"(financial|quarterly|annual) results",
+                r"(report\w+) (profit|loss|revenue)",
+                r"(operat\w+) (profit|loss|margin)",
+                r"(net|gross) (income|profit|loss)",
+                r"dividend per share",
+                r"fiscal (year|quarter)"
+            ],
+            
+            "dividend": [
+                r"dividend\w*",
+                r"(declar\w+|announce\w+|raise\w+|increase\w+|cut\w+|reduc\w+|suspend\w+) dividend",
+                r"(pay\w+|distribut\w+) (to (share|stock)holders)",
+                r"(quarterly|annual|special) (payment|distribution)",
+                r"payout ratio",
+                r"yield"
+            ],
+            
+            "product_launch": [
+                r"(launch|introduc\w+|unveil\w+|releas\w+) (new|product|service)",
+                r"new (product|service|solution|platform|technology)",
+                r"(product|range) (portfolio|line|offering)",
+                r"(next(\s|-|)generation|cutting(\s|-|)edge)",
+                r"(begin|start\w+) (production|manufacturing)"
+            ],
+            
+            "investment": [
+                r"(invest\w+|funding|capital|raised)",
+                r"(venture|private equity|seed) (capital|investment|funding)",
+                r"(series|round) [A-Z]",
+                r"(million|billion|mn|bn|EUR|USD|€|\$)",
+                r"(shareholding|holding)",
+                r"(fund\w+) (by|from)"
+            ],
+            
+            "restructuring": [
+                r"(restructur\w+|reorganiz\w+|transform\w+)",
+                r"(cost|operational) (reduction|cutting|saving)",
+                r"(efficiency|streamlining) (program|measure|initiative)",
+                r"(business|operational) (model|structure)",
+                r"(divest\w+|sell\w+) (unit|division|business)"
+            ],
+            
+            "litigation": [
+                r"(litigation|lawsuit|legal|court|dispute|sue\w+)",
+                r"(legal|court) (proceedings|case|battle|fight)",
+                r"(antitrust|regulatory) (investigation|probe)",
+                r"(settle\w+|resolution) (case|dispute|claim)",
+                r"(fine\w+|penalty|damages)"
+            ],
+            
+            "executive_change": [
+                r"(CEO|CFO|CTO|COO|chief|executive|officer|director|board)",
+                r"(appoint\w+|hire\w+|name\w+|elect\w+) (as|to) (CEO|CFO|CTO|COO|chief|executive|position)",
+                r"(management|leadership) (change|team)",
+                r"(resign\w+|depart\w+|step\w+ down|leaving)",
+                r"(succeed\w+|replace\w+) (as|by)"
+            ],
+            
+            "expansion": [
+                r"(expan\w+|grow\w+) (into|market|business|operations)",
+                r"(new|international|global) (market|facility|location|office|store)",
+                r"(open\w+|establish\w+|launch\w+) (office|facility|store|presence)",
+                r"(entry|expansion) (into|in) ([A-Z]\w+)",
+                r"(global|international|worldwide) (reach|presence|footprint)"
+            ],
+            
+            "layoff": [
+                r"(layoff\w*|downsize\w*|job cut\w*|cut\w* job|redundanc\w*)",
+                r"(reduc\w+|cut\w+) (workforce|staff|employees|personnel|headcount)",
+                r"(eliminate|shed) (position|job)",
+                r"(employee|worker|staff) (reduction|termination)",
+                r"(lose|lost|loose) their jobs"
+            ],
+            
+            "partnership": [
+                r"(partnership|collaboration|alliance|joint venture)",
+                r"(partner\w+|collaborat\w+|team\w+ up) with",
+                r"(strategic|key) (relationship|partnership|alliance)",
+                r"(sign\w+|enter\w+|form\w+) (agreement|deal|partnership)",
+                r"(work\w+) together"
+            ],
+            
+            "regulatory": [
+                r"(regulat\w+|compli\w+|authority|commission|approval)",
+                r"(approve\w+|authorize\w+|grant\w+) (by|from) (regulator|authority|commission)",
+                r"(reject\w+|deny\w+|block\w+) (by|from) (regulator|authority|commission)",
+                r"(regulatory|compliance) (requirement|standard|framework)",
+                r"(SEC|FDA|EU|Commission|FTC|authority)"
+            ],
+            
+            "stock_movement": [
+                r"(stock|share|equity) (price|value|market)",
+                r"(trading|trade|exchange|market)",
+                r"(rise|drop|fall|gain|increase|decrease|jump|plunge|plummet)",
+                r"(bull|bear|volatile|stable) market",
+                r"(buy|sell) signal",
+                r"(index|nasdaq|dow|S&P)"
+            ],
+            
+            "debt_financing": [
+                r"(debt|loan|bond|credit|financing)",
+                r"(raise\w+|secure\w+) (capital|debt|loan|financing)",
+                r"(issue\w+|sell\w+) (bond|note|debt)",
+                r"(credit|loan|debt) (facility|agreement|covenant)",
+                r"(borrow\w+|lend\w+|finance\w+)"
+            ],
+            
+            "contract_deal": [
+                r"(contract|deal|agreement|arrangement)",
+                r"(sign\w+|win\w+|secure\w+|award\w+) (contract|deal)",
+                r"(multi-year|long-term) (agreement|contract|deal)",
+                r"(worth|valued at) (million|billion|mn|bn)",
+                r"(supply|deliver|provide) (to|for)"
+            ]
+        }
+
+    # # Financial events
+    # FINANCIAL_EVENTS = {
+    #     'earnings': ['earnings', 'quarterly', 'q1', 'q2', 'q3', 'q4', 'report', 'reported'],
+    #     'merger_acquisition': ['merger', 'acquisition', 'acquire', 'acquired', 'buyout', 'takeover'],
+    #     'product_launch': ['launch', 'launched', 'introduce', 'introduced', 'unveil', 'unveiled', 'release', 'released'],
+    #     'leadership_change': ['ceo', 'executive', 'appoint', 'appointed', 'resign', 'resigned', 'management'],
+    #     'regulatory': ['regulation', 'regulatory', 'compliance', 'regulator', 'sec', 'fined', 'penalty'],
+    #     'investment': ['invest', 'investment', 'funding', 'fund', 'capital', 'venture', 'stake'],
+    #     'restructuring': ['restructure', 'restructuring', 'layoff', 'layoffs', 'downsize', 'downsizing', 'cost-cutting'],
+    #     'dividend': ['dividend', 'dividends', 'payout', 'yield', 'shareholder', 'stockholder'],
+    #     'litigation': ['lawsuit', 'litigation', 'legal', 'sue', 'sued', 'court', 'settlement'],
+    #     'market_expansion': ['expansion', 'expand', 'global', 'international', 'enter', 'entered', 'market']
+    # }
     
     # Industries/Sectors
     INDUSTRIES = {
