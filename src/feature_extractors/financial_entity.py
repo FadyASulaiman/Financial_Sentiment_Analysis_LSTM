@@ -1,131 +1,227 @@
 import re
 import pandas as pd
-from typing import Dict, List
 import spacy
-import os
-
-from src.utils.feat_eng_pipeline_logger import logger
+from typing import List, Dict, Optional
+from abc import ABC, abstractmethod
+from sklearn.base import BaseEstimator, TransformerMixin
 
 from src.feature_extractors.extractor_base import FeatureExtractorBase
-from src.lexicons.financial_lexicon import FinancialLexicon
-
-
-
-# Load spaCy model
-try:
-    nlp = spacy.load('en_core_web_sm')
-except Exception as e:
-    logger.warning(f"Error loading spaCy model: {e}. Installing it now...")
-    os.system('python -m spacy download en_core_web_sm')
-    try:
-        nlp = spacy.load('en_core_web_sm')
-    except Exception as e2:
-        logger.error(f"Failed to load spaCy model after installation: {e2}")
-        nlp = None
 
 class FinancialEntityExtractor(FeatureExtractorBase):
-    """Extract financial entities using gazetteers and regex patterns"""
+    """
+    Extract company names from text using a combination of rule-based and NER approaches.
+    Works with stock tickers and company name mentions.
+    """
     
     def __init__(self, config: Dict = None):
         super().__init__(config)
-        config = config or {}
-        entity_config = config.get('features', {}).get('entity_extraction', {})
-        self.use_spacy = entity_config.get('use_spacy', True)
-        self.use_regex = entity_config.get('use_regex', True)
-        self.use_gazetteer = entity_config.get('use_gazetteer', True)
         
-        # Company name gazetteer
-        self.companies = set(FinancialLexicon.COMPANIES)
+        # Parse config
+        self.use_spacy = self.config.get('use_spacy', True)
+        self.text_column = self.config.get('text_column', 'Sentence')
+        self.output_column = self.config.get('output_column', 'Company')
+        self.spacy_model = self.config.get('spacy_model', 'en_core_web_lg')
         
-        # Compile regex patterns
-        self.company_pattern = re.compile(FinancialLexicon.COMPANY_PATTERN)
-        self.ticker_pattern = re.compile(FinancialLexicon.TICKER_PATTERN)
-        self.percentage_pattern = re.compile(FinancialLexicon.PERCENTAGE_PATTERN)
-        self.currency_amount_pattern = re.compile(FinancialLexicon.CURRENCY_AMOUNT_PATTERN)
+        self.ticker_pattern = r'\$([A-Za-z]{1,5})'  # Pattern to match stock tickers
         
+        # Load spaCy model for NER
+        if self.use_spacy:
+            try:
+                self.nlp = spacy.load(self.spacy_model)
+            except:
+                print(f"Installing spaCy model {self.spacy_model}...")
+                import subprocess
+                subprocess.call(["python", "-m", "spacy", "download", self.spacy_model])
+                self.nlp = spacy.load(self.spacy_model)
+        
+        # Common company identifiers
+        self.company_identifiers = [
+            "Inc", "Corp", "Corporation", "Ltd", "Limited", "LLC", "PLC", 
+            "Company", "Co", "Group", "Holdings", "Technologies", "Systems",
+            "International", "Enterprises", "Oyj", "HEL", "AB", "GmbH", "AG"
+        ]
+        
+        # Known major companies (can be extended)
+        self.known_companies = {
+            "IBM": "IBM",
+            "Comptel": "Comptel",
+            "YIT": "YIT Corporation",
+            "Outokumpu": "Outokumpu Technology",
+            "Tiimari": "Tiimari",
+            "Nordstjernan": "Nordstjernan",
+            "EQT": "EQT",
+            "Stora Enso": "Stora Enso Oyj",
+            "UPM-Kymmene": "UPM-Kymmene Oyj",
+            "UPM": "UPM-Kymmene Oyj",
+            "Starbucks": "Starbucks",
+            "SMH": "SMH",
+            "ZAGG": "ZAGG",
+            "Vaahto Group": "Vaahto Group",
+            "St1": "St1",
+            "Altona": "Altona",
+            "Tulla Resources": "Tulla Resources",
+            "Nokian Tyres": "Nokian Tyres",
+            "Bank of America": "Bank of America",
+            "BofA": "Bank of America",
+            "Deutsche Bank": "Deutsche Bank",
+            "ThyssenKrupp": "ThyssenKrupp",
+            "United Technologies": "United Technologies Corp",
+            "Otis": "Otis",
+            "Schindler": "Schindler AG",
+            "Kone": "Kone Oyj",
+            "Talentum": "Talentum",
+            "BIOC": "BIOC",
+            "Ragutis": "Ragutis",
+            "Olvi": "Olvi",
+            "Digia": "Digia",
+            "YHOO": "Yahoo",
+            "QQQ": "QQQ",
+            "NDX": "NDX"
+        }
+        
+        # Create a mapping from ticker to company name
+        self.ticker_to_company = {
+            "SMH": "VanEck Semiconductor ETF",
+            "ZAGG": "ZAGG Inc",
+            "BIOC": "Biocept Inc",
+            "YHOO": "Yahoo",
+            "QQQ": "Invesco QQQ ETF",
+            "NDX": "Nasdaq-100 Index"
+        }
+    
     def fit(self, X, y=None):
         return self
+        
+    def extract_ticker(self, text: str) -> Optional[str]:
+        """
+        Extract stock ticker symbol from text.
+        
+        Args:
+            text: Input text
+            
+        Returns:
+            Company name or ticker symbol if found, None otherwise
+        """
+        match = re.search(self.ticker_pattern, text)
+        if match:
+            ticker = match.group(1)
+            # Return company name if we know the ticker
+            if ticker in self.ticker_to_company:
+                return self.ticker_to_company[ticker]
+            return ticker
+        return None
+    
+    def extract_company_from_text(self, text: str) -> Optional[str]:
+        """
+        Extract company names using rules and known company names.
+        This is a fallback for when NER doesn't work.
+        
+        Args:
+            text: Input text
+            
+        Returns:
+            Company name if found, None otherwise
+        """
+        # Check for known companies first
+        for company, full_name in self.known_companies.items():
+            if company in text:
+                # Make sure it's not part of another word
+                pattern = r'\b' + re.escape(company) + r'\b'
+                if re.search(pattern, text):
+                    return full_name
+        
+        # Look for common company identifiers
+        for identifier in self.company_identifiers:
+            pattern = r'([A-Z][A-Za-z\-\s]+)\s+' + re.escape(identifier) + r'\b'
+            match = re.search(pattern, text)
+            if match:
+                return f"{match.group(1)} {identifier}"
+        
+        return None
+    
+    def extract_company_spacy(self, text: str) -> Optional[str]:
+        """
+        Extract company names using spaCy NER.
+        
+        Args:
+            text: Input text
+            
+        Returns:
+            Company name if found, None otherwise
+        """
+        doc = self.nlp(text)
+        
+        # Extract all ORG entities
+        orgs = [ent.text for ent in doc.ents if ent.label_ == "ORG"]
+        
+        if orgs:
+            # Return the first organization found
+            return orgs[0]
+        
+        return None
+    
+    def extract_company(self, text: str) -> str:
+        """
+        Main method to extract company name using all available methods.
+        
+        Args:
+            text: Input text
+            
+        Returns:
+            Company name, or "None" as a string if no company is found
+        """
+        # First try to extract ticker (highest precision)
+        company = self.extract_ticker(text)
+        if company:
+            return company
+        
+        # Then try spaCy NER
+        if self.use_spacy:
+            company = self.extract_company_spacy(text)
+            if company:
+                return company
+        
+        # Fallback to rule-based extraction
+        company = self.extract_company_from_text(text)
+        if company:
+            return company
+        
+        # No company found
+        return "None"
     
     def transform(self, X):
-        try:
-            features = pd.DataFrame(index=X.index)
+        """
+        Add a company column to the DataFrame.
+        
+        Args:
+            X: Input DataFrame
             
-            # Extract entities using regex patterns
-            if self.use_regex:
-                # Company names (potential matches)
-                features['company_regex_count'] = X['Sentence'].apply(
-                    lambda x: len(self.company_pattern.findall(x))
-                )
-                
-                # Stock tickers
-                features['ticker_count'] = X['Sentence'].apply(
-                    lambda x: len(self.ticker_pattern.findall(x))
-                )
-                
-                # Percentages
-                features['percentage_mentions'] = X['Sentence'].apply(
-                    lambda x: len(self.percentage_pattern.findall(x))
-                )
-                
-                # Currency amounts
-                features['currency_amount_mentions'] = X['Sentence'].apply(
-                    lambda x: len(self.currency_amount_pattern.findall(x))
-                )
+        Returns:
+            DataFrame with an additional company column
+        """
+        if isinstance(X, pd.DataFrame):
+            X_transformed = X.copy()
+            X_transformed[self.output_column] = X_transformed[self.text_column].apply(self.extract_company)
+            return X_transformed
+        else:
+            # Handle case where X is a Series or a list of strings
+            if isinstance(X, pd.Series):
+                texts = X.values
+            else:
+                texts = X
             
-            # Extract entities using gazetteer
-            if self.use_gazetteer:
-                features['company_gazetteer_count'] = X['Sentence'].apply(
-                    lambda x: sum(1 for company in self.companies if company in x.lower())
-                )
+            results = [self.extract_company(text) for text in texts]
             
-            # Extract entities using spaCy NER
-            if self.use_spacy and nlp is not None:
-                def extract_spacy_entities(text):
-                    doc = nlp(text)
-                    org_count = sum(1 for ent in doc.ents if ent.label_ == 'ORG')
-                    money_count = sum(1 for ent in doc.ents if ent.label_ == 'MONEY')
-                    percent_count = sum(1 for ent in doc.ents if ent.label_ == 'PERCENT')
-                    date_count = sum(1 for ent in doc.ents if ent.label_ == 'DATE')
-                    return {
-                        'spacy_org_count': org_count,
-                        'spacy_money_count': money_count,
-                        'spacy_percent_count': percent_count,
-                        'spacy_date_count': date_count
-                    }
-                
-                spacy_entities = X['Sentence'].apply(extract_spacy_entities)
-                for col in ['spacy_org_count', 'spacy_money_count', 'spacy_percent_count', 'spacy_date_count']:
-                    features[col] = spacy_entities.apply(lambda x: x.get(col, 0))
-            
-            # Combine entity detection methods
-            if self.use_gazetteer and self.use_regex:
-                features['company_combined_count'] = features['company_gazetteer_count'] + features['company_regex_count']
-            
-            # Binary features based on entity presence
-            features['has_company'] = (
-                (features['company_gazetteer_count'] > 0 if self.use_gazetteer else False) | 
-                (features['company_regex_count'] > 0 if self.use_regex else False)
-            )
-            features['has_ticker'] = features['ticker_count'] > 0 if self.use_regex else False
-            features['has_percentage'] = features['percentage_mentions'] > 0 if self.use_regex else False
-            features['has_currency'] = features['currency_amount_mentions'] > 0 if self.use_regex else False
-            
-            return features
-            
-        except Exception as e:
-            logger.error(f"Error in FinancialEntityExtractor: {str(e)}")
-            # Return empty DataFrame with same index in case of error
-            return pd.DataFrame(index=X.index)
+            if isinstance(X, pd.Series):
+                return pd.Series(results, index=X.index)
+            else:
+                return results
     
-    def get_feature_names(self):
-        names = []
-        if self.use_regex:
-            names.extend(['company_regex_count', 'ticker_count', 'percentage_mentions', 'currency_amount_mentions'])
-        if self.use_gazetteer:
-            names.append('company_gazetteer_count')
-        if self.use_spacy and nlp is not None:
-            names.extend(['spacy_org_count', 'spacy_money_count', 'spacy_percent_count', 'spacy_date_count'])
-        if self.use_gazetteer and self.use_regex:
-            names.append('company_combined_count')
-        names.extend(['has_company', 'has_ticker', 'has_percentage', 'has_currency'])
-        return names
+    def get_feature_names(self) -> List[str]:
+        """
+        Get the name of the generated feature.
+        
+        Returns:
+            List of feature names
+        """
+        return [self.output_column]
