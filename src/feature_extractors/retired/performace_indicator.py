@@ -98,12 +98,12 @@ class FinancialPerformanceIndicatorExtractor(FeatureExtractorBase):
                 features['earnings_miss_in_context'] - features['guidance_down_in_context']
             )
             
-            return features
+            return pd.concat([X, features], axis=1)
             
         except Exception as e:
             logger.error(f"Error in FinancialPerformanceIndicatorExtractor: {str(e)}")
             # Return empty DataFrame with same index in case of error
-            return pd.DataFrame(index=X.index)
+            return X
     
     def get_feature_names(self):
         return [

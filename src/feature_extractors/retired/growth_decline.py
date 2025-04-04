@@ -113,12 +113,12 @@ class GrowthDeclineQuantifier(FeatureExtractorBase):
                 lambda x: sum(1 for val in x if val > 0) - sum(1 for val in x if val < 0) if x else 0
             )
             
-            return features
+            return pd.concat([X, features], axis=1)
             
         except Exception as e:
             logger.error(f"Error in GrowthDeclineQuantifier: {str(e)}")
             # Return empty DataFrame with same index in case of error
-            return pd.DataFrame(index=X.index)
+            return X
     
     def get_feature_names(self):
         return [

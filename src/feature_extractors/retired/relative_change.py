@@ -79,12 +79,12 @@ class RelativeChangeExtractor(FeatureExtractorBase):
             
             features['financial_change_context'] = X['Sentence'].apply(extract_change_context)
             
-            return features
+            return pd.concat([X, features], axis=1)
             
         except Exception as e:
             logger.error(f"Error in RelativeChangeExtractor: {str(e)}")
             # Return empty DataFrame with same index in case of error
-            return pd.DataFrame(index=X.index)
+            return X
         
     def get_feature_names(self):
         return [
