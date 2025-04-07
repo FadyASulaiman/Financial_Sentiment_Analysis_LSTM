@@ -1,802 +1,1027 @@
+from collections import Counter
 import re
 import pandas as pd
 import numpy as np
-from typing import List, Dict, Set, Tuple, Optional, Union
+from typing import Dict, List, Union
 from abc import ABC, abstractmethod
 from sklearn.base import BaseEstimator, TransformerMixin
-from collections import defaultdict
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
 
 from src.feature_extractors.extractor_base import FeatureExtractorBase
 
-try:
-    import spacy
-    SPACY_AVAILABLE = True
-except ImportError:
-    SPACY_AVAILABLE = False
-    print("spaCy not available. NLP-based features will be limited.")
-
-class FinancialEventExtractor(FeatureExtractorBase):
+class FinancialEventClassifier(FeatureExtractorBase):
     """
-    Advanced financial event extractor using entity-action-context pattern recognition
-    with a two-stage classification framework and weighted signal approach.
+    A context-aware feature extractor for classifying financial news sentences into predefined event categories.
     """
     
-    # Define the financial events
-    FINANCIAL_EVENTS = [
-        "merger_acquisition",   # M&A activity
-        "earnings",             # Financial performance
-        "dividend",             # Dividend announcements
-        "product_launch",       # New products/services
-        "investment",           # Investments and funding
-        "restructuring",        # Business restructuring
-        "litigation",           # Legal issues
-        "executive_change",     # Leadership changes
-        "expansion",            # Business expansion
-        "layoff",               # Job cuts
-        "partnership",          # Collaborations
-        "regulatory",           # Regulatory matters
-        "stock_movement",       # Stock price activity
-        "debt_financing",       # Debt and financing
-        "contract_deal",        # Business contracts
-        "product_issues"        # Product recalls and issues
+    EVENT_CATEGORIES = [
+        "merger_acquisition",   # Companies merging or one company acquiring another
+        "earnings",             # Financial results, profit/loss announcements
+        "dividend",             # Dividend payments, changes, suspensions
+        "product_launch",       # New product or service releases
+        "investment",           # Funding, capital raises, investments
+        "restructuring",        # Reorganization, cost-cutting, streamlining operations
+        "litigation",           # Lawsuits, legal disputes, settlements
+        "executive_change",     # Leadership appointments, resignations, board changes
+        "expansion",            # Geographic or business line expansions
+        "layoff",               # Staff reductions, job cuts, downsizing
+        "partnership",          # Strategic alliances, collaborations, joint ventures
+        "regulatory",           # Regulatory approvals, filings, compliance issues
+        "stock_movement",       # Share price changes, stock market performance
+        "debt_financing",       # Loans, bonds, debt restructuring
+        "contract_deal",        # Business contracts, customer agreements, deals
+        "other"                 # Catch-all for events not in above categories
     ]
+    
+    # Keywords associated with each event category for rule-based classification
+    EVENT_KEYWORDS = {
+        "merger_acquisition": [
+            "merger", "acquisition", "acquire", "takeover", "buyout", "consolidation", 
+            "combining", "acquiring", "acquired", "merged", "buy ", "buys ", "buying ", 
+            "bought ", "acquires ", "merges ", "wins race for", "offers to buy"
+        ],
+        
+        "earnings": [
+            "earnings", "profit", "revenue", "financial results", "quarterly", "annual results", 
+            "loss", "eps", "ebit", "net sales", "turnover", "forecast", "guidance", 
+            "outlook", "ebitda", "income", "profit warning", "revenue growth", "earnings per share",
+            "decreased to", "increased to", "rose to", "fell to", "dropped to", "totalled", "totaled",
+            "expects to grow", "expected to grow", "expects growth", "estimates", "estimated", "forecast",
+            "projected", "profit drop", "profit rise", "profit increase", "profit decrease", "profit fell",
+            "profit rose", "results for", "reported", "earnings report", "sales dropped", "sales rose",
+            "sales fell", "sales increased", "sales decreased", "profit margin", "profit for the quarter",
+            "profit for the year", "full-year"
+        ],
+        
+        "dividend": [
+            "dividend", "payout", "distribution", "yield", "shareholder return", "dividend payment",
+            "dividend increase", "dividend cut", "dividend suspension", "quarterly dividend",
+            "annual dividend", "special dividend", "dividend policy"
+        ],
+        
+        "product_launch": [
+            "launch", "introduces", "unveils", "releases", "new product", "new service", "debut", 
+            "introducing", "introduced", "announced", "announce", "releasing", "released", "will release",
+            "will introduce", "to release", "to introduce", "to launch", "to unveil", "will unveil",
+            "product line", "service line", "will be available", "now available", "start deliveries",
+            "start the deliveries", "deliveries", "solutions", "solution", "platform", "technology", 
+            "product", "service", "flagship"
+        ],
+        
+        "investment": [
+            "investment", "funding", "capital", "raised", "invests", "invested", "funding round", 
+            "series", "stake", "investor", "venture capital", "invested", "investing", "to invest",
+            "will invest", "capital raise", "raise capital", "capital raising", "capital infusion",
+            "private equity", "equity investment", "minority stake", "majority stake", "owns", "worth"
+        ],
+        
+        "restructuring": [
+            "restructuring", "reorganization", "streamlining", "cost-cutting", "turnaround", 
+            "reorganizing", "efficiency", "transformation", "cost reduction", "reorganize", 
+            "restructure", "streamline", "optimize", "optimizing", "efficiency improvement",
+            "cost savings", "saving costs", "reduce costs", "cutting costs", "operational excellence",
+            "operational efficiency", "consolidation", "consolidating", "strategic review", "strategy review"
+        ],
+        
+        "litigation": [
+            "lawsuit", "legal", "court", "settlement", "dispute", "litigation", "sue", "sued", 
+            "legal action", "case", "judge", "trial", "plaintiff", "defendant", "settlement",
+            "judicial", "jurisdiction", "appeal", "appealing", "legal challenge", "legal issue",
+            "legal matter", "legal proceeding", "lawsuit", "rebuff", "rebuffed"
+        ],
+        
+        "executive_change": [
+            "ceo", "executive", "appoints", "appointed", "resignation", "resigns", "board", 
+            "management", "director", "chief", "leadership", "appointed as", "steps down", 
+            "promoted to", "new ceo", "new chief", "new executive", "new president", 
+            "new chairman", "chief executive", "chief financial", "chief operating", "chief technology",
+            "executive director", "managing director", "chairman", "chairwoman", "chairperson",
+            "executive committee", "board member", "board of directors", "president", "vice president",
+            "head of", "last position", "joins", "join", "joined", "joining", "has appointed", "has named"
+        ],
+        
+        "expansion": [
+            "expansion", "enters", "new market", "opens", "facility", "location", "global",
+            "growth", "expands", "expanding", "grow", "growing", "expanded", "entry", "entering",
+            "establish", "established", "establishing", "open", "opening", "opened", "new office",
+            "new location", "new facility", "new plant", "new factory", "geographical expansion",
+            "market expansion", "expanding presence", "international expansion", "global expansion",
+            "regional expansion", "expand operations", "business expansion", "representative office",
+            "sales office"
+        ],
+        
+        "layoff": [
+            "layoff", "job cut", "redundancy", "downsizing", "workforce reduction", "staff reduction", 
+            "job loss", "terminate", "dismissal", "laid off", "reduces staff", "staff levels", 
+            "employment terminated", "termination of employment", "reduce headcount", "headcount reduction",
+            "job elimination", "position elimination", "job reduction", "cut jobs", "cutting jobs",
+            "reduce jobs", "reducing jobs", "lay off", "lay offs", "layoffs", "staff cuts", "cutting staff",
+            "reduce staff", "reducing staff", "downsizing", "downsize", "fire", "fired", "firing"
+        ],
+        
+        "partnership": [
+            "partnership", "alliance", "collaboration", "joint venture", "teaming up", "cooperate", 
+            "agreement", "partners with", "strategic partnership", "collaborate", "collaborating",
+            "partner", "partnering", "cooperative", "cooperation", "jointly", "joint", "signed agreement",
+            "strategic alliance", "corporate alliance", "business alliance", "technology partnership",
+            "research partnership", "distribution partnership", "marketing partnership", "comarketing",
+            "partnership agreement", "partnered with", "partners in", "collaborates with", "working with"
+        ],
+        
+        "regulatory": [
+            "regulatory", "regulation", "compliance", "approval", "regulator", "sec", "filing", 
+            "approved", "permission", "license", "authorities", "regulatory approval", "regulatory body",
+            "regulatory authority", "compliance issue", "regulatory requirement", "regulatory change",
+            "regulator", "government approval", "federal approval", "state approval", "agency approval",
+            "permit", "permitted", "license", "licensing", "licensed", "regulatory filing", "rule",
+            "rules", "standard", "standards", "statutory", "law", "legislation", "legislative",
+            "legally", "legal requirements", "regulatory compliance", "authorized", "authorized", "cleared"
+        ],
+        
+        "stock_movement": [
+            "stock", "share price", "shares", "trading", "market cap", "valuations", "stockholders", 
+            "shareholders", "market value", "exchange", "listed", "ipo", "initial public offering",
+            "stock market", "stock exchange", "share", "equity", "securit", "ticker", "traded", 
+            "stock closed", "stock opened", "stock rose", "stock fell", "stock dropped", "stock surged",
+            "stock plunged", "stock declined", "stock gained", "stock lost", "market capitalization",
+            "market valuation", "shares outstanding", "share buyback", "share repurchase", "stock split",
+            "reverse split", "stockmarket", "bearish", "bullish", "overbought", "oversold", "downgrade",
+            "upgrade", "overweight", "underweight", "price target", "listing", "delisting", "otc"
+        ],
+        
+        "debt_financing": [
+            "debt", "loan", "financing", "credit", "bond", "borrowed", "lending", "refinancing", 
+            "financial restructuring", "facility", "credit facility", "revolving credit", "term loan",
+            "senior debt", "junior debt", "secured debt", "unsecured debt", "high yield", "junk bond",
+            "investment grade", "borrowing", "finance", "financed", "financing", "lend", "lending",
+            "lender", "borrower", "creditor", "bank loan", "bank debt", "loan agreement", "syndicated loan",
+            "credit agreement", "debt issuance", "debt offering", "notes offering", "debt securities",
+            "bond issue", "bond offering", "debt restructuring", "debt refinancing", "debt reorganization"
+        ],
+        
+        "contract_deal": [
+            "contract", "deal", "agreement", "order", "signed", "client", "customer", "supplier", 
+            "vendor", "procurement", "supply", "service contract", "purchase order", "sales contract",
+            "purchase contract", "supply agreement", "service agreement", "master agreement", 
+            "supply contract", "business contract", "framework agreement", "framework contract",
+            "major contract", "significant contract", "important contract", "key contract", "big contract",
+            "large contract", "multi-year contract", "multi-million", "deal closing", "agreement finalized",
+            "contract awarded", "contract signed", "contract extension", "contract renewal", "closing of",
+            "transaction closing", "deal completion", "deal closed", "tender", "bid", "project", "awarded",
+            "deal with", "agreement with", "contracted", "deal worth", "contract worth", "value of contract"
+        ]
+    }
+    
+    # Context patterns for improved event detection
+    CONTEXT_PATTERNS = {
+        "merger_acquisition": [
+            (r"(acquir\w+|purchas\w+|buy\w*|bought).{1,30}(for|at|worth|valu\w+).{1,15}(\$|€|£|\d+\s*(million|billion|m|b|mln|bln))", 3.0),
+            (r"(complet\w+|finaliz\w+|clos\w+).{1,30}(acquisition|takeover|merger|purchase of)", 2.5),
+            (r"(enter\w+|sign\w+).{1,30}(agreement|deal).{1,30}(acquir\w+|buy|purchase|tak\w+\s+over)", 2.0),
+            (r"(acquire|acquisition of).{1,40}(stake|share|interest|equity).{1,15}(in|of)", 2.0),
+            (r"(plan|intend|propose|consider).{1,30}(buy|acquir\w+|tak\w+\s+over)", 1.0)
+        ],
+        
+        "earnings": [
+            (r"(report\w+|announce\w+|post\w+|record\w+).{1,30}(quarterly|annual|year|Q\d).{1,30}(result|earnings|profit|revenue|income)", 3.0),
+            (r"(increase\w*|decrease\w*|rise|rose|fell|fall\w*|drop\w*).{1,30}(profit|revenue|sales|income|earning).{1,30}(by|to|from).{1,15}(\d+%|\d+\s*%|\$|€|£|\d+)", 2.5),
+            (r"(beat|miss\w*|exceed\w*|below).{1,30}(analyst|market|consensus).{1,30}(expectation|estimate|forecast|prediction)", 2.5),
+            (r"(guid\w+|forecast|outlook|project\w+).{1,30}(for|of).{1,30}(next|coming|following|full).{1,15}(quarter|year)", 2.0),
+            (r"(revenue|sales).{1,30}(of|at|reach\w*).{1,30}(\$|€|£|\d+\s*(million|billion|m|b|mln|bln))", 2.0)
+        ],
+        
+        "dividend": [
+            (r"(declar\w+|announce\w+|approv\w+).{1,30}(dividend|distribution).{1,30}(of|at).{1,15}(\$|€|£|\d+|\d+\.\d+|\d+\s*%)", 3.0),
+            (r"(increase\w*|decrease\w*|raise|cut|reduc\w+|slash\w+).{1,30}(dividend|payout|distribution).{1,30}(by|to|from).{1,15}(\d+%|\d+\s*%|\$|€|£|\d+)", 2.5),
+            (r"(suspend\w*|halt\w*|discontinu\w*|eliminat\w*).{1,30}(dividend|payout|distribution)", 2.5),
+            (r"(quarterly|annual|special|one-time).{1,15}(dividend|distribution).{1,30}(of|at).{1,15}(\$|€|£|\d+|\d+\.\d+)", 2.0),
+            (r"(dividend|payout).{1,15}(policy|strategy).{1,30}(revis\w+|modif\w+|chang\w+|updat\w+)", 1.5)
+        ],
+        
+        "product_launch": [
+            (r"(launch\w*|introduc\w*|unveil\w*|debut\w*|releas\w*).{1,30}(new|novel|innovative).{1,30}(product|service|solution|platform|device|technology)", 3.0),
+            (r"(announce\w*).{1,30}(new|latest|next-generation|upgraded).{1,30}(product line|offering|model|version)", 2.5),
+            (r"(will|plans to|set to).{1,30}(launch|introduce|release|unveil).{1,30}(new|latest|next|upcoming)", 2.0),
+            (r"(present\w*|showcase\w*|demonstrat\w*).{1,30}(new|advanced|cutting-edge|state-of-the-art).{1,30}(technology|product|solution)", 2.0)
+        ],
+        
+        "investment": [
+            (r"(invest\w*|fund\w*|financ\w*).{1,30}(\$|€|£|\d+\s*(million|billion|m|b|mln|bln)).{1,30}(in|into|to)", 3.0),
+            (r"(secur\w*|rais\w*|obtain\w*).{1,30}(investment|funding|capital|financing).{1,30}(of|worth|valued at).{1,15}(\$|€|£|\d+)", 2.5),
+            (r"(complet\w*|clos\w*|finaliz\w*).{1,30}(series|round|phase).{1,15}(funding|investment|financing)", 2.5),
+            (r"(acquire\w*|purchase\w*|obtain\w*).{1,30}(stake|share|interest|equity).{1,30}(\d+%|\d+\s*percent)", 2.0)
+        ],
+        
+        "executive_change": [
+            (r"(appoint\w*|nam\w*|hire\w*|select\w*).{1,30}(as|to).{1,30}(CEO|Chief|President|Chairman|Director|head)", 3.0),
+            (r"(resign\w*|step\w* down|depart\w*|leav\w*).{1,30}(as|from position|from role as).{1,30}(CEO|Chief|President|Chairman|Director)", 3.0),
+            (r"(promot\w*|elevat\w*).{1,30}(to|into).{1,30}(role|position).{1,30}(of|as).{1,15}(CEO|Chief|President|Director|head)", 2.5),
+            (r"(join\w*).{1,30}(as|to become|to serve as).{1,30}(new|incoming).{1,15}(CEO|Chief|President|Director)", 2.0),
+            (r"(board|committee).{1,30}(change|restructur\w*|reorganiz\w*)", 1.5)
+        ],
+        
+        "restructuring": [
+            (r"(restructur\w*|reorganiz\w*|transform\w*).{1,30}(business|operation|company|division|department)", 3.0),
+            (r"(streamlin\w*|optimi\w*|improv\w*).{1,30}(efficiency|performance|productivity|processes|operations)", 2.5),
+            (r"(cost|expense).{1,30}(cut\w*|reduc\w*|sav\w*|control).{1,30}(initiative|program|measure|effort)", 2.5),
+            (r"(implement\w*|execut\w*|undergo\w*).{1,30}(restructuring|reorganization|transformation|turnaround).{1,30}(plan|program|initiative)", 2.0),
+            (r"(divest\w*|sell\w*|dispos\w*).{1,30}(non-core|underperforming).{1,30}(business|asset|operation|division)", 2.0)
+        ],
+        
+        "litigation": [
+            (r"(file\w*|launch\w*|initiate\w*).{1,30}(lawsuit|legal action|legal proceeding|case|claim).{1,30}(against|versus|vs)", 3.0),
+            (r"(settle\w*|resolve\w*).{1,30}(lawsuit|litigation|legal dispute|legal case|legal matter).{1,30}(with|for|amount)", 2.5),
+            (r"(court|judge|jury).{1,30}(rule\w*|decid\w*|find\w*).{1,30}(in favor|against|liable|not liable)", 2.5),
+            (r"(pay|agree\w* to pay).{1,30}(\$|€|£|\d+\s*(million|billion|m|b|mln|bln)).{1,30}(settlement|damages|fine|penalty)", 2.0),
+            (r"(appeal\w*|challenge\w*|contest\w*).{1,30}(ruling|decision|judgment|verdict|court order)", 2.0)
+        ],
+        
+        "expansion": [
+            (r"(open\w*|launch\w*|establish\w*).{1,30}(new|first).{1,30}(office|store|facility|location|branch|plant|factory).{1,30}(in|at|near)", 3.0),
+            (r"(expand\w*|enter\w*|move into).{1,30}(new|additional|foreign|international|global|overseas).{1,30}(market|region|country|territory)", 2.5),
+            (r"(growth|expansion).{1,30}(plan|strategy|initiative|effort).{1,30}(for|in|into|across).{1,15}(market|region|segment|sector)", 2.0),
+            (r"(increase|expand).{1,30}(presence|footprint|operations).{1,30}(in|across|throughout|within).{1,15}(region|country|market)", 2.0)
+        ],
+        
+        "layoff": [
+            (r"(lay off|laid off|cut\w*).{1,30}(\d+|\d+,\d+|\d+\.\d+k|\d+\s*thousand|\d+\s*hundred).{1,30}(employee|staff|worker|job|position)", 3.0),
+            (r"(reduc\w*|decreas\w*|slash\w*).{1,30}(workforce|headcount|staff|personnel).{1,30}(by|to).{1,15}(\d+%|\d+\s*percent|\d+|\d+,\d+)", 2.5),
+            (r"(announce\w*|plan\w*|implement\w*).{1,30}(layoff|job cut|workforce reduction|redundanc|downsizing).{1,15}(program|plan|measure|initiative)", 2.5),
+            (r"(eliminate\w*|cut\w*).{1,30}(\d+|\d+,\d+|\d+\.\d+k|\d+\s*thousand|\d+\s*hundred).{1,30}(position|job|role)", 2.0)
+        ],
+        
+        "partnership": [
+            (r"(enter\w*|form\w*|establish\w*|sign\w*).{1,30}(partnership|alliance|collaboration|joint venture).{1,30}(with|agreement)", 3.0),
+            (r"(announce\w*|unveil\w*).{1,30}(strategic|new|global).{1,30}(partnership|alliance|collaboration|cooperation).{1,30}(with|between)", 2.5),
+            (r"(partner\w*|collaborat\w*|team\w* up|join\w* forces).{1,30}(with|together with).{1,30}(to|for|on).{1,15}(develop|create|provide|deliver|offer)", 2.0),
+            (r"(agree\w*|deal|arrangement).{1,30}(to|will).{1,30}(jointly|together|cooperatively).{1,30}(develop|market|sell|distribute)", 2.0)
+        ],
+        
+        "regulatory": [
+            (r"(receiv\w*|obtain\w*|secure\w*|grant\w*).{1,30}(regulatory|FDA|SEC|FTC|approval|clearance|authorization|permission).{1,30}(for|to)", 3.0),
+            (r"(file\w*|submit\w*|apply\w*).{1,30}(application|request|petition).{1,30}(for|to|with).{1,15}(regulatory|FDA|SEC|FTC|approval)", 2.5),
+            (r"(comply\w*|conform\w*|adhere\w*).{1,30}(regulatory|legal|compliance|statutory).{1,30}(requirement|regulation|rule|standard|guideline)", 2.0),
+            (r"(investigation|probe|inquiry|review).{1,30}(by|from).{1,30}(regulator|regulatory body|authority|agency|commission)", 2.0)
+        ],
+        
+        "stock_movement": [
+            (r"(stock|share).{1,15}(price|value).{1,30}(increase\w*|decrease\w*|rise\w*|fell|drop\w*|surge\w*|plunge\w*|jump\w*).{1,30}(by|to).{1,15}(\d+%|\d+\s*percent|\$|€|£|\d+\.\d+)", 3.0),
+            (r"(trading|trade|stock|share).{1,30}(at|reach\w*|hit\w*).{1,30}(all-time|record|new|highest|lowest).{1,15}(high|low|level|price|value)", 2.5),
+            (r"(market|stock|share).{1,15}(capitalization|value|worth).{1,30}(\$|€|£|\d+\s*(million|billion|trillion|m|b|t|mln|bln))", 2.0),
+            (r"(analyst|investment bank|broker).{1,30}(upgrade\w*|downgrade\w*|raise\w*|lower\w*|adjust\w*).{1,30}(rating|recommendation|price target|outlook)", 2.0)
+        ],
+        
+        "debt_financing": [
+            (r"(raise\w*|secure\w*|obtain\w*|close\w*).{1,30}(\$|€|£|\d+\s*(million|billion|m|b|mln|bln)).{1,30}(debt|loan|financing|credit facility|term loan)", 3.0),
+            (r"(issue\w*|sell\w*|offer\w*|place\w*).{1,30}(bond|note|debt security|senior note|subordinated note).{1,30}(worth|valued|amount|totaling).{1,15}(\$|€|£|\d+)", 2.5),
+            (r"(refinanc\w*|restructur\w*|renegotiat\w*).{1,30}(debt|loan|credit facility|term loan|bond|note).{1,30}(of|worth|amount|totaling).{1,15}(\$|€|£|\d+)", 2.0),
+            (r"(enter\w*|sign\w*|secure\w*).{1,30}(credit|loan|debt).{1,15}(agreement|facility|arrangement).{1,30}(with|from).{1,15}(bank|lender|financial institution)", 2.0)
+        ],
+        
+        "contract_deal": [
+            (r"(sign\w*|enter\w*|secure\w*|win\w*|award\w*).{1,30}(contract|deal|agreement).{1,30}(worth|valued at|amount|value).{1,15}(\$|€|£|\d+\s*(million|billion|m|b|mln|bln))", 3.0),
+            (r"(award\w*|grant\w*|give\w*).{1,30}(\$|€|£|\d+\s*(million|billion|m|b|mln|bln)).{1,30}(contract|deal|agreement|order)", 2.5),
+            (r"(multi-year|long-term|major|significant|strategic).{1,15}(contract|agreement|deal).{1,30}(with|to|for).{1,30}(provide|supply|deliver|support)", 2.0),
+            (r"(renew\w*|extend\w*|expand\w*).{1,30}(existing|current|ongoing).{1,30}(contract|agreement|deal).{1,30}(with|for|to)", 2.0)
+        ]
+    }
+    
+    # Keywords with negative context indicators
+    NEGATIVE_CONTEXTS = {
+        "merger_acquisition": [
+            (r"(not|no longer|doesn't|does not|won't|will not).{1,30}(acquir\w+|buy|purchase)", 3.0),
+            (r"(deny|denies|denied|refut\w+|dismiss\w+).{1,30}(rumor|speculation|report).{1,30}(acquisition|merger|takeover)", 3.0),
+            (r"(cancel\w+|terminat\w+|abandon\w+|end\w+).{1,30}(acquisition|merger|takeover|deal)", 2.5)
+        ],
+        
+        "earnings": [
+            (r"(not|doesn't|does not|won't|will not).{1,30}(report|announce|release).{1,30}(earnings|results)", 3.0),
+            (r"(delay\w+|postpon\w+|defer\w+).{1,30}(earnings|results).{1,30}(report|announcement|release)", 2.5)
+        ],
+        
+        "product_launch": [
+            (r"(delay\w+|postpon\w+|cancel\w+|suspend\w+).{1,30}(launch|release|introduction|debut).{1,30}(of|for).{1,15}(product|service)", 3.0),
+            (r"(not|won't|will not).{1,30}(launch|release|introduce|unveil).{1,30}(product|service|solution)", 2.5)
+        ],
+        
+        "executive_change": [
+            (r"(deny|denies|denied|refut\w+|dismiss\w+).{1,30}(rumor|speculation|report).{1,30}(resign|departure|leaving|stepping down)", 3.0),
+            (r"(not|no|won't|will not).{1,30}(step down|resign|leave|depart)", 2.5)
+        ],
+        
+        "partnership": [
+            (r"(end\w*|terminate\w*|dissolve\w*|cancel\w*).{1,30}(partnership|alliance|collaboration|joint venture)", 3.0),
+            (r"(not|no longer).{1,30}(partner|collaborate|cooperate|work together).{1,30}(with|on)", 2.5)
+        ]
+    }
+    
+    # Entity type patterns
+    ENTITY_PATTERNS = {
+        "company": r"([A-Z][a-z]*\.?\s)?([A-Z][a-z]+\s)*[A-Z][a-z]*\.?(\s(Inc|Corp|Co|Ltd|LLC|Group|SA|AG|SE|NV|PLC|GmbH)\.?)?",
+        "money": r"(\$|€|£|USD|EUR|GBP)?\s?\d+(\.\d+)?\s?(million|billion|trillion|mn|bn|tn|m|b|t)?(\s(USD|EUR|GBP))?",
+        "percentage": r"\d+(\.\d+)?\s?(%|percent|pct|basis points|bps)",
+        "date": r"(Jan(uary)?|Feb(ruary)?|Mar(ch)?|Apr(il)?|May|Jun(e)?|Jul(y)?|Aug(ust)?|Sep(tember)?|Oct(ober)?|Nov(ember)?|Dec(ember)?)\s\d{1,2}(st|nd|rd|th)?(,?\s\d{4})?",
+    }
+    
+    # Key financial verbs with sentiment
+    FINANCIAL_VERBS = {
+        "positive": ["increase", "rise", "grow", "improve", "expand", "strengthen", "accelerate", "exceed", "beat", "outperform", "gain"],
+        "negative": ["decrease", "decline", "drop", "fall", "reduce", "weaken", "slow", "miss", "underperform", "lose"],
+        "neutral": ["report", "announce", "state", "declare", "disclose", "release", "publish", "issue", "present"]
+    }
     
     def __init__(self, config: Dict = None):
         """
-        Initialize the advanced financial event extractor.
+        Initialize the FinancialEventClassifier with context-aware pattern matching.
         
         Args:
-            config: Configuration dictionary with options:
-                - text_column: Name of the column containing text (default: "Sentence")
-                - output_column: Name of the output column (default: "Event")
-                - use_spacy: Whether to use spaCy for NLP (default: True)
-                - min_score_threshold: Minimum score to classify (default: 0.5)
-                - default_event: Default event when no event is detected (default: "other")
+            config (Dict): Configuration dictionary with the following possible keys:
+                - input_col (str): Name of the input column containing text (default: 'Sentence')
+                - output_col (str): Name of the output column for event classification (default: 'Event')
+                - preprocess (bool): Whether to preprocess text before classification (default: True)
+                - add_confidence (bool): Whether to add confidence scores as additional columns (default: False)
+                - min_confidence (float): Minimum confidence threshold to classify (default: 0.3)
+                - use_contextual (bool): Whether to use contextual pattern matching (default: True)
+                - context_weight (float): Weight for contextual pattern match scores (default: 1.5)
         """
+        # Initialize all patterns with compiled regex
+        self._compile_patterns()
+        
         super().__init__(config)
         
-        # Parse config
-        self.text_column = self.config.get('text_column', 'Sentence')
-        self.output_column = self.config.get('output_column', 'Event')
-        self.use_spacy = self.config.get('use_spacy', True) and SPACY_AVAILABLE
-        self.min_score_threshold = self.config.get('min_score_threshold', 0.5)
-        self.default_event = self.config.get('default_event', 'other')
+        # Set default configuration values if not provided
+        self.input_col = self.config.get('input_col', 'Sentence')
+        self.output_col = self.config.get('output_col', 'Event')
+        self.preprocess = self.config.get('preprocess', True)
+        self.add_confidence = self.config.get('add_confidence', False)
+        self.min_confidence = self.config.get('min_confidence', 0.2)
+        self.use_contextual = self.config.get('use_contextual', True)
+        self.context_weight = self.config.get('context_weight', 1.4)
         
         # Initialize NLP components
-        if self.use_spacy:
+        self._init_nlp()
+    
+    def _compile_patterns(self):
+        """Compile regex patterns for faster matching"""
+        # Compile context patterns
+        for category in self.CONTEXT_PATTERNS:
+            compiled_patterns = []
+            for pattern, weight in self.CONTEXT_PATTERNS[category]:
+                compiled_patterns.append((re.compile(pattern, re.IGNORECASE), weight))
+            self.CONTEXT_PATTERNS[category] = compiled_patterns
+            
+        # Compile negative contexts
+        for category in self.NEGATIVE_CONTEXTS:
+            compiled_patterns = []
+            for pattern, weight in self.NEGATIVE_CONTEXTS[category]:
+                compiled_patterns.append((re.compile(pattern, re.IGNORECASE), weight))
+            self.NEGATIVE_CONTEXTS[category] = compiled_patterns
+            
+        # Compile entity patterns
+        for entity_type in self.ENTITY_PATTERNS:
+            self.ENTITY_PATTERNS[entity_type] = re.compile(self.ENTITY_PATTERNS[entity_type])
+    
+    def _init_nlp(self):
+        """Initialize NLP components"""
+        if self.preprocess:
+            # Download necessary NLTK resources
             try:
-                self.nlp = spacy.load("en_core_web_sm")
-            except:
-                try:
-                    print("Installing spaCy model...")
-                    import subprocess
-                    subprocess.call(["python", "-m", "spacy", "download", "en_core_web_sm"])
-                    self.nlp = spacy.load("en_core_web_sm")
-                except:
-                    print("Failed to load spaCy model. Disabling NLP features.")
-                    self.use_spacy = False
-        
-        # Initialize signal components
-        self._initialize_event_indicators()
-        self._initialize_business_activity_ontology()
-        self._initialize_industry_terminology()
-        self._initialize_financial_metric_patterns()
-        self._initialize_special_patterns()
+                nltk.data.find('corpora/stopwords')
+                nltk.data.find('corpora/wordnet')
+            except LookupError:
+                nltk.download('stopwords')
+                nltk.download('wordnet')
+                nltk.download('punkt')
+                
+            self.lemmatizer = WordNetLemmatizer()
+            self.stop_words = set(stopwords.words('english'))
+            
+            # Regular expressions for detecting financial patterns
+            self.money_pattern = re.compile(r'(\$|€|£|USD|EUR|GBP|million|billion|mn|bn|\d+\.\d+|\d+%)')
+            self.ticker_pattern = re.compile(r'\$[A-Z]{1,5}')
+            
+            # Add named entity recognition patterns
+            self.companies_pattern = re.compile(r'([A-Z][a-z]*\.?\s)?([A-Z][a-z]+\s)*[A-Z][a-z]*\.?(\s(Inc|Corp|Co|Ltd|LLC|Group|SA|AG|SE|NV|PLC|GmbH)\.?)?')
     
-    def _initialize_event_indicators(self):
-        """Initialize comprehensive mapping between indicators and events."""
-        self.event_indicators = {
-            "merger_acquisition": {
-                "entities": ["company", "business", "firm", "corporation", "enterprise", "acquirer", "target"],
-                "metrics": ["stake", "ownership", "share", "equity", "control", "acquisition", "merger", "takeover", "tender offer"],
-                # Adjusted weight: reduced to prevent over-classification
-                "verbs": ["acquire", "merge", "buy", "purchase", "take over", "combine", "join", "obtain title"],
-                "contexts": ["percent stake", "majority stake", "controlling interest", "acquisition price", "merger agreement", 
-                             "shares that are to be redeemed", "all the shares of"]
-            },
-            
-            "earnings": {
-                # Strengthened earnings indicators
-                "entities": ["revenue", "profit", "loss", "income", "sales", "margin", "result", "EPS", "earnings per share"],
-                "metrics": ["EBITDA", "EPS", "net income", "gross margin", "operating profit", "quarterly", "forecast", "guidance", 
-                           "consensus", "estimates", "sales figures", "mln", "million", "billion", "generated sales"],
-                "verbs": ["report", "post", "announce", "rise", "fall", "increase", "decrease", "grow", "beat", "miss", 
-                          "top", "exceed", "generate", "reach", "amount to"],
-                "contexts": ["year-on-year", "quarter-on-quarter", "compared to", "previous", "corresponding period", 
-                             "million", "billion", "percent", "growth", "performance", "consensus forecasts", 
-                             "topped forecasts", "generated sales", "diluted earnings", "per share", "fell to", "rose to"]
-            },
-            
-            "dividend": {
-                "entities": ["dividend", "payout", "distribution", "shareholder", "stockholder"],
-                "metrics": ["yield", "payout ratio", "per share", "dividend yield", "quarterly dividend"],
-                "verbs": ["pay", "distribute", "declare", "announce", "raise", "increase", "cut", "reduce", "suspend"],
-                "contexts": ["quarterly dividend", "annual dividend", "special dividend", "dividend policy", "ex-dividend date"]
-            },
-            
-            "product_launch": {
-                "entities": ["product", "service", "solution", "platform", "technology", "offering"],
-                "metrics": ["feature", "functionality", "performance", "specification", "version", "new product"],
-                "verbs": ["launch", "introduce", "unveil", "release", "announce", "develop", "create", "debut"],
-                "contexts": ["new product", "next generation", "cutting edge", "innovative", "market", "customer", "made with"]
-            },
-            
-            # Added new event type for product recalls and issues
-            "product_issues": {
-                "entities": ["product", "recall", "defect", "issue", "problem", "safety", "replacement"],
-                "metrics": ["number of units", "affected products", "fix", "repair"],
-                "verbs": ["recall", "fix", "repair", "replace", "return", "address", "resolve", "identify"],
-                "contexts": ["voluntary recall", "safety concern", "affected units", "customers affected", 
-                             "known incidents", "faulty", "defective", "not working", "malfunction"]
-            },
-            
-            "investment": {
-                "entities": ["investment", "funding", "capital", "investor", "shareholder", "stake"],
-                "metrics": ["million", "billion", "round", "series", "valuation"],
-                "verbs": ["invest", "fund", "finance", "raise", "secure", "allocate", "commit"],
-                "contexts": ["venture capital", "private equity", "funding round", "capital expenditure", 
-                             "investment strategy", "return on investment"]
-            },
-            
-            "restructuring": {
-                # Enhanced restructuring patterns
-                "entities": ["restructuring", "reorganization", "transformation", "efficiency", "streamlining", "reorganisation"],
-                "metrics": ["cost", "savings", "reduction", "synergy", "optimization"],
-                "verbs": ["restructure", "reorganize", "transform", "optimize", "streamline", "consolidate", "divest", "sell", "withdraw", "suspend"],
-                "contexts": ["cost cutting", "operational efficiency", "business model", "turnaround plan", 
-                             "divesting non-core", "strategic review", "petition to suspend", "reorganisation"]
-            },
-            
-            "litigation": {
-                "entities": ["lawsuit", "litigation", "court", "legal", "dispute", "claim", "settlement"],
-                "metrics": ["damages", "compensation", "penalty", "fine", "liability"],
-                "verbs": ["sue", "litigate", "settle", "resolve", "appeal", "dispute", "challenge"],
-                "contexts": ["legal proceedings", "court case", "regulatory investigation", "antitrust", "intellectual property", 
-                             "patent", "in jeopardy", "sanctions"]
-            },
-            
-            "executive_change": {
-                "entities": ["CEO", "CFO", "CTO", "COO", "chairman", "president", "executive", "director", "board", "leadership", "vice president"],
-                "metrics": ["leadership", "management", "team", "board", "committee", "position"],
-                "verbs": ["appoint", "name", "elect", "promote", "resign", "retire", "step down", "depart", "leave", "join", "assume"],
-                "contexts": ["management change", "leadership transition", "succession plan", "executive team", "board of directors"]
-            },
-            
-            "expansion": {
-                "entities": ["market", "facility", "operation", "presence", "footprint", "capacity"],
-                "metrics": ["growth", "size", "scale", "global", "international", "regional", "local"],
-                "verbs": ["expand", "grow", "enter", "open", "establish", "launch", "extend", "strengthen"],
-                "contexts": ["new market", "geographic expansion", "global presence", "foothold", "build facilities", 
-                             "increase capacity", "enhance capability"]
-            },
-            
-            "layoff": {
-                # Improved layoff detection
-                "entities": ["employee", "worker", "staff", "job", "position", "workforce", "personnel"],
-                "metrics": ["headcount", "reduction", "cost", "efficiency", "redundancy"],
-                "verbs": ["layoff", "cut", "reduce", "eliminate", "terminate", "downsize", "shed", "lose"],
-                "contexts": ["job cuts", "workforce reduction", "headcount reduction", "redundancies", "staff reduction", 
-                             "downsizing", "temporary layoff", "lay-offs", "fixed duration", "temporary lay-offs"]
-            },
-            
-            "partnership": {
-                "entities": ["partner", "alliance", "collaboration", "venture", "relationship"],
-                "metrics": ["strategic", "joint", "mutual", "collaborative", "agreement"],
-                "verbs": ["partner", "collaborate", "ally", "cooperate", "team up", "work together", "select", "join forces"],
-                "contexts": ["strategic partnership", "joint venture", "collaboration agreement", "strategic alliance", 
-                             "working together", "alliance plans"]
-            },
-            
-            "regulatory": {
-                "entities": ["regulator", "authority", "commission", "agency", "compliance", "regulation", "approval"],
-                "metrics": ["requirement", "standard", "framework", "rule", "law", "statute"],
-                "verbs": ["approve", "authorize", "regulate", "comply", "permit", "license", "certify", "reject"],
-                "contexts": ["regulatory approval", "compliance requirement", "regulatory framework", "government authority", 
-                             "SEC", "FDA", "EU", "commission", "deadline", "Finnish Companies Act"]
-            },
-            
-            "stock_movement": {
-                "entities": ["stock", "share", "equity", "market", "index", "price", "trading", "contract", "block"],
-                "metrics": ["point", "percent", "volume", "volatility", "performance", "valuation", "bid price"],
-                "verbs": ["rise", "fall", "increase", "decrease", "gain", "lose", "surge", "plunge", "rally", "recover", "trade", "changed hands"],
-                "contexts": ["stock market", "share price", "market value", "trading session", "market close", 
-                             "bullish", "bearish", "upgrade", "downgrade", "target price", "Eastern time", "p.m.", "a.m."]
-            },
-            
-            "debt_financing": {
-                "entities": ["debt", "loan", "bond", "credit", "financing", "facility"],
-                "metrics": ["interest", "rate", "term", "maturity", "principal", "covenant"],
-                "verbs": ["borrow", "lend", "finance", "issue", "raise", "secure", "refinance", "repay"],
-                "contexts": ["credit facility", "loan agreement", "debt financing", "bond issue", "credit line", 
-                             "debt restructuring", "term loan", "interest rate"]
-            },
-            
-            "contract_deal": {
-                "entities": ["contract", "deal", "agreement", "order", "project", "tender", "bid"],
-                "metrics": ["value", "worth", "duration", "scope", "term"],
-                "verbs": ["sign", "award", "win", "secure", "negotiate", "finalize", "agree", "conclude", "supply", "deliver", "provide"],
-                "contexts": ["service contract", "supply agreement", "purchase order", "framework agreement", 
-                             "multi-year", "long-term", "worth million", "valued at", "turnkey"]
-            }
-        }
-        
-        # Compile regex patterns for each indicator category
-        self.indicator_patterns = {}
-        for event, indicators in self.event_indicators.items():
-            self.indicator_patterns[event] = {}
-            for category, terms in indicators.items():
-                patterns = [r'\b' + re.escape(term) + r'\b' for term in terms]
-                self.indicator_patterns[event][category] = re.compile('|'.join(patterns), re.IGNORECASE)
-    
-    def _initialize_business_activity_ontology(self):
-        """Initialize mapping between business activities and likely events."""
-        self.business_activities = {
-            # Format: (activity_pattern, event, weight)
-            r'\b(select\w+|choose|pick\w+) .{0,30}\b(partner|vendor|supplier)\b': ("partnership", 2.0),
-            r'\b(nam\w+|appoint\w+) .{0,30}\b(as|to) .{0,20}\b(CEO|CFO|CTO|vice president|director|chair)\b': ("executive_change", 2.5),
-            r'\bnew .{0,10}\b(CEO|CFO|CTO|COO|chief|executive|officer|director)\b': ("executive_change", 2.0),
-            r'\b(enhance|improve|upgrade|expand) .{0,20}\b(capability|capacity|infrastructure|network)\b': ("expansion", 1.5),
-            r'\b(deliver|supply|provide) .{0,20}\b(to|for) .{0,30}\b(contract|agreement|deal)\b': ("contract_deal", 1.5),
-            r'\b(build|construct) .{0,20}\b(facility|plant|factory|store|shop|outlet)\b': ("expansion", 2.0),
-            
-            # Enhanced earnings patterns
-            r'\b(totaled|amounted to|reached|generated) .{0,20}\b(EUR|USD|€|\$) .{0,15}\b(million|billion|mn|bn)\b': ("earnings", 2.5),
-            r'\bsales .{0,15}\b(grew|rose|increased|decreased|fell|dropped)\b': ("earnings", 2.5),
-            r'\b(compared|versus) .{0,15}\b(previous|corresponding|last) (period|quarter|year)\b': ("earnings", 2.0),
-            r'\b(generated|report\w*) .{0,10}\b(sales|revenue|income|profit|earnings)\b': ("earnings", 2.5),
-            r'\b(topped|exceeded|beat|missed) .{0,15}\b(consensus|forecast|estimate|expectation)\b': ("earnings", 3.0),
-            r'\bdiluted earnings per share .{0,15}\b(fell|rose|was|were)\b': ("earnings", 3.0),
-            r'\bEPS .{0,15}\b(fell|rose|was|were|of)\b': ("earnings", 3.0),
-            r'\b(firm|company) generated sales\b': ("earnings", 3.0),
-            
-            # Enhanced M&A patterns (with reduced weights)
-            r'\b(completed|finalized) .{0,20}\b(acquisition|takeover|purchase)\b': ("merger_acquisition", 2.0),
-            r'\b(agreed|accepted) .{0,20}\b(offer|bid|proposal)\b': ("merger_acquisition", 1.5),
-            r'\bobtained title .{0,20}\b(to|of) .{0,20}\b(shares)\b': ("merger_acquisition", 2.5),
-            
-            # Enhanced restructuring patterns
-            r'\b(file\w+|submit\w+) .{0,20}\b(for|with) .{0,20}\b(bankruptcy|protection|insolvency)\b': ("restructuring", 2.5),
-            r'\b(received|granted|obtained) .{0,20}\b(approval|clearance|permission)\b': ("regulatory", 2.0),
-            r'\b(canceled|discontinued|terminated) .{0,20}\b(services?|operations?|activities?)\b': ("restructuring", 1.5),
-            r'\b(temporarily|permanently) closed\b': ("restructuring", 1.5),
-            r'\b(withdraw\w*|suspend\w*) .{0,20}\b(petition|reorganisation|reorganization)\b': ("restructuring", 2.5),
-            r'\b(reorganisation|reorganization) .{0,15}\b(plan|effort|strategy)\b': ("restructuring", 2.0),
-            
-            # Enhanced layoff patterns
-            r'\b(temporary lay-offs|lay-offs) .{0,20}\b(of fixed duration|at the company)\b': ("layoff", 3.0),
-            r'\b(decision|announcement) .{0,20}\b(means|leads to|results in) .{0,20}\b(lay-offs|layoffs|job cuts)\b': ("layoff", 3.0),
-            
-            # Enhanced recall/product issue patterns
-            r'\b(recall\w*|fix\w*) .{0,30}\b(product|model|car|vehicle|unit)\b': ("product_issues", 3.0),
-            r'\b(issue|problem|defect) .{0,30}\b(with|in|affecting) .{0,20}\b(product|model|unit)\b': ("product_issues", 2.5),
-            
-            # Net sales/operating profit patterns for earnings
-            r'\b(net sales|operating profit|revenue) .{0,15}\b(was|reached|amounted to)\b': ("earnings", 2.5),
-        }
-        
-        # Compile the business activity patterns
-        self.compiled_activities = [(re.compile(pattern, re.IGNORECASE), event, weight) 
-                                   for pattern, (event, weight) in self.business_activities.items()]
-    
-    def _initialize_industry_terminology(self):
-        """Initialize database of industry-specific terminology mapped to events."""
-        self.industry_terms = {
-            # Format: (term, event, weight)
-            "GPRS capability": ("expansion", 1.5),
-            "RoRo systems": ("contract_deal", 1.5),
-            "vessel": ("contract_deal", 1.0),
-            "provision solution": ("contract_deal", 1.5),
-            "basis points": ("debt_financing", 1.5),
-            "mid-swaps": ("debt_financing", 1.5),
-            "OSS software": ("product_launch", 1.5),
-            "sinter plant": ("expansion", 1.5),
-            "grate area": ("expansion", 1.0),
-            "turnkey": ("contract_deal", 1.5),
-            "provisioning": ("product_launch", 1.0),
-            "activation solution": ("product_launch", 1.5),
-            "network element": ("expansion", 1.0),
-            "network management": ("expansion", 1.0),
-            "telecom service": ("contract_deal", 1.0),
-            "guidance": ("earnings", 1.5),
-            "scope of delivery": ("contract_deal", 2.0),
-            "proprietary equipment": ("contract_deal", 1.5),
-            "framework agreement": ("contract_deal", 1.5),
-            "design": ("contract_deal", 0.5),
-            "engineering": ("contract_deal", 0.5),
-            "supply": ("contract_deal", 1.0),
-            "target price": ("stock_movement", 1.5),
-            "broker": ("stock_movement", 1.0),
-            "analyst": ("stock_movement", 1.0),
-            "forecasts": ("earnings", 1.5),
-            "beat forecasts": ("earnings", 2.0),
-            "topped consensus forecasts": ("earnings", 3.0),
-            "exit reversal": ("stock_movement", 2.0),
-            "long": ("stock_movement", 1.5),
-            "price action": ("stock_movement", 1.5),
-            "rally": ("stock_movement", 2.0),
-            "boosted by": ("stock_movement", 1.5),
-            "impulse buys": ("product_launch", 1.0),
-            "timeless style": ("product_launch", 0.5),
-            "sale": ("contract_deal", 0.5),
-            "gain of some EUR": ("earnings", 2.0),
-            "temporary lay-offs": ("layoff", 3.0),
-            "fixed duration": ("layoff", 2.0),
-            "serves customers": ("other", 0.5),  # Reduced weight for general statements
-            "serves approximately": ("other", 0.5),  # Reduced weight for general statements
-            "separate carriage": ("other", 0.5),   # Reduced weight for operational statements
-            "infected passengers": ("other", 0.5), # Reduced weight for operational statements
-            "no grounds for rumors": ("other", 1.5),
-            "Finnish Companies Act": ("regulatory", 2.0),
-            "obtained title to all the shares": ("merger_acquisition", 3.0),
-            "diluted earnings per share": ("earnings", 3.0),
-            "generated sales": ("earnings", 3.0),
-            
-            # New product recall terms
-            "recall": ("product_issues", 2.5),
-            "Model X": ("product_issues", 1.0),
-            "recalled": ("product_issues", 2.5),
-            "replacing": ("product_issues", 1.0),
-            "seat backs": ("product_issues", 1.0),
-        }
-        
-        # Create regex patterns for industry terms
-        self.industry_patterns = [(re.compile(r'\b' + re.escape(term) + r'\b', re.IGNORECASE), event, weight) 
-                                 for term, (event, weight) in self.industry_terms.items()]
-    
-    def _initialize_financial_metric_patterns(self):
-        """Initialize patterns for recognizing financial metrics."""
-        self.financial_metrics = [
-            # Format: (pattern, event_dict)
-            
-            # Enhanced earnings patterns
-            (r'\b(diluted earnings per share|EPS)\b .{0,10}\b(fell|rose|was|were|of)\b .{0,15}\b(EUR|USD|€|\$)\s?(\d+\.?\d*)\b', 
-             {"earnings": 3.0}),
-            
-            (r'\b(the firm|company) generated sales\b .{0,10}\b(of|amounting to|totaling)\b .{0,10}\b(\d+)\b .{0,5}\b(mln|million|bln|billion)\b', 
-             {"earnings": 3.0}),
-             
-            (r'\b(topped|exceeded|beat|missed)\b .{0,10}\b(consensus forecasts|estimates|expectations)\b', 
-             {"earnings": 3.0}),
-             
-            # Percentage changes - strongly indicate stock movement or earnings
-            (r'\b(up|down|increase[d]?|decrease[d]?|rise|fall|fell|rose|jump[ed]?|gain[ed]?)\b .{0,10}\b(\d+\.?\d*)\s?(percent|%)\b', 
-             {"stock_movement": 1.5, "earnings": 2.0}),  # Adjusted to favor earnings
-            
-            # Year-on-year / quarter-on-quarter comparisons - indicates earnings
-            (r'\b(\d+\.?\d*)\s?(percent|%) .{0,15}\b(year-on-year|year over year|compared to|versus|against)\b', 
-             {"earnings": 2.5}),
-            
-            # Currency amounts in millions/billions - could be multiple events
-            (r'\b(EUR|USD|€|\$)\s?(\d+\.?\d*)\s?(million|billion|mn|bn)\b', 
-             {"contract_deal": 0.8, "investment": 0.8, "earnings": 1.5, "debt_financing": 0.8}),  # Favor earnings
-            
-            # Beating/missing forecasts - strongly indicates earnings
-            (r'\b(beat|exceed|miss|fall short of|below|above)\b .{0,15}\b(forecast|expectation|estimate|guidance|consensus)\b', 
-             {"earnings": 2.5}),
-            
-            # Market share
-            (r'\b(market share|market position)\b .{0,15}\b(increase[d]?|decrease[d]?|improve[d]?|grew|expanded)\b', 
-             {"earnings": 1.5, "expansion": 1.0}),
-            
-            # Stock price target
-            (r'\b(target price|price target)\b .{0,15}\b(of|at|to)\b .{0,10}\b(EUR|USD|€|\$)\s?(\d+\.?\d*)\b', 
-             {"stock_movement": 2.5}),
-            
-            # Margins
-            (r'\b(gross|operating|profit|EBITDA)\b .{0,5}\b(margin)\b .{0,15}\b(\d+\.?\d*)\s?(percent|%)\b', 
-             {"earnings": 2.5}),
-            
-            # Dividend per share
-            (r'\b(dividend)\b .{0,15}\b(of|at)\b .{0,10}\b(EUR|USD|€|\$)\s?(\d+\.?\d*)\b .{0,5}\b(per share)\b', 
-             {"dividend": 3.0}),
-            
-            # Number of shares
-            (r'\b(new shares|offering|issue)\b .{0,15}\b(\d+\.?\d*)\s?(million|billion|mn|bn)\b', 
-             {"investment": 2.0, "debt_financing": 1.5}),
-            
-            # Cost savings
-            (r'\b(cost saving|synergy|efficiency gain)\b .{0,15}\b(of|at|to)\b .{0,10}\b(EUR|USD|€|\$)\s?(\d+\.?\d*)\b', 
-             {"restructuring": 2.5}),
-             
-            # Enhanced stock movement patterns
-            (r'\b(at|around)\b .{0,5}\b(\d{1,2}:\d{2})\b .{0,5}\b([ap]\.m\.|[AP]M)\b .{0,10}\b(Eastern|Pacific|Central|Mountain)\b', 
-             {"stock_movement": 2.5}),
-             
-            (r'\b(block|blocks)\b .{0,10}\b(of)\b .{0,5}\b(\d{1,3}(,\d{3})*)\b .{0,10}\b(contracts|shares)\b .{0,10}\b(changed hands|traded)\b', 
-             {"stock_movement": 3.0}),
-             
-            # Enhanced recall patterns
-            (r'\b(recall(ing|s|ed)?)\b .{0,10}\b(\d{1,3}(,\d{3})*)\b .{0,10}\b(units|products|cars|vehicles|models)\b', 
-             {"product_issues": 3.0}),
-             
-            # Enhanced layoff patterns
-            (r'\b(temporary|permanent)?\b .{0,5}\b(lay-offs|layoffs)\b .{0,15}\b(of fixed duration|at the company)\b', 
-             {"layoff": 3.0}),
-             
-            # General company information that should NOT trigger financial events
-            (r'\b(company|firm)\b .{0,10}\b(serves|has|maintains)\b .{0,10}\b(\d{1,3}(,\d{3})*)\b .{0,10}\b(customers|clients|users)\b', 
-             {"other": 2.0}),
-        ]
-        
-        # Compile financial metric patterns
-        self.compiled_metrics = [(re.compile(pattern, re.IGNORECASE), events) 
-                                for pattern, events in self.financial_metrics]
-    
-    def _initialize_special_patterns(self):
-        """Initialize special patterns for specific cases."""
-        self.special_patterns = [
-            # Stock ticker pattern - reduced weight to prevent over-classification
-            (r'\$([A-Z]{1,5})\b', "stock_movement", 2.0),  # Reduced from 3.0 to 2.0
-            
-            # CEO attribution pattern - NOT an executive change
-            (r'\b(CEO|chief executive|director) .{1,10}\bsaid\b', "executive_change_negative", 2.5),
-            
-            # Company statement pattern - often NOT a significant financial event
-            (r'\b(company|firm) .{1,10}\b(said|stated|announced|reported)\b', "other", 1.0),
-            
-            # Gains foothold - expansion
-            (r'\bgains? foothold\b', "expansion", 2.5),
-            
-            # Multiple companies mentioned with alliance/partnership
-            (r'\b([A-Z][a-z]+)(?:\s[A-Z][a-z]+)* and ([A-Z][a-z]+)(?:\s[A-Z][a-z]+)*\b .{0,30}\b(partner|alliance|agreement|collaborate)\b', 
-             "partnership", 2.5),
-            
-            # Margin performance - strongly indicate earnings
-            (r'\b(margin|diesel margin) .{0,15}(has |have )(remained|improved|increased|decreased)\b', 
-             "earnings", 2.5),  # Increased from 2.0 to 2.5
-            
-            # Growth of customer/user base - indicate earnings
-            (r'\bgrowth .{0,20}(customer|client|user|subscriber)\b', "earnings", 2.0),
-            
-            # Contract specifics - strongly indicate contract deal
-            (r'\bcontract.{0,30}(comprise|include|consist)\b', "contract_deal", 2.0),
-            
-            # Company strategy - indicate restructuring
-            (r'\bstrategy .{0,30}(focus|concentrate) on\b', "restructuring", 1.5),
-            
-            # Trading indicators - stock movement
-            (r'\b(exit|entry|reversal|long|short|position|holding)\b', "stock_movement", 2.0),
-            
-            # Exchange indices - stock movement
-            (r'\b(FTSE|Dow|NASDAQ|S&P|Nikkei|DAX)\b', "stock_movement", 2.0),
-            
-            # Specific M&A language
-            (r'\bobtained title to .{0,15}shares\b', "merger_acquisition", 3.0),
-            
-            # Specific earnings language
-            (r'\bdiluted earnings per share .{0,15}(fell|rose|was)\b', "earnings", 3.0),
-            (r'\bEPS .{0,15}(fell|rose|was)\b', "earnings", 3.0),
-            (r'\bsales of \d+\b', "earnings", 2.5),
-            (r'\b(topped|beat|exceeded) .{0,15}(consensus|forecasts|expectations)\b', "earnings", 3.0),
-            
-            # Specific product recall language
-            (r'\brecall(ing|s|ed)?\b .{0,15}(cars|vehicles|products|models)\b', "product_issues", 3.0),
-            
-            # Operational decision pattern (not financial)
-            (r'\b(planning|plan) to set .{0,30}(passengers|customers|users)\b', "other", 2.0),
-            (r'\b(infected|sick|ill) .{0,10}(passengers|customers|users|people)\b', "other", 2.0),
-            
-            # Rumor denial pattern
-            (r'\bno grounds for .{0,15}(rumors|speculation)\b', "other", 2.0),
-            
-            # General company description - strongly indicate "other"
-            (r'\b(company|firm) serves .{0,10}\d+,?\d* (customers|clients)\b', "other", 2.5),
-            (r'\b(in|over) \d+ countries\b', "other", 2.0),
-            
-            # Works Council pattern - restructuring
-            (r'\bWorks Council\b .{0,30}\b(withdraw|petition|suspend|reorganisation|reorganization)\b', "restructuring", 2.5),
-        ]
-        
-        # Compile special patterns
-        self.compiled_special = [(re.compile(pattern, re.IGNORECASE), event, weight) 
-                                for pattern, event, weight in self.special_patterns]
-    
-    def _detect_financial_content(self, text: str) -> bool:
+    def preprocess_text(self, text):
         """
-        First-stage detection: determine if text contains any financial content.
+        Preprocess text for classification with more advanced techniques.
         
         Args:
-            text: Input text
+            text (str): Input text to preprocess
             
         Returns:
-            Boolean indicating if financial content is detected
+            str: Preprocessed text
         """
-        # Check for financial entity mentions
-        financial_entities = [
-            r'\b(company|business|firm|corporation|enterprise)\b',
-            r'\b(stock|share|bond|market|investor|trading)\b',
-            r'\b(revenue|profit|loss|sales|earnings|dividend|EBITDA|EPS)\b',
-            r'\b(million|billion|percent|million|EUR|USD|€|\$)\b',
-            r'\b(CEO|CFO|CTO|executive|director|board)\b',
-            r'\b(acquisition|merger|takeover|investment|partnership)\b',
-            r'\b(growth|decline|increase|decrease|performance)\b',
-            r'\b(contract|deal|agreement|order)\b',
-            r'\b(forecast|guidance|outlook|expectation)\b',
-            r'\b[A-Z]{2,5}\b',  # Potential stock tickers or abbreviations
-            r'\$[A-Z]{1,5}\b'   # Stock ticker with $ prefix
-        ]
+        if not isinstance(text, str):
+            return ""
         
-        # Check if any financial entity is present
-        for pattern in financial_entities:
-            if re.search(pattern, text, re.IGNORECASE):
-                return True
+        if not self.preprocess:
+            return text.lower()
         
-        return False
-    
-    def _collect_weighted_signals(self, text: str) -> Dict[str, float]:
+        # Normalize whitespace
+        text = re.sub(r'\s+', ' ', text.strip())
+        
+        # Replace ticker symbols with a token
+        text = self.ticker_pattern.sub(" TICKERSYMBOL ", text)
+        
+        # Replace monetary values with a token but preserve the value
+        text = self.money_pattern.sub(lambda m: f" MONEYVALUE_{m.group(0).replace(' ', '_')} ", text)
+        
+        # Identify company names
+        text = self.companies_pattern.sub(" COMPANY ", text)
+        
+        # Tokenize and lemmatize
+        tokens = nltk.word_tokenize(text.lower())
+        
+        # Remove stopwords and lemmatize
+        tokens = [self.lemmatizer.lemmatize(token) for token in tokens if token not in self.stop_words]
+        
+        return " ".join(tokens)
+        
+    def find_entities(self, text):
         """
-        Collect and weight all signals for each event type.
+        Extract financial entities from text.
         
         Args:
-            text: Input text
+            text (str): Input text
             
         Returns:
-            Dictionary mapping events to their signal scores
+            dict: Dictionary of entity types and their matches
         """
-        event_scores = defaultdict(float)
-        negative_signals = defaultdict(float)
+        entities = {}
         
-        # 1. Check indicator patterns for each event
-        for event, indicators in self.indicator_patterns.items():
-            for category, pattern in indicators.items():
-                matches = pattern.findall(text)
-                if matches:
-                    # Weight by category: entities < contexts < metrics < verbs
-                    if category == 'entities':
-                        event_scores[event] += len(matches) * 0.5
-                    elif category == 'contexts':
-                        event_scores[event] += len(matches) * 1.0
-                    elif category == 'metrics':
-                        event_scores[event] += len(matches) * 1.5
-                    elif category == 'verbs':
-                        event_scores[event] += len(matches) * 2.0
+        for entity_type, pattern in self.ENTITY_PATTERNS.items():
+            matches = pattern.findall(text)
+            if matches:
+                entities[entity_type] = matches
+                
+        return entities
+    
+    def extract_sentence_structure(self, text):
+        """
+        Extract basic sentence structure features.
         
-        # 2. Check business activity patterns
-        for pattern, event, weight in self.compiled_activities:
-            if pattern.search(text):
-                event_scores[event] += weight
+        Args:
+            text (str): Input text
+            
+        Returns:
+            dict: Dictionary with sentence features
+        """
+        # Tokenize
+        tokens = nltk.word_tokenize(text.lower())
         
-        # 3. Check industry terminology
-        for pattern, event, weight in self.industry_patterns:
-            if pattern.search(text):
-                event_scores[event] += weight
+        # Get parts of speech with a basic approach
+        nouns = []
+        verbs = []
         
-        # 4. Check financial metrics
-        for pattern, events in self.compiled_metrics:
-            if pattern.search(text):
-                for event, event_weight in events.items():
-                    event_scores[event] += event_weight
-        
-        # 5. Check special patterns
-        for pattern, event, weight in self.compiled_special:
-            match = pattern.search(text)
-            if match:
-                if event.endswith('_negative'):
-                    # This is a negative signal for this event type
-                    base_event = event.replace('_negative', '')
-                    negative_signals[base_event] += weight
+        for token in tokens:
+            if token.isalpha() and len(token) > 2:
+                # This is a very basic approximation - ideally use proper POS tagging
+                if token.endswith('ing') or token.endswith('ed') or token.endswith('s'):
+                    verbs.append(token)
                 else:
-                    event_scores[event] += weight
+                    nouns.append(token)
         
-        # Apply negative signals
-        for event, weight in negative_signals.items():
-            if event in event_scores:
-                event_scores[event] = max(0, event_scores[event] - weight)
+        # Identify verb sentiment
+        verb_sentiment = "neutral"
+        for verb in verbs:
+            verb_stem = self.lemmatizer.lemmatize(verb, 'v')
+            if verb_stem in self.FINANCIAL_VERBS["positive"]:
+                verb_sentiment = "positive"
+                break
+            elif verb_stem in self.FINANCIAL_VERBS["negative"]:
+                verb_sentiment = "negative"
+                break
         
-        # Special handling for "other" category - if it has a strong signal but other categories also have signals
-        if "other" in event_scores and event_scores["other"] > 0:
-            other_events = {e: s for e, s in event_scores.items() if e != "other" and s > 0}
-            if other_events:
-                # If we have both "other" signals and financial event signals
-                # Only keep "other" if it's significantly stronger than any financial event
-                max_financial_score = max(other_events.values()) if other_events else 0
-                if event_scores["other"] <= max_financial_score * 1.5:
-                    # "other" signal isn't strong enough to override financial signals
-                    event_scores["other"] = 0
-        
-        return event_scores
+        return {
+            "tokens": tokens,
+            "nouns": nouns,
+            "verbs": verbs,
+            "verb_sentiment": verb_sentiment,
+            "token_count": len(tokens)
+        }
     
-    def _analyze_entity_actions(self, text: str) -> Dict[str, float]:
+    def detect_contextual_patterns(self, text):
         """
-        Analyze entity-action relationships as a fallback method.
+        Detect contextual patterns in the text.
         
         Args:
-            text: Input text
+            text (str): Input text
             
         Returns:
-            Dictionary mapping events to confidence scores
+            dict: Dictionary of category matches and their scores
         """
-        if not self.use_spacy:
+        if not self.use_contextual:
             return {}
+            
+        scores = {}
+        matches = {}
         
-        try:
-            doc = self.nlp(text)
-            event_scores = defaultdict(float)
+        # Check contextual patterns for each category
+        for category in self.CONTEXT_PATTERNS:
+            category_score = 0
+            category_matches = []
             
-            # Find company/organization entities
-            orgs = [ent.text for ent in doc.ents if ent.label_ == "ORG"]
+            # Try each pattern
+            for pattern, weight in self.CONTEXT_PATTERNS[category]:
+                pattern_matches = pattern.findall(text.lower())
+                if pattern_matches:
+                    category_score += weight * len(pattern_matches)
+                    category_matches.extend(pattern_matches)
             
-            # If no organizations found, try to identify potential companies
-            if not orgs:
-                # Identify potential company names (capitalized multi-word expressions)
-                potential_orgs = re.findall(r'\b([A-Z][a-z]+)(?:\s[A-Z][a-z]+)*\b', text)
-                orgs = potential_orgs
+            if category_score > 0:
+                scores[category] = category_score
+                matches[category] = category_matches
+                
+        # Check negative contexts
+        for category in self.NEGATIVE_CONTEXTS:
+            if category in scores:
+                for pattern, weight in self.NEGATIVE_CONTEXTS[category]:
+                    neg_matches = pattern.findall(text.lower())
+                    if neg_matches:
+                        # Reduce or negate the score based on negative context
+                        scores[category] -= weight * len(neg_matches)
+                        
+                # Remove if score is negative after accounting for negative context
+                if scores[category] <= 0:
+                    del scores[category]
+                    del matches[category]
+        
+        return {
+            "scores": scores,
+            "matches": matches
+        }
+    
+    def classify_with_keywords(self, text):
+        """
+        Classify text using keyword matching from the original approach.
+        
+        Args:
+            text (str): Text to classify
             
-            # If we have organizations, analyze verb relationships
-            if orgs:
-                # Extract verb phrases
-                for token in doc:
-                    if token.pos_ == "VERB":
-                        verb = token.lemma_.lower()
-                        
-                        # Find the subjects and objects related to this verb
-                        subjects = [child for child in token.children if child.dep_ in ["nsubj", "nsubjpass"]]
-                        objects = [child for child in token.children if child.dep_ in ["dobj", "pobj", "attr"]]
-                        
-                        # Check if any subject is an organization
-                        subj_is_org = any(subj.text in orgs for subj in subjects)
-                        
-                        # Check if any object is an organization
-                        obj_is_org = any(obj.text in orgs for obj in objects)
-                        
-                        # Acquisition verbs
-                        if verb in ["acquire", "buy", "purchase", "merge", "take"] and (subj_is_org or obj_is_org):
-                            event_scores["merger_acquisition"] += 1.5
-                        
-                        # Earnings verbs - strengthened
-                        elif verb in ["report", "announce", "post", "achieve", "record", "generate", "reach", "amount"] and subj_is_org:
-                            event_scores["earnings"] += 2.0  # Increased from 1.5
-                        
-                        # Expansion verbs
-                        elif verb in ["expand", "open", "enter", "grow", "increase"] and subj_is_org:
-                            event_scores["expansion"] += 1.5
-                        
-                        # Partnership verbs
-                        elif verb in ["partner", "collaborate", "cooperate", "ally", "join"] and (subj_is_org and obj_is_org):
-                            event_scores["partnership"] += 1.5
-                        
-                        # Contract verbs
-                        elif verb in ["sign", "agree", "contract", "deliver", "supply", "provide"] and subj_is_org:
-                            event_scores["contract_deal"] += 1.5
-                        
-                        # Executive change verbs
-                        elif verb in ["appoint", "name", "elect", "designate", "resign", "leave", "join"] and subj_is_org:
-                            # Check if objects contain executive titles
-                            exec_titles = ["ceo", "chief", "executive", "officer", "director", "president", "chairman", "board"]
-                            if any(title in obj.text.lower() for obj in objects for title in exec_titles):
-                                event_scores["executive_change"] += 2.0
-                                
-                        # Layoff verbs
-                        elif verb in ["layoff", "cut", "reduce", "terminate", "downsize"] and subj_is_org:
-                            job_terms = ["job", "employee", "staff", "worker", "workforce", "position"]
-                            if any(term in obj.text.lower() for obj in objects for term in job_terms):
-                                event_scores["layoff"] += 2.0
-                                
-                        # Product recall verbs
-                        elif verb in ["recall", "fix", "repair", "replace"] and subj_is_org:
-                            product_terms = ["product", "model", "unit", "car", "vehicle"]
-                            if any(term in obj.text.lower() for obj in objects for term in product_terms):
-                                event_scores["product_issues"] += 2.0
+        Returns:
+            tuple: (category_scores, matched_keywords)
+        """
+        if not isinstance(text, str):
+            return {}, {}
             
-            return event_scores
+        text = text.lower()
+        scores = {}
+        matched_keywords = {}
+        
+        # Calculate scores for each category based on keyword matches
+        for category, keywords in self.EVENT_KEYWORDS.items():
+            category_score = 0
+            matches = []
             
-        except Exception as e:
-            print(f"Error in entity-action analysis: {e}")
-            return {}
+            for keyword in keywords:
+                if keyword.lower() in text:
+                    # Weight multi-word keywords higher
+                    if " " in keyword:
+                        category_score += 1.5
+                    else:
+                        category_score += 1.0
+                    matches.append(keyword)
+            
+            if category_score > 0:
+                # Normalize by the number of keywords
+                scores[category] = category_score / len(keywords)
+                matched_keywords[category] = matches
+        
+        return scores, matched_keywords
+    
+    def classify_text(self, text):
+        """
+        Classify text using combined keyword and contextual pattern matching.
+        
+        Args:
+            text (str): Text to classify
+            
+        Returns:
+            tuple: (predicted_category, confidence, all_scores)
+        """
+        if not isinstance(text, str):
+            return "other", 1.0, {"other": 1.0}
+            
+        # Preprocess text
+        preprocessed = text.lower()
+        
+        # Get scores from keyword matching
+        keyword_scores, matched_keywords = self.classify_with_keywords(preprocessed)
+        
+        # Get scores from contextual pattern matching
+        context_results = self.detect_contextual_patterns(text)
+        context_scores = context_results.get("scores", {})
+        
+        # Extract entities and sentence structure for additional features
+        entities = self.find_entities(text)
+        sentence_features = self.extract_sentence_structure(text)
+        
+        # Combine scores
+        combined_scores = {}
+        
+        # Add all categories from both methods
+        all_categories = set(list(keyword_scores.keys()) + list(context_scores.keys()))
+        
+        for category in all_categories:
+            keyword_score = keyword_scores.get(category, 0)
+            context_score = context_scores.get(category, 0)
+            
+            # Weight contextual patterns higher
+            if self.use_contextual:
+                combined_scores[category] = keyword_score + (context_score * self.context_weight)
+            else:
+                combined_scores[category] = keyword_score
+        
+        # Apply additional heuristics
+        
+        # 1. If we have money entities and financial verbs, boost certain categories
+        if 'money' in entities and sentence_features['verbs']:
+            if sentence_features['verb_sentiment'] == 'positive':
+                # Boost positive financial events
+                for category in ['earnings', 'investment', 'expansion']:
+                    if category in combined_scores:
+                        combined_scores[category] *= 1.3
+            elif sentence_features['verb_sentiment'] == 'negative':
+                # Boost negative financial events
+                for category in ['layoff', 'restructuring', 'debt_financing']:
+                    if category in combined_scores:
+                        combined_scores[category] *= 1.3
+        
+        # 2. For very short messages, require higher confidence
+        if sentence_features['token_count'] < 8:
+            for category in combined_scores:
+                combined_scores[category] *= 0.8
+        
+        # If no category matched, return "other"
+        if not combined_scores:
+            return "other", 1.0, {"other": 1.0}
+        
+        # Normalize scores
+        total_score = sum(combined_scores.values())
+        for category in combined_scores:
+            combined_scores[category] /= total_score
+        
+        # Get the category with the highest score
+        predicted_category = max(combined_scores, key=combined_scores.get)
+        confidence = combined_scores[predicted_category]
+        
+        # Apply minimum confidence threshold
+        if confidence < self.min_confidence:
+            return "other", confidence, combined_scores
+        
+        return predicted_category, confidence, combined_scores
     
     def fit(self, X, y=None):
         """
-        No fitting needed for this rule-based extractor.
+        No training needed for rule-based approach, but method required for scikit-learn compatibility.
         
         Args:
-            X: Input data
-            y: Target (ignored)
+            X: Input data (ignored)
+            y: Target labels (ignored)
             
         Returns:
-            self
+            self: The classifier instance
         """
+        # Nothing to do for rule-based approach
         return self
-    
-    def extract_event(self, text: str) -> str:
-        """
-        Extract the most likely financial event from text using the two-stage approach.
-        
-        Args:
-            text: Input text
-            
-        Returns:
-            Extracted event or default
-        """
-        # Basic validation
-        if not isinstance(text, str) or not text.strip():
-            return self.default_event
-        
-        # Stage 1: Detect if text contains financial content
-        if not self._detect_financial_content(text):
-            return self.default_event
-        
-        # Special case for recall news about Tesla Model X
-        if re.search(r'\bTesla\b .{0,15}\brecall', text, re.IGNORECASE) or re.search(r'\brecall.{0,15}Model X', text, re.IGNORECASE):
-            return "product_issues"
-        
-        # Special case for EPS/earnings per share reports
-        if re.search(r'\bEPS\b|\bearnings per share\b', text, re.IGNORECASE) and re.search(r'\bfell\b|\brose\b|\bwas\b', text, re.IGNORECASE):
-            return "earnings"
-        
-        # Special case for sales generation
-        if re.search(r'\b(sales|revenue) of \d+', text, re.IGNORECASE) or re.search(r'\bgenerated sales\b', text, re.IGNORECASE):
-            return "earnings"
-        
-        # Special case for "topped forecasts"
-        if re.search(r'\b(topped|beat|exceeded) .{0,15}(consensus|forecast)', text, re.IGNORECASE):
-            return "earnings"
-        
-        # Special case for trading time and block trades
-        if re.search(r'\b\d{1,2}:\d{2}\b .{0,10}\b([aApP]\.?[mM]\.?)|\b(Eastern|Pacific) time\b', text, re.IGNORECASE) and re.search(r'\bblock\b .{0,15}\bchanged hands\b', text, re.IGNORECASE):
-            return "stock_movement"
-        
-        # Special case for layoffs
-        if re.search(r'\b(temporary |permanent )?(lay-offs|layoffs)\b', text, re.IGNORECASE) and re.search(r'\b(fixed duration|company|unit|decision|mean)', text, re.IGNORECASE):
-            return "layoff"
-        
-        # Special case for Works Council and reorganization
-        if re.search(r'\bWorks Council\b', text, re.IGNORECASE) and re.search(r'\b(withdraw|petition|suspend|reorganisation)\b', text, re.IGNORECASE):
-            return "restructuring"
-        
-        # Special case for general company information
-        if re.search(r'\bserves\b .{0,15}\b\d+,?\d* (customers|clients)', text, re.IGNORECASE) and re.search(r'\bin \d+ countries\b', text, re.IGNORECASE):
-            return "other"
-        
-        # Stage 2: Collect weighted signals for all event types
-        event_scores = self._collect_weighted_signals(text)
-        
-        # If we have strong signals, use the highest scoring event
-        if event_scores:
-            best_event, score = max(event_scores.items(), key=lambda x: x[1])
-            if score >= self.min_score_threshold:
-                return best_event
-        
-        # Fallback: Try entity-action analysis
-        fallback_scores = self._analyze_entity_actions(text)
-        
-        # Combine with any existing scores
-        for event, score in fallback_scores.items():
-            event_scores[event] += score
-        
-        # Check if we now have a strong signal
-        if event_scores:
-            best_event, score = max(event_scores.items(), key=lambda x: x[1])
-            if score >= self.min_score_threshold:
-                return best_event
-        
-        # If still no strong signal, return default
-        return self.default_event
     
     def transform(self, X):
         """
-        Add financial event column to the dataframe.
+        Transform the input data by adding event classification.
         
         Args:
-            X: Input DataFrame or Series
+            X (pd.DataFrame or pd.Series or list): Input data containing text samples
             
         Returns:
-            DataFrame with additional event column
+            pd.DataFrame: Transformed data with event classification
         """
+        # Copy the input data to avoid modifying the original
         if isinstance(X, pd.DataFrame):
-            X_transformed = X.copy()
-            X_transformed[self.output_column] = X_transformed[self.text_column].apply(self.extract_event)
-            return X_transformed
-        elif isinstance(X, pd.Series):
-            return X.apply(self.extract_event)
+            result = X.copy()
+            X_text = X[self.input_col]
         else:
-            # Handle case where X is a list of strings
-            return [self.extract_event(text) for text in X]
+            # If X is a Series or list, convert to DataFrame
+            if isinstance(X, pd.Series):
+                X_text = X
+                result = pd.DataFrame({self.input_col: X})
+            else:
+                X_text = X
+                result = pd.DataFrame({self.input_col: X})
+        
+        # Convert to list if Series
+        if isinstance(X_text, pd.Series):
+            X_text = X_text.tolist()
+        
+        # Get event predictions
+        event_predictions = []
+        confidence_scores = []
+        category_scores = []
+        
+        for text in X_text:
+            category, confidence, scores = self.classify_text(text)
+            event_predictions.append(category)
+            confidence_scores.append(confidence)
+            category_scores.append(scores)
+        
+        # Add the predictions as a new column
+        result[self.output_col] = event_predictions
+        
+        # Optionally add confidence scores
+        if self.add_confidence:
+            result[f"{self.output_col}_confidence"] = confidence_scores
+            
+            # Optionally add individual category scores
+            if self.config.get('add_category_scores', False):
+                for category in self.EVENT_CATEGORIES:
+                    result[f"{category}_score"] = [scores.get(category, 0.0) for scores in category_scores]
+        
+        return result
     
     def get_feature_names(self) -> List[str]:
         """
-        Get the name of the generated feature.
+        Return the names of features produced by this feature extractor.
         
         Returns:
-            List of feature names
+            List[str]: List of feature names
         """
-        return [self.output_column]
+        feature_names = [self.output_col]
+        
+        if self.add_confidence:
+            feature_names.append(f"{self.output_col}_confidence")
+            
+            if self.config.get('add_category_scores', False):
+                for category in self.EVENT_CATEGORIES:
+                    feature_names.append(f"{category}_score")
+                    
+        return feature_names
+    
+    def predict(self, texts):
+        """
+        Predict the event category for input texts.
+        
+        Args:
+            texts (list or str or pd.Series): Input text(s) to classify
+            
+        Returns:
+            list: Predicted event categories
+        """
+        if isinstance(texts, str):
+            texts = [texts]
+        
+        # Transform the texts and extract the predictions
+        result = self.transform(texts)
+        
+        return result[self.output_col].tolist()
+    
+    def explain_classification(self, text):
+        """
+        Explain why a text was classified in a particular way.
+        
+        Args:
+            text (str): Text to explain
+            
+        Returns:
+            dict: Explanation of the classification
+        """
+        # Preprocess text
+        preprocessed = text.lower()
+        
+        # Get scores and matched keywords
+        keyword_scores, matched_keywords = self.classify_with_keywords(preprocessed)
+        
+        # Get context patterns
+        context_results = self.detect_contextual_patterns(text)
+        context_scores = context_results.get("scores", {})
+        context_matches = context_results.get("matches", {})
+        
+        # Get entities
+        entities = self.find_entities(text)
+        
+        # Get sentence structure
+        sentence_features = self.extract_sentence_structure(text)
+        
+        # Get final classification
+        category, confidence, all_scores = self.classify_text(text)
+        
+        # Build explanation
+        explanation = {
+            "classification": category,
+            "confidence": confidence,
+            "all_category_scores": all_scores,
+            "keyword_evidence": matched_keywords,
+            "contextual_evidence": context_matches,
+            "entities_detected": entities,
+            "sentence_features": {
+                "verbs": sentence_features["verbs"],
+                "verb_sentiment": sentence_features["verb_sentiment"],
+                "length": sentence_features["token_count"]
+            }
+        }
+        
+        return explanation
+    
+    def update_keywords(self, category, new_keywords, replace=False):
+        """
+        Update the keywords for a specific category.
+        
+        Args:
+            category (str): Category to update
+            new_keywords (list): New keywords to add
+            replace (bool): Whether to replace existing keywords or append (default: False)
+            
+        Returns:
+            bool: True if successful, False otherwise
+        """
+        if category not in self.EVENT_CATEGORIES:
+            print(f"Error: Category '{category}' not found")
+            return False
+            
+        if replace:
+            self.EVENT_KEYWORDS[category] = new_keywords
+        else:
+            # Add only unique keywords
+            existing_keywords = set(self.EVENT_KEYWORDS[category])
+            for keyword in new_keywords:
+                if keyword not in existing_keywords:
+                    self.EVENT_KEYWORDS[category].append(keyword)
+        
+        return True
+    
+    def add_context_pattern(self, category, pattern, weight=1.0):
+        """
+        Add a new context pattern for a category.
+        
+        Args:
+            category (str): Category to add pattern for
+            pattern (str): Regular expression pattern
+            weight (float): Weight for the pattern
+            
+        Returns:
+            bool: True if successful, False otherwise
+        """
+        if category not in self.EVENT_CATEGORIES:
+            print(f"Error: Category '{category}' not found")
+            return False
+        
+        # Compile pattern
+        try:
+            compiled_pattern = re.compile(pattern, re.IGNORECASE)
+        except re.error:
+            print(f"Error: Invalid regex pattern '{pattern}'")
+            return False
+        
+        # Initialize pattern list if needed
+        if category not in self.CONTEXT_PATTERNS:
+            self.CONTEXT_PATTERNS[category] = []
+        
+        # Add pattern
+        self.CONTEXT_PATTERNS[category].append((compiled_pattern, weight))
+        
+        return True
+    
+    def analyze_unclassified(self, texts, threshold=0.3):
+        """
+        Analyze sentences that fall below the confidence threshold.
+        
+        Args:
+            texts (list): List of texts to analyze
+            threshold (float): Confidence threshold
+            
+        Returns:
+            dict: Analysis of unclassified texts
+        """
+        unclassified = []
+        low_confidence = []
+        category_distribution = {}
+        
+        for text in texts:
+            category, confidence, scores = self.classify_text(text)
+            
+            if confidence < threshold:
+                unclassified.append({
+                    "text": text,
+                    "best_category": category,
+                    "confidence": confidence,
+                    "top_scores": sorted(scores.items(), key=lambda x: x[1], reverse=True)[:3]
+                })
+            elif confidence < 0.5:
+                low_confidence.append({
+                    "text": text,
+                    "category": category,
+                    "confidence": confidence
+                })
+            
+            # Track category distribution
+            if category not in category_distribution:
+                category_distribution[category] = 0
+            category_distribution[category] += 1
+        
+        # Calculate percentage of unclassified
+        unclassified_pct = (len(unclassified) / len(texts)) * 100 if texts else 0
+        
+        return {
+            "unclassified_count": len(unclassified),
+            "unclassified_percentage": unclassified_pct,
+            "low_confidence_count": len(low_confidence),
+            "category_distribution": category_distribution,
+            "unclassified_examples": unclassified[:10],  # First 10 examples
+            "common_patterns": self._extract_common_patterns(unclassified)
+        }
+    
+    def _extract_common_patterns(self, unclassified_texts):
+        """Extract common patterns from unclassified texts"""
+        if not unclassified_texts:
+            return []
+            
+        # Extract words that appear frequently
+        all_words = []
+        for item in unclassified_texts:
+            tokens = nltk.word_tokenize(item["text"].lower())
+            all_words.extend([t for t in tokens if t.isalpha() and t not in self.stop_words])
+        
+        # Count word frequencies
+        word_counts = Counter(all_words)
+        
+        # Get most common words
+        common_words = word_counts.most_common(20)
+        
+        # Look for bigrams
+        bigrams = []
+        for item in unclassified_texts:
+            tokens = nltk.word_tokenize(item["text"].lower())
+            for i in range(len(tokens) - 1):
+                if tokens[i].isalpha() and tokens[i+1].isalpha():
+                    bigrams.append((tokens[i], tokens[i+1]))
+        
+        # Count bigram frequencies
+        bigram_counts = Counter(bigrams)
+        
+        # Get most common bigrams
+        common_bigrams = bigram_counts.most_common(10)
+        
+        return {
+            "common_words": common_words,
+            "common_bigrams": common_bigrams
+        }
+    
+    def self_improve(self, texts, min_confidence=0.7):
+        """
+        Self-improve by analyzing high-confidence classifications.
+        
+        Args:
+            texts (list): List of texts to analyze
+            min_confidence (float): Minimum confidence to consider
+            
+        Returns:
+            dict: Results of self-improvement
+        """
+        high_confidence_samples = {}
+        
+        # Collect high confidence samples for each category
+        for text in texts:
+            category, confidence, _ = self.classify_text(text)
+            
+            if confidence >= min_confidence:
+                if category not in high_confidence_samples:
+                    high_confidence_samples[category] = []
+                    
+                high_confidence_samples[category].append((text, confidence))
+        
+        # Use these to improve keyword lists
+        improvements = {}
+        
+        for category, samples in high_confidence_samples.items():
+            if len(samples) < 5:  # Need enough samples
+                continue
+                
+            # Extract potentially useful new keywords
+            all_text = " ".join([self.preprocess_text(s[0]) for s in samples])
+            words = all_text.split()
+            word_counts = Counter(words)
+            
+            # Find words that might be good indicators but aren't in keywords
+            existing_keywords = set([kw.lower() for kw in self.EVENT_KEYWORDS.get(category, [])])
+            
+            new_keywords = []
+            for word, count in word_counts.most_common(50):
+                # Filter to keep only good potential keywords
+                if (len(word) > 3 and 
+                    word not in self.stop_words and 
+                    word.lower() not in existing_keywords and
+                    count >= 3):  # Appears in multiple samples
+                    new_keywords.append(word)
+            
+            # Add the best new keywords
+            if new_keywords:
+                added = self.update_keywords(category, new_keywords[:5])
+                improvements[category] = new_keywords[:5]
+        
+        return {
+            "categories_improved": list(improvements.keys()),
+            "new_keywords_added": improvements,
+            "high_confidence_samples_found": {k: len(v) for k, v in high_confidence_samples.items()}
+        }

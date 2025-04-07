@@ -49,166 +49,243 @@ class FinancialLexicon:
         'deficit', 'surplus', 'debt', 'earnings', 'revenue', 'eps', 'p/e', 'ratio'
     }
     
-    # Define the 15 most common financial events
+
+    # Define the 15 most common financial events with clear definitions
     FINANCIAL_EVENTS = [
-        "merger_acquisition",   # Mergers, acquisitions, takeovers
-        "earnings",             # Earnings reports, profit/loss statements
-        "dividend",             # Dividend announcements, changes
-        "product_launch",       # New product/service announcements
-        "investment",           # Investments, funding rounds
-        "restructuring",        # Restructuring, reorganization
-        "litigation",           # Legal proceedings, lawsuits
-        "executive_change",     # Leadership changes, executive appointments
-        "expansion",            # Expansion to new markets, opening facilities
-        "layoff",               # Layoffs, job cuts
-        "partnership",          # Strategic partnerships, collaborations
-        "regulatory",           # Regulatory issues, approvals, compliance
-        "stock_movement",       # Stock price changes, trading activity
-        "debt_financing",       # Debt issues, loans, bonds
-        "contract_deal"         # New contracts or deals
+        "merger_acquisition",   # Companies merging or one company acquiring another
+        "earnings",             # Financial results, profit/loss announcements
+        "dividend",             # Dividend payments, changes, suspensions
+        "product_launch",       # New product or service releases
+        "investment",           # Funding, capital raises, investments
+        "restructuring",        # Reorganization, cost-cutting, streamlining operations
+        "litigation",           # Lawsuits, legal disputes, settlements
+        "executive_change",     # Leadership appointments, resignations, board changes
+        "expansion",            # Geographic or business line expansions
+        "layoff",               # Staff reductions, job cuts, downsizing
+        "partnership",          # Strategic alliances, collaborations, joint ventures
+        "regulatory",           # Regulatory approvals, filings, compliance issues
+        "stock_movement",       # Share price changes, stock market performance
+        "debt_financing",       # Loans, bonds, debt restructuring
+        "contract_deal"         # Business contracts, customer agreements, deals
     ]
 
 
     FINANCIAL_EVENT_PATTERNS = {
             "merger_acquisition": [
-                r"(merger|acquisition|takeover|acquire|merge|bid|buyout|consolidat)",
-                r"(purchas\w+|bought|buy) (company|stake|share|business)",
-                r"(take\w+) (over|control)",
-                r"(percent|%) stake",
-                r"(join\w+) forces"
+                r"\b(merger|acquisition|takeover|acquire[ds]?|merged?|bid for)\b",
+                r"\b(purchas(e[ds]?|ing)|bought|buy|buys) .{1,20}\b(company|stake|share|business|firm)\b",
+                r"\btake[ns]? (over|control of)\b",
+                r"\b((\d{1,3})(\.\d+)?\s?(%|percent)\s?stake)\b",
+                r"\b(alliance plans)\b"
             ],
             
             "earnings": [
-                r"(earnings|revenue|profit|loss|income|EBITDA|EPS)",
-                r"(financial|quarterly|annual) results",
-                r"(report\w+) (profit|loss|revenue)",
-                r"(operat\w+) (profit|loss|margin)",
-                r"(net|gross) (income|profit|loss)",
-                r"dividend per share",
-                r"fiscal (year|quarter)"
+                r"\b(earnings|revenue|profit|loss|income|EBITDA|EPS|sales) (grew|rose|increased|decreased|fell|dropped|reached|totaled|amounted to)\b",
+                r"\b(financial|quarterly|annual|first[- ]quarter|second[- ]quarter|third[- ]quarter|fourth[- ]quarter|Q[1-4]|([1-4]Q)) results\b",
+                r"\b(report(ed|ing)|post(ed|ing)|announce[ds]?) .{1,30}\b(profit|loss|revenue|earnings)\b",
+                r"\b(operat(ing|ed)) (profit|loss|margin)\b",
+                r"\b(net|gross) (income|profit|loss)\b",
+                r"\bfiscal (year|quarter)\b",
+                r"\bsales .{1,15} (EUR|USD|€|\$) .{1,15} (million|billion|mn|bn)\b"
             ],
             
             "dividend": [
-                r"dividend\w*",
-                r"(declar\w+|announce\w+|raise\w+|increase\w+|cut\w+|reduc\w+|suspend\w+) dividend",
-                r"(pay\w+|distribut\w+) (to (share|stock)holders)",
-                r"(quarterly|annual|special) (payment|distribution)",
-                r"payout ratio",
-                r"yield"
+                r"\bdividend(s)?\b",
+                r"\b(declar(e[ds]?|ing)|announce[ds]?|rais(e[ds]?|ing)|increas(e[ds]?|ing)|cut[s]?|reduc(e[ds]?|ing)|suspend(ed|ing)?) dividend\b",
+                r"\b(pay(s|ed|ing)?|distribut(e[ds]?|ing)) .{1,20}\b((to|for) (share|stock)holders)\b",
+                r"\b(quarterly|annual|special|interim) (dividend|payment|distribution)\b",
+                r"\bpayout ratio\b",
+                r"\bdividend yield\b"
             ],
             
             "product_launch": [
-                r"(launch|introduc\w+|unveil\w+|releas\w+) (new|product|service)",
-                r"new (product|service|solution|platform|technology)",
-                r"(product|range) (portfolio|line|offering)",
-                r"(next(\s|-|)generation|cutting(\s|-|)edge)",
-                r"(begin|start\w+) (production|manufacturing)"
+                r"\b(launch(ed|es|ing)?|introduc(e[ds]?|ing)|unveil(ed|ing)?|releas(e[ds]?|ing)) .{1,30}\b(new|product|service|solution|platform)\b",
+                r"\bnew (product|service|solution|platform|technology)\b",
+                r"\b(product|range) (portfolio|line|offering)\b",
+                r"\b(next[\s-]generation|cutting[\s-]edge) .{1,20}\b(product|solution|technology|platform)\b",
+                r"\b(begin|start)(s|ed|ing)? (production|manufacturing)\b",
+                r"\bmade with\b"
             ],
             
             "investment": [
-                r"(invest\w+|funding|capital|raised)",
-                r"(venture|private equity|seed) (capital|investment|funding)",
-                r"(series|round) [A-Z]",
-                r"(million|billion|mn|bn|EUR|USD|€|\$)",
-                r"(shareholding|holding)",
-                r"(fund\w+) (by|from)"
+                r"\b(invest(s|ed|ing|ment)|funding|capital|raised)\b",
+                r"\b(venture|private equity|seed) (capital|investment|funding)\b",
+                r"\b(series|round) [A-Z]\b",
+                r"\b(invest(s|ed|ing)?|fund(s|ed|ing)?) .{1,30}\b(project|expansion|development)\b",
+                r"\binvestment .{1,20}\b(totaling|worth|valued at)\b",
+                r"\b(million|billion|mn|bn) .{1,15}\b(investment|funding|capital)\b"
             ],
             
             "restructuring": [
-                r"(restructur\w+|reorganiz\w+|transform\w+)",
-                r"(cost|operational) (reduction|cutting|saving)",
-                r"(efficiency|streamlining) (program|measure|initiative)",
-                r"(business|operational) (model|structure)",
-                r"(divest\w+|sell\w+) (unit|division|business)"
+                r"\b(restructur(e[ds]?|ing)|reorganiz(e[ds]?|ing)|transform(s|ed|ing|ation))\b",
+                r"\b(cost|operational) (reduction|cutting|saving)(s)?\b",
+                r"\b(efficiency|streamlining) (program|measure|initiative)(s)?\b",
+                r"\bimprov(e[ds]?|ing) (business|operational) (model|structure)\b",
+                r"\b(divest(s|ed|ing|iture)|sell(s|ing)) .{1,20}\b(unit|division|business|subsidiary)\b"
             ],
             
             "litigation": [
-                r"(litigation|lawsuit|legal|court|dispute|sue\w+)",
-                r"(legal|court) (proceedings|case|battle|fight)",
-                r"(antitrust|regulatory) (investigation|probe)",
-                r"(settle\w+|resolution) (case|dispute|claim)",
-                r"(fine\w+|penalty|damages)"
+                r"\b(litigation|lawsuit|legal action|court case|dispute|sue[ds]?|sued)\b",
+                r"\b(legal|court) (proceedings|case|battle|fight|action)\b",
+                r"\b(antitrust|regulatory) (investigation|probe|inquiry)\b",
+                r"\b(settle[ds]?|settlement|resolution) .{1,20}\b(case|dispute|claim|lawsuit)\b",
+                r"\b(fine[ds]?|penalty|damages)\b",
+                r"\bin jeopardy\b",
+                r"\bsanctions\b"
             ],
             
             "executive_change": [
-                r"(CEO|CFO|CTO|COO|chief|executive|officer|director|board)",
-                r"(appoint\w+|hire\w+|name\w+|elect\w+) (as|to) (CEO|CFO|CTO|COO|chief|executive|position)",
-                r"(management|leadership) (change|team)",
-                r"(resign\w+|depart\w+|step\w+ down|leaving)",
-                r"(succeed\w+|replace\w+) (as|by)"
+                r"\b(CEO|CFO|CTO|COO|chief|executive|officer|director|board|chairman) .{1,30}\b(appoint(ed|s)?|resign(ed|s)?|stepped? down|left|joins|joining|named)\b",
+                r"\b(appoint(ed|s)?|hir(ed|es|ing)|nam(ed|es|ing)|elect(ed|s)?) .{1,20}\b(as|to) .{1,15}\b(CEO|CFO|CTO|COO|chief|executive|position|director|board)\b",
+                r"\b(management|leadership) (change|team|structure)\b",
+                r"\b(resign(ed|s|ing)?|depart(ed|s|ing)?|step(s|ped)? down|leaving)\b .{1,20}\b(CEO|CFO|CTO|COO|chief|executive|position)\b",
+                r"\b(succeed(s|ed)?|replace(s|d)?) .{1,20}\b(as|by) .{1,15}\b(CEO|CFO|CTO|COO|chief|executive)\b",
+                r"\bdirector .{1,20}\b(said)\b"
             ],
             
             "expansion": [
-                r"(expan\w+|grow\w+) (into|market|business|operations)",
-                r"(new|international|global) (market|facility|location|office|store)",
-                r"(open\w+|establish\w+|launch\w+) (office|facility|store|presence)",
-                r"(entry|expansion) (into|in) ([A-Z]\w+)",
-                r"(global|international|worldwide) (reach|presence|footprint)"
+                r"\b(expand(s|ed|ing)?|grow(s|ed|ing)?) .{1,20}\b(into|in|to) .{1,20}\b(market|business|region|country|segment)\b",
+                r"\b(new|international|global) (market|facility|location|office|store|region)\b",
+                r"\b(open(s|ed|ing)?|establish(es|ed|ing)?|launch(es|ed|ing)?) .{1,20}\b(office|facility|store|presence|subsidiary)\b",
+                r"\b(entry|expansion) (into|in) ([A-Z]\w+)\b",
+                r"\b(global|international|worldwide) (reach|presence|footprint)\b",
+                r"\bgains? foothold\b"
             ],
             
             "layoff": [
-                r"(layoff\w*|downsize\w*|job cut\w*|cut\w* job|redundanc\w*)",
-                r"(reduc\w+|cut\w+) (workforce|staff|employees|personnel|headcount)",
-                r"(eliminate|shed) (position|job)",
-                r"(employee|worker|staff) (reduction|termination)",
-                r"(lose|lost|loose) their jobs"
+                r"\b(layoff(s)?|downsiz(e[ds]?|ing)|job cut(s)?|cut(s|ting)? job(s)?|redundanc(y|ies))\b",
+                r"\b(reduc(e[ds]?|ing)|cut(s|ting)?) .{1,20}\b(workforce|staff|employees|personnel|headcount)\b",
+                r"\b(eliminate[ds]?|shed(s|ding)?) .{1,20}\b(position(s)?|job(s)?)\b",
+                r"\b(employee|worker|staff) (reduction|termination)\b",
+                r"\b(lose|lost|loose) .{1,15}\bjobs\b",
+                r"\b(lay[- ]offs?|job losses)\b",
+                r"\btemporary lay[- ]offs?\b",
+                r"\blose .{1,15}\bjobs\b"
             ],
             
             "partnership": [
-                r"(partnership|collaboration|alliance|joint venture)",
-                r"(partner\w+|collaborat\w+|team\w+ up) with",
-                r"(strategic|key) (relationship|partnership|alliance)",
-                r"(sign\w+|enter\w+|form\w+) (agreement|deal|partnership)",
-                r"(work\w+) together"
+                r"\b(partnership|collaboration|alliance|joint venture)\b",
+                r"\b(partner(s|ed|ing)?|collaborat(e[ds]?|ing)|team(s|ed)? up) with\b",
+                r"\b(strategic|key) (relationship|partnership|alliance)\b",
+                r"\b(sign(s|ed)?|enter(s|ed)?|form(s|ed)?) .{1,20}\b(agreement|deal|partnership)\b",
+                r"\b(work(s|ed|ing)?) together\b"
             ],
             
             "regulatory": [
-                r"(regulat\w+|compli\w+|authority|commission|approval)",
-                r"(approve\w+|authorize\w+|grant\w+) (by|from) (regulator|authority|commission)",
-                r"(reject\w+|deny\w+|block\w+) (by|from) (regulator|authority|commission)",
-                r"(regulatory|compliance) (requirement|standard|framework)",
-                r"(SEC|FDA|EU|Commission|FTC|authority)"
+                r"\b(regulat(ory|ion|or)|complian(t|ce)|authority|commission|approval)\b",
+                r"\b(approve[ds]?|authoriz(e[ds]?)|grant(s|ed)?) .{1,20}\b(by|from) .{1,15}\b(regulat(or|ory)|authority|commission)\b",
+                r"\b(reject(s|ed)?|den(y|ies|ied)|block(s|ed)?) .{1,20}\b(by|from) .{1,15}\b(regulat(or|ory)|authority|commission)\b",
+                r"\b(regulatory|compliance) (requirement|standard|framework)\b",
+                r"\b(SEC|FDA|EU Commission|FTC|authority|FSA|regulator)\b"
             ],
             
             "stock_movement": [
-                r"(stock|share|equity) (price|value|market)",
-                r"(trading|trade|exchange|market)",
-                r"(rise|drop|fall|gain|increase|decrease|jump|plunge|plummet)",
-                r"(bull|bear|volatile|stable) market",
-                r"(buy|sell) signal",
-                r"(index|nasdaq|dow|S&P)"
+                r"\b(stock|share|equity) (price|value|trading)\b",
+                r"\b(trading|trade[ds]?|exchange|market) .{1,20}\b(stock|share|securities)\b",
+                r"\b(rise[ds]?|drop(s|ped)?|fall[s]?|fell|gain(s|ed)?|increas(e[ds]?|ing)|decreas(e[ds]?|ing)|jump(s|ed)?|plunge[ds]?|plummet(s|ed)?)\b .{1,20}\b(stock|share|price|value|market|index|points?)\b",
+                r"\b(bull|bear|volatile|stable) market\b",
+                r"\b(buy|sell) signal\b",
+                r"\b(index|NASDAQ|DOW|S&P|NYSE)\b",
+                r"\btarget .{1,15}\b(price|level)\b"
             ],
             
             "debt_financing": [
-                r"(debt|loan|bond|credit|financing)",
-                r"(raise\w+|secure\w+) (capital|debt|loan|financing)",
-                r"(issue\w+|sell\w+) (bond|note|debt)",
-                r"(credit|loan|debt) (facility|agreement|covenant)",
-                r"(borrow\w+|lend\w+|finance\w+)"
+                r"\b(debt|loan|bond|credit|financing)\b",
+                r"\b(rais(e[ds]?|ing)|secur(e[ds]?|ing)) .{1,20}\b(capital|debt|loan|financing|funds)\b",
+                r"\b(issue[ds]?|sell[s]?|sold) .{1,20}\b(bond|note|debt|securities)\b",
+                r"\b(credit|loan|debt) (facility|agreement|covenant|terms)\b",
+                r"\b(borrow(s|ed|ing)?|lend(s|ed|ing)?|financ(e[ds]?|ing)?)\b"
             ],
             
             "contract_deal": [
-                r"(contract|deal|agreement|arrangement)",
-                r"(sign\w+|win\w+|secure\w+|award\w+) (contract|deal)",
-                r"(multi-year|long-term) (agreement|contract|deal)",
-                r"(worth|valued at) (million|billion|mn|bn)",
-                r"(supply|deliver|provide) (to|for)"
+                r"\b(contract|deal|agreement|arrangement|negotiations?)\b",
+                r"\b(sign(s|ed)?|win(s)?|won|secur(e[ds]?)|award(s|ed)?) .{1,20}\b(contract|deal|agreement)\b",
+                r"\b(multi[- ]year|long[- ]term) (agreement|contract|deal)\b",
+                r"\b(worth|valued at) .{1,20}\b(million|billion|mn|bn)\b",
+                r"\b(supply|deliver|provide)(s|ed|ing)? .{1,20}\b(to|for)\b",
+                r"\bfinaliz(e|ing) .{1,20}\bnegotiations\b",
+                r"\bsign .{1,20}\bcontracts?\b"
             ]
         }
-
-    # # Financial events
-    # FINANCIAL_EVENTS = {
-    #     'earnings': ['earnings', 'quarterly', 'q1', 'q2', 'q3', 'q4', 'report', 'reported'],
-    #     'merger_acquisition': ['merger', 'acquisition', 'acquire', 'acquired', 'buyout', 'takeover'],
-    #     'product_launch': ['launch', 'launched', 'introduce', 'introduced', 'unveil', 'unveiled', 'release', 'released'],
-    #     'leadership_change': ['ceo', 'executive', 'appoint', 'appointed', 'resign', 'resigned', 'management'],
-    #     'regulatory': ['regulation', 'regulatory', 'compliance', 'regulator', 'sec', 'fined', 'penalty'],
-    #     'investment': ['invest', 'investment', 'funding', 'fund', 'capital', 'venture', 'stake'],
-    #     'restructuring': ['restructure', 'restructuring', 'layoff', 'layoffs', 'downsize', 'downsizing', 'cost-cutting'],
-    #     'dividend': ['dividend', 'dividends', 'payout', 'yield', 'shareholder', 'stockholder'],
-    #     'litigation': ['lawsuit', 'litigation', 'legal', 'sue', 'sued', 'court', 'settlement'],
-    #     'market_expansion': ['expansion', 'expand', 'global', 'international', 'enter', 'entered', 'market']
-    # }
+    
+    FINANCIAL_CONTEXT_CLUES = {
+            "merger_acquisition": {
+                'strong': ['acquiring', 'merged', 'acquisition', 'takeover', 'buyout', 'stake', 'ownership', 'combining'],
+                'moderate': ['transaction', 'deal', 'synergy', 'integration', 'buyer', 'seller'],
+                'weak': ['strategic', 'growth', 'combined', 'entity']
+            },
+            "earnings": {
+                'strong': ['revenue', 'profit', 'loss', 'earnings', 'financial', 'results', 'quarterly', 'reported'],
+                'moderate': ['fiscal', 'year', 'quarter', 'guidance', 'forecast', 'performance'],
+                'weak': ['compared', 'previous', 'period', 'increase', 'decrease']
+            },
+            "dividend": {
+                'strong': ['dividend', 'payout', 'shareholder', 'distribution', 'yield'],
+                'moderate': ['quarterly', 'annual', 'payment', 'per share', 'declaration'],
+                'weak': ['return', 'investor', 'income']
+            },
+            "product_launch": {
+                'strong': ['launch', 'new product', 'introducing', 'release', 'unveiled', 'innovation'],
+                'moderate': ['features', 'customers', 'market', 'solution', 'technology'],
+                'weak': ['design', 'quality', 'improved', 'performance']
+            },
+            "investment": {
+                'strong': ['invest', 'funding', 'capital', 'million', 'billion', 'raised'],
+                'moderate': ['venture', 'equity', 'financing', 'round', 'investor'],
+                'weak': ['growth', 'development', 'expansion', 'strategy']
+            },
+            "restructuring": {
+                'strong': ['restructuring', 'reorganization', 'cost-cutting', 'downsizing', 'streamline'],
+                'moderate': ['efficiency', 'savings', 'transform', 'optimization', 'consolidation'],
+                'weak': ['plan', 'initiative', 'program', 'changes', 'improvement']
+            },
+            "litigation": {
+                'strong': ['lawsuit', 'legal', 'court', 'litigation', 'sue', 'settlement', 'dispute'],
+                'moderate': ['claim', 'damages', 'plaintiff', 'defendant', 'judge', 'allegations'],
+                'weak': ['case', 'issue', 'matter', 'proceeding', 'resolution']
+            },
+            "executive_change": {
+                'strong': ['CEO', 'CFO', 'CTO', 'COO', 'appointed', 'resigned', 'leadership', 'executive'],
+                'moderate': ['management', 'board', 'director', 'chairman', 'president', 'successor'],
+                'weak': ['lead', 'role', 'position', 'responsibility', 'team']
+            },
+            "expansion": {
+                'strong': ['expansion', 'growing', 'new market', 'facility', 'opening', 'international'],
+                'moderate': ['presence', 'global', 'region', 'country', 'location', 'footprint'],
+                'weak': ['growth', 'opportunity', 'strategic', 'position', 'strengthen']
+            },
+            "layoff": {
+                'strong': ['layoff', 'job cut', 'redundancy', 'workforce reduction', 'downsizing'],
+                'moderate': ['employees', 'workers', 'staff', 'positions', 'terminate', 'eliminate'],
+                'weak': ['cost', 'efficiency', 'restructuring', 'consolidation']
+            },
+            "partnership": {
+                'strong': ['partnership', 'alliance', 'collaboration', 'joint venture', 'cooperate'],
+                'moderate': ['partner', 'strategic', 'together', 'combined', 'mutual'],
+                'weak': ['agreement', 'opportunity', 'synergy', 'relationship']
+            },
+            "regulatory": {
+                'strong': ['regulatory', 'approval', 'regulator', 'compliance', 'regulation'],
+                'moderate': ['authority', 'commission', 'agency', 'approved', 'permitted'],
+                'weak': ['requirement', 'standard', 'guideline', 'framework', 'rule']
+            },
+            "stock_movement": {
+                'strong': ['stock', 'share', 'price', 'trading', 'market', 'rose', 'fell'],
+                'moderate': ['investor', 'exchange', 'value', 'index', 'points', 'percent'],
+                'weak': ['volatility', 'trend', 'performance', 'sentiment']
+            },
+            "debt_financing": {
+                'strong': ['debt', 'loan', 'bond', 'financing', 'credit', 'borrowing'],
+                'moderate': ['facility', 'term', 'interest', 'maturity', 'lender', 'refinance'],
+                'weak': ['capital', 'structure', 'balance', 'sheet', 'liquidity']
+            },
+            "contract_deal": {
+                'strong': ['contract', 'deal', 'agreement', 'signed', 'awarded', 'client'],
+                'moderate': ['worth', 'value', 'million', 'billion', 'terms', 'project'],
+                'weak': ['service', 'supply', 'deliver', 'period', 'customer']
+            }
+        }
+    
     
     # Industries/Sectors
     INDUSTRIES = {
