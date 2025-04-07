@@ -241,3 +241,201 @@ dtype: int64
 2025-04-02 16:08:43,738 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 3811 features.
 2025-04-02 16:08:53,443 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
 2025-04-02 16:08:53,443 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-03 14:40:30,942 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-03 14:40:39,603 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-03 14:40:39,618 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-03 14:40:39,630 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-03 14:40:39,996 - src.utils.feat_eng_pipeline_logger - INFO - Loaded custom financial lexicon from src/lexicons/financial_lexicon.json
+2025-04-03 14:40:39,996 - src.utils.feat_eng_pipeline_logger - INFO - FinVADER sentiment analyzer initialized
+2025-04-03 14:40:39,997 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: Can't instantiate abstract class FinancialEntityExtractor with abstract method transform
+2025-04-03 14:41:20,193 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-03 14:41:24,966 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-03 14:41:24,975 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-03 14:41:24,984 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-03 14:41:26,239 - src.utils.feat_eng_pipeline_logger - INFO - Loaded custom financial lexicon from src/lexicons/financial_lexicon.json
+2025-04-03 14:41:26,240 - src.utils.feat_eng_pipeline_logger - INFO - FinVADER sentiment analyzer initialized
+2025-04-03 14:41:26,248 - src.utils.feat_eng_pipeline_logger - INFO - Loaded custom financial lexicon from src/lexicons/financial_lexicon.json
+2025-04-03 14:41:26,248 - src.utils.feat_eng_pipeline_logger - INFO - FinVADER sentiment analyzer initialized
+2025-04-03 14:41:26,250 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-03 14:57:32,033 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-03 14:57:32,034 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-03 14:57:32,035 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinVADERSentimentExtractor: 'Sentence'
+2025-04-03 14:57:32,035 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-03 14:57:32,036 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-03 14:57:32,036 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-03 14:57:32,100 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 1 features.
+2025-04-03 14:57:32,118 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-03 14:57:32,118 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-03 15:18:51,924 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-03 15:19:00,385 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-03 15:19:00,397 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-03 15:19:00,406 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-03 15:19:00,882 - src.utils.feat_eng_pipeline_logger - INFO - Loaded custom financial lexicon from src/lexicons/financial_lexicon.json
+2025-04-03 15:19:00,883 - src.utils.feat_eng_pipeline_logger - INFO - FinVADER sentiment analyzer initialized
+2025-04-03 15:19:00,892 - src.utils.feat_eng_pipeline_logger - INFO - Loaded custom financial lexicon from src/lexicons/financial_lexicon.json
+2025-04-03 15:19:00,892 - src.utils.feat_eng_pipeline_logger - INFO - FinVADER sentiment analyzer initialized
+2025-04-03 15:19:00,896 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-03 15:34:02,069 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'FinancialEntityExtractor' object has no attribute 'nlp'
+2025-04-03 15:49:40,285 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'FinancialEntityExtractor' object has no attribute 'nlp'
+2025-04-03 15:49:42,288 - src.utils.feat_eng_pipeline_logger - ERROR - Error in feature engineering pipeline: cannot reindex on an axis with duplicate labels
+2025-04-03 15:49:42,292 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: cannot reindex on an axis with duplicate labels
+2025-04-04 11:12:49,887 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 11:14:06,202 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 11:15:02,188 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 11:15:06,684 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-04 11:15:06,696 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-04 11:15:06,709 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-04 11:20:44,645 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-04 11:21:11,397 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 3 features.
+2025-04-04 11:21:11,423 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-04 11:21:11,424 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-04 11:23:43,908 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 11:23:49,891 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-04 11:23:49,909 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-04 11:23:49,920 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-04 11:23:51,513 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-04 11:24:18,606 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 3 features.
+2025-04-04 11:24:18,629 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-04 11:24:18,630 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-04 11:34:46,303 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 11:34:51,504 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-04 11:34:51,515 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-04 11:34:51,523 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-04 11:34:53,101 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-04 11:35:22,051 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 3 features.
+2025-04-04 11:35:22,075 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-04 11:35:25,662 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_V1.pkl
+2025-04-04 11:36:41,076 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 11:36:46,697 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-04 11:36:46,713 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-04 11:36:46,723 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-04 11:36:48,401 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-04 11:37:15,319 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 3 features.
+2025-04-04 11:37:15,343 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-04 11:37:18,424 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-04 13:13:45,021 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 13:13:53,078 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-04 13:13:53,104 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-04 13:13:53,120 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-04 13:14:25,049 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-04 13:15:23,616 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-04 13:15:23,651 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-04 13:15:28,818 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-04 16:42:44,180 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 16:42:54,852 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-04 16:42:54,887 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-04 16:42:54,905 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-04 16:42:59,086 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-04 16:44:47,039 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-04 16:44:47,088 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-04 16:44:54,477 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-04 16:56:20,600 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 16:56:40,524 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 16:56:45,793 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-04 16:56:45,813 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-04 16:56:45,826 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-04 16:56:48,709 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-04 16:57:34,323 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-04 16:57:34,360 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-04 16:57:38,962 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-05 10:23:26,976 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-05 10:23:40,437 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-05 10:23:40,456 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-05 10:23:40,472 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-05 10:23:42,864 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: not enough values to unpack (expected 3, got 2)
+2025-04-05 10:28:33,330 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-05 10:28:53,362 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-05 10:28:56,890 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-05 10:28:56,902 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-05 10:28:56,913 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-05 10:28:58,962 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-05 10:29:33,537 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-05 10:29:33,567 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-05 10:29:37,190 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-05 10:44:45,461 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-05 10:45:23,356 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-05 10:45:26,731 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-05 10:45:26,747 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-05 10:45:26,756 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-05 10:45:28,778 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-05 10:46:06,243 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-05 10:46:06,269 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-05 10:46:09,609 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-05 10:59:59,798 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-05 11:00:04,621 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-05 11:00:04,635 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-05 11:00:04,645 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-05 11:00:06,783 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-05 11:00:45,405 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-05 11:00:45,432 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-05 11:00:49,169 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 11:09:32,427 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:09:46,577 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 11:09:46,643 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 11:09:46,660 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 11:09:48,909 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 11:10:27,631 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 11:10:27,663 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 11:10:32,267 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 11:13:45,678 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:14:13,417 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:14:17,669 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 11:14:17,686 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 11:14:17,695 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 11:14:20,558 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 11:14:52,465 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 11:14:52,493 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 11:14:55,956 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 11:26:21,832 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:26:28,027 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 11:26:28,046 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 11:26:28,056 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 11:26:30,217 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 11:27:40,080 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 11:27:40,105 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 11:27:44,302 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 11:32:50,504 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:32:56,549 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 11:32:56,567 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 11:32:56,578 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 11:32:58,270 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: Can't instantiate abstract class FinancialEventClassifier with abstract methods fit, transform
+2025-04-07 11:33:33,803 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:33:39,034 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 11:33:39,047 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 11:33:39,056 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 11:33:40,973 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 11:34:48,393 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 11:34:48,419 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 11:34:52,960 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 11:35:39,684 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:35:45,969 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 11:35:45,987 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 11:35:45,997 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 11:35:48,141 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 11:36:23,746 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 11:36:23,773 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 11:36:27,095 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 11:57:43,485 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:57:51,017 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 11:57:51,037 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 11:57:51,049 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 11:57:53,021 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 11:58:32,640 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 11:58:32,666 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 11:58:36,281 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 11:59:39,700 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:59:46,338 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 11:59:46,357 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 11:59:46,369 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 11:59:48,421 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 12:00:23,634 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 12:00:23,662 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 12:00:28,569 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 16:54:24,617 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 16:54:32,019 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 16:54:32,040 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 16:54:32,052 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 16:54:34,618 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 16:55:18,692 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 16:55:18,727 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 16:55:23,266 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl

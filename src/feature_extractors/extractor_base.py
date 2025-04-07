@@ -12,7 +12,6 @@ class FeatureExtractorBase(ABC, BaseEstimator, TransformerMixin):
         
     @abstractmethod
     def fit(self, X, y=None):
-
         return self
     
     @abstractmethod

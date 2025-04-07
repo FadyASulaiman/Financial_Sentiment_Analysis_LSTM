@@ -898,3 +898,60 @@ mlflow.exceptions.MissingConfigException: Yaml file './mlruns/276374957475256909
 2025-04-02 15:13:33,476 - FinancePreprocessing - INFO - Processed data saved to data/cleaned_data.csv
 2025-04-02 15:13:33,479 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
 2025-04-02 15:13:33,485 - FinancePreprocessing - INFO - Preprocessing completed successfully
+2025-04-03 11:46:17,797 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-03 11:47:15,606 - FinancePreprocessing - INFO - Started MLflow run with ID: ae0633418288438d8aa6f7284620793d
+2025-04-03 11:47:15,609 - FinancePreprocessing - INFO - Loading data from data/data.csv
+2025-04-03 11:47:15,633 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-04-03 11:47:18,637 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-03 11:47:18,802 - FinancePreprocessing - INFO - Removing URLs
+2025-04-03 11:47:18,812 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-03 11:47:18,945 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-03 11:47:18,948 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-03 11:47:19,113 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-03 11:47:19,191 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-03 11:47:19,240 - FinancePreprocessing - INFO - Removing special characters
+2025-04-03 11:47:19,252 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-03 11:47:19,288 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-03 11:47:19,299 - FinancePreprocessing - INFO - Removing stop words
+2025-04-03 11:47:19,323 - FinancePreprocessing - INFO - Preprocessing completed in 0.69 seconds
+2025-04-03 11:47:19,345 - FinancePreprocessing - INFO - Processed data saved to data/cleaned_data.csv
+2025-04-03 11:47:19,350 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
+2025-04-03 11:47:19,356 - FinancePreprocessing - INFO - Preprocessing completed successfully
+2025-04-03 11:52:22,948 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-03 11:52:34,869 - FinancePreprocessing - INFO - Started MLflow run with ID: 6c5a49f7a26f495b9e39475945ac19a8
+2025-04-03 11:52:34,872 - FinancePreprocessing - INFO - Loading data from data/data.csv
+2025-04-03 11:52:34,892 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-04-03 11:52:35,655 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-03 11:52:35,818 - FinancePreprocessing - INFO - Removing URLs
+2025-04-03 11:52:35,827 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-03 11:52:35,956 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-03 11:52:35,959 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-03 11:52:36,136 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-03 11:52:36,240 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-03 11:52:36,290 - FinancePreprocessing - INFO - Removing special characters
+2025-04-03 11:52:36,302 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-03 11:52:36,337 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-03 11:52:36,347 - FinancePreprocessing - INFO - Removing stop words
+2025-04-03 11:52:36,371 - FinancePreprocessing - INFO - Preprocessing completed in 0.72 seconds
+2025-04-03 11:52:36,389 - FinancePreprocessing - INFO - Processed data saved to data/cleaned_data.csv
+2025-04-03 11:52:36,391 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
+2025-04-03 11:52:36,397 - FinancePreprocessing - INFO - Preprocessing completed successfully
+2025-04-03 11:52:55,482 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-03 11:53:05,755 - FinancePreprocessing - INFO - Started MLflow run with ID: 2329cff90aa04677ac3516ea6921154d
+2025-04-03 11:53:05,757 - FinancePreprocessing - INFO - Loading data from data/data.csv
+2025-04-03 11:53:05,776 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-04-03 11:53:06,419 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-03 11:53:06,580 - FinancePreprocessing - INFO - Removing URLs
+2025-04-03 11:53:06,590 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-03 11:53:06,717 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-03 11:53:06,720 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-03 11:53:06,886 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-03 11:53:06,977 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-03 11:53:07,029 - FinancePreprocessing - INFO - Removing special characters
+2025-04-03 11:53:07,041 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-03 11:53:07,077 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-03 11:53:07,087 - FinancePreprocessing - INFO - Removing stop words
+2025-04-03 11:53:07,110 - FinancePreprocessing - INFO - Preprocessing completed in 0.69 seconds
+2025-04-03 11:53:07,128 - FinancePreprocessing - INFO - Processed data saved to data/cleaned_data.csv
+2025-04-03 11:53:07,130 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
+2025-04-03 11:53:07,135 - FinancePreprocessing - INFO - Preprocessing completed successfully

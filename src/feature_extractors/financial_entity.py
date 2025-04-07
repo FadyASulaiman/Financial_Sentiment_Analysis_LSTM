@@ -2,10 +2,9 @@ import re
 import pandas as pd
 import spacy
 from typing import List, Dict, Optional
-from abc import ABC, abstractmethod
-from sklearn.base import BaseEstimator, TransformerMixin
 
 from src.feature_extractors.extractor_base import FeatureExtractorBase
+from src.utils.feat_eng_pipeline_logger import logger
 
 class FinancialEntityExtractor(FeatureExtractorBase):
     """
@@ -96,11 +95,6 @@ class FinancialEntityExtractor(FeatureExtractorBase):
         """
         Extract stock ticker symbol from text.
         
-        Args:
-            text: Input text
-            
-        Returns:
-            Company name or ticker symbol if found, None otherwise
         """
         match = re.search(self.ticker_pattern, text)
         if match:
@@ -116,11 +110,6 @@ class FinancialEntityExtractor(FeatureExtractorBase):
         Extract company names using rules and known company names.
         This is a fallback for when NER doesn't work.
         
-        Args:
-            text: Input text
-            
-        Returns:
-            Company name if found, None otherwise
         """
         # Check for known companies first
         for company, full_name in self.known_companies.items():
@@ -143,11 +132,6 @@ class FinancialEntityExtractor(FeatureExtractorBase):
         """
         Extract company names using spaCy NER.
         
-        Args:
-            text: Input text
-            
-        Returns:
-            Company name if found, None otherwise
         """
         doc = self.nlp(text)
         
@@ -164,11 +148,6 @@ class FinancialEntityExtractor(FeatureExtractorBase):
         """
         Main method to extract company name using all available methods.
         
-        Args:
-            text: Input text
-            
-        Returns:
-            Company name, or "None" as a string if no company is found
         """
         # First try to extract ticker (highest precision)
         company = self.extract_ticker(text)
@@ -193,11 +172,6 @@ class FinancialEntityExtractor(FeatureExtractorBase):
         """
         Add a company column to the DataFrame.
         
-        Args:
-            X: Input DataFrame
-            
-        Returns:
-            DataFrame with an additional company column
         """
         if isinstance(X, pd.DataFrame):
             X_transformed = X.copy()
@@ -218,10 +192,4 @@ class FinancialEntityExtractor(FeatureExtractorBase):
                 return results
     
     def get_feature_names(self) -> List[str]:
-        """
-        Get the name of the generated feature.
-        
-        Returns:
-            List of feature names
-        """
         return [self.output_column]

@@ -14,11 +14,7 @@ from src.config.config_loader import load_config
 from src.feature_extractors.extractor_base import FeatureExtractorBase
 from src.feature_extractors.financial_entity import FinancialEntityExtractor
 
-
-# from src.feature_extractors.retired.performace_indicator import FinancialPerformanceIndicatorExtractor
-# from src.feature_extractors.retired.relative_change import RelativeChangeExtractor
-# from src.feature_extractors.retired.financial_ngram import FinancialNGramExtractor
-
+from src.feature_extractors.financial_event import FinancialEventClassifier
 from src.utils.feat_eng_pipeline_logger import logger
 
 
@@ -48,9 +44,10 @@ class FeatureEngineeringPipeline:
     def _create_transformers(self) -> List[FeatureExtractorBase]:
         """Create transformer objects based on configuration"""
         return [
-            FinancialEntityExtractor(self.config)
+            FinancialEntityExtractor(self.config),
+            FinancialEventClassifier(self.config)
+
             # FinVADERSentimentExtractor(self.config),  # Sentiment is most important
-            # FinancialEntityExtractor(self.config),    # Entity recognition is valuable
             # GrowthDeclineQuantifier(self.config),     # Numeric trends are important
             # CompositeFeatureExtractor(self.config),   # High-level combined features
             # IndustrySectorCategorizer(self.config),
