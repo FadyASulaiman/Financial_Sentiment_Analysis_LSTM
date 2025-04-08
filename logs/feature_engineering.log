@@ -439,3 +439,20 @@ dtype: int64
 2025-04-07 16:55:18,692 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
 2025-04-07 16:55:18,727 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
 2025-04-07 16:55:23,266 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 17:03:52,535 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 17:03:58,375 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 17:03:58,394 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 17:03:58,404 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 17:04:01,383 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 17:04:38,360 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: "['industry_industrial'] not in index"
+2025-04-07 17:04:38,430 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 17:04:38,457 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 17:04:42,360 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 17:08:30,078 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 17:08:37,643 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 17:08:37,663 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 17:08:37,673 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 17:08:39,669 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 17:09:17,085 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-07 17:09:17,114 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 17:09:21,168 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
