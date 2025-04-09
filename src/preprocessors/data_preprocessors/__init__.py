@@ -10,9 +10,9 @@ from src.preprocessors.data_preprocessors.stock_ticker_replacer import StockTick
 from src.preprocessors.data_preprocessors.currency_replacer import CurrencyReplacer
 from src.preprocessors.data_preprocessors.text_lowercaser import TextLowercaser
 from src.preprocessors.data_preprocessors.stopword_remover import StopWordRemover
-from src.preprocessors.data_preprocessors.finbert_tokenizer import FinBERTTokenizer
-from src.preprocessors.data_preprocessors.spacy_lemmatizer import SpacyLemmatizer
-from src.preprocessors.data_preprocessors.sequence_padder import SequencePadder
+from src.preprocessors.data_prep.finbert_tokenizer import FinBERTTokenizer
+from src.preprocessors.data_prep.spacy_lemmatizer import SpacyLemmatizer
+from src.preprocessors.data_prep.sequence_padder import SequencePadder
 
 __all__ = [
     'PreprocessorBase',
