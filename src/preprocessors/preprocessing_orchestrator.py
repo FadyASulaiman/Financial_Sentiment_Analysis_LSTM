@@ -4,6 +4,7 @@ import mlflow
 import pandas as pd
 from datetime import datetime
 from sklearn.pipeline import Pipeline
+from src.preprocessors.data_preprocessors.minority_oversampler import SentimentBalancer
 from src.utils.preprocessing_logger import logger
 from src.preprocessors.data_preprocessors import (
     HTMLCleaner, URLRemover, PunctuationRemover, SpecialCharRemover,
@@ -47,6 +48,7 @@ class FinanceTextPreprocessingOrchestrator:
             ('whitespace_normalizer', WhitespaceNormalizer()),
             ('lowercaser', TextLowercaser()),
             ('stop_word_remover', StopWordRemover(self.domain_specific_stopwords)),
+            ('minority_oversampler' , SentimentBalancer())
             # ('tokenizer', FinBERTTokenizer()),
             # ('lemmatizer', SpacyLemmatizer()),
             # ('padder', SequencePadder(self.max_sequence_length))
@@ -97,8 +99,10 @@ class FinanceTextPreprocessingOrchestrator:
                 start_time = datetime.now()
                 
                 # Apply preprocessing pipeline
-                processed_sentences = self.preprocessing_pipeline.fit_transform(sentences)
-                
+                processed_sentences = self.preprocessing_pipeline.fit_transform(sentences, sentiments)
+
+                balanced_sentiments = self.preprocessing_pipeline.named_steps['minority_oversampler'].get_balanced_y()
+
                 # Track end time and duration
                 end_time = datetime.now()
                 processing_duration = (end_time - start_time).total_seconds()
@@ -108,8 +112,10 @@ class FinanceTextPreprocessingOrchestrator:
                 # Create a new DataFrame with the processed data
                 processed_df = pd.DataFrame({
                     'Sentence': processed_sentences,
-                    'Sentiment': sentiments
+                    'Sentiment': balanced_sentiments
                 })
+
+
                 
                 # Save the processed data
                 output_path = os.path.join(output_dir, 'cleaned_data.csv')
