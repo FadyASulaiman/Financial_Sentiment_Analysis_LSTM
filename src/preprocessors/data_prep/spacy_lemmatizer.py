@@ -15,10 +15,15 @@ class SpacyLemmatizer(PreprocessorBase):
         logger.info(f"Loading spaCy model {self.model_name}")
         try:
             self.nlp = spacy.load(self.model_name)
+            # Disable unnecessary components for better performance
+            self.nlp.disable_pipe("parser")
+            self.nlp.disable_pipe("ner")
         except OSError:
             logger.warning(f"spaCy model {self.model_name} not found. Downloading...")
             os.system(f"python -m spacy download {self.model_name}")
             self.nlp = spacy.load(self.model_name)
+            self.nlp.disable_pipe("parser")
+            self.nlp.disable_pipe("ner")
         return self
     
     def transform(self, X):
@@ -45,4 +50,6 @@ class SpacyLemmatizer(PreprocessorBase):
             return lemmas
         
         # Apply lemmatization to each tokenized text
-        return X.apply(lemmatize)
+        lemmatized = X.apply(lemmatize)
+        
+        return lemmatized

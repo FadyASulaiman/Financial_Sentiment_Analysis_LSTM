@@ -1,8 +1,8 @@
 import pandas as pd
 from transformers import BertTokenizer
 from src.preprocessors.data_preprocessors.base_preprocessor import PreprocessorBase
-from src.utils.preprocessing_logger import logger
 from src.utils.constants import SPECIAL_TOKENS
+from src.utils.data_prep_pipeline_logger import logger
 
 class FinBERTTokenizer(PreprocessorBase):
     """Class to tokenize text using FinBERT tokenizer"""
@@ -33,6 +33,11 @@ class FinBERTTokenizer(PreprocessorBase):
         # Tokenize each text
         tokenized = []
         for text in X:
+            if pd.isna(text):
+                text = ""
+            else:
+                text = str(text)
+                
             # Add special tokens at the start and end
             text = f"{SPECIAL_TOKENS['START']} {text} {SPECIAL_TOKENS['END']}"
 

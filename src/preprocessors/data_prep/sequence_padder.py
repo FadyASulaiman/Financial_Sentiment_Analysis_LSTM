@@ -11,23 +11,42 @@ class SequencePadder(PreprocessorBase):
         self.max_sequence_length = max_sequence_length
         self.padding = padding
         self.truncating = truncating
+        self.vocab = None
+        self.token_to_index = None
+        self.index_to_token = None
 
     def fit(self, X, y=None):
+        """Build vocabulary from tokens"""
+        logger.info("Building vocabulary from tokens")
+        
+        # Create a vocabulary of words
+        all_tokens = [token for tokens in X for token in tokens]
+        unique_tokens = set(all_tokens)
+        
+        # Add special tokens to vocabulary
+        for token in SPECIAL_TOKENS.values():
+            unique_tokens.add(token)
+        
+        self.vocab = sorted(list(unique_tokens))
+        self.token_to_index = {token: i + 1 for i, token in enumerate(self.vocab)}  # Reserve 0 for padding
+        self.index_to_token = {i + 1: token for i, token in enumerate(self.vocab)}
+        self.index_to_token[0] = SPECIAL_TOKENS['PAD']  # Add padding token
+        
+        logger.info(f"Vocabulary size: {len(self.vocab) + 1}")  # +1 for padding token
+        
         return self
 
     def transform(self, X):
         """Pad/truncate sequences"""
         logger.info(f"Padding/truncating sequences to length {self.max_sequence_length}")
 
-        # Create a vocabulary of words
-        all_tokens = [token for tokens in X for token in tokens]
-        unique_tokens = set(all_tokens)
-        token_to_index = {token: i + 1 for i, token in enumerate(unique_tokens)}  # Reserve 0 for padding
+        if self.token_to_index is None:
+            self.fit(X)
 
         # Convert tokens to indices
         sequences = []
         for tokens in X:
-            sequence = [token_to_index.get(token, token_to_index.get(SPECIAL_TOKENS['OOV'], 0)) for token in tokens]
+            sequence = [self.token_to_index.get(token, self.token_to_index.get(SPECIAL_TOKENS['OOV'], 0)) for token in tokens]
             sequences.append(sequence)
 
         # Pad/truncate sequences
