@@ -2,7 +2,7 @@ import os
 from src.utils.feat_eng_pipeline_logger import logger
 import pandas as pd
 
-from src.pipelines.feature_engineering_pipleine import FeatureEngineeringPipeline
+from src.pipelines.III_feature_engineering_pipleine_orchestrator import FeatureEngineeringPipeline
 
 def main():
     """Main entry point for the feature engineering pipeline"""

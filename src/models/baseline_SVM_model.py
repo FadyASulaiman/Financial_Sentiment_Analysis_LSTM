@@ -76,22 +76,6 @@ class BaselineSVMModel:
         
         grid_search = GridSearchCV(pipeline, param_grid, cv=3, n_jobs=-1, verbose=1, scoring='f1_weighted')
         grid_search.fit(X_train, y_train)
-
-        # param_grid = {
-        # 'tfidf__max_features': [5000, 10000],
-        # 'tfidf__ngram_range': [(1, 1), (1, 2)],
-        # 'classifier__C': [0.1, 1, 10]
-        # }
-    
-        # # Create grid search
-        # grid_search = GridSearchCV(
-        #     pipeline,
-        #     param_grid,
-        #     cv=3,
-        #     scoring='f1_weighted',
-        #     verbose=1,
-        #     n_jobs=-1
-        # )
         
         
         print("\nBest parameters:", grid_search.best_params_)
@@ -176,4 +160,3 @@ if __name__ == "__main__":
 
     file_path = "data/feature_engineered_data.csv"
     model = b.run_sentiment_analysis_pipeline(file_path)
-    

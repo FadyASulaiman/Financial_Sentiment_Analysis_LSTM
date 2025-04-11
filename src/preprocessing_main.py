@@ -1,7 +1,7 @@
 import os
 from src.utils.constants import MAX_SEQUENCE_LENGTH
 from src.utils.preprocessing_logger import logger
-from src.preprocessors.preprocessing_orchestrator import FinanceTextPreprocessingOrchestrator
+from src.pipelines.II_preprocessing_orchestrator import FinanceTextPreprocessingOrchestrator
 
 
 def main():

@@ -1,5 +1,5 @@
 import os
-from src.preprocessors.preprocessing_orchestrator import FinanceTextPreprocessingOrchestrator
+from src.pipelines.II_preprocessing_orchestrator import FinanceTextPreprocessingOrchestrator
 from src.utils.preprocessing_logger import logger
 from src.utils.constants import  MAX_SEQUENCE_LENGTH
 
