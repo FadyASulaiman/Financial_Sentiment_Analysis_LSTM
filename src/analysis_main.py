@@ -1,6 +1,6 @@
 import pandas as pd
 from src.pipelines.I_eda_pipeline_orchestrator import FinanceSentimentEDAOrchestrator
-from src.utils.eda_logger import logger
+from src.utils.loggers.eda_logger import logger
 
 def main():
     """Main entry point for the application"""

@@ -1,5 +1,5 @@
 import os
-from src.utils.feat_eng_pipeline_logger import logger
+from src.utils.loggers.feat_eng_pipeline_logger import logger
 import pandas as pd
 
 from src.pipelines.III_feature_engineering_pipleine_orchestrator import FeatureEngineeringPipeline
