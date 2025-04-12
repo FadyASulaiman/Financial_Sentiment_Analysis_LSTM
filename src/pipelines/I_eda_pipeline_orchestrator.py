@@ -8,7 +8,7 @@ from src.preprocessors.EDA.sentiment_analyzer import SentimentAnalyzer
 from src.preprocessors.EDA.data_visualizer import DataVisualizer
 from src.preprocessors.EDA.stats_generator import StatsGenerator
 from src.preprocessors.EDA.insight_extractor import InsightExtractor
-from src.utils.eda_logger import logger
+from src.utils.loggers.eda_logger import logger
 
 class FinanceSentimentEDAOrchestrator:
     """Main EDA Orchestrator"""

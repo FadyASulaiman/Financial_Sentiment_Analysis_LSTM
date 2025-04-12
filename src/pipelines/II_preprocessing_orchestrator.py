@@ -5,7 +5,7 @@ import pandas as pd
 from datetime import datetime
 from sklearn.pipeline import Pipeline
 from src.preprocessors.data_preprocessors.minority_oversampler import SentimentBalancer
-from src.utils.preprocessing_logger import logger
+from src.utils.loggers.preprocessing_logger import logger
 from src.preprocessors.data_preprocessors import (
     HTMLCleaner, URLRemover, PunctuationRemover, SpecialCharRemover,
     WhitespaceNormalizer, NumericNormalizer, DateTimeNormalizer,

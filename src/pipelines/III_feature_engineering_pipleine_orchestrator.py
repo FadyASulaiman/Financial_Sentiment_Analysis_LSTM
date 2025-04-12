@@ -16,7 +16,7 @@ from src.feature_extractors.financial_entity import FinancialEntityExtractor
 
 from src.feature_extractors.financial_event import FinancialEventClassifier
 from src.feature_extractors.industry_sector import IndustrySectorClassifier
-from src.utils.feat_eng_pipeline_logger import logger
+from src.utils.loggers.feat_eng_pipeline_logger import logger
 
 
 
