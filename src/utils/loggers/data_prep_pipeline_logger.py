@@ -1,7 +1,7 @@
 import logging
 from pathlib import Path
 
-def setup_data_prep_logger(log_file="logs/data_prep_.log"):
+def setup_data_prep_logger(log_file="logs/data_prep.log"):
     """Configure and return a logger"""
     logging.basicConfig(
         level=logging.INFO,

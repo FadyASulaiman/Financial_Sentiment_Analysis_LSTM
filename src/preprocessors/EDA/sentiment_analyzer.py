@@ -1,5 +1,5 @@
 import pandas as pd
-from src.utils.eda_logger import logger
+from src.utils.loggers.eda_logger import logger
 
 class SentimentAnalyzer:
     """Class for analyzing sentiment distributions and patterns"""

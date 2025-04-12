@@ -1,0 +1,442 @@
+2025-04-12 15:53:55,549 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting sentiment model training and evaluation
+2025-04-12 15:53:55,671 - src.utils.loggers.model_training_and_eval_logger - INFO - Started MLflow run with ID: 54aa50a296414b8ca09309d59b3f12d6
+2025-04-12 15:53:55,686 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed
+2025-04-12 15:53:55,688 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error in model training: [Errno 21] Is a directory: 'data/processed'
+Traceback (most recent call last):
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/model_training_main.py", line 52, in main
+    model, metrics, run_id = trainer.train(config)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/pipelines/V_model_training_pipeline_orchestrator.py", line 126, in train
+    X, y = self.load_data()
+           ^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/pipelines/V_model_training_pipeline_orchestrator.py", line 39, in load_data
+    data = np.load(self.data_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/numpy/lib/npyio.py", line 427, in load
+    fid = stack.enter_context(open(os_fspath(file), "rb"))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IsADirectoryError: [Errno 21] Is a directory: 'data/processed'
+2025-04-12 15:55:50,430 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting sentiment model training and evaluation
+2025-04-12 15:55:50,536 - src.utils.loggers.model_training_and_eval_logger - INFO - Started MLflow run with ID: a154d192034b43758e841e8404acb14f
+2025-04-12 15:55:50,550 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processedprocessed_arrays.npz
+2025-04-12 15:55:50,552 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error in model training: [Errno 2] No such file or directory: 'data/processedprocessed_arrays.npz'
+Traceback (most recent call last):
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/model_training_main.py", line 52, in main
+    model, metrics, run_id = trainer.train(config)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/pipelines/V_model_training_pipeline_orchestrator.py", line 121, in train
+    X, y = self.load_data()
+           ^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/pipelines/V_model_training_pipeline_orchestrator.py", line 34, in load_data
+    data = np.load(self.data_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/numpy/lib/npyio.py", line 427, in load
+    fid = stack.enter_context(open(os_fspath(file), "rb"))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/processedprocessed_arrays.npz'
+2025-04-12 15:56:04,895 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting sentiment model training and evaluation
+2025-04-12 15:56:04,997 - src.utils.loggers.model_training_and_eval_logger - INFO - Started MLflow run with ID: b360d0a1f0834ec690dc8307a2818573
+2025-04-12 15:56:05,011 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-12 15:56:05,019 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error in model training: Object arrays cannot be loaded when allow_pickle=False
+Traceback (most recent call last):
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/model_training_main.py", line 52, in main
+    model, metrics, run_id = trainer.train(config)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/pipelines/V_model_training_pipeline_orchestrator.py", line 121, in train
+    X, y = self.load_data()
+           ^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/pipelines/V_model_training_pipeline_orchestrator.py", line 36, in load_data
+    y = data['y']
+        ~~~~^^^^^
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/numpy/lib/npyio.py", line 256, in __getitem__
+    return format.read_array(bytes,
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/numpy/lib/format.py", line 795, in read_array
+    raise ValueError("Object arrays cannot be loaded when "
+ValueError: Object arrays cannot be loaded when allow_pickle=False
+2025-04-12 16:00:34,247 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting sentiment model training and evaluation
+2025-04-12 16:00:34,353 - src.utils.loggers.model_training_and_eval_logger - INFO - Started MLflow run with ID: 05f5f95cbdd642c98d61379d450d976a
+2025-04-12 16:00:34,368 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-12 16:00:34,374 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(5842, 128), y=(5842,)
+2025-04-12 16:00:34,378 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {'negative': 860, 'neutral': 3130, 'positive': 1852}
+2025-04-12 16:00:34,393 - src.utils.loggers.model_training_and_eval_logger - INFO - Data split: train=(4673, 128), val=(584, 128), test=(585, 128)
+2025-04-12 16:00:34,396 - src.utils.loggers.model_training_and_eval_logger - INFO - Class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-12 16:00:34,398 - src.utils.loggers.model_training_and_eval_logger - INFO - Initializing lstm_sentiment_05f5f95c with vocab_size=5802, sequence_length=128, embedding_dim=100
+2025-04-12 16:00:34,398 - src.utils.loggers.model_training_and_eval_logger - INFO - Building LSTM model architecture
+2025-04-12 16:00:34,410 - src.utils.loggers.model_training_and_eval_logger - INFO - Using trainable embeddings
+2025-04-12 16:00:34,412 - src.utils.loggers.model_training_and_eval_logger - INFO - Adding LSTM with 128 units
+2025-04-12 16:00:34,497 - src.utils.loggers.model_training_and_eval_logger - INFO - Building multi-class classification output with 3 classes
+2025-04-12 16:00:34,497 - src.utils.loggers.model_training_and_eval_logger - INFO - LSTM model architecture built successfully
+2025-04-12 16:00:34,515 - src.utils.loggers.model_training_and_eval_logger - INFO - Using metrics: ['accuracy', <Precision name=precision>, <Recall name=recall>]
+2025-04-12 16:00:34,523 - src.utils.loggers.model_training_and_eval_logger - INFO - Model compiled successfully
+2025-04-12 16:00:34,523 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting training with batch_size=32, epochs=12
+2025-04-12 16:00:34,525 - src.utils.loggers.model_training_and_eval_logger - INFO - Training class distribution: {'positive': 1481, 'negative': 688, 'neutral': 2504}
+2025-04-12 16:00:34,526 - src.utils.loggers.model_training_and_eval_logger - INFO - Validation class distribution: {'positive': 185, 'negative': 86, 'neutral': 313}
+2025-04-12 16:00:34,526 - src.utils.loggers.model_training_and_eval_logger - INFO - Using class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-12 16:00:34,526 - src.utils.loggers.model_training_and_eval_logger - INFO - Setting up callbacks with patience=5
+2025-04-12 16:00:34,527 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error in model training: The filepath provided must end in `.keras` (Keras model format). Received: filepath=output/model/logs/lstm_sentiment_05f5f95c/best_model.h5
+Traceback (most recent call last):
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/model_training_main.py", line 52, in main
+    model, metrics, run_id = trainer.train(config)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/pipelines/V_model_training_pipeline_orchestrator.py", line 178, in train
+    history = model.fit(
+              ^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/models/model_base/model_base.py", line 120, in fit
+    callbacks = self.get_callbacks(patience=patience)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/models/model_base/model_base.py", line 63, in get_callbacks
+    checkpoint = ModelCheckpoint(
+                 ^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/callbacks/model_checkpoint.py", line 191, in __init__
+    raise ValueError(
+ValueError: The filepath provided must end in `.keras` (Keras model format). Received: filepath=output/model/logs/lstm_sentiment_05f5f95c/best_model.h5
+2025-04-12 16:04:25,665 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting sentiment model training and evaluation
+2025-04-12 16:04:25,785 - src.utils.loggers.model_training_and_eval_logger - INFO - Started MLflow run with ID: c0f6c958926c4059a3233fe4e9f4f51f
+2025-04-12 16:04:25,801 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-12 16:04:25,807 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(5842, 128), y=(5842,)
+2025-04-12 16:04:25,809 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {'negative': 860, 'neutral': 3130, 'positive': 1852}
+2025-04-12 16:04:25,821 - src.utils.loggers.model_training_and_eval_logger - INFO - Data split: train=(4673, 128), val=(584, 128), test=(585, 128)
+2025-04-12 16:04:25,824 - src.utils.loggers.model_training_and_eval_logger - INFO - Class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-12 16:04:25,825 - src.utils.loggers.model_training_and_eval_logger - INFO - Initializing lstm_sentiment_c0f6c958 with vocab_size=5802, sequence_length=128, embedding_dim=100
+2025-04-12 16:04:25,825 - src.utils.loggers.model_training_and_eval_logger - INFO - Building LSTM model architecture
+2025-04-12 16:04:25,828 - src.utils.loggers.model_training_and_eval_logger - INFO - Using trainable embeddings
+2025-04-12 16:04:25,829 - src.utils.loggers.model_training_and_eval_logger - INFO - Adding LSTM with 128 units
+2025-04-12 16:04:25,872 - src.utils.loggers.model_training_and_eval_logger - INFO - Building multi-class classification output with 3 classes
+2025-04-12 16:04:25,873 - src.utils.loggers.model_training_and_eval_logger - INFO - LSTM model architecture built successfully
+2025-04-12 16:04:25,894 - src.utils.loggers.model_training_and_eval_logger - INFO - Using metrics: ['accuracy', <Precision name=precision>, <Recall name=recall>]
+2025-04-12 16:04:25,905 - src.utils.loggers.model_training_and_eval_logger - INFO - Model compiled successfully
+2025-04-12 16:04:25,905 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting training with batch_size=32, epochs=12
+2025-04-12 16:04:25,908 - src.utils.loggers.model_training_and_eval_logger - INFO - Training class distribution: {'negative': 688, 'neutral': 2504, 'positive': 1481}
+2025-04-12 16:04:25,909 - src.utils.loggers.model_training_and_eval_logger - INFO - Validation class distribution: {'neutral': 313, 'negative': 86, 'positive': 185}
+2025-04-12 16:04:25,909 - src.utils.loggers.model_training_and_eval_logger - INFO - Using class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-12 16:04:25,909 - src.utils.loggers.model_training_and_eval_logger - INFO - Setting up callbacks with patience=5
+2025-04-12 16:04:25,909 - src.utils.loggers.model_training_and_eval_logger - INFO - X_train shape: (4673, 128)
+2025-04-12 16:04:25,909 - src.utils.loggers.model_training_and_eval_logger - INFO - y_train shape: (4673,)
+2025-04-12 16:04:25,909 - src.utils.loggers.model_training_and_eval_logger - INFO - X_val shape: (584, 128)
+2025-04-12 16:04:25,909 - src.utils.loggers.model_training_and_eval_logger - INFO - y_val shape: (584,)
+2025-04-12 16:04:25,913 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error in model training: loop of ufunc does not support argument 0 of type str which has no callable rint method
+Traceback (most recent call last):
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/model_training_main.py", line 52, in main
+    model, metrics, run_id = trainer.train(config)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/pipelines/V_model_training_pipeline_orchestrator.py", line 178, in train
+    history = model.fit(
+              ^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/models/model_base/model_base.py", line 124, in fit
+    self.history = self.model.fit(
+                   ^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/numpy/core/fromnumeric.py", line 3360, in round
+    return _wrapfunc(a, 'round', decimals=decimals, out=out)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/numpy/core/fromnumeric.py", line 68, in _wrapfunc
+    return _wrapit(obj, method, *args, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/numpy/core/fromnumeric.py", line 45, in _wrapit
+    result = getattr(asarray(obj), method)(*args, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: loop of ufunc does not support argument 0 of type str which has no callable rint method
+2025-04-12 16:11:26,022 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting sentiment model training and evaluation
+2025-04-12 16:11:26,129 - src.utils.loggers.model_training_and_eval_logger - INFO - Started MLflow run with ID: 2469206f05b14ae696f327c8a7fad387
+2025-04-12 16:11:26,143 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-12 16:11:26,148 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(5842, 128), y=(5842,)
+2025-04-12 16:11:26,148 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 860, 1: 3130, 2: 1852}
+2025-04-12 16:11:26,158 - src.utils.loggers.model_training_and_eval_logger - INFO - Data split: train=(4673, 128), val=(584, 128), test=(585, 128)
+2025-04-12 16:11:26,162 - src.utils.loggers.model_training_and_eval_logger - INFO - Class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-12 16:11:26,162 - src.utils.loggers.model_training_and_eval_logger - INFO - Initializing lstm_sentiment_2469206f with vocab_size=5802, sequence_length=128, embedding_dim=100
+2025-04-12 16:11:26,163 - src.utils.loggers.model_training_and_eval_logger - INFO - Building LSTM model architecture
+2025-04-12 16:11:26,165 - src.utils.loggers.model_training_and_eval_logger - INFO - Using trainable embeddings
+2025-04-12 16:11:26,167 - src.utils.loggers.model_training_and_eval_logger - INFO - Adding LSTM with 128 units
+2025-04-12 16:11:26,202 - src.utils.loggers.model_training_and_eval_logger - INFO - Building multi-class classification output with 3 classes
+2025-04-12 16:11:26,203 - src.utils.loggers.model_training_and_eval_logger - INFO - LSTM model architecture built successfully
+2025-04-12 16:11:26,222 - src.utils.loggers.model_training_and_eval_logger - INFO - Using metrics: ['accuracy', <Precision name=precision>, <Recall name=recall>]
+2025-04-12 16:11:26,230 - src.utils.loggers.model_training_and_eval_logger - INFO - Model compiled successfully
+2025-04-12 16:11:26,230 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting training with batch_size=32, epochs=12
+2025-04-12 16:11:26,233 - src.utils.loggers.model_training_and_eval_logger - INFO - Training class distribution: {0: 688, 1: 2504, 2: 1481}
+2025-04-12 16:11:26,233 - src.utils.loggers.model_training_and_eval_logger - INFO - Validation class distribution: {0: 86, 1: 313, 2: 185}
+2025-04-12 16:11:26,233 - src.utils.loggers.model_training_and_eval_logger - INFO - Using class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-12 16:11:26,233 - src.utils.loggers.model_training_and_eval_logger - INFO - Setting up callbacks with patience=5
+2025-04-12 16:11:26,234 - src.utils.loggers.model_training_and_eval_logger - INFO - X_train shape: (4673, 128)
+2025-04-12 16:11:26,234 - src.utils.loggers.model_training_and_eval_logger - INFO - y_train shape: (4673,)
+2025-04-12 16:11:26,234 - src.utils.loggers.model_training_and_eval_logger - INFO - X_val shape: (584, 128)
+2025-04-12 16:11:26,234 - src.utils.loggers.model_training_and_eval_logger - INFO - y_val shape: (584,)
+2025-04-12 16:11:30,079 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error in model training: Graph execution error:
+
+Detected at node LogicalAnd defined at (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+
+  File "<frozen runpy>", line 88, in _run_code
+
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/model_training_main.py", line 95, in <module>
+
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/model_training_main.py", line 52, in main
+
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/pipelines/V_model_training_pipeline_orchestrator.py", line 178, in train
+
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/models/model_base/model_base.py", line 124, in fit
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 117, in error_handler
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py", line 320, in fit
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py", line 121, in one_step_on_iterator
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py", line 108, in one_step_on_data
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py", line 77, in train_step
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/trainers/trainer.py", line 491, in compute_metrics
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/trainers/compile_utils.py", line 330, in update_state
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/trainers/compile_utils.py", line 17, in update_state
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/metrics/confusion_metrics.py", line 378, in update_state
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/metrics/metrics_utils.py", line 592, in update_confusion_matrix_variables
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/metrics/metrics_utils.py", line 565, in weighted_assign_add
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/ops/numpy.py", line 3535, in logical_and
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/backend/tensorflow/numpy.py", line 1482, in logical_and
+
+Incompatible shapes: [1,96] vs. [1,32]
+	 [[{{node LogicalAnd}}]] [Op:__inference_one_step_on_iterator_5057]
+Traceback (most recent call last):
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/model_training_main.py", line 52, in main
+    model, metrics, run_id = trainer.train(config)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/pipelines/V_model_training_pipeline_orchestrator.py", line 178, in train
+    history = model.fit(
+              ^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/models/model_base/model_base.py", line 124, in fit
+    self.history = self.model.fit(
+                   ^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/tensorflow/python/eager/execute.py", line 59, in quick_execute
+    except TypeError as e:
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Graph execution error:
+
+Detected at node LogicalAnd defined at (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+
+  File "<frozen runpy>", line 88, in _run_code
+
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/model_training_main.py", line 95, in <module>
+
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/model_training_main.py", line 52, in main
+
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/pipelines/V_model_training_pipeline_orchestrator.py", line 178, in train
+
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/models/model_base/model_base.py", line 124, in fit
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 117, in error_handler
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py", line 320, in fit
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py", line 121, in one_step_on_iterator
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py", line 108, in one_step_on_data
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py", line 77, in train_step
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/trainers/trainer.py", line 491, in compute_metrics
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/trainers/compile_utils.py", line 330, in update_state
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/trainers/compile_utils.py", line 17, in update_state
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/metrics/confusion_metrics.py", line 378, in update_state
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/metrics/metrics_utils.py", line 592, in update_confusion_matrix_variables
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/metrics/metrics_utils.py", line 565, in weighted_assign_add
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/ops/numpy.py", line 3535, in logical_and
+
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/backend/tensorflow/numpy.py", line 1482, in logical_and
+
+Incompatible shapes: [1,96] vs. [1,32]
+	 [[{{node LogicalAnd}}]] [Op:__inference_one_step_on_iterator_5057]
+2025-04-12 16:15:21,960 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting sentiment model training and evaluation
+2025-04-12 16:15:22,063 - src.utils.loggers.model_training_and_eval_logger - INFO - Started MLflow run with ID: 7d174d383447445e9f96e121aefb8549
+2025-04-12 16:15:22,078 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-12 16:15:22,082 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(5842, 128), y=(5842,)
+2025-04-12 16:15:22,083 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 860, 1: 3130, 2: 1852}
+2025-04-12 16:15:22,090 - src.utils.loggers.model_training_and_eval_logger - INFO - Data split: train=(4673, 128), val=(584, 128), test=(585, 128)
+2025-04-12 16:15:22,092 - src.utils.loggers.model_training_and_eval_logger - INFO - Class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-12 16:15:22,093 - src.utils.loggers.model_training_and_eval_logger - INFO - Initializing lstm_sentiment_7d174d38 with vocab_size=5802, sequence_length=128, embedding_dim=100
+2025-04-12 16:15:22,093 - src.utils.loggers.model_training_and_eval_logger - INFO - Building LSTM model architecture
+2025-04-12 16:15:22,096 - src.utils.loggers.model_training_and_eval_logger - INFO - Using trainable embeddings
+2025-04-12 16:15:22,098 - src.utils.loggers.model_training_and_eval_logger - INFO - Adding LSTM with 128 units
+2025-04-12 16:15:22,131 - src.utils.loggers.model_training_and_eval_logger - INFO - Building multi-class classification output with 3 classes
+2025-04-12 16:15:22,132 - src.utils.loggers.model_training_and_eval_logger - INFO - LSTM model architecture built successfully
+2025-04-12 16:15:22,152 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error in model training: F1Score.__init__() got an unexpected keyword argument 'num_classes'
+Traceback (most recent call last):
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/model_training_main.py", line 52, in main
+    model, metrics, run_id = trainer.train(config)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/pipelines/V_model_training_pipeline_orchestrator.py", line 173, in train
+    model.compile(
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/models/lstm_model.py", line 121, in compile
+    f1_score = tf.keras.metrics.F1Score(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: F1Score.__init__() got an unexpected keyword argument 'num_classes'
+2025-04-12 16:17:21,379 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting sentiment model training and evaluation
+2025-04-12 16:17:21,493 - src.utils.loggers.model_training_and_eval_logger - INFO - Started MLflow run with ID: 0a7b37f20d1e464584cee241d36de681
+2025-04-12 16:17:21,508 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-12 16:17:21,513 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(5842, 128), y=(5842,)
+2025-04-12 16:17:21,514 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 860, 1: 3130, 2: 1852}
+2025-04-12 16:17:21,521 - src.utils.loggers.model_training_and_eval_logger - INFO - Data split: train=(4673, 128), val=(584, 128), test=(585, 128)
+2025-04-12 16:17:21,523 - src.utils.loggers.model_training_and_eval_logger - INFO - Class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-12 16:17:21,524 - src.utils.loggers.model_training_and_eval_logger - INFO - Initializing lstm_sentiment_0a7b37f2 with vocab_size=5802, sequence_length=128, embedding_dim=100
+2025-04-12 16:17:21,524 - src.utils.loggers.model_training_and_eval_logger - INFO - Building LSTM model architecture
+2025-04-12 16:17:21,528 - src.utils.loggers.model_training_and_eval_logger - INFO - Using trainable embeddings
+2025-04-12 16:17:21,529 - src.utils.loggers.model_training_and_eval_logger - INFO - Adding LSTM with 128 units
+2025-04-12 16:17:21,564 - src.utils.loggers.model_training_and_eval_logger - INFO - Building multi-class classification output with 3 classes
+2025-04-12 16:17:21,564 - src.utils.loggers.model_training_and_eval_logger - INFO - LSTM model architecture built successfully
+2025-04-12 16:17:21,583 - src.utils.loggers.model_training_and_eval_logger - INFO - Using F1Score metric with macro averaging
+2025-04-12 16:17:21,583 - src.utils.loggers.model_training_and_eval_logger - INFO - Using metrics: ['accuracy', <Precision name=precision>, <Recall name=recall>, <F1Score name=f1_score>]
+2025-04-12 16:17:21,594 - src.utils.loggers.model_training_and_eval_logger - INFO - Model compiled successfully
+2025-04-12 16:17:21,594 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting training with batch_size=32, epochs=12
+2025-04-12 16:17:21,596 - src.utils.loggers.model_training_and_eval_logger - INFO - Training class distribution: {0: 688, 1: 2504, 2: 1481}
+2025-04-12 16:17:21,596 - src.utils.loggers.model_training_and_eval_logger - INFO - Validation class distribution: {0: 86, 1: 313, 2: 185}
+2025-04-12 16:17:21,596 - src.utils.loggers.model_training_and_eval_logger - INFO - Using class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-12 16:17:21,596 - src.utils.loggers.model_training_and_eval_logger - INFO - Setting up callbacks with patience=5
+2025-04-12 16:17:21,597 - src.utils.loggers.model_training_and_eval_logger - INFO - X_train shape: (4673, 128)
+2025-04-12 16:17:21,597 - src.utils.loggers.model_training_and_eval_logger - INFO - y_train shape: (4673,)
+2025-04-12 16:17:21,597 - src.utils.loggers.model_training_and_eval_logger - INFO - X_val shape: (584, 128)
+2025-04-12 16:17:21,597 - src.utils.loggers.model_training_and_eval_logger - INFO - y_val shape: (584,)
+2025-04-12 16:17:23,420 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error in model training: FBetaScore expects 2D inputs with shape (batch_size, output_dim). Received input shapes: y_pred.shape=(None, 3) and y_true.shape=(None,).
+Traceback (most recent call last):
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/model_training_main.py", line 52, in main
+    model, metrics, run_id = trainer.train(config)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/pipelines/V_model_training_pipeline_orchestrator.py", line 178, in train
+    history = model.fit(
+              ^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/models/model_base/model_base.py", line 124, in fit
+    self.history = self.model.fit(
+                   ^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/keras/src/metrics/f_score_metrics.py", line 124, in _build
+    raise ValueError(
+ValueError: FBetaScore expects 2D inputs with shape (batch_size, output_dim). Received input shapes: y_pred.shape=(None, 3) and y_true.shape=(None,).
+2025-04-12 16:19:11,604 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting sentiment model training and evaluation
+2025-04-12 16:19:11,708 - src.utils.loggers.model_training_and_eval_logger - INFO - Started MLflow run with ID: ff2c9f352d8443c39a6fc20d8f8e88a7
+2025-04-12 16:19:11,724 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-12 16:19:11,729 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(5842, 128), y=(5842,)
+2025-04-12 16:19:11,729 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 860, 1: 3130, 2: 1852}
+2025-04-12 16:19:11,737 - src.utils.loggers.model_training_and_eval_logger - INFO - Data split: train=(4673, 128), val=(584, 128), test=(585, 128)
+2025-04-12 16:19:11,739 - src.utils.loggers.model_training_and_eval_logger - INFO - Class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-12 16:19:11,740 - src.utils.loggers.model_training_and_eval_logger - INFO - Initializing lstm_sentiment_ff2c9f35 with vocab_size=5802, sequence_length=128, embedding_dim=100
+2025-04-12 16:19:11,740 - src.utils.loggers.model_training_and_eval_logger - INFO - Building LSTM model architecture
+2025-04-12 16:19:11,743 - src.utils.loggers.model_training_and_eval_logger - INFO - Using trainable embeddings
+2025-04-12 16:19:11,745 - src.utils.loggers.model_training_and_eval_logger - INFO - Adding LSTM with 128 units
+2025-04-12 16:19:11,778 - src.utils.loggers.model_training_and_eval_logger - INFO - Building multi-class classification output with 3 classes
+2025-04-12 16:19:11,779 - src.utils.loggers.model_training_and_eval_logger - INFO - LSTM model architecture built successfully
+2025-04-12 16:19:11,786 - src.utils.loggers.model_training_and_eval_logger - INFO - Using sparse compatible metrics: ['accuracy']
+2025-04-12 16:19:11,798 - src.utils.loggers.model_training_and_eval_logger - INFO - Model compiled successfully
+2025-04-12 16:19:11,798 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting training with batch_size=32, epochs=12
+2025-04-12 16:19:11,800 - src.utils.loggers.model_training_and_eval_logger - INFO - Training class distribution: {0: 688, 1: 2504, 2: 1481}
+2025-04-12 16:19:11,800 - src.utils.loggers.model_training_and_eval_logger - INFO - Validation class distribution: {0: 86, 1: 313, 2: 185}
+2025-04-12 16:19:11,800 - src.utils.loggers.model_training_and_eval_logger - INFO - Using class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-12 16:19:11,800 - src.utils.loggers.model_training_and_eval_logger - INFO - Setting up callbacks with patience=5
+2025-04-12 16:19:11,801 - src.utils.loggers.model_training_and_eval_logger - INFO - X_train shape: (4673, 128)
+2025-04-12 16:19:11,801 - src.utils.loggers.model_training_and_eval_logger - INFO - y_train shape: (4673,)
+2025-04-12 16:19:11,801 - src.utils.loggers.model_training_and_eval_logger - INFO - X_val shape: (584, 128)
+2025-04-12 16:19:11,801 - src.utils.loggers.model_training_and_eval_logger - INFO - y_val shape: (584,)
+2025-04-12 16:20:35,345 - src.utils.loggers.model_training_and_eval_logger - INFO - Training completed
+2025-04-12 16:20:35,347 - src.utils.loggers.model_training_and_eval_logger - INFO - Evaluating model on test data
+2025-04-12 16:20:35,347 - src.utils.loggers.model_training_and_eval_logger - INFO - Test class distribution: {0: 86, 1: 313, 2: 186}
+2025-04-12 16:20:35,846 - src.utils.loggers.model_training_and_eval_logger - INFO - Test metrics: {'loss': 0.7876729369163513, 'compile_metrics': 0.680341899394989}
+2025-04-12 16:20:35,846 - src.utils.loggers.model_training_and_eval_logger - INFO - Saving model to output/model/lstm_sentiment_ff2c9f35.keras
+2025-04-12 16:20:35,905 - src.utils.loggers.model_training_and_eval_logger - INFO - Logging model to MLflow
+2025-04-12 16:20:35,910 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error in model training: Run with UUID ff2c9f352d8443c39a6fc20d8f8e88a7 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+Traceback (most recent call last):
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/model_training_main.py", line 52, in main
+    model, metrics, run_id = trainer.train(config)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/pipelines/V_model_training_pipeline_orchestrator.py", line 194, in train
+    model.log_to_mlflow(run_id)
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/models/model_base/model_base.py", line 198, in log_to_mlflow
+    with mlflow.start_run(run_id=run_id):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Anaconda/anaconda3/envs/sentiment_proj/lib/python3.11/site-packages/mlflow/tracking/fluent.py", line 344, in start_run
+    raise Exception(
+Exception: Run with UUID ff2c9f352d8443c39a6fc20d8f8e88a7 is already active. To start a new run, first end the current run with mlflow.end_run(). To start a nested run, call start_run with nested=True
+2025-04-12 16:28:23,443 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting sentiment model training and evaluation
+2025-04-12 16:28:23,615 - src.utils.loggers.model_training_and_eval_logger - INFO - Started MLflow run with ID: 625ed0ada48c44cf9aeed44b97baf40f
+2025-04-12 16:28:23,621 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-12 16:28:23,633 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(5842, 128), y=(5842,)
+2025-04-12 16:28:23,634 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 860, 1: 3130, 2: 1852}
+2025-04-12 16:28:23,636 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error in model training: 'SentimentModelTrainer' object has no attribute 'val_split'
+2025-04-12 16:28:23,637 - src.utils.loggers.model_training_and_eval_logger - ERROR - Traceback (most recent call last):
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/pipelines/V_model_training_pipeline_orchestrator.py", line 107, in train
+    X, y, test_size=self.val_split, random_state=42
+                    ^^^^^^^^^^^^^^
+AttributeError: 'SentimentModelTrainer' object has no attribute 'val_split'
+
+2025-04-12 16:28:23,637 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error in model training: 'SentimentModelTrainer' object has no attribute 'val_split'
+Traceback (most recent call last):
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/model_training_main.py", line 52, in main
+    model, metrics, run_id = trainer.train(config)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/pipelines/V_model_training_pipeline_orchestrator.py", line 107, in train
+    X, y, test_size=self.val_split, random_state=42
+                    ^^^^^^^^^^^^^^
+AttributeError: 'SentimentModelTrainer' object has no attribute 'val_split'
+2025-04-12 16:30:57,842 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting sentiment model training and evaluation
+2025-04-12 16:30:57,951 - src.utils.loggers.model_training_and_eval_logger - INFO - Started MLflow run with ID: 498fac4962764798811d51815397dac8
+2025-04-12 16:30:57,965 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-12 16:30:57,970 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(5842, 128), y=(5842,)
+2025-04-12 16:30:57,970 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 860, 1: 3130, 2: 1852}
+2025-04-12 16:30:57,981 - src.utils.loggers.model_training_and_eval_logger - INFO - Data split: train=(4673, 128), val=(584, 128), test=(585, 128)
+2025-04-12 16:30:57,983 - src.utils.loggers.model_training_and_eval_logger - INFO - Class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-12 16:30:57,984 - src.utils.loggers.model_training_and_eval_logger - INFO - Initializing lstm_sentiment_498fac49 with vocab_size=5802, sequence_length=128, embedding_dim=100
+2025-04-12 16:30:57,984 - src.utils.loggers.model_training_and_eval_logger - INFO - Building LSTM model architecture
+2025-04-12 16:30:57,990 - src.utils.loggers.model_training_and_eval_logger - INFO - Using trainable embeddings
+2025-04-12 16:30:57,992 - src.utils.loggers.model_training_and_eval_logger - INFO - Adding LSTM with 128 units
+2025-04-12 16:30:58,042 - src.utils.loggers.model_training_and_eval_logger - INFO - Building multi-class classification output with 3 classes
+2025-04-12 16:30:58,042 - src.utils.loggers.model_training_and_eval_logger - INFO - LSTM model architecture built successfully
+2025-04-12 16:30:58,049 - src.utils.loggers.model_training_and_eval_logger - INFO - Using sparse compatible metrics: ['accuracy']
+2025-04-12 16:30:58,061 - src.utils.loggers.model_training_and_eval_logger - INFO - Model compiled successfully
+2025-04-12 16:30:58,061 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting training with batch_size=32, epochs=12
+2025-04-12 16:30:58,063 - src.utils.loggers.model_training_and_eval_logger - INFO - Training class distribution: {0: 688, 1: 2504, 2: 1481}
+2025-04-12 16:30:58,063 - src.utils.loggers.model_training_and_eval_logger - INFO - Validation class distribution: {0: 86, 1: 313, 2: 185}
+2025-04-12 16:30:58,063 - src.utils.loggers.model_training_and_eval_logger - INFO - Using class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-12 16:30:58,063 - src.utils.loggers.model_training_and_eval_logger - INFO - Setting up callbacks with patience=5
+2025-04-12 16:30:58,063 - src.utils.loggers.model_training_and_eval_logger - INFO - X_train shape: (4673, 128)
+2025-04-12 16:30:58,064 - src.utils.loggers.model_training_and_eval_logger - INFO - y_train shape: (4673,)
+2025-04-12 16:30:58,064 - src.utils.loggers.model_training_and_eval_logger - INFO - X_val shape: (584, 128)
+2025-04-12 16:30:58,064 - src.utils.loggers.model_training_and_eval_logger - INFO - y_val shape: (584,)
+2025-04-12 16:32:09,552 - src.utils.loggers.model_training_and_eval_logger - INFO - Training completed
+2025-04-12 16:32:09,554 - src.utils.loggers.model_training_and_eval_logger - INFO - Evaluating model on test data
+2025-04-12 16:32:09,554 - src.utils.loggers.model_training_and_eval_logger - INFO - Test class distribution: {0: 86, 1: 313, 2: 186}
+2025-04-12 16:32:10,019 - src.utils.loggers.model_training_and_eval_logger - INFO - Test metrics: {'loss': 0.7460956573486328, 'compile_metrics': 0.6512820720672607}
+2025-04-12 16:32:10,019 - src.utils.loggers.model_training_and_eval_logger - INFO - Saving model to output/model/lstm_sentiment_498fac49.keras
+2025-04-12 16:32:10,070 - src.utils.loggers.model_training_and_eval_logger - INFO - Logging model to MLflow
+2025-04-12 16:32:10,070 - src.utils.loggers.model_training_and_eval_logger - INFO - Using existing active MLflow run: 498fac4962764798811d51815397dac8
+2025-04-12 16:32:10,086 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error logging to MLflow: No module named 'tensorflow.keras'
+2025-04-12 16:32:10,086 - src.utils.loggers.model_training_and_eval_logger - INFO - Model training completed. Model saved to output/model/lstm_sentiment_498fac49.keras
+2025-04-12 16:32:10,088 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading test data for evaluation
+2025-04-12 16:32:10,088 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-12 16:32:10,091 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(5842, 128), y=(5842,)
+2025-04-12 16:32:10,091 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 860, 1: 3130, 2: 1852}
+2025-04-12 16:32:10,096 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting model evaluation
+2025-04-12 16:32:10,096 - src.utils.loggers.model_training_and_eval_logger - INFO - Making predictions on data with shape: (585, 128)
+2025-04-12 16:32:10,981 - src.utils.loggers.model_training_and_eval_logger - INFO - Classification report:
+              precision    recall  f1-score     support
+Negative       0.413043  0.441860  0.426966   86.000000
+Neutral        0.888325  0.559105  0.686275  313.000000
+Positive       0.567568  0.903226  0.697095  186.000000
+accuracy       0.651282  0.651282  0.651282    0.651282
+macro avg      0.622979  0.634731  0.603445  585.000000
+weighted avg   0.716470  0.651282  0.651594  585.000000
+2025-04-12 16:32:11,576 - src.utils.loggers.model_training_and_eval_logger - INFO - Evaluation completed
+2025-04-12 16:32:11,576 - src.utils.loggers.model_training_and_eval_logger - INFO - Model training and evaluation completed successfully

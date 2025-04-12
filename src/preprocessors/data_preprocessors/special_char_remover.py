@@ -1,6 +1,6 @@
 import re
 from src.preprocessors.data_preprocessors.base_preprocessor import PreprocessorBase
-from src.utils.preprocessing_logger import logger
+from src.utils.loggers.preprocessing_logger import logger
 
 class SpecialCharRemover(PreprocessorBase):
     """Class to remove special characters except when part of financial notation"""

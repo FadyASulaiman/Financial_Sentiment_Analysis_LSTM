@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from src.utils.eda_logger import logger
+from src.utils.loggers.eda_logger import logger
 
 class StatsGenerator:
     """Class for generating numerical statistics about the dataset"""

@@ -5,7 +5,7 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from collections import Counter
 from sklearn.feature_extraction.text import TfidfVectorizer
-from src.utils.eda_logger import logger
+from src.utils.loggers.eda_logger import logger
 
 class TextProcessor:
     """Class for text processing and feature extraction"""

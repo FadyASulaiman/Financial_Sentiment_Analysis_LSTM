@@ -1,5 +1,5 @@
 from src.preprocessors.data_preprocessors.base_preprocessor import PreprocessorBase
-from src.utils.preprocessing_logger import logger
+from src.utils.loggers.preprocessing_logger import logger
 from src.utils.constants import SPECIAL_TOKENS
 
 class TextLowercaser(PreprocessorBase):

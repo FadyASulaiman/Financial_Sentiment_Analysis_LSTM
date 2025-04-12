@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 from src.preprocessors.data_preprocessors.base_preprocessor import PreprocessorBase
-from src.utils.preprocessing_logger import logger
+from src.utils.loggers.preprocessing_logger import logger
 
 class HTMLCleaner(PreprocessorBase):
     """Class to remove HTML tags from text"""

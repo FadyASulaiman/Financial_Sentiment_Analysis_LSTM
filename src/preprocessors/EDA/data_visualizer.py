@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 from wordcloud import WordCloud, STOPWORDS
-from src.utils.eda_logger import logger
+from src.utils.loggers.eda_logger import logger
 
 class DataVisualizer:
     """Class for visualizing insights from the dataset"""
