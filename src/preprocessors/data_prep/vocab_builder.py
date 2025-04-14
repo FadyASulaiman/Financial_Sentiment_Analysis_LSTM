@@ -1,6 +1,6 @@
 import pandas as pd
 from collections import Counter
-from src.utils.data_prep_pipeline_logger import logger
+from src.utils.loggers.data_prep_pipeline_logger import logger
 
 from src.preprocessors.data_preprocessors.base_preprocessor import PreprocessorBase
 
@@ -27,9 +27,7 @@ class VocabularyBuilder(PreprocessorBase):
         
         Args:
             X: pandas.Series where each element is a list of tokens
-            
-        Returns:
-            self
+
         """
         logger.info("Building vocabulary")
         

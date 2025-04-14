@@ -1,7 +1,7 @@
 import pandas as pd
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-from src.utils.data_prep_pipeline_logger import logger
+from src.utils.loggers.data_prep_pipeline_logger import logger
 
 from src.preprocessors.data_preprocessors.base_preprocessor import PreprocessorBase
 
@@ -12,9 +12,6 @@ class Tokenizer(PreprocessorBase):
     def __init__(self, remove_stopwords=False):
         """
         Initialize tokenizer
-        
-        Args:
-            remove_stopwords: Whether to remove stopwords during tokenization
         """
         self.remove_stopwords = remove_stopwords
         if remove_stopwords:
@@ -32,7 +29,7 @@ class Tokenizer(PreprocessorBase):
         
         Args:
             X: pandas.Series or list of strings containing text data
-            
+             
         Returns:
             pandas.Series of tokenized texts (each element is a list of tokens)
         """
