@@ -11,7 +11,7 @@ from src.preprocessors.data_prep.spacy_lemmatizer import SpacyLemmatizer
 
 from src.preprocessors.data_prep.tokenizer import Tokenizer
 from src.preprocessors.data_prep.vocab_builder import VocabularyBuilder
-from src.utils.data_prep_pipeline_logger import logger
+from src.utils.loggers.data_prep_pipeline_logger import logger
 
 
 class DataPreparationOrchestrator:
@@ -84,10 +84,7 @@ class DataPreparationOrchestrator:
                 sentences = df[self.text_column].copy()
                 labels = df[self.label_column].copy()
                 
-                # Keep other columns for later use
-                other_columns = {col: df[col] for col in df.columns 
-                                if col not in [self.text_column, self.label_column]}
-                
+
                 # Track start time
                 start_time = datetime.now()
                 
@@ -103,16 +100,63 @@ class DataPreparationOrchestrator:
                 # Create a new DataFrame with the original data
                 processed_df = df.copy()
 
-                X = processed_sentences  # This is already a 2D numpy array
-                y = np.array(labels)
-
-
+                logger.info("Converting sentiment labels to numeric indices")
+                sentiment_mapping = {
+                    'negative': 0,
+                    'neutral': 1, 
+                    'positive': 2
+                }
+                
+                # Check label type and convert if needed
+                if labels.dtype == 'object' or labels.dtype.kind == 'U' or labels.dtype.kind == 'S':
+                    numeric_labels = labels.apply(lambda x: sentiment_mapping.get(str(x).lower(), 1))
+                    logger.info(f"Converted labels from strings to integers")
+                    
+                    # Log conversion for verification
+                    label_sample = list(zip(labels.head().tolist(), numeric_labels.head().tolist()))
+                    logger.info(f"Label conversion sample (original → numeric): {label_sample}")
+                    
+                    # Update labels in the dataframe
+                    processed_df[self.label_column + '_original'] = processed_df[self.label_column]
+                    processed_df[self.label_column] = numeric_labels
+                    
+                    # Use numeric labels
+                    y = np.array(numeric_labels)
+                else:
+                    # Labels already numeric
+                    y = np.array(labels)
+                
+                # Store the processed sequences as X
+                X = np.array(processed_sentences)
+                
+                # Log class distribution
+                unique, counts = np.unique(y, return_counts=True)
+                reverse_mapping = {0: 'negative', 1: 'neutral', 2: 'positive'}
+                class_distribution = {reverse_mapping.get(int(u), str(u)): int(c) for u, c in zip(unique, counts)}
+                logger.info(f"Class distribution: {class_distribution}")
+                
+                # Save the processed data
+                output_path = os.path.join(output_dir, 'processed_data.csv')
+                processed_df.to_csv(output_path, index=False)
+                logger.info(f"Processed data saved to {output_path}")
+                
                 # Save processed data as numpy arrays for LSTM model
                 np_output_path = os.path.join(output_dir, 'processed_arrays.npz')
                 np.savez(np_output_path, X=X, y=y)
-                logger.info(f"Processed arrays saved to {np_output_path}")
-
-
+                logger.info(f"Processed arrays saved to {np_output_path} with shapes X:{X.shape}, y:{y.shape}")
+                
+                # Save mapping from index to original data
+                index_mapping = pd.DataFrame({
+                    'original_index': df.index,
+                    'array_index': range(len(df))
+                })
+                mapping_path = os.path.join(output_dir, 'index_mapping.csv')
+                index_mapping.to_csv(mapping_path, index=False)
+                logger.info(f"Index mapping saved to {mapping_path}")
+                
+                # Log metrics
+                mlflow.log_metric("processed_data_size", len(processed_df))
+                
                 # Serialize the pipeline
                 pipeline_path = os.path.join(output_dir, 'data_prep_pipeline.pkl')
                 with open(pipeline_path, 'wb') as f:
@@ -120,7 +164,9 @@ class DataPreparationOrchestrator:
                 logger.info(f"Data prepping pipeline serialized to {pipeline_path}")
                 
                 # Log artifacts
+                mlflow.log_artifact(output_path)
                 mlflow.log_artifact(np_output_path)
+                mlflow.log_artifact(mapping_path)
                 mlflow.log_artifact(pipeline_path)
                 
                 return processed_df, X, y
@@ -128,6 +174,7 @@ class DataPreparationOrchestrator:
         except Exception as e:
             logger.error(f"Error in preprocessing: {str(e)}")
             raise
+
     
     def _load_data(self, data_path):
         """Load data from CSV file"""
