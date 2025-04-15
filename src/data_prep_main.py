@@ -39,9 +39,9 @@ def prepare_data_for_lstm(data_path, output_dir=None):
 
 if __name__ == "__main__":
     X, y, run_id = prepare_data_for_lstm(
-        data_path="data/feature_engineered_data.csv",
+        data_path="data/preprocessed_FE_data.csv",
         output_dir="data/processed"
     )
-    
+
     print(f"Data preparation complete. MLflow run ID: {run_id}")
     print(f"X shape: {X.shape}, y shape: {y.shape}")

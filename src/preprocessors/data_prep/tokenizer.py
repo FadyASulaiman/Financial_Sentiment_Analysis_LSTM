@@ -48,8 +48,13 @@ class Tokenizer(PreprocessorBase):
     
     def _tokenize_text(self, text):
         """Tokenize a single text string"""
-        tokens = word_tokenize(text)
+
+        if not isinstance(text, str):
+            logger.debug(f"Unexpected Instance: {text}")
+            text = str(text) if text == text else ""
         
+        tokens = word_tokenize(text)
+
         if self.remove_stopwords:
             tokens = [token for token in tokens if token not in self.stop_words]
                 
