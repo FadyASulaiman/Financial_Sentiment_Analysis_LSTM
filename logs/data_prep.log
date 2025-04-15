@@ -114,3 +114,108 @@
 2025-04-12 16:09:37,807 - DataPrepPipeline - INFO - Data prepping pipeline serialized to data/processed/data_prep_pipeline.pkl
 2025-04-12 16:09:37,830 - DataPrepPipeline - INFO - Data preparation complete. Processed 5842 samples.
 2025-04-12 16:09:37,830 - DataPrepPipeline - INFO - X shape: (5842, 128), y shape: (5842,)
+2025-04-14 12:19:44,795 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-14 12:20:11,064 - DataPrepPipeline - INFO - Processing data from data/feature_engineered_data.csv
+2025-04-14 12:20:11,246 - DataPrepPipeline - INFO - Started MLflow run with ID: fd3f72cf92364b88a18525318ecc5224
+2025-04-14 12:20:11,249 - DataPrepPipeline - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-14 12:20:11,288 - DataPrepPipeline - INFO - Building preprocessing pipeline
+2025-04-14 12:20:11,288 - FinancePreprocessing - INFO - Loading spaCy model for lemmatization
+2025-04-14 12:20:11,289 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-14 12:20:11,864 - DataPrepPipeline - INFO - Example - Tokenized: ['The', 'GeoSolutions', 'technology', 'will', 'leverage', 'Benefon', "'s", 'GPS', 'solutions', 'by', 'providing', 'Location', 'Based', 'Search', 'Technology', ',', 'a', 'Communities', 'Platform', ',', 'location', 'relevant', 'multimedia', 'content', 'and', 'a', 'new', 'and', 'powerful', 'commercial', 'model', '.']
+2025-04-14 12:20:12,428 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-14 12:20:25,475 - FinancePreprocessing - INFO - Example - Original tokens: ['The', 'GeoSolutions', 'technology', 'will', 'leverage', 'Benefon', "'s", 'GPS', 'solutions', 'by']
+2025-04-14 12:20:25,475 - FinancePreprocessing - INFO - Example - Lemmatized: ['the', 'GeoSolutions', 'technology', 'will', 'leverage', 'Benefon', "'s", 'gps', 'solution', 'by']
+2025-04-14 12:20:25,477 - DataPrepPipeline - INFO - Building vocabulary
+2025-04-14 12:20:25,496 - DataPrepPipeline - INFO - Total unique words: 12348
+2025-04-14 12:20:25,496 - DataPrepPipeline - INFO - Words with count >= 2: 5800
+2025-04-14 12:20:25,499 - DataPrepPipeline - INFO - Final vocabulary size: 5802
+2025-04-14 12:20:25,500 - DataPrepPipeline - INFO - Most common words: [('the', 6101), ('.', 5158), (',', 4803), ('of', 3330), ('in', 3147), ('to', 2806), ('be', 2544), ('and', 2520), ('a', 1858), ('-', 1857)]
+2025-04-14 12:20:25,501 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-14 12:20:25,519 - DataPrepPipeline - INFO - Example - Words: ['the', 'GeoSolutions', 'technology', 'will', 'leverage', 'Benefon', "'s", 'gps', 'solution', 'by']
+2025-04-14 12:20:25,519 - DataPrepPipeline - INFO - Example - Sequence: [2, 3807, 150, 21, 3005, 1322, 15, 2521, 112, 26]
+2025-04-14 12:20:25,522 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-14 12:20:25,538 - FinancePreprocessing - INFO - Padded sequences shape: (5842, 128)
+2025-04-14 12:20:25,541 - DataPrepPipeline - INFO - Data Preparation completed in 14.25 seconds
+2025-04-14 12:20:25,541 - DataPrepPipeline - INFO - Converting sentiment labels to numeric indices
+2025-04-14 12:20:25,544 - DataPrepPipeline - INFO - Converted labels from strings to integers
+2025-04-14 12:20:25,544 - DataPrepPipeline - INFO - Label conversion sample (original → numeric): [('positive', 2), ('negative', 0), ('positive', 2), ('neutral', 1), ('neutral', 1)]
+2025-04-14 12:20:25,551 - DataPrepPipeline - INFO - Class distribution: {'negative': 860, 'neutral': 3130, 'positive': 1852}
+2025-04-14 12:20:25,584 - DataPrepPipeline - INFO - Processed data saved to data/processed/processed_data.csv
+2025-04-14 12:20:25,592 - DataPrepPipeline - INFO - Processed arrays saved to data/processed/processed_arrays.npz with shapes X:(5842, 128), y:(5842,)
+2025-04-14 12:20:25,597 - DataPrepPipeline - INFO - Index mapping saved to data/processed/index_mapping.csv
+2025-04-14 12:20:25,760 - DataPrepPipeline - INFO - Data prepping pipeline serialized to data/processed/data_prep_pipeline.pkl
+2025-04-14 12:20:25,778 - DataPrepPipeline - INFO - Data preparation complete. Processed 5842 samples.
+2025-04-14 12:20:25,778 - DataPrepPipeline - INFO - X shape: (5842, 128), y shape: (5842,)
+2025-04-14 14:13:49,923 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-14 14:14:05,449 - DataPrepPipeline - INFO - Preparing data from data/feature_engineered_data.csv
+2025-04-14 14:14:05,640 - DataPrepPipeline - INFO - Started MLflow run with ID: 471e9d037514403582d53028c0ee2c71
+2025-04-14 14:14:05,643 - DataPrepPipeline - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-14 14:14:05,678 - DataPrepPipeline - INFO - Building preprocessing pipeline
+2025-04-14 14:14:05,679 - FinancePreprocessing - INFO - Loading spaCy model for lemmatization
+2025-04-14 14:14:05,680 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-14 14:14:06,227 - DataPrepPipeline - INFO - Example - Tokenized: ['The', 'GeoSolutions', 'technology', 'will', 'leverage', 'Benefon', "'s", 'GPS', 'solutions', 'by', 'providing', 'Location', 'Based', 'Search', 'Technology', ',', 'a', 'Communities', 'Platform', ',', 'location', 'relevant', 'multimedia', 'content', 'and', 'a', 'new', 'and', 'powerful', 'commercial', 'model', '.']
+2025-04-14 14:14:06,723 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-14 14:14:19,907 - FinancePreprocessing - INFO - Example - Original tokens: ['The', 'GeoSolutions', 'technology', 'will', 'leverage', 'Benefon', "'s", 'GPS', 'solutions', 'by']
+2025-04-14 14:14:19,907 - FinancePreprocessing - INFO - Example - Lemmatized: ['the', 'GeoSolutions', 'technology', 'will', 'leverage', 'Benefon', "'s", 'gps', 'solution', 'by']
+2025-04-14 14:14:19,909 - DataPrepPipeline - INFO - Building vocabulary
+2025-04-14 14:14:19,926 - DataPrepPipeline - INFO - Total unique words: 12348
+2025-04-14 14:14:19,927 - DataPrepPipeline - INFO - Words with count >= 2: 5800
+2025-04-14 14:14:19,929 - DataPrepPipeline - INFO - Final vocabulary size: 5802
+2025-04-14 14:14:19,930 - DataPrepPipeline - INFO - Most common words: [('the', 6101), ('.', 5158), (',', 4803), ('of', 3330), ('in', 3147), ('to', 2806), ('be', 2544), ('and', 2520), ('a', 1858), ('-', 1857)]
+2025-04-14 14:14:19,931 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-14 14:14:19,952 - DataPrepPipeline - INFO - Example - Words: ['the', 'GeoSolutions', 'technology', 'will', 'leverage', 'Benefon', "'s", 'gps', 'solution', 'by']
+2025-04-14 14:14:19,952 - DataPrepPipeline - INFO - Example - Sequence: [2, 3807, 150, 21, 3005, 1322, 15, 2521, 112, 26]
+2025-04-14 14:14:19,955 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-14 14:14:19,971 - FinancePreprocessing - INFO - Padded sequences shape: (5842, 128)
+2025-04-14 14:14:19,974 - DataPrepPipeline - INFO - Data Preparation completed in 14.29 seconds
+2025-04-14 14:14:19,975 - DataPrepPipeline - INFO - Converting sentiment labels to numeric indices
+2025-04-14 14:14:19,978 - DataPrepPipeline - INFO - Converted labels from strings to integers
+2025-04-14 14:14:19,978 - DataPrepPipeline - INFO - Label conversion sample (original → numeric): [('positive', 2), ('negative', 0), ('positive', 2), ('neutral', 1), ('neutral', 1)]
+2025-04-14 14:14:19,985 - DataPrepPipeline - INFO - Class distribution: {'negative': 860, 'neutral': 3130, 'positive': 1852}
+2025-04-14 14:14:20,023 - DataPrepPipeline - INFO - Processed data saved to data/processed/processed_data.csv
+2025-04-14 14:14:20,029 - DataPrepPipeline - INFO - Processed arrays saved to data/processed/processed_arrays.npz with shapes X:(5842, 128), y:(5842,)
+2025-04-14 14:14:20,037 - DataPrepPipeline - INFO - Index mapping saved to data/processed/index_mapping.csv
+2025-04-14 14:14:20,200 - DataPrepPipeline - INFO - Data prepping pipeline serialized to data/processed/data_prep_pipeline.pkl
+2025-04-14 14:14:20,218 - DataPrepPipeline - INFO - Data preparation complete. Processed 5842 samples.
+2025-04-14 14:14:20,218 - DataPrepPipeline - INFO - X shape: (5842, 128), y shape: (5842,)
+2025-04-15 12:03:27,898 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-15 12:03:42,162 - DataPrepPipeline - INFO - Preparing data from data/preprocessed_FE_data.csv
+2025-04-15 12:03:42,301 - DataPrepPipeline - INFO - Started MLflow run with ID: e6fd9a70bd4f4034a6a9d4264d69a3e2
+2025-04-15 12:03:42,304 - DataPrepPipeline - INFO - Loading data from data/preprocessed_FE_data.csv
+2025-04-15 12:03:42,330 - DataPrepPipeline - INFO - Building preprocessing pipeline
+2025-04-15 12:03:42,330 - FinancePreprocessing - INFO - Loading spaCy model for lemmatization
+2025-04-15 12:03:42,331 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-15 12:03:42,389 - DataPrepPipeline - ERROR - Error in preprocessing: expected string or bytes-like object, got 'float'
+2025-04-15 12:03:42,389 - DataPrepPipeline - ERROR - Error preparing data: expected string or bytes-like object, got 'float'
+2025-04-15 12:08:45,459 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-15 12:08:52,900 - DataPrepPipeline - INFO - Preparing data from data/preprocessed_FE_data.csv
+2025-04-15 12:08:52,996 - DataPrepPipeline - INFO - Started MLflow run with ID: 299ffbafd312494290a2fca1081ba9d2
+2025-04-15 12:08:52,999 - DataPrepPipeline - INFO - Loading data from data/preprocessed_FE_data.csv
+2025-04-15 12:08:53,024 - DataPrepPipeline - INFO - Building preprocessing pipeline
+2025-04-15 12:08:53,024 - FinancePreprocessing - INFO - Loading spaCy model for lemmatization
+2025-04-15 12:08:53,025 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-15 12:08:53,709 - DataPrepPipeline - INFO - Example - Tokenized: ['total', 'delivery', 'volume', 'paper', 'businesses', '2010', '1,155,000', 'tonnes', '1,132,000', 'tonnes', '2009']
+2025-04-15 12:08:54,276 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-15 12:09:12,067 - FinancePreprocessing - INFO - Example - Original tokens: ['total', 'delivery', 'volume', 'paper', 'businesses', '2010', '1,155,000', 'tonnes', '1,132,000', 'tonnes']
+2025-04-15 12:09:12,067 - FinancePreprocessing - INFO - Example - Lemmatized: ['total', 'delivery', 'volume', 'paper', 'business', '2010', '1,155,000', 'tonne', '1,132,000', 'tonne']
+2025-04-15 12:09:12,069 - DataPrepPipeline - INFO - Building vocabulary
+2025-04-15 12:09:12,087 - DataPrepPipeline - INFO - Total unique words: 10730
+2025-04-15 12:09:12,088 - DataPrepPipeline - INFO - Words with count >= 2: 6360
+2025-04-15 12:09:12,091 - DataPrepPipeline - INFO - Final vocabulary size: 6362
+2025-04-15 12:09:12,092 - DataPrepPipeline - INFO - Most common words: [('_', 22452), ('placeholder_stock', 2044), ('mn', 1560), ('profit', 1196), ('sale', 1133), ('net', 998), ('finnish', 976), ('million', 813), ('share', 763), ('placeholder_date', 659)]
+2025-04-15 12:09:12,092 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-15 12:09:12,115 - DataPrepPipeline - INFO - Example - Words: ['total', 'delivery', 'volume', 'paper', 'business', '2010', '1,155,000', 'tonne', '1,132,000', 'tonne']
+2025-04-15 12:09:12,115 - DataPrepPipeline - INFO - Example - Sequence: [14, 303, 172, 131, 29, 34, 1, 567, 1, 567]
+2025-04-15 12:09:12,118 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-15 12:09:12,140 - FinancePreprocessing - INFO - Padded sequences shape: (9390, 128)
+2025-04-15 12:09:12,142 - DataPrepPipeline - INFO - Data Preparation completed in 19.12 seconds
+2025-04-15 12:09:12,143 - DataPrepPipeline - INFO - Converting sentiment labels to numeric indices
+2025-04-15 12:09:12,147 - DataPrepPipeline - INFO - Converted labels from strings to integers
+2025-04-15 12:09:12,147 - DataPrepPipeline - INFO - Label conversion sample (original → numeric): [('positive', 2), ('positive', 2), ('positive', 2), ('neutral', 1), ('neutral', 1)]
+2025-04-15 12:09:12,154 - DataPrepPipeline - INFO - Class distribution: {'negative': 3130, 'neutral': 3130, 'positive': 3130}
+2025-04-15 12:09:12,195 - DataPrepPipeline - INFO - Processed data saved to data/processed/processed_data.csv
+2025-04-15 12:09:12,203 - DataPrepPipeline - INFO - Processed arrays saved to data/processed/processed_arrays.npz with shapes X:(9390, 128), y:(9390,)
+2025-04-15 12:09:12,210 - DataPrepPipeline - INFO - Index mapping saved to data/processed/index_mapping.csv
+2025-04-15 12:09:12,363 - DataPrepPipeline - INFO - Data prepping pipeline serialized to data/processed/data_prep_pipeline.pkl
+2025-04-15 12:09:12,387 - DataPrepPipeline - INFO - Data preparation complete. Processed 9390 samples.
+2025-04-15 12:09:12,388 - DataPrepPipeline - INFO - X shape: (9390, 128), y shape: (9390,)

@@ -440,3 +440,248 @@ macro avg      0.622979  0.634731  0.603445  585.000000
 weighted avg   0.716470  0.651282  0.651594  585.000000
 2025-04-12 16:32:11,576 - src.utils.loggers.model_training_and_eval_logger - INFO - Evaluation completed
 2025-04-12 16:32:11,576 - src.utils.loggers.model_training_and_eval_logger - INFO - Model training and evaluation completed successfully
+2025-04-14 14:15:01,919 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting sentiment model training and evaluation
+2025-04-14 14:15:02,034 - src.utils.loggers.model_training_and_eval_logger - INFO - Started MLflow run with ID: d769faefa99642e085399b101fc8bb05
+2025-04-14 14:15:02,049 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-14 14:15:02,055 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(5842, 128), y=(5842,)
+2025-04-14 14:15:02,055 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 860, 1: 3130, 2: 1852}
+2025-04-14 14:15:02,065 - src.utils.loggers.model_training_and_eval_logger - INFO - Data split: train=(4673, 128), val=(584, 128), test=(585, 128)
+2025-04-14 14:15:02,068 - src.utils.loggers.model_training_and_eval_logger - INFO - Class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-14 14:15:02,069 - src.utils.loggers.model_training_and_eval_logger - INFO - Initializing lstm_sentiment_d769faef with vocab_size=5802, sequence_length=128, embedding_dim=100
+2025-04-14 14:15:02,069 - src.utils.loggers.model_training_and_eval_logger - INFO - Building LSTM model architecture
+2025-04-14 14:15:02,081 - src.utils.loggers.model_training_and_eval_logger - INFO - Using trainable embeddings
+2025-04-14 14:15:02,084 - src.utils.loggers.model_training_and_eval_logger - INFO - Adding LSTM with 128 units
+2025-04-14 14:15:02,170 - src.utils.loggers.model_training_and_eval_logger - INFO - Building multi-class classification output with 3 classes
+2025-04-14 14:15:02,170 - src.utils.loggers.model_training_and_eval_logger - INFO - LSTM model architecture built successfully
+2025-04-14 14:15:02,177 - src.utils.loggers.model_training_and_eval_logger - INFO - Using sparse compatible metrics: ['accuracy']
+2025-04-14 14:15:02,193 - src.utils.loggers.model_training_and_eval_logger - INFO - Model compiled successfully
+2025-04-14 14:15:02,193 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting training with batch_size=32, epochs=12
+2025-04-14 14:15:02,195 - src.utils.loggers.model_training_and_eval_logger - INFO - Training class distribution: {0: 688, 1: 2504, 2: 1481}
+2025-04-14 14:15:02,195 - src.utils.loggers.model_training_and_eval_logger - INFO - Validation class distribution: {0: 86, 1: 313, 2: 185}
+2025-04-14 14:15:02,195 - src.utils.loggers.model_training_and_eval_logger - INFO - Using class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-14 14:15:02,195 - src.utils.loggers.model_training_and_eval_logger - INFO - Setting up callbacks with patience=5
+2025-04-14 14:15:02,196 - src.utils.loggers.model_training_and_eval_logger - INFO - X_train shape: (4673, 128)
+2025-04-14 14:15:02,196 - src.utils.loggers.model_training_and_eval_logger - INFO - y_train shape: (4673,)
+2025-04-14 14:15:02,196 - src.utils.loggers.model_training_and_eval_logger - INFO - X_val shape: (584, 128)
+2025-04-14 14:15:02,196 - src.utils.loggers.model_training_and_eval_logger - INFO - y_val shape: (584,)
+2025-04-14 14:16:13,510 - src.utils.loggers.model_training_and_eval_logger - INFO - Training completed
+2025-04-14 14:16:13,512 - src.utils.loggers.model_training_and_eval_logger - INFO - Evaluating model on test data
+2025-04-14 14:16:13,512 - src.utils.loggers.model_training_and_eval_logger - INFO - Test class distribution: {0: 86, 1: 313, 2: 186}
+2025-04-14 14:16:13,971 - src.utils.loggers.model_training_and_eval_logger - INFO - Test metrics: {'loss': 0.6914185881614685, 'compile_metrics': 0.656410276889801}
+2025-04-14 14:16:13,971 - src.utils.loggers.model_training_and_eval_logger - INFO - Saving model to output/model/lstm_sentiment_d769faef.keras
+2025-04-14 14:16:14,026 - src.utils.loggers.model_training_and_eval_logger - INFO - Logging model to MLflow
+2025-04-14 14:16:14,026 - src.utils.loggers.model_training_and_eval_logger - INFO - Using existing active MLflow run: d769faefa99642e085399b101fc8bb05
+2025-04-14 14:16:14,045 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error logging to MLflow: No module named 'tensorflow.keras'
+2025-04-14 14:16:14,045 - src.utils.loggers.model_training_and_eval_logger - INFO - Model training completed. Model saved to output/model/lstm_sentiment_d769faef.keras
+2025-04-14 14:16:14,047 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading test data for evaluation
+2025-04-14 14:16:14,047 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-14 14:16:14,053 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(5842, 128), y=(5842,)
+2025-04-14 14:16:14,053 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 860, 1: 3130, 2: 1852}
+2025-04-14 14:16:14,058 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting model evaluation
+2025-04-14 14:16:14,059 - src.utils.loggers.model_training_and_eval_logger - INFO - Making predictions on data with shape: (585, 128)
+2025-04-14 14:16:14,918 - src.utils.loggers.model_training_and_eval_logger - INFO - Classification report:
+              precision    recall  f1-score    support
+Negative       0.391892  0.674419  0.495726   86.00000
+Neutral        0.913043  0.536741  0.676056  313.00000
+Positive       0.624506  0.849462  0.719818  186.00000
+accuracy       0.656410  0.656410  0.656410    0.65641
+macro avg      0.643147  0.686874  0.630534  585.00000
+weighted avg   0.744690  0.656410  0.663460  585.00000
+2025-04-14 14:16:15,427 - src.utils.loggers.model_training_and_eval_logger - INFO - Evaluation completed
+2025-04-14 14:16:15,427 - src.utils.loggers.model_training_and_eval_logger - INFO - Model training and evaluation completed successfully
+2025-04-14 14:35:18,689 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting sentiment model training and evaluation
+2025-04-14 14:35:18,884 - src.utils.loggers.model_training_and_eval_logger - INFO - Started MLflow run with ID: bf55201d0b9f41578f7a63cf6bd07054
+2025-04-14 14:35:18,900 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-14 14:35:18,910 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(5842, 128), y=(5842,)
+2025-04-14 14:35:18,911 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 860, 1: 3130, 2: 1852}
+2025-04-14 14:35:18,921 - src.utils.loggers.model_training_and_eval_logger - INFO - Data split: train=(4673, 128), val=(584, 128), test=(585, 128)
+2025-04-14 14:35:18,925 - src.utils.loggers.model_training_and_eval_logger - INFO - Class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-14 14:35:18,926 - src.utils.loggers.model_training_and_eval_logger - INFO - Initializing lstm_sentiment_bf55201d with vocab_size=5802, sequence_length=128, embedding_dim=100
+2025-04-14 14:35:18,926 - src.utils.loggers.model_training_and_eval_logger - INFO - Building LSTM model architecture
+2025-04-14 14:35:18,934 - src.utils.loggers.model_training_and_eval_logger - INFO - Using trainable embeddings
+2025-04-14 14:35:18,936 - src.utils.loggers.model_training_and_eval_logger - INFO - Adding LSTM with 128 units
+2025-04-14 14:35:18,991 - src.utils.loggers.model_training_and_eval_logger - INFO - Building multi-class classification output with 3 classes
+2025-04-14 14:35:18,991 - src.utils.loggers.model_training_and_eval_logger - INFO - LSTM model architecture built successfully
+2025-04-14 14:35:18,998 - src.utils.loggers.model_training_and_eval_logger - INFO - Using sparse compatible metrics: ['accuracy']
+2025-04-14 14:35:19,012 - src.utils.loggers.model_training_and_eval_logger - INFO - Model compiled successfully
+2025-04-14 14:35:19,013 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting training with batch_size=32, epochs=12
+2025-04-14 14:35:19,014 - src.utils.loggers.model_training_and_eval_logger - INFO - Training class distribution: {0: 688, 1: 2504, 2: 1481}
+2025-04-14 14:35:19,015 - src.utils.loggers.model_training_and_eval_logger - INFO - Validation class distribution: {0: 86, 1: 313, 2: 185}
+2025-04-14 14:35:19,015 - src.utils.loggers.model_training_and_eval_logger - INFO - Using class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-14 14:35:19,015 - src.utils.loggers.model_training_and_eval_logger - INFO - Setting up callbacks with patience=5
+2025-04-14 14:35:19,015 - src.utils.loggers.model_training_and_eval_logger - INFO - X_train shape: (4673, 128)
+2025-04-14 14:35:19,015 - src.utils.loggers.model_training_and_eval_logger - INFO - y_train shape: (4673,)
+2025-04-14 14:35:19,015 - src.utils.loggers.model_training_and_eval_logger - INFO - X_val shape: (584, 128)
+2025-04-14 14:35:19,015 - src.utils.loggers.model_training_and_eval_logger - INFO - y_val shape: (584,)
+2025-04-14 14:36:40,538 - src.utils.loggers.model_training_and_eval_logger - INFO - Training completed
+2025-04-14 14:36:40,541 - src.utils.loggers.model_training_and_eval_logger - INFO - Evaluating model on test data
+2025-04-14 14:36:40,541 - src.utils.loggers.model_training_and_eval_logger - INFO - Test class distribution: {0: 86, 1: 313, 2: 186}
+2025-04-14 14:36:40,980 - src.utils.loggers.model_training_and_eval_logger - INFO - Test metrics: {'loss': 0.7675232887268066, 'compile_metrics': 0.6529914736747742}
+2025-04-14 14:36:40,980 - src.utils.loggers.model_training_and_eval_logger - INFO - Saving model to output/model/lstm_sentiment_bf55201d.keras
+2025-04-14 14:36:41,030 - src.utils.loggers.model_training_and_eval_logger - INFO - Logging model to MLflow
+2025-04-14 14:36:41,030 - src.utils.loggers.model_training_and_eval_logger - INFO - Using existing active MLflow run: bf55201d0b9f41578f7a63cf6bd07054
+2025-04-14 14:36:41,049 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error logging to MLflow: No module named 'tensorflow.keras'
+2025-04-14 14:36:41,050 - src.utils.loggers.model_training_and_eval_logger - INFO - Model training completed. Model saved to output/model/lstm_sentiment_bf55201d.keras
+2025-04-14 14:36:41,052 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading test data for evaluation
+2025-04-14 14:36:41,052 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-14 14:36:41,058 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(5842, 128), y=(5842,)
+2025-04-14 14:36:41,058 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 860, 1: 3130, 2: 1852}
+2025-04-14 14:36:41,063 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting model evaluation
+2025-04-14 14:36:41,064 - src.utils.loggers.model_training_and_eval_logger - INFO - Making predictions on data with shape: (585, 128)
+2025-04-14 14:36:41,911 - src.utils.loggers.model_training_and_eval_logger - INFO - Classification report:
+              precision    recall  f1-score     support
+Negative       0.382812  0.569767  0.457944   86.000000
+Neutral        0.853081  0.575080  0.687023  313.000000
+Positive       0.621951  0.822581  0.708333  186.000000
+accuracy       0.652991  0.652991  0.652991    0.652991
+macro avg      0.619281  0.655809  0.617767  585.000000
+weighted avg   0.710460  0.652991  0.660122  585.000000
+2025-04-14 14:36:42,372 - src.utils.loggers.model_training_and_eval_logger - INFO - Evaluation completed
+2025-04-14 14:36:42,372 - src.utils.loggers.model_training_and_eval_logger - INFO - Model training and evaluation completed successfully
+2025-04-14 14:46:31,835 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting sentiment model training and evaluation
+2025-04-14 14:46:31,994 - src.utils.loggers.model_training_and_eval_logger - INFO - Started MLflow run with ID: 0413a172db6345cf903b2f3bb2269a4f
+2025-04-14 14:46:32,009 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-14 14:46:32,015 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(5842, 128), y=(5842,)
+2025-04-14 14:46:32,015 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 860, 1: 3130, 2: 1852}
+2025-04-14 14:46:32,023 - src.utils.loggers.model_training_and_eval_logger - INFO - Data split: train=(4673, 128), val=(584, 128), test=(585, 128)
+2025-04-14 14:46:32,025 - src.utils.loggers.model_training_and_eval_logger - INFO - Class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-14 14:46:32,025 - src.utils.loggers.model_training_and_eval_logger - INFO - Initializing lstm_sentiment_0413a172 with vocab_size=5802, sequence_length=128, embedding_dim=100
+2025-04-14 14:46:32,025 - src.utils.loggers.model_training_and_eval_logger - INFO - Building LSTM model architecture
+2025-04-14 14:46:32,028 - src.utils.loggers.model_training_and_eval_logger - INFO - Using trainable embeddings
+2025-04-14 14:46:32,030 - src.utils.loggers.model_training_and_eval_logger - INFO - Adding LSTM with 128 units
+2025-04-14 14:46:32,064 - src.utils.loggers.model_training_and_eval_logger - INFO - Building multi-class classification output with 3 classes
+2025-04-14 14:46:32,065 - src.utils.loggers.model_training_and_eval_logger - INFO - LSTM model architecture built successfully
+2025-04-14 14:46:32,065 - src.utils.loggers.model_training_and_eval_logger - INFO - Using sparse compatible metrics: ['accuracy']
+2025-04-14 14:46:32,078 - src.utils.loggers.model_training_and_eval_logger - INFO - Model compiled successfully
+2025-04-14 14:46:32,085 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting training with batch_size=32, epochs=12
+2025-04-14 14:46:32,087 - src.utils.loggers.model_training_and_eval_logger - INFO - Training class distribution: {0: 688, 1: 2504, 2: 1481}
+2025-04-14 14:46:32,087 - src.utils.loggers.model_training_and_eval_logger - INFO - Validation class distribution: {0: 86, 1: 313, 2: 185}
+2025-04-14 14:46:32,088 - src.utils.loggers.model_training_and_eval_logger - INFO - Using class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-14 14:46:32,088 - src.utils.loggers.model_training_and_eval_logger - INFO - Setting up callbacks with patience=5
+2025-04-14 14:46:32,088 - src.utils.loggers.model_training_and_eval_logger - INFO - X_train shape: (4673, 128)
+2025-04-14 14:46:32,088 - src.utils.loggers.model_training_and_eval_logger - INFO - y_train shape: (4673,)
+2025-04-14 14:46:32,088 - src.utils.loggers.model_training_and_eval_logger - INFO - X_val shape: (584, 128)
+2025-04-14 14:46:32,088 - src.utils.loggers.model_training_and_eval_logger - INFO - y_val shape: (584,)
+2025-04-14 14:47:59,643 - src.utils.loggers.model_training_and_eval_logger - INFO - Training completed
+2025-04-14 14:47:59,645 - src.utils.loggers.model_training_and_eval_logger - INFO - Evaluating model on test data
+2025-04-14 14:47:59,646 - src.utils.loggers.model_training_and_eval_logger - INFO - Test class distribution: {0: 86, 1: 313, 2: 186}
+2025-04-14 14:48:00,182 - src.utils.loggers.model_training_and_eval_logger - INFO - Test metrics: {'loss': 0.7870590686798096, 'compile_metrics': 0.632478654384613}
+2025-04-14 14:48:00,182 - src.utils.loggers.model_training_and_eval_logger - INFO - Saving model to output/model/lstm_sentiment_0413a172.keras
+2025-04-14 14:48:00,251 - src.utils.loggers.model_training_and_eval_logger - INFO - Logging model to MLflow
+2025-04-14 14:48:00,251 - src.utils.loggers.model_training_and_eval_logger - INFO - Using existing active MLflow run: 0413a172db6345cf903b2f3bb2269a4f
+2025-04-14 14:48:00,270 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error logging to MLflow: No module named 'tensorflow.keras'
+2025-04-14 14:48:00,270 - src.utils.loggers.model_training_and_eval_logger - INFO - Model training completed. Model saved to output/model/lstm_sentiment_0413a172.keras
+2025-04-14 14:48:00,272 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading test data for evaluation
+2025-04-14 14:48:00,273 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-14 14:48:00,279 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(5842, 128), y=(5842,)
+2025-04-14 14:48:00,280 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 860, 1: 3130, 2: 1852}
+2025-04-14 14:48:00,285 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting model evaluation
+2025-04-14 14:48:00,285 - src.utils.loggers.model_training_and_eval_logger - INFO - Making predictions on data with shape: (585, 128)
+2025-04-14 14:48:01,246 - src.utils.loggers.model_training_and_eval_logger - INFO - Classification report:
+              precision    recall  f1-score     support
+Negative       0.372973  0.802326  0.509225   86.000000
+Neutral        0.895954  0.495208  0.637860  313.000000
+Positive       0.643172  0.784946  0.707022  186.000000
+accuracy       0.632479  0.632479  0.632479    0.632479
+macro avg      0.637366  0.694160  0.618036  585.000000
+weighted avg   0.738699  0.632479  0.640940  585.000000
+2025-04-14 14:48:01,666 - src.utils.loggers.model_training_and_eval_logger - INFO - Evaluation completed
+2025-04-14 14:48:01,666 - src.utils.loggers.model_training_and_eval_logger - INFO - Model training and evaluation completed successfully
+2025-04-14 14:50:43,047 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting sentiment model training and evaluation
+2025-04-14 14:50:43,204 - src.utils.loggers.model_training_and_eval_logger - INFO - Started MLflow run with ID: cc8b435d46984cbaaf89ebbaa1979d30
+2025-04-14 14:50:43,221 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-14 14:50:43,228 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(5842, 128), y=(5842,)
+2025-04-14 14:50:43,228 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 860, 1: 3130, 2: 1852}
+2025-04-14 14:50:43,236 - src.utils.loggers.model_training_and_eval_logger - INFO - Data split: train=(4673, 128), val=(584, 128), test=(585, 128)
+2025-04-14 14:50:43,238 - src.utils.loggers.model_training_and_eval_logger - INFO - Class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-14 14:50:43,239 - src.utils.loggers.model_training_and_eval_logger - INFO - Initializing lstm_sentiment_cc8b435d with vocab_size=5802, sequence_length=128, embedding_dim=100
+2025-04-14 14:50:43,239 - src.utils.loggers.model_training_and_eval_logger - INFO - Building LSTM model architecture
+2025-04-14 14:50:43,241 - src.utils.loggers.model_training_and_eval_logger - INFO - Using trainable embeddings
+2025-04-14 14:50:43,243 - src.utils.loggers.model_training_and_eval_logger - INFO - Adding LSTM with 128 units
+2025-04-14 14:50:43,280 - src.utils.loggers.model_training_and_eval_logger - INFO - Building multi-class classification output with 3 classes
+2025-04-14 14:50:43,281 - src.utils.loggers.model_training_and_eval_logger - INFO - LSTM model architecture built successfully
+2025-04-14 14:50:43,281 - src.utils.loggers.model_training_and_eval_logger - INFO - Using sparse compatible metrics: ['accuracy']
+2025-04-14 14:50:43,296 - src.utils.loggers.model_training_and_eval_logger - INFO - Model compiled successfully
+2025-04-14 14:50:43,296 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting training with batch_size=32, epochs=12
+2025-04-14 14:50:43,298 - src.utils.loggers.model_training_and_eval_logger - INFO - Training class distribution: {0: 688, 1: 2504, 2: 1481}
+2025-04-14 14:50:43,299 - src.utils.loggers.model_training_and_eval_logger - INFO - Validation class distribution: {0: 86, 1: 313, 2: 185}
+2025-04-14 14:50:43,299 - src.utils.loggers.model_training_and_eval_logger - INFO - Using class weights: {0: 2.264050387596899, 1: 0.6220713525026624, 2: 1.0517668242178708}
+2025-04-14 14:50:43,299 - src.utils.loggers.model_training_and_eval_logger - INFO - Setting up callbacks with patience=5
+2025-04-14 14:50:43,299 - src.utils.loggers.model_training_and_eval_logger - INFO - X_train shape: (4673, 128)
+2025-04-14 14:50:43,299 - src.utils.loggers.model_training_and_eval_logger - INFO - y_train shape: (4673,)
+2025-04-14 14:50:43,299 - src.utils.loggers.model_training_and_eval_logger - INFO - X_val shape: (584, 128)
+2025-04-14 14:50:43,299 - src.utils.loggers.model_training_and_eval_logger - INFO - y_val shape: (584,)
+2025-04-14 14:52:07,131 - src.utils.loggers.model_training_and_eval_logger - INFO - Training completed
+2025-04-14 14:52:07,142 - src.utils.loggers.model_training_and_eval_logger - INFO - Evaluating model on test data
+2025-04-14 14:52:07,142 - src.utils.loggers.model_training_and_eval_logger - INFO - Test class distribution: {0: 86, 1: 313, 2: 186}
+2025-04-14 14:52:07,609 - src.utils.loggers.model_training_and_eval_logger - INFO - Test metrics: {'loss': 0.7572811245918274, 'compile_metrics': 0.644444465637207}
+2025-04-14 14:52:07,609 - src.utils.loggers.model_training_and_eval_logger - INFO - Saving model to output/model/lstm_sentiment_cc8b435d.keras
+2025-04-14 14:52:07,723 - src.utils.loggers.model_training_and_eval_logger - INFO - Logging model to MLflow
+2025-04-14 14:52:07,723 - src.utils.loggers.model_training_and_eval_logger - INFO - Using existing active MLflow run: cc8b435d46984cbaaf89ebbaa1979d30
+2025-04-14 14:52:07,742 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error logging to MLflow: No module named 'tensorflow.keras'
+2025-04-14 14:52:07,742 - src.utils.loggers.model_training_and_eval_logger - INFO - Model training completed. Model saved to output/model/lstm_sentiment_cc8b435d.keras
+2025-04-14 14:52:07,745 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading test data for evaluation
+2025-04-14 14:52:07,745 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-14 14:52:07,752 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(5842, 128), y=(5842,)
+2025-04-14 14:52:07,752 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 860, 1: 3130, 2: 1852}
+2025-04-14 14:52:07,757 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting model evaluation
+2025-04-14 14:52:07,757 - src.utils.loggers.model_training_and_eval_logger - INFO - Making predictions on data with shape: (585, 128)
+2025-04-14 14:52:08,659 - src.utils.loggers.model_training_and_eval_logger - INFO - Classification report:
+              precision    recall  f1-score     support
+Negative       0.329268  0.627907  0.432000   86.000000
+Neutral        0.894180  0.539936  0.673307  313.000000
+Positive       0.663793  0.827957  0.736842  186.000000
+accuracy       0.644444  0.644444  0.644444    0.644444
+macro avg      0.629080  0.665267  0.614050  585.000000
+weighted avg   0.737882  0.644444  0.658034  585.000000
+2025-04-14 14:52:09,046 - src.utils.loggers.model_training_and_eval_logger - INFO - Evaluation completed
+2025-04-14 14:52:09,046 - src.utils.loggers.model_training_and_eval_logger - INFO - Model training and evaluation completed successfully
+2025-04-15 12:11:22,304 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting sentiment model training and evaluation
+2025-04-15 12:11:22,411 - src.utils.loggers.model_training_and_eval_logger - INFO - Started MLflow run with ID: edc8b9070b31453a9d7003711976d7ec
+2025-04-15 12:11:22,425 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-15 12:11:22,432 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(9390, 128), y=(9390,)
+2025-04-15 12:11:22,433 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 3130, 1: 3130, 2: 3130}
+2025-04-15 12:11:22,445 - src.utils.loggers.model_training_and_eval_logger - INFO - Data split: train=(7512, 128), val=(939, 128), test=(939, 128)
+2025-04-15 12:11:22,448 - src.utils.loggers.model_training_and_eval_logger - INFO - Class weights: {0: 1.0, 1: 1.0, 2: 1.0}
+2025-04-15 12:11:22,449 - src.utils.loggers.model_training_and_eval_logger - INFO - Initializing lstm_sentiment_edc8b907 with vocab_size=6362, sequence_length=128, embedding_dim=100
+2025-04-15 12:11:22,450 - src.utils.loggers.model_training_and_eval_logger - INFO - Building LSTM model architecture
+2025-04-15 12:11:22,463 - src.utils.loggers.model_training_and_eval_logger - INFO - Using trainable embeddings
+2025-04-15 12:11:22,465 - src.utils.loggers.model_training_and_eval_logger - INFO - Adding LSTM with 128 units
+2025-04-15 12:11:22,569 - src.utils.loggers.model_training_and_eval_logger - INFO - Building multi-class classification output with 3 classes
+2025-04-15 12:11:22,570 - src.utils.loggers.model_training_and_eval_logger - INFO - LSTM model architecture built successfully
+2025-04-15 12:11:22,570 - src.utils.loggers.model_training_and_eval_logger - INFO - Using sparse compatible metrics: ['accuracy']
+2025-04-15 12:11:22,584 - src.utils.loggers.model_training_and_eval_logger - INFO - Model compiled successfully
+2025-04-15 12:11:22,584 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting training with batch_size=32, epochs=12
+2025-04-15 12:11:22,588 - src.utils.loggers.model_training_and_eval_logger - INFO - Training class distribution: {0: 2504, 1: 2504, 2: 2504}
+2025-04-15 12:11:22,588 - src.utils.loggers.model_training_and_eval_logger - INFO - Validation class distribution: {0: 313, 1: 313, 2: 313}
+2025-04-15 12:11:22,588 - src.utils.loggers.model_training_and_eval_logger - INFO - Using class weights: {0: 1.0, 1: 1.0, 2: 1.0}
+2025-04-15 12:11:22,588 - src.utils.loggers.model_training_and_eval_logger - INFO - Setting up callbacks with patience=5
+2025-04-15 12:11:22,588 - src.utils.loggers.model_training_and_eval_logger - INFO - X_train shape: (7512, 128)
+2025-04-15 12:11:22,589 - src.utils.loggers.model_training_and_eval_logger - INFO - y_train shape: (7512,)
+2025-04-15 12:11:22,589 - src.utils.loggers.model_training_and_eval_logger - INFO - X_val shape: (939, 128)
+2025-04-15 12:11:22,589 - src.utils.loggers.model_training_and_eval_logger - INFO - y_val shape: (939,)
+2025-04-15 12:13:15,546 - src.utils.loggers.model_training_and_eval_logger - INFO - Training completed
+2025-04-15 12:13:15,556 - src.utils.loggers.model_training_and_eval_logger - INFO - Evaluating model on test data
+2025-04-15 12:13:15,557 - src.utils.loggers.model_training_and_eval_logger - INFO - Test class distribution: {0: 313, 1: 313, 2: 313}
+2025-04-15 12:13:16,264 - src.utils.loggers.model_training_and_eval_logger - INFO - Test metrics: {'loss': 0.5498472452163696, 'compile_metrics': 0.8019169569015503}
+2025-04-15 12:13:16,265 - src.utils.loggers.model_training_and_eval_logger - INFO - Saving model to output/model/lstm_sentiment_edc8b907.keras
+2025-04-15 12:13:16,319 - src.utils.loggers.model_training_and_eval_logger - INFO - Logging model to MLflow
+2025-04-15 12:13:16,319 - src.utils.loggers.model_training_and_eval_logger - INFO - Using existing active MLflow run: edc8b9070b31453a9d7003711976d7ec
+2025-04-15 12:13:16,337 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error logging to MLflow: No module named 'tensorflow.keras'
+2025-04-15 12:13:16,337 - src.utils.loggers.model_training_and_eval_logger - INFO - Model training completed. Model saved to output/model/lstm_sentiment_edc8b907.keras
+2025-04-15 12:13:16,340 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading test data for evaluation
+2025-04-15 12:13:16,340 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-15 12:13:16,345 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(9390, 128), y=(9390,)
+2025-04-15 12:13:16,345 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 3130, 1: 3130, 2: 3130}
+2025-04-15 12:13:16,351 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting model evaluation
+2025-04-15 12:13:16,352 - src.utils.loggers.model_training_and_eval_logger - INFO - Making predictions on data with shape: (939, 128)
+2025-04-15 12:13:17,439 - src.utils.loggers.model_training_and_eval_logger - INFO - Classification report:
+              precision    recall  f1-score     support
+Negative       0.747500  0.955272  0.838710  313.000000
+Neutral        0.877358  0.594249  0.708571  313.000000
+Positive       0.819572  0.856230  0.837500  313.000000
+accuracy       0.801917  0.801917  0.801917    0.801917
+macro avg      0.814810  0.801917  0.794927  939.000000
+weighted avg   0.814810  0.801917  0.794927  939.000000
+2025-04-15 12:13:17,925 - src.utils.loggers.model_training_and_eval_logger - INFO - Evaluation completed
+2025-04-15 12:13:17,925 - src.utils.loggers.model_training_and_eval_logger - INFO - Model training and evaluation completed successfully

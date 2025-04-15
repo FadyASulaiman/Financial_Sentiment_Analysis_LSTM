@@ -1179,3 +1179,294 @@ Trying to resume download...
 2025-04-09 15:50:34,504 - FinancePreprocessing - INFO - Processed data saved to data/cleaned_data.csv
 2025-04-09 15:50:34,806 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
 2025-04-09 15:50:34,889 - FinancePreprocessing - INFO - Preprocessing completed successfully
+2025-04-14 15:04:09,211 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-14 15:04:36,210 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-14 15:04:37,981 - FinancePreprocessing - INFO - Started MLflow run with ID: 12edd042f1a24275884953d927982c84
+2025-04-14 15:04:37,983 - FinancePreprocessing - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-14 15:04:38,012 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-04-14 15:04:50,242 - datasets - INFO - PyTorch version 2.5.1 available.
+2025-04-14 15:04:50,243 - datasets - INFO - TensorFlow version 2.17.0 available.
+2025-04-14 15:04:51,392 - FinancePreprocessing - INFO - Using SentenceTransformer for embeddings
+2025-04-14 15:04:51,397 - FinancePreprocessing - INFO - Downloading WordNet for synonym replacement...
+2025-04-14 15:04:52,228 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-14 15:04:52,405 - FinancePreprocessing - INFO - Removing URLs
+2025-04-14 15:04:52,414 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-14 15:04:52,546 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-14 15:04:52,549 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-14 15:04:52,714 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-14 15:04:52,794 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-14 15:04:52,844 - FinancePreprocessing - INFO - Removing special characters
+2025-04-14 15:04:52,856 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-14 15:04:52,893 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-14 15:04:52,904 - FinancePreprocessing - INFO - Removing stop words
+2025-04-14 15:04:52,928 - FinancePreprocessing - INFO - Starting fit process...
+2025-04-14 15:04:52,934 - FinancePreprocessing - INFO - Class distribution: {'neutral': 3130, 'positive': 1852, 'negative': 860}
+2025-04-14 15:04:52,934 - FinancePreprocessing - INFO - Loading sentence transformer model
+2025-04-14 15:04:52,937 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-04-14 15:04:52,937 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-04-14 15:04:55,750 - FinancePreprocessing - INFO - Fit completed in 2.82 seconds
+2025-04-14 15:04:55,751 - FinancePreprocessing - INFO - Starting transform process...
+2025-04-14 15:04:55,751 - FinancePreprocessing - INFO - Input is the same as training data, performing balancing
+2025-04-14 15:04:55,755 - FinancePreprocessing - INFO - Generating 1278 synthetic samples for sentiment: positive
+2025-04-14 15:04:55,755 - FinancePreprocessing - INFO - Generating 1278 synthetic samples for positive sentiment
+2025-04-14 15:04:55,755 - FinancePreprocessing - INFO - Generating embeddings using transformer model
+2025-04-14 15:05:04,649 - FinancePreprocessing - INFO - Finding nearest neighbors
+2025-04-14 15:05:04,652 - FinancePreprocessing - INFO - Generating samples using embedding-based approach
+2025-04-14 15:05:05,851 - FinancePreprocessing - INFO - Generating samples using text augmentation
+2025-04-14 15:05:08,521 - FinancePreprocessing - INFO - Generating 2270 synthetic samples for sentiment: negative
+2025-04-14 15:05:08,521 - FinancePreprocessing - INFO - Generating 2270 synthetic samples for negative sentiment
+2025-04-14 15:05:08,521 - FinancePreprocessing - INFO - Generating embeddings using transformer model
+2025-04-14 15:05:11,998 - FinancePreprocessing - INFO - Finding nearest neighbors
+2025-04-14 15:05:11,998 - FinancePreprocessing - INFO - Generating samples using embedding-based approach
+2025-04-14 15:05:12,963 - FinancePreprocessing - INFO - Generating samples using text augmentation
+2025-04-14 15:05:13,084 - FinancePreprocessing - INFO - Returning 9390 samples after balancing
+2025-04-14 15:05:13,095 - FinancePreprocessing - INFO - Preprocessing completed in 20.86 seconds
+2025-04-14 15:05:13,127 - FinancePreprocessing - INFO - Processed data saved to data/preprocessed_FE_data.csv
+2025-04-14 15:05:13,442 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
+2025-04-14 15:05:13,501 - FinancePreprocessing - INFO - Preprocessing completed successfully
+2025-04-15 11:41:12,435 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-15 11:41:21,321 - FinancePreprocessing - INFO - Started MLflow run with ID: 178a4d13225e409c9e649718b1b130b4
+2025-04-15 11:41:21,324 - FinancePreprocessing - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-15 11:41:21,361 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-04-15 11:41:37,635 - datasets - INFO - PyTorch version 2.5.1 available.
+2025-04-15 11:41:37,637 - datasets - INFO - TensorFlow version 2.17.0 available.
+2025-04-15 11:41:38,826 - FinancePreprocessing - INFO - Using SentenceTransformer for embeddings
+2025-04-15 11:41:38,834 - FinancePreprocessing - INFO - Downloading WordNet for synonym replacement...
+2025-04-15 11:41:39,209 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-15 11:41:39,381 - FinancePreprocessing - INFO - Removing URLs
+2025-04-15 11:41:39,390 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-15 11:41:39,521 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-15 11:41:39,524 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-15 11:41:39,695 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-15 11:41:39,774 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-15 11:41:39,825 - FinancePreprocessing - INFO - Removing special characters
+2025-04-15 11:41:39,836 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-15 11:41:39,871 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-15 11:41:39,882 - FinancePreprocessing - INFO - Removing stop words
+2025-04-15 11:41:39,904 - FinancePreprocessing - INFO - Starting fit process...
+2025-04-15 11:41:39,910 - FinancePreprocessing - INFO - Class distribution: {'neutral': 3130, 'positive': 1852, 'negative': 860}
+2025-04-15 11:41:39,910 - FinancePreprocessing - INFO - Loading sentence transformer model
+2025-04-15 11:41:39,912 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-04-15 11:41:39,912 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-04-15 11:42:06,683 - FinancePreprocessing - INFO - Fit completed in 26.78 seconds
+2025-04-15 11:42:06,683 - FinancePreprocessing - INFO - Starting transform process...
+2025-04-15 11:42:06,684 - FinancePreprocessing - INFO - Input is the same as training data, performing balancing
+2025-04-15 11:42:06,686 - FinancePreprocessing - INFO - Generating 1278 synthetic samples for sentiment: positive
+2025-04-15 11:42:06,687 - FinancePreprocessing - INFO - Generating 1278 synthetic samples for positive sentiment
+2025-04-15 11:42:06,687 - FinancePreprocessing - INFO - Generating embeddings using transformer model
+2025-04-15 11:42:15,516 - FinancePreprocessing - INFO - Finding nearest neighbors
+2025-04-15 11:42:15,518 - FinancePreprocessing - INFO - Generating samples using embedding-based approach
+2025-04-15 11:42:16,718 - FinancePreprocessing - INFO - Generating samples using text augmentation
+2025-04-15 11:42:19,470 - FinancePreprocessing - INFO - Generating 2270 synthetic samples for sentiment: negative
+2025-04-15 11:42:19,471 - FinancePreprocessing - INFO - Generating 2270 synthetic samples for negative sentiment
+2025-04-15 11:42:19,471 - FinancePreprocessing - INFO - Generating embeddings using transformer model
+2025-04-15 11:42:23,005 - FinancePreprocessing - INFO - Finding nearest neighbors
+2025-04-15 11:42:23,006 - FinancePreprocessing - INFO - Generating samples using embedding-based approach
+2025-04-15 11:42:23,931 - FinancePreprocessing - INFO - Generating samples using text augmentation
+2025-04-15 11:42:24,066 - FinancePreprocessing - INFO - Preprocessing completed in 44.86 seconds
+2025-04-15 11:42:24,095 - FinancePreprocessing - INFO - Processed data saved to data/preprocessed_FE_data.csv
+2025-04-15 11:42:24,418 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
+2025-04-15 11:42:24,480 - FinancePreprocessing - INFO - Preprocessing completed successfully
+2025-04-15 11:51:36,274 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-15 11:51:39,403 - FinancePreprocessing - INFO - Started MLflow run with ID: 250bb33a9c5c4946a6a4edfc014df6fa
+2025-04-15 11:51:39,406 - FinancePreprocessing - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-15 11:51:39,432 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-04-15 11:51:49,317 - datasets - INFO - PyTorch version 2.5.1 available.
+2025-04-15 11:51:49,318 - datasets - INFO - TensorFlow version 2.17.0 available.
+2025-04-15 11:51:50,005 - FinancePreprocessing - INFO - Using SentenceTransformer for embeddings
+2025-04-15 11:51:50,008 - FinancePreprocessing - INFO - Downloading WordNet for synonym replacement...
+2025-04-15 11:51:50,344 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-15 11:51:50,512 - FinancePreprocessing - INFO - Removing URLs
+2025-04-15 11:51:50,521 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-15 11:51:50,652 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-15 11:51:50,654 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-15 11:51:50,840 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-15 11:51:50,918 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-15 11:51:50,968 - FinancePreprocessing - INFO - Removing special characters
+2025-04-15 11:51:50,980 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-15 11:51:51,015 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-15 11:51:51,026 - FinancePreprocessing - INFO - Removing stop words
+2025-04-15 11:51:51,050 - FinancePreprocessing - INFO - Starting fit process...
+2025-04-15 11:51:51,051 - FinancePreprocessing - INFO - Class distribution: {'neutral': 3130, 'positive': 1852, 'negative': 860}
+2025-04-15 11:51:51,051 - FinancePreprocessing - INFO - No additional features detected.
+2025-04-15 11:51:51,051 - FinancePreprocessing - INFO - Loading sentence transformer model
+2025-04-15 11:51:51,053 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-04-15 11:51:51,053 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-04-15 11:51:55,254 - FinancePreprocessing - INFO - Fit completed in 4.20 seconds
+2025-04-15 11:51:55,255 - FinancePreprocessing - INFO - Starting transform process...
+2025-04-15 11:51:55,255 - FinancePreprocessing - INFO - Input is the same as training data, performing balancing
+2025-04-15 11:51:55,256 - FinancePreprocessing - INFO - Generating 1278 synthetic samples for sentiment: positive
+2025-04-15 11:51:55,259 - FinancePreprocessing - ERROR - Error in preprocessing: 'SentimentBalancer' object has no attribute '_generate_synthetic_samples'
+2025-04-15 11:51:55,259 - FinancePreprocessing - ERROR - Error in main: 'SentimentBalancer' object has no attribute '_generate_synthetic_samples'
+2025-04-15 11:53:42,568 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-15 11:53:45,787 - FinancePreprocessing - INFO - Started MLflow run with ID: b073b632e8cd4880bf67bd6ab2fdfabc
+2025-04-15 11:53:45,790 - FinancePreprocessing - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-15 11:53:45,815 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-04-15 11:53:55,638 - datasets - INFO - PyTorch version 2.5.1 available.
+2025-04-15 11:53:55,639 - datasets - INFO - TensorFlow version 2.17.0 available.
+2025-04-15 11:53:56,333 - FinancePreprocessing - INFO - Using SentenceTransformer for embeddings
+2025-04-15 11:53:56,335 - FinancePreprocessing - INFO - Downloading WordNet for synonym replacement...
+2025-04-15 11:53:56,617 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-15 11:53:56,781 - FinancePreprocessing - INFO - Removing URLs
+2025-04-15 11:53:56,792 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-15 11:53:56,924 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-15 11:53:56,927 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-15 11:53:57,092 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-15 11:53:57,176 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-15 11:53:57,230 - FinancePreprocessing - INFO - Removing special characters
+2025-04-15 11:53:57,244 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-15 11:53:57,280 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-15 11:53:57,290 - FinancePreprocessing - INFO - Removing stop words
+2025-04-15 11:53:57,312 - FinancePreprocessing - INFO - Starting fit process...
+2025-04-15 11:53:57,314 - FinancePreprocessing - INFO - Class distribution: {'neutral': 3130, 'positive': 1852, 'negative': 860}
+2025-04-15 11:53:57,314 - FinancePreprocessing - INFO - No additional features detected.
+2025-04-15 11:53:57,314 - FinancePreprocessing - INFO - Loading sentence transformer model
+2025-04-15 11:53:57,315 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-04-15 11:53:57,315 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-04-15 11:53:59,381 - FinancePreprocessing - INFO - Fit completed in 2.07 seconds
+2025-04-15 11:53:59,381 - FinancePreprocessing - INFO - Starting transform process...
+2025-04-15 11:53:59,382 - FinancePreprocessing - INFO - Input is the same as training data, performing balancing
+2025-04-15 11:53:59,383 - FinancePreprocessing - INFO - Generating 1278 synthetic samples for sentiment: positive
+2025-04-15 11:53:59,383 - FinancePreprocessing - INFO - Generating 1278 synthetic samples for positive sentiment
+2025-04-15 11:53:59,383 - FinancePreprocessing - INFO - Generating embeddings using transformer model
+2025-04-15 11:54:08,009 - FinancePreprocessing - INFO - Finding nearest neighbors
+2025-04-15 11:54:08,010 - FinancePreprocessing - INFO - Generating samples using embedding-based approach
+2025-04-15 11:54:09,095 - FinancePreprocessing - INFO - Generating samples using text augmentation
+2025-04-15 11:54:11,781 - FinancePreprocessing - INFO - Generating 2270 synthetic samples for sentiment: negative
+2025-04-15 11:54:11,783 - FinancePreprocessing - INFO - Generating 2270 synthetic samples for negative sentiment
+2025-04-15 11:54:11,783 - FinancePreprocessing - INFO - Generating embeddings using transformer model
+2025-04-15 11:54:15,325 - FinancePreprocessing - INFO - Finding nearest neighbors
+2025-04-15 11:54:15,326 - FinancePreprocessing - INFO - Generating samples using embedding-based approach
+2025-04-15 11:54:16,283 - FinancePreprocessing - INFO - Generating samples using text augmentation
+2025-04-15 11:54:16,475 - FinancePreprocessing - INFO - Column 'X' has 9390 values
+2025-04-15 11:54:16,475 - FinancePreprocessing - INFO - Column 'y' has 9390 values
+2025-04-15 11:54:16,477 - FinancePreprocessing - INFO - Transform completed in 17.10 seconds with 9390 samples
+2025-04-15 11:54:16,477 - FinancePreprocessing - INFO - Generated 9390 processed sentences
+2025-04-15 11:54:16,477 - FinancePreprocessing - INFO - Retrieved 9390 balanced sentiment labels
+2025-04-15 11:54:16,478 - FinancePreprocessing - INFO - Returning balanced additional features: []
+2025-04-15 11:54:16,478 - FinancePreprocessing - WARNING - No balanced additional features returned by the balancer
+2025-04-15 11:54:16,484 - FinancePreprocessing - INFO - Preprocessing completed in 19.86 seconds
+2025-04-15 11:54:16,514 - FinancePreprocessing - INFO - Processed data saved to data/preprocessed_FE_data.csv with columns: ['Sentence', 'Sentiment']
+2025-04-15 11:54:16,821 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
+2025-04-15 11:54:16,874 - FinancePreprocessing - INFO - Preprocessing completed successfully
+2025-04-15 11:56:16,524 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-15 11:56:19,675 - FinancePreprocessing - INFO - Started MLflow run with ID: 5c5396aaebf54085b8ed702c17e17680
+2025-04-15 11:56:19,678 - FinancePreprocessing - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-15 11:56:19,705 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-04-15 11:56:29,683 - datasets - INFO - PyTorch version 2.5.1 available.
+2025-04-15 11:56:29,684 - datasets - INFO - TensorFlow version 2.17.0 available.
+2025-04-15 11:56:30,392 - FinancePreprocessing - INFO - Using SentenceTransformer for embeddings
+2025-04-15 11:56:30,394 - FinancePreprocessing - INFO - Downloading WordNet for synonym replacement...
+2025-04-15 11:56:30,676 - FinancePreprocessing - INFO - Extracted 5842 values for additional feature 'Sector'
+2025-04-15 11:56:30,676 - FinancePreprocessing - INFO - Extracted 5842 values for additional feature 'Company'
+2025-04-15 11:56:30,676 - FinancePreprocessing - INFO - Extracted 5842 values for additional feature 'Event'
+2025-04-15 11:56:30,676 - FinancePreprocessing - INFO - Setting additional features for the balancer
+2025-04-15 11:56:30,676 - FinancePreprocessing - INFO - Set additional features: ['Sector', 'Company', 'Event']
+2025-04-15 11:56:30,677 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-15 11:56:30,855 - FinancePreprocessing - INFO - Removing URLs
+2025-04-15 11:56:30,865 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-15 11:56:30,996 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-15 11:56:30,999 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-15 11:56:31,167 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-15 11:56:31,290 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-15 11:56:31,340 - FinancePreprocessing - INFO - Removing special characters
+2025-04-15 11:56:31,352 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-15 11:56:31,387 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-15 11:56:31,398 - FinancePreprocessing - INFO - Removing stop words
+2025-04-15 11:56:31,422 - FinancePreprocessing - INFO - Starting fit process...
+2025-04-15 11:56:31,424 - FinancePreprocessing - INFO - Class distribution: {'neutral': 3130, 'positive': 1852, 'negative': 860}
+2025-04-15 11:56:31,424 - FinancePreprocessing - INFO - Additional features detected: ['Sector', 'Company', 'Event']
+2025-04-15 11:56:31,424 - FinancePreprocessing - INFO - Loading sentence transformer model
+2025-04-15 11:56:31,426 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-04-15 11:56:31,427 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-04-15 11:56:33,432 - FinancePreprocessing - INFO - Fit completed in 2.01 seconds
+2025-04-15 11:56:33,433 - FinancePreprocessing - INFO - Starting transform process...
+2025-04-15 11:56:33,434 - FinancePreprocessing - INFO - Input is the same as training data, performing balancing
+2025-04-15 11:56:33,434 - FinancePreprocessing - INFO - Initialized balanced feature 'Sector' with 5842 values
+2025-04-15 11:56:33,434 - FinancePreprocessing - INFO - Initialized balanced feature 'Company' with 5842 values
+2025-04-15 11:56:33,434 - FinancePreprocessing - INFO - Initialized balanced feature 'Event' with 5842 values
+2025-04-15 11:56:33,435 - FinancePreprocessing - INFO - Generating 1278 synthetic samples for sentiment: positive
+2025-04-15 11:56:33,435 - FinancePreprocessing - INFO - Generating 1278 synthetic samples for positive sentiment
+2025-04-15 11:56:33,435 - FinancePreprocessing - INFO - Generating embeddings using transformer model
+2025-04-15 11:56:41,867 - FinancePreprocessing - INFO - Finding nearest neighbors
+2025-04-15 11:56:41,869 - FinancePreprocessing - INFO - Generating samples using embedding-based approach
+2025-04-15 11:56:42,975 - FinancePreprocessing - INFO - Generating samples using text augmentation
+2025-04-15 11:56:45,671 - FinancePreprocessing - ERROR - Error in preprocessing: 'numpy.ndarray' object has no attribute 'extend'
+2025-04-15 11:56:45,672 - FinancePreprocessing - ERROR - Error in main: 'numpy.ndarray' object has no attribute 'extend'
+2025-04-15 11:59:38,085 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-15 11:59:41,260 - FinancePreprocessing - INFO - Started MLflow run with ID: 39efd8862b634032b62ceca527c3bfa1
+2025-04-15 11:59:41,263 - FinancePreprocessing - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-15 11:59:41,288 - FinancePreprocessing - INFO - Building preprocessing pipeline
+2025-04-15 11:59:51,283 - datasets - INFO - PyTorch version 2.5.1 available.
+2025-04-15 11:59:51,284 - datasets - INFO - TensorFlow version 2.17.0 available.
+2025-04-15 11:59:51,788 - FinancePreprocessing - INFO - Using SentenceTransformer for embeddings
+2025-04-15 11:59:51,790 - FinancePreprocessing - INFO - Downloading WordNet for synonym replacement...
+2025-04-15 11:59:52,084 - FinancePreprocessing - INFO - Extracted 5842 values for additional feature 'Sector'
+2025-04-15 11:59:52,084 - FinancePreprocessing - INFO - Extracted 5842 values for additional feature 'Company'
+2025-04-15 11:59:52,085 - FinancePreprocessing - INFO - Extracted 5842 values for additional feature 'Event'
+2025-04-15 11:59:52,085 - FinancePreprocessing - INFO - Setting additional features for the balancer
+2025-04-15 11:59:52,085 - FinancePreprocessing - INFO - Set additional features: ['Sector', 'Company', 'Event']
+2025-04-15 11:59:52,085 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-15 11:59:52,306 - FinancePreprocessing - INFO - Removing URLs
+2025-04-15 11:59:52,316 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-15 11:59:52,448 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-15 11:59:52,451 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-15 11:59:52,620 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-15 11:59:52,699 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-15 11:59:52,753 - FinancePreprocessing - INFO - Removing special characters
+2025-04-15 11:59:52,767 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-15 11:59:52,809 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-15 11:59:52,820 - FinancePreprocessing - INFO - Removing stop words
+2025-04-15 11:59:52,844 - FinancePreprocessing - INFO - Starting fit process...
+2025-04-15 11:59:52,845 - FinancePreprocessing - INFO - Class distribution: {'neutral': 3130, 'positive': 1852, 'negative': 860}
+2025-04-15 11:59:52,845 - FinancePreprocessing - INFO - Additional features detected: ['Sector', 'Company', 'Event']
+2025-04-15 11:59:52,845 - FinancePreprocessing - INFO - Loading sentence transformer model
+2025-04-15 11:59:52,847 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-04-15 11:59:52,847 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-04-15 12:00:37,580 - FinancePreprocessing - INFO - Fit completed in 44.74 seconds
+2025-04-15 12:00:37,580 - FinancePreprocessing - INFO - Starting transform process...
+2025-04-15 12:00:37,581 - FinancePreprocessing - INFO - Input is the same as training data, performing balancing
+2025-04-15 12:00:37,582 - FinancePreprocessing - INFO - Initialized balanced feature 'Sector' with 5842 values
+2025-04-15 12:00:37,582 - FinancePreprocessing - INFO - Initialized balanced feature 'Company' with 5842 values
+2025-04-15 12:00:37,582 - FinancePreprocessing - INFO - Initialized balanced feature 'Event' with 5842 values
+2025-04-15 12:00:37,583 - FinancePreprocessing - INFO - Generating 1278 synthetic samples for sentiment: positive
+2025-04-15 12:00:37,583 - FinancePreprocessing - INFO - Generating 1278 synthetic samples for positive sentiment
+2025-04-15 12:00:37,583 - FinancePreprocessing - INFO - Generating embeddings using transformer model
+2025-04-15 12:00:45,979 - FinancePreprocessing - INFO - Finding nearest neighbors
+2025-04-15 12:00:45,980 - FinancePreprocessing - INFO - Generating samples using embedding-based approach
+2025-04-15 12:00:47,031 - FinancePreprocessing - INFO - Generating samples using text augmentation
+2025-04-15 12:00:49,701 - FinancePreprocessing - INFO - Added 1278 sampled values for feature 'Sector'
+2025-04-15 12:00:49,702 - FinancePreprocessing - INFO - Added 1278 sampled values for feature 'Company'
+2025-04-15 12:00:49,703 - FinancePreprocessing - INFO - Added 1278 sampled values for feature 'Event'
+2025-04-15 12:00:49,703 - FinancePreprocessing - INFO - Generating 2270 synthetic samples for sentiment: negative
+2025-04-15 12:00:49,703 - FinancePreprocessing - INFO - Generating 2270 synthetic samples for negative sentiment
+2025-04-15 12:00:49,703 - FinancePreprocessing - INFO - Generating embeddings using transformer model
+2025-04-15 12:00:53,240 - FinancePreprocessing - INFO - Finding nearest neighbors
+2025-04-15 12:00:53,241 - FinancePreprocessing - INFO - Generating samples using embedding-based approach
+2025-04-15 12:00:54,205 - FinancePreprocessing - INFO - Generating samples using text augmentation
+2025-04-15 12:00:54,331 - FinancePreprocessing - INFO - Added 2270 sampled values for feature 'Sector'
+2025-04-15 12:00:54,332 - FinancePreprocessing - INFO - Added 2270 sampled values for feature 'Company'
+2025-04-15 12:00:54,332 - FinancePreprocessing - INFO - Added 2270 sampled values for feature 'Event'
+2025-04-15 12:00:54,335 - FinancePreprocessing - INFO - Added balanced feature 'Sector' to combined DataFrame
+2025-04-15 12:00:54,336 - FinancePreprocessing - INFO - Added balanced feature 'Company' to combined DataFrame
+2025-04-15 12:00:54,337 - FinancePreprocessing - INFO - Added balanced feature 'Event' to combined DataFrame
+2025-04-15 12:00:54,337 - FinancePreprocessing - INFO - Column 'X' has 9390 values
+2025-04-15 12:00:54,337 - FinancePreprocessing - INFO - Column 'y' has 9390 values
+2025-04-15 12:00:54,337 - FinancePreprocessing - INFO - Column 'Sector' has 9390 values
+2025-04-15 12:00:54,337 - FinancePreprocessing - INFO - Column 'Company' has 9390 values
+2025-04-15 12:00:54,338 - FinancePreprocessing - INFO - Column 'Event' has 9390 values
+2025-04-15 12:00:54,342 - FinancePreprocessing - INFO - Updated balanced feature 'Sector' after shuffling
+2025-04-15 12:00:54,342 - FinancePreprocessing - INFO - Updated balanced feature 'Company' after shuffling
+2025-04-15 12:00:54,342 - FinancePreprocessing - INFO - Updated balanced feature 'Event' after shuffling
+2025-04-15 12:00:54,342 - FinancePreprocessing - INFO - Transform completed in 16.76 seconds with 9390 samples
+2025-04-15 12:00:54,343 - FinancePreprocessing - INFO - Generated 9390 processed sentences
+2025-04-15 12:00:54,343 - FinancePreprocessing - INFO - Retrieved 9390 balanced sentiment labels
+2025-04-15 12:00:54,344 - FinancePreprocessing - INFO - Returning balanced additional features: ['Sector', 'Company', 'Event']
+2025-04-15 12:00:54,344 - FinancePreprocessing - INFO - Adding balanced features to final DataFrame: ['Sector', 'Company', 'Event']
+2025-04-15 12:00:54,344 - FinancePreprocessing - INFO - Added 9390 values for balanced feature 'Sector'
+2025-04-15 12:00:54,344 - FinancePreprocessing - INFO - Added 9390 values for balanced feature 'Company'
+2025-04-15 12:00:54,345 - FinancePreprocessing - INFO - Added 9390 values for balanced feature 'Event'
+2025-04-15 12:00:54,346 - FinancePreprocessing - INFO - Preprocessing completed in 62.26 seconds
+2025-04-15 12:00:54,382 - FinancePreprocessing - INFO - Processed data saved to data/preprocessed_FE_data.csv with columns: ['Sentence', 'Sentiment', 'Sector', 'Company', 'Event']
+2025-04-15 12:00:54,508 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
+2025-04-15 12:00:54,563 - FinancePreprocessing - INFO - Preprocessing completed successfully
