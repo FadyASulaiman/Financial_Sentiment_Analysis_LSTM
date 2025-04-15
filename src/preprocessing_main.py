@@ -7,7 +7,7 @@ from src.pipelines.II_preprocessing_orchestrator import FinanceTextPreprocessing
 def main():
     """Main entry point for the preprocessing pipeline."""
 
-    data_path = "data/data.csv"
+    data_path = "data/feature_engineered_data.csv"
     output_dir = os.path.dirname(data_path)
     
     try:

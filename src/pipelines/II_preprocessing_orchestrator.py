@@ -10,7 +10,7 @@ from src.preprocessors.data_preprocessors import (
     HTMLCleaner, URLRemover, PunctuationRemover, SpecialCharRemover,
     WhitespaceNormalizer, NumericNormalizer, DateTimeNormalizer,
     StockTickerReplacer, CurrencyReplacer, TextLowercaser,
-    StopWordRemover, FinBERTTokenizer, SpacyLemmatizer, SequencePadder
+    StopWordRemover
 )
 
 class FinanceTextPreprocessingOrchestrator:
@@ -48,14 +48,10 @@ class FinanceTextPreprocessingOrchestrator:
             ('whitespace_normalizer', WhitespaceNormalizer()),
             ('lowercaser', TextLowercaser()),
             ('stop_word_remover', StopWordRemover(self.domain_specific_stopwords)),
-            ('minority_oversampler' , SentimentBalancer())
-            # ('tokenizer', FinBERTTokenizer()),
-            # ('lemmatizer', SpacyLemmatizer()),
-            # ('padder', SequencePadder(self.max_sequence_length))
+            ('minority_oversampler' , SentimentBalancer()) 
         ])
         
         return self.preprocessing_pipeline
-    
     def preprocess(self, data_path=None, data_df=None, output_dir=None):
         """Preprocess the data and track with MLflow"""
         try:
@@ -95,32 +91,58 @@ class FinanceTextPreprocessingOrchestrator:
                 sentences = df['Sentence'].copy()
                 sentiments = df['Sentiment'].copy()
                 
+                # Extract additional features if they exist
+                additional_features = {}
+                additional_feature_columns = ['Sector', 'Company', 'Event']
+
+                for column in additional_feature_columns:
+                    if column in df.columns:
+                        # Always store as lists to avoid numpy array extend() issues
+                        additional_features[column] = df[column].tolist()
+                        logger.info(f"Extracted {len(df[column])} values for additional feature '{column}'")
                 # Track start time
                 start_time = datetime.now()
                 
+                # Set additional features for the balancer
+                if additional_features:
+                    logger.info("Setting additional features for the balancer")
+                    self.preprocessing_pipeline.named_steps['minority_oversampler'].set_additional_features(additional_features)
+                
                 # Apply preprocessing pipeline
                 processed_sentences = self.preprocessing_pipeline.fit_transform(sentences, sentiments)
+                logger.info(f"Generated {len(processed_sentences)} processed sentences")
 
-                balanced_sentiments = self.preprocessing_pipeline.named_steps['minority_oversampler'].get_balanced_y()
-
-                # Track end time and duration
-                end_time = datetime.now()
-                processing_duration = (end_time - start_time).total_seconds()
-                mlflow.log_metric("processing_duration_seconds", processing_duration)
-                logger.info(f"Preprocessing completed in {processing_duration:.2f} seconds")
+                # Get balanced sentiments
+                balancer = self.preprocessing_pipeline.named_steps['minority_oversampler']
+                balanced_sentiments = balancer.get_balanced_y()
+                logger.info(f"Retrieved {len(balanced_sentiments)} balanced sentiment labels")
                 
                 # Create a new DataFrame with the processed data
                 processed_df = pd.DataFrame({
                     'Sentence': processed_sentences,
                     'Sentiment': balanced_sentiments
                 })
-
-
                 
-                # Save the processed data
-                output_path = os.path.join(output_dir, 'cleaned_data.csv')
+                # Add balanced additional features to the DataFrame
+                balanced_features = balancer.get_balanced_additional_features()
+                if balanced_features:
+                    logger.info(f"Adding balanced features to final DataFrame: {list(balanced_features.keys())}")
+                    for feature_name, feature_values in balanced_features.items():
+                        processed_df[feature_name] = feature_values
+                        logger.info(f"Added {len(feature_values)} values for balanced feature '{feature_name}'")
+                else:
+                    logger.warning("No balanced additional features returned by the balancer")
+                
+                # Track end time and duration
+                end_time = datetime.now()
+                processing_duration = (end_time - start_time).total_seconds()
+                mlflow.log_metric("processing_duration_seconds", processing_duration)
+                logger.info(f"Preprocessing completed in {processing_duration:.2f} seconds")
+                
+                # Save Preprocessed data
+                output_path = os.path.join(output_dir, 'preprocessed_FE_data.csv')
                 processed_df.to_csv(output_path, index=False)
-                logger.info(f"Processed data saved to {output_path}")
+                logger.info(f"Processed data saved to {output_path} with columns: {processed_df.columns.tolist()}")
                 
                 # Log metrics
                 mlflow.log_metric("processed_data_size", len(processed_df))
@@ -140,7 +162,6 @@ class FinanceTextPreprocessingOrchestrator:
         except Exception as e:
             logger.error(f"Error in preprocessing: {str(e)}")
             raise
-    
     def _load_data(self, data_path):
         """Load data from CSV file"""
         try:
