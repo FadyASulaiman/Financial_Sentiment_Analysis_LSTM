@@ -1470,3 +1470,98 @@ Trying to resume download...
 2025-04-15 12:00:54,382 - FinancePreprocessing - INFO - Processed data saved to data/preprocessed_FE_data.csv with columns: ['Sentence', 'Sentiment', 'Sector', 'Company', 'Event']
 2025-04-15 12:00:54,508 - FinancePreprocessing - INFO - Preprocessing pipeline serialized to data/preprocessing_pipeline.pkl
 2025-04-15 12:00:54,563 - FinancePreprocessing - INFO - Preprocessing completed successfully
+2025-04-17 13:24:50,009 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-17 13:24:52,683 - FinancePreprocessing - INFO - Started MLflow run with ID: 869d6ba163f247fba5ecdb5491334a2a
+2025-04-17 13:24:52,685 - FinancePreprocessing - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-17 13:24:52,704 - FinancePreprocessing - INFO - Building text cleaning pipeline
+2025-04-17 13:24:53,373 - FinancePreprocessing - INFO - Extracted 5842 values for additional feature 'Sector'
+2025-04-17 13:24:53,373 - FinancePreprocessing - INFO - Extracted 5842 values for additional feature 'Company'
+2025-04-17 13:24:53,373 - FinancePreprocessing - INFO - Extracted 5842 values for additional feature 'Event'
+2025-04-17 13:24:53,374 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-17 13:24:53,532 - FinancePreprocessing - INFO - Removing URLs
+2025-04-17 13:24:53,541 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-17 13:24:53,671 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-17 13:24:53,674 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-17 13:24:53,872 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-17 13:24:53,952 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-17 13:24:54,002 - FinancePreprocessing - INFO - Removing special characters
+2025-04-17 13:24:54,014 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-17 13:24:54,050 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-17 13:24:54,061 - FinancePreprocessing - INFO - Removing stop words
+2025-04-17 13:24:54,083 - FinancePreprocessing - INFO - Generated 5842 processed sentences
+2025-04-17 13:24:54,084 - FinancePreprocessing - INFO - Adding additional features to final DataFrame: ['Sector', 'Company', 'Event']
+2025-04-17 13:24:54,084 - FinancePreprocessing - INFO - Added 5842 values for feature 'Sector'
+2025-04-17 13:24:54,085 - FinancePreprocessing - INFO - Added 5842 values for feature 'Company'
+2025-04-17 13:24:54,085 - FinancePreprocessing - INFO - Added 5842 values for feature 'Event'
+2025-04-17 13:24:54,087 - FinancePreprocessing - INFO - Cleaning completed in 0.71 seconds
+2025-04-17 13:24:54,109 - FinancePreprocessing - INFO - Cleaned data saved to data/cleaned_FE_data.csv with columns: ['Sentence', 'Sentiment', 'Sector', 'Company', 'Event']
+2025-04-17 13:24:54,110 - FinancePreprocessing - INFO - Cleaning pipeline serialized to data/cleaning_pipeline.pkl
+2025-04-17 13:24:54,116 - FinancePreprocessing - INFO - Preprocessing completed successfully
+2025-04-17 13:25:48,773 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-17 13:25:50,344 - FinancePreprocessing - ERROR - Error in main: DataBalancingOrchestrator.__init__() got an unexpected keyword argument 'max_sequence_length'
+2025-04-17 13:26:36,449 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-17 13:26:38,222 - FinancePreprocessing - INFO - Started MLflow run with ID: 587c4ff458d440ee98bf4fc0fa6409a3
+2025-04-17 13:26:38,223 - FinancePreprocessing - INFO - Loading data from data/cleaned_FE_data.csv
+2025-04-17 13:26:38,240 - FinancePreprocessing - INFO - Building data balancing pipeline
+2025-04-17 13:27:13,062 - datasets - INFO - PyTorch version 2.5.1 available.
+2025-04-17 13:27:13,063 - datasets - INFO - TensorFlow version 2.17.0 available.
+2025-04-17 13:27:14,616 - FinancePreprocessing - INFO - Using SentenceTransformer for embeddings
+2025-04-17 13:27:14,619 - FinancePreprocessing - INFO - Downloading WordNet for synonym replacement...
+2025-04-17 13:27:15,027 - FinancePreprocessing - INFO - Extracted 5842 values for additional feature 'Sector'
+2025-04-17 13:27:15,027 - FinancePreprocessing - INFO - Extracted 5842 values for additional feature 'Company'
+2025-04-17 13:27:15,027 - FinancePreprocessing - INFO - Extracted 5842 values for additional feature 'Event'
+2025-04-17 13:27:15,027 - FinancePreprocessing - INFO - Setting additional features for the balancer
+2025-04-17 13:27:15,027 - FinancePreprocessing - INFO - Set additional features: ['Sector', 'Company', 'Event']
+2025-04-17 13:27:15,028 - FinancePreprocessing - INFO - Starting fit process...
+2025-04-17 13:27:15,030 - FinancePreprocessing - INFO - Class distribution: {'neutral': 3130, 'positive': 1852, 'negative': 860}
+2025-04-17 13:27:15,030 - FinancePreprocessing - INFO - Additional features detected: ['Sector', 'Company', 'Event']
+2025-04-17 13:27:15,030 - FinancePreprocessing - INFO - Loading sentence transformer model
+2025-04-17 13:27:15,032 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-04-17 13:27:15,032 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-04-17 13:27:17,221 - FinancePreprocessing - INFO - Fit completed in 2.19 seconds
+2025-04-17 13:27:17,222 - FinancePreprocessing - INFO - Starting transform process...
+2025-04-17 13:27:17,222 - FinancePreprocessing - INFO - Input is the same as training data, performing balancing
+2025-04-17 13:27:17,223 - FinancePreprocessing - INFO - Initialized balanced feature 'Sector' with 5842 values
+2025-04-17 13:27:17,223 - FinancePreprocessing - INFO - Initialized balanced feature 'Company' with 5842 values
+2025-04-17 13:27:17,223 - FinancePreprocessing - INFO - Initialized balanced feature 'Event' with 5842 values
+2025-04-17 13:27:17,224 - FinancePreprocessing - INFO - Generating 1278 synthetic samples for sentiment: positive
+2025-04-17 13:27:17,224 - FinancePreprocessing - INFO - Generating 1278 synthetic samples for positive sentiment
+2025-04-17 13:27:17,224 - FinancePreprocessing - INFO - Generating embeddings using transformer model
+2025-04-17 13:27:25,986 - FinancePreprocessing - INFO - Finding nearest neighbors
+2025-04-17 13:27:25,988 - FinancePreprocessing - INFO - Generating samples using embedding-based approach
+2025-04-17 13:27:27,190 - FinancePreprocessing - INFO - Generating samples using text augmentation
+2025-04-17 13:27:29,887 - FinancePreprocessing - INFO - Added 1278 sampled values for feature 'Sector'
+2025-04-17 13:27:29,887 - FinancePreprocessing - INFO - Added 1278 sampled values for feature 'Company'
+2025-04-17 13:27:29,888 - FinancePreprocessing - INFO - Added 1278 sampled values for feature 'Event'
+2025-04-17 13:27:29,888 - FinancePreprocessing - INFO - Generating 2270 synthetic samples for sentiment: negative
+2025-04-17 13:27:29,888 - FinancePreprocessing - INFO - Generating 2270 synthetic samples for negative sentiment
+2025-04-17 13:27:29,889 - FinancePreprocessing - INFO - Generating embeddings using transformer model
+2025-04-17 13:27:33,466 - FinancePreprocessing - INFO - Finding nearest neighbors
+2025-04-17 13:27:33,467 - FinancePreprocessing - INFO - Generating samples using embedding-based approach
+2025-04-17 13:27:34,441 - FinancePreprocessing - INFO - Generating samples using text augmentation
+2025-04-17 13:27:34,570 - FinancePreprocessing - INFO - Added 2270 sampled values for feature 'Sector'
+2025-04-17 13:27:34,571 - FinancePreprocessing - INFO - Added 2270 sampled values for feature 'Company'
+2025-04-17 13:27:34,571 - FinancePreprocessing - INFO - Added 2270 sampled values for feature 'Event'
+2025-04-17 13:27:34,574 - FinancePreprocessing - INFO - Added balanced feature 'Sector' to combined DataFrame
+2025-04-17 13:27:34,575 - FinancePreprocessing - INFO - Added balanced feature 'Company' to combined DataFrame
+2025-04-17 13:27:34,575 - FinancePreprocessing - INFO - Added balanced feature 'Event' to combined DataFrame
+2025-04-17 13:27:34,576 - FinancePreprocessing - INFO - Column 'X' has 9390 values
+2025-04-17 13:27:34,576 - FinancePreprocessing - INFO - Column 'y' has 9390 values
+2025-04-17 13:27:34,576 - FinancePreprocessing - INFO - Column 'Sector' has 9390 values
+2025-04-17 13:27:34,576 - FinancePreprocessing - INFO - Column 'Company' has 9390 values
+2025-04-17 13:27:34,576 - FinancePreprocessing - INFO - Column 'Event' has 9390 values
+2025-04-17 13:27:34,580 - FinancePreprocessing - INFO - Updated balanced feature 'Sector' after shuffling
+2025-04-17 13:27:34,580 - FinancePreprocessing - INFO - Updated balanced feature 'Company' after shuffling
+2025-04-17 13:27:34,580 - FinancePreprocessing - INFO - Updated balanced feature 'Event' after shuffling
+2025-04-17 13:27:34,580 - FinancePreprocessing - INFO - Transform completed in 17.36 seconds with 9390 samples
+2025-04-17 13:27:34,581 - FinancePreprocessing - INFO - Generated 9390 balanced sentences
+2025-04-17 13:27:34,581 - FinancePreprocessing - INFO - Retrieved 9390 balanced sentiment labels
+2025-04-17 13:27:34,581 - FinancePreprocessing - INFO - Returning balanced additional features: ['Sector', 'Company', 'Event']
+2025-04-17 13:27:34,582 - FinancePreprocessing - INFO - Adding balanced features to final DataFrame: ['Sector', 'Company', 'Event']
+2025-04-17 13:27:34,582 - FinancePreprocessing - INFO - Added 9390 values for balanced feature 'Sector'
+2025-04-17 13:27:34,582 - FinancePreprocessing - INFO - Added 9390 values for balanced feature 'Company'
+2025-04-17 13:27:34,583 - FinancePreprocessing - INFO - Added 9390 values for balanced feature 'Event'
+2025-04-17 13:27:34,584 - FinancePreprocessing - INFO - Balancing completed in 19.56 seconds
+2025-04-17 13:27:34,622 - FinancePreprocessing - INFO - Balanced data saved to data/balanced_FE_data.csv with columns: ['Sentence', 'Sentiment', 'Sector', 'Company', 'Event']
+2025-04-17 13:27:34,798 - FinancePreprocessing - INFO - Balancing pipeline serialized to data/balancing_pipeline.pkl
+2025-04-17 13:27:34,854 - FinancePreprocessing - INFO - Data Balancing (Minority Oversampling) completed successfully

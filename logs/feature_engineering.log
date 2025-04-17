@@ -456,3 +456,11 @@ dtype: int64
 2025-04-07 17:09:17,085 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
 2025-04-07 17:09:17,114 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
 2025-04-07 17:09:21,168 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-17 13:22:33,976 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-17 13:23:05,110 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-17 13:23:05,134 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-17 13:23:05,146 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-17 13:23:07,322 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-17 13:23:44,146 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-17 13:23:44,182 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-17 13:23:48,178 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl

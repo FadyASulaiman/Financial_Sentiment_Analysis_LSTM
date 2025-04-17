@@ -685,3 +685,52 @@ macro avg      0.814810  0.801917  0.794927  939.000000
 weighted avg   0.814810  0.801917  0.794927  939.000000
 2025-04-15 12:13:17,925 - src.utils.loggers.model_training_and_eval_logger - INFO - Evaluation completed
 2025-04-15 12:13:17,925 - src.utils.loggers.model_training_and_eval_logger - INFO - Model training and evaluation completed successfully
+2025-04-17 13:31:50,651 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting sentiment model training and evaluation
+2025-04-17 13:31:50,757 - src.utils.loggers.model_training_and_eval_logger - INFO - Started MLflow run with ID: 287bbe1032f94a1dbb6a846da0a0b968
+2025-04-17 13:31:50,772 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-17 13:31:50,779 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(9390, 128), y=(9390,)
+2025-04-17 13:31:50,780 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 3130, 1: 3130, 2: 3130}
+2025-04-17 13:31:50,789 - src.utils.loggers.model_training_and_eval_logger - INFO - Data split: train=(7512, 128), val=(939, 128), test=(939, 128)
+2025-04-17 13:31:50,791 - src.utils.loggers.model_training_and_eval_logger - INFO - Class weights: {0: 1.0, 1: 1.0, 2: 1.0}
+2025-04-17 13:31:50,793 - src.utils.loggers.model_training_and_eval_logger - INFO - Initializing lstm_sentiment_287bbe10 with vocab_size=6362, sequence_length=128, embedding_dim=100
+2025-04-17 13:31:50,793 - src.utils.loggers.model_training_and_eval_logger - INFO - Building LSTM model architecture
+2025-04-17 13:31:50,795 - src.utils.loggers.model_training_and_eval_logger - INFO - Using trainable embeddings
+2025-04-17 13:31:50,797 - src.utils.loggers.model_training_and_eval_logger - INFO - Adding LSTM with 128 units
+2025-04-17 13:31:50,830 - src.utils.loggers.model_training_and_eval_logger - INFO - Building multi-class classification output with 3 classes
+2025-04-17 13:31:50,831 - src.utils.loggers.model_training_and_eval_logger - INFO - LSTM model architecture built successfully
+2025-04-17 13:31:50,831 - src.utils.loggers.model_training_and_eval_logger - INFO - Using sparse compatible metrics: ['accuracy']
+2025-04-17 13:31:50,843 - src.utils.loggers.model_training_and_eval_logger - INFO - Model compiled successfully
+2025-04-17 13:31:50,843 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting training with batch_size=32, epochs=14
+2025-04-17 13:31:50,846 - src.utils.loggers.model_training_and_eval_logger - INFO - Training class distribution: {0: 2504, 1: 2504, 2: 2504}
+2025-04-17 13:31:50,846 - src.utils.loggers.model_training_and_eval_logger - INFO - Validation class distribution: {0: 313, 1: 313, 2: 313}
+2025-04-17 13:31:50,846 - src.utils.loggers.model_training_and_eval_logger - INFO - Using class weights: {0: 1.0, 1: 1.0, 2: 1.0}
+2025-04-17 13:31:50,846 - src.utils.loggers.model_training_and_eval_logger - INFO - Setting up callbacks with patience=5
+2025-04-17 13:31:50,847 - src.utils.loggers.model_training_and_eval_logger - INFO - X_train shape: (7512, 128)
+2025-04-17 13:31:50,847 - src.utils.loggers.model_training_and_eval_logger - INFO - y_train shape: (7512,)
+2025-04-17 13:31:50,847 - src.utils.loggers.model_training_and_eval_logger - INFO - X_val shape: (939, 128)
+2025-04-17 13:31:50,847 - src.utils.loggers.model_training_and_eval_logger - INFO - y_val shape: (939,)
+2025-04-17 13:33:43,631 - src.utils.loggers.model_training_and_eval_logger - INFO - Training completed
+2025-04-17 13:33:43,641 - src.utils.loggers.model_training_and_eval_logger - INFO - Evaluating model on test data
+2025-04-17 13:33:43,641 - src.utils.loggers.model_training_and_eval_logger - INFO - Test class distribution: {0: 313, 1: 313, 2: 313}
+2025-04-17 13:33:44,307 - src.utils.loggers.model_training_and_eval_logger - INFO - Test metrics: {'loss': 0.5482887625694275, 'compile_metrics': 0.7976570725440979}
+2025-04-17 13:33:44,307 - src.utils.loggers.model_training_and_eval_logger - INFO - Saving model to output/model/lstm_sentiment_287bbe10.keras
+2025-04-17 13:33:44,362 - src.utils.loggers.model_training_and_eval_logger - INFO - Logging model to MLflow
+2025-04-17 13:33:44,363 - src.utils.loggers.model_training_and_eval_logger - INFO - Using existing active MLflow run: 287bbe1032f94a1dbb6a846da0a0b968
+2025-04-17 13:33:44,381 - src.utils.loggers.model_training_and_eval_logger - ERROR - Error logging to MLflow: No module named 'tensorflow.keras'
+2025-04-17 13:33:44,381 - src.utils.loggers.model_training_and_eval_logger - INFO - Model training completed. Model saved to output/model/lstm_sentiment_287bbe10.keras
+2025-04-17 13:33:44,383 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading test data for evaluation
+2025-04-17 13:33:44,383 - src.utils.loggers.model_training_and_eval_logger - INFO - Loading data from data/processed/processed_arrays.npz
+2025-04-17 13:33:44,387 - src.utils.loggers.model_training_and_eval_logger - INFO - Loaded data with shapes: X=(9390, 128), y=(9390,)
+2025-04-17 13:33:44,387 - src.utils.loggers.model_training_and_eval_logger - INFO - Class distribution: {0: 3130, 1: 3130, 2: 3130}
+2025-04-17 13:33:44,394 - src.utils.loggers.model_training_and_eval_logger - INFO - Starting model evaluation
+2025-04-17 13:33:44,394 - src.utils.loggers.model_training_and_eval_logger - INFO - Making predictions on data with shape: (939, 128)
+2025-04-17 13:33:45,471 - src.utils.loggers.model_training_and_eval_logger - INFO - Classification report:
+              precision    recall  f1-score     support
+Negative       0.729592  0.913738  0.811348  313.000000
+Neutral        0.860169  0.648562  0.739526  313.000000
+Positive       0.836013  0.830671  0.833333  313.000000
+accuracy       0.797657  0.797657  0.797657    0.797657
+macro avg      0.808591  0.797657  0.794736  939.000000
+weighted avg   0.808591  0.797657  0.794736  939.000000
+2025-04-17 13:33:46,052 - src.utils.loggers.model_training_and_eval_logger - INFO - Evaluation completed
+2025-04-17 13:33:46,052 - src.utils.loggers.model_training_and_eval_logger - INFO - Model training and evaluation completed successfully
