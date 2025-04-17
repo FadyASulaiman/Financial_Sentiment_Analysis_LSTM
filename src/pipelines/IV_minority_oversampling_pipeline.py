@@ -4,49 +4,26 @@ import mlflow
 import pandas as pd
 from datetime import datetime
 from sklearn.pipeline import Pipeline
+from src.preprocessors.data_preprocessors.minority_oversampler import SentimentBalancer
 from src.utils.loggers.preprocessing_logger import logger
-from src.preprocessors.data_preprocessors import (
-    HTMLCleaner, URLRemover, PunctuationRemover, SpecialCharRemover,
-    WhitespaceNormalizer, NumericNormalizer, DateTimeNormalizer,
-    StockTickerReplacer, CurrencyReplacer, TextLowercaser,
-    StopWordRemover
-)
 
-class DataCleaningOrchestrator:
-    """Orchestrator for text cleaning steps"""
+class DataBalancingOrchestrator:
+    """Orchestrator for data balancing steps"""
     
-    def __init__(self, max_sequence_length=128, domain_specific_stopwords=None):
-        self.max_sequence_length = max_sequence_length
-        self.domain_specific_stopwords = domain_specific_stopwords or [
-            'ltd', 'inc', 'corp', 'corporation', 'company', 'co', 'group',
-            'plc', 'holdings', 'holding', 'international', 'technologies',
-            'technology', 'solutions', 'services', 'system', 'systems',
-            'quarter', 'year', 'month', 'day', 'week', 'today', 'yesterday',
-            'tomorrow', 'said', 'announced', 'reported', 'according', 'statement'
-        ]
+    def __init__(self):
         self.preprocessing_pipeline = None
         self.mlflow_run_id = None
         
         # Initialize MLflow
         mlflow.set_tracking_uri('file:./mlruns')
-        mlflow.set_experiment('finance_text_cleaning')
+        mlflow.set_experiment('finance_text_balancing')
     
     def build_pipeline(self):
-        """Build the text cleaning pipeline"""
-        logger.info("Building text cleaning pipeline")
+        """Build the data balancing pipeline"""
+        logger.info("Building data balancing pipeline")
         
         self.preprocessing_pipeline = Pipeline([
-            ('html_cleaner', HTMLCleaner()),
-            ('url_remover', URLRemover()),
-            ('currency_replacer', CurrencyReplacer()),
-            ('stock_ticker_replacer', StockTickerReplacer()),
-            ('date_time_normalizer', DateTimeNormalizer()),
-            ('numeric_normalizer', NumericNormalizer()),
-            ('punctuation_remover', PunctuationRemover()),
-            ('special_char_remover', SpecialCharRemover()),
-            ('whitespace_normalizer', WhitespaceNormalizer()),
-            ('lowercaser', TextLowercaser()),
-            ('stop_word_remover', StopWordRemover(self.domain_specific_stopwords))
+            ('minority_oversampler', SentimentBalancer())
         ])
 
         return self.preprocessing_pipeline
@@ -58,10 +35,6 @@ class DataCleaningOrchestrator:
             with mlflow.start_run() as run:
                 self.mlflow_run_id = run.info.run_id
                 logger.info(f"Started MLflow run with ID: {self.mlflow_run_id}")
-                
-                # Log parameters
-                mlflow.log_param("max_sequence_length", self.max_sequence_length)
-                mlflow.log_param("domain_specific_stopwords", self.domain_specific_stopwords)
                 
                 # Load data
                 if data_df is not None:
@@ -103,42 +76,55 @@ class DataCleaningOrchestrator:
                 # Track start time
                 start_time = datetime.now()
                 
-                # Apply preprocessing pipeline
-                processed_sentences = self.preprocessing_pipeline.fit_transform(sentences)
-                logger.info(f"Generated {len(processed_sentences)} processed sentences")
+                # Set additional features for the balancer
+                if additional_features:
+                    logger.info("Setting additional features for the balancer")
+                    self.preprocessing_pipeline.named_steps['minority_oversampler'].set_additional_features(additional_features)
                 
-                # Create a new DataFrame with the processed data
+                # Apply balancing pipeline
+                balanced_sentences = self.preprocessing_pipeline.fit_transform(sentences, sentiments)
+                logger.info(f"Generated {len(balanced_sentences)} balanced sentences")
+
+                # Get balanced sentiments
+                balancer = self.preprocessing_pipeline.named_steps['minority_oversampler']
+                balanced_sentiments = balancer.get_balanced_y()
+                logger.info(f"Retrieved {len(balanced_sentiments)} balanced sentiment labels")
+                
+                # Create a new DataFrame with the balanced data
                 processed_df = pd.DataFrame({
-                    'Sentence': processed_sentences,
-                    'Sentiment': sentiments
+                    'Sentence': balanced_sentences,
+                    'Sentiment': balanced_sentiments
                 })
                 
-                # Add additional features to the DataFrame
-                if additional_features:
-                    logger.info(f"Adding additional features to final DataFrame: {list(additional_features.keys())}")
-                    for feature_name, feature_values in additional_features.items():
+                # Add balanced additional features to the DataFrame
+                balanced_features = balancer.get_balanced_additional_features()
+                if balanced_features:
+                    logger.info(f"Adding balanced features to final DataFrame: {list(balanced_features.keys())}")
+                    for feature_name, feature_values in balanced_features.items():
                         processed_df[feature_name] = feature_values
-                        logger.info(f"Added {len(feature_values)} values for feature '{feature_name}'")
+                        logger.info(f"Added {len(feature_values)} values for balanced feature '{feature_name}'")
+                else:
+                    logger.warning("No balanced additional features returned by the balancer")
                 
                 # Track end time and duration
                 end_time = datetime.now()
                 processing_duration = (end_time - start_time).total_seconds()
                 mlflow.log_metric("processing_duration_seconds", processing_duration)
-                logger.info(f"Cleaning completed in {processing_duration:.2f} seconds")
+                logger.info(f"Balancing completed in {processing_duration:.2f} seconds")
                 
                 # Save Preprocessed data
-                output_path = os.path.join(output_dir, 'cleaned_FE_data.csv')
+                output_path = os.path.join(output_dir, 'balanced_FE_data.csv')
                 processed_df.to_csv(output_path, index=False)
-                logger.info(f"Cleaned data saved to {output_path} with columns: {processed_df.columns.tolist()}")
+                logger.info(f"Balanced data saved to {output_path} with columns: {processed_df.columns.tolist()}")
                 
                 # Log metrics
                 mlflow.log_metric("processed_data_size", len(processed_df))
                 
                 # Serialize the pipeline
-                pipeline_path = os.path.join(output_dir, 'cleaning_pipeline.pkl')
+                pipeline_path = os.path.join(output_dir, 'balancing_pipeline.pkl')
                 with open(pipeline_path, 'wb') as f:
                     pickle.dump(self.preprocessing_pipeline, f)
-                logger.info(f"Cleaning pipeline serialized to {pipeline_path}")
+                logger.info(f"Balancing pipeline serialized to {pipeline_path}")
                 
                 # Log artifacts
                 mlflow.log_artifact(output_path)
@@ -147,7 +133,7 @@ class DataCleaningOrchestrator:
                 return processed_df
                 
         except Exception as e:
-            logger.error(f"Error in text cleaning: {str(e)}")
+            logger.error(f"Error in data balancing: {str(e)}")
             raise
     
     def _load_data(self, data_path):
@@ -168,7 +154,7 @@ class DataCleaningOrchestrator:
     def load_pipeline(self, pipeline_path):
         """Load a serialized preprocessing pipeline"""
         try:
-            logger.info(f"Loading cleaning pipeline from {pipeline_path}")
+            logger.info(f"Loading balancing pipeline from {pipeline_path}")
             with open(pipeline_path, 'rb') as f:
                 self.preprocessing_pipeline = pickle.load(f)
             return self.preprocessing_pipeline
