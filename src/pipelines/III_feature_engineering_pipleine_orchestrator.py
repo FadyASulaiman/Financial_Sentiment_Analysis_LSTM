@@ -47,12 +47,7 @@ class FeatureEngineeringPipeline:
         return [
             FinancialEntityExtractor(self.config),
             FinancialEventClassifier(self.config),
-
-            # FinVADERSentimentExtractor(self.config),  # Sentiment is most important
-            # GrowthDeclineQuantifier(self.config),     # Numeric trends are important
-            # CompositeFeatureExtractor(self.config),   # High-level combined features
             IndustrySectorClassifier(self.config),
-            # FinancialEventClassifier(self.config)
         ]
         
     def fit_transform(self, data: pd.DataFrame) -> pd.DataFrame:

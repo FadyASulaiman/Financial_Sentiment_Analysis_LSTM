@@ -83,7 +83,6 @@ class DataPreparationOrchestrator:
                 # Extract text and labels
                 sentences = df[self.text_column].copy()
                 labels = df[self.label_column].copy()
-                
 
                 # Track start time
                 start_time = datetime.now()
@@ -175,7 +174,7 @@ class DataPreparationOrchestrator:
             logger.error(f"Error in preprocessing: {str(e)}")
             raise
 
-    
+
     def _load_data(self, data_path):
         """Load data from CSV file"""
         try:

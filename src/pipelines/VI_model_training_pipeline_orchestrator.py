@@ -166,9 +166,6 @@ class SentimentModelTrainer:
                 log_dir=os.path.join(self.model_dir, 'logs')
             )
             
-            # Print model summary
-            model.summary()
-            
             # Compile model
             model.compile(
                 learning_rate=config['learning_rate']
@@ -183,6 +180,9 @@ class SentimentModelTrainer:
                 patience=config['patience'],
                 class_weights=class_weight_dict
             )
+
+            # Print model summary
+            model.summary()
             
             # Evaluate model
             metrics = model.evaluate(X_test, y_test)
