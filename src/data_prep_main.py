@@ -2,7 +2,7 @@ import os
 from src.utils.loggers.data_prep_pipeline_logger import logger
 
 
-from src.pipelines.IV_data_prep_pipeline_orchestrator import DataPreparationOrchestrator
+from src.pipelines.V_data_prep_pipeline_orchestrator import DataPreparationOrchestrator
 
 
 def prepare_data_for_lstm(data_path, output_dir=None):
@@ -39,7 +39,7 @@ def prepare_data_for_lstm(data_path, output_dir=None):
 
 if __name__ == "__main__":
     X, y, run_id = prepare_data_for_lstm(
-        data_path="data/preprocessed_FE_data.csv",
+        data_path="data/balanced_FE_data.csv",
         output_dir="data/processed"
     )
 

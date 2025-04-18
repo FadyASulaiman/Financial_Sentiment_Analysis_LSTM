@@ -105,7 +105,7 @@ class DataCleaningOrchestrator:
                 
                 # Apply preprocessing pipeline
                 processed_sentences = self.preprocessing_pipeline.fit_transform(sentences)
-                logger.info(f"Generated {len(processed_sentences)} processed sentences")
+                logger.info(f"Output: {len(processed_sentences)} processed sentences")
                 
                 # Create a new DataFrame with the processed data
                 processed_df = pd.DataFrame({

@@ -1,7 +1,7 @@
 import numpy as np
 import tensorflow as tf
 
-from src.pipelines.V_model_training_pipeline_orchestrator import SentimentModelTrainer
+from src.pipelines.VI_model_training_pipeline_orchestrator import SentimentModelTrainer
 from src.utils.model_eval.lstm_model_evaluators import SentimentModelEvaluator
 
 from src.utils.loggers.model_training_and_eval_logger import logger
@@ -14,7 +14,7 @@ def main():
     lstm_units = 128
     bidirectional = False
     batch_size = 32
-    epochs = 12
+    epochs = 14
     learning_rate = 0.01
 
     
