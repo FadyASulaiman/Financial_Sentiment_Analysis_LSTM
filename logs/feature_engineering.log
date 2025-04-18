@@ -464,3 +464,351 @@ dtype: int64
 2025-04-17 13:23:44,146 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
 2025-04-17 13:23:44,182 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
 2025-04-17 13:23:48,178 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-17 16:41:25,835 - PROD - INFO - Pipeline paths saved to output/prod_inference/pipeline_paths.pkl
+2025-04-17 16:41:25,836 - PROD - INFO - Sentiment analyzer wrapper saved to output/prod_inference/sentiment_analyzer.py
+2025-04-17 16:41:25,836 - PROD - INFO - Example usage code saved to output/prod_inference/inference_example.py
+2025-04-17 16:45:58,603 - PROD - ERROR - Error in production inference: [Errno 2] No such file or directory: ' data/feature_pipeline_v1.0.0.pkl'
+2025-04-17 16:56:32,254 - PROD - INFO - Pipeline paths saved to output/prod_inference/pipeline_paths.pkl
+2025-04-17 16:56:32,255 - PROD - INFO - Sentiment analyzer wrapper saved to output/prod_inference/sentiment_analyzer.py
+2025-04-17 16:56:32,255 - PROD - INFO - Example usage code saved to output/prod_inference/inference_example.py
+2025-04-17 16:59:48,222 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-17 17:03:14,941 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-17 17:05:57,514 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-17 17:16:38,450 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-17 17:18:15,659 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-17 17:20:06,025 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 10:52:51,086 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:00:54,407 - PROD - ERROR - Error in production inference: 'FinancialEventClassifier' object has no attribute 'CONTEXT_PATTERNS'
+2025-04-18 11:01:42,165 - PROD - ERROR - Error in production inference: 'FinancialEventClassifier' object has no attribute 'CONTEXT_PATTERNS'
+2025-04-18 11:03:14,324 - PROD - ERROR - Error in production inference: 'FinancialEventClassifier' object has no attribute 'CONTEXT_PATTERNS'
+2025-04-18 11:03:51,818 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:03:55,596 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:03:55,614 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:03:55,624 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:04:02,505 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 11:04:29,398 - src.utils.loggers.feat_eng_pipeline_logger - ERROR - Error in feature engineering pipeline: 'str' object has no attribute 'findall'
+2025-04-18 11:04:29,402 - src.utils.loggers.feat_eng_pipeline_logger - ERROR - Error in main execution: 'str' object has no attribute 'findall'
+2025-04-18 11:07:51,250 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:07:55,410 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:07:55,424 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:07:55,432 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:07:57,076 - src.utils.loggers.feat_eng_pipeline_logger - ERROR - Error in main execution: not enough values to unpack (expected 2, got 1)
+2025-04-18 11:08:34,732 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:08:38,951 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:08:38,964 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:08:38,974 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:08:40,653 - src.utils.loggers.feat_eng_pipeline_logger - ERROR - Error in main execution: not enough values to unpack (expected 2, got 1)
+2025-04-18 11:10:11,454 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:10:15,535 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:10:15,548 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:10:15,558 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:10:42,430 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 11:11:09,978 - src.utils.loggers.feat_eng_pipeline_logger - ERROR - Error in feature engineering pipeline: 'str' object has no attribute 'findall'
+2025-04-18 11:11:09,980 - src.utils.loggers.feat_eng_pipeline_logger - ERROR - Error in main execution: 'str' object has no attribute 'findall'
+2025-04-18 11:16:53,795 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:16:59,935 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:16:59,951 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:16:59,979 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:17:01,860 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 11:17:39,073 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-18 11:17:39,105 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-18 11:17:42,257 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-18 11:18:10,347 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:19:28,983 - PROD - ERROR - Error in production inference: cannot process flags argument with a compiled pattern
+2025-04-18 11:20:31,996 - PROD - ERROR - Error in production inference: cannot process flags argument with a compiled pattern
+2025-04-18 11:29:10,742 - PROD - ERROR - Error in production inference: cannot process flags argument with a compiled pattern
+2025-04-18 11:30:05,121 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:30:34,694 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:33:58,579 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:34:02,572 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:34:02,590 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:34:02,600 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:34:04,645 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 11:34:42,615 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-18 11:34:42,644 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-18 11:34:45,668 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-18 11:35:08,915 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:41:03,736 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:41:07,635 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:41:07,652 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:41:07,662 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:41:14,807 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 11:41:52,357 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-18 11:41:52,383 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-18 11:41:55,235 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-18 11:42:20,549 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:44:19,525 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:47:30,602 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:48:56,174 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:52:45,978 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:53:32,597 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:53:36,540 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:53:36,556 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:53:36,565 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:53:38,490 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 11:54:21,472 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-18 11:54:21,500 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-18 11:54:24,450 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-18 11:55:13,640 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:56:09,808 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:56:16,103 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:56:16,120 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:56:16,130 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:56:18,162 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 11:57:03,833 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-18 11:57:03,895 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-18 11:57:06,963 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-18 12:11:23,475 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 12:11:29,869 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 12:11:29,887 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 12:11:29,896 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 12:11:32,021 - src.utils.loggers.feat_eng_pipeline_logger - ERROR - Error in main execution: 'str' object has no attribute 'pattern'
+2025-04-18 12:12:55,780 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 12:12:59,656 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 12:12:59,671 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 12:12:59,679 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 12:13:02,095 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 12:13:42,236 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-18 12:13:42,264 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-18 12:13:45,343 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-18 12:14:05,304 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 12:14:11,531 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 12:14:11,548 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 12:14:11,558 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 12:14:13,549 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 12:14:53,066 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-18 12:14:53,092 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-18 12:14:56,072 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-18 12:15:39,581 - FinancePreprocessing - INFO - Started MLflow run with ID: 5023e521685a4113ba030fe284a76ec4
+2025-04-18 12:15:39,587 - FinancePreprocessing - ERROR - Error in text cleaning: 'Sentiment'
+2025-04-18 12:15:39,587 - PROD - ERROR - Error in production inference: 'Sentiment'
+2025-04-18 12:47:45,544 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 12:47:45,547 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 12:47:45,547 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 12:47:45,547 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 12:47:45,548 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 12:47:45,548 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 12:47:45,549 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 12:47:45,549 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 12:47:45,549 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 12:47:45,549 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 12:47:45,550 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 12:47:45,550 - PROD - ERROR - Error in production inference: 'Series' object has no attribute 'columns'
+2025-04-18 12:51:05,142 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 12:51:05,144 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 12:51:05,145 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 12:51:05,145 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 12:51:05,145 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 12:51:05,146 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 12:51:05,146 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 12:51:05,146 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 12:51:05,147 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 12:51:05,147 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 12:51:05,147 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 12:51:05,148 - PROD - ERROR - Error in production inference: 'Series' object has no attribute 'columns'
+2025-04-18 12:52:59,313 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 12:52:59,315 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 12:52:59,316 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 12:52:59,316 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 12:52:59,316 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 12:52:59,317 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 12:52:59,317 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 12:52:59,317 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 12:52:59,318 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 12:52:59,318 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 12:52:59,318 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 12:52:59,319 - PROD - ERROR - Error in production inference: 'Series' object has no attribute 'columns'
+2025-04-18 12:58:11,193 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 12:58:11,195 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 12:58:11,196 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 12:58:11,196 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 12:58:11,197 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 12:58:11,197 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 12:58:11,198 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 12:58:11,198 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 12:58:11,198 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 12:58:11,199 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 12:58:11,199 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 12:58:11,200 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 12:58:11,201 - PROD - ERROR - Error in production inference: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-04-18 13:00:12,686 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:00:12,688 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:00:12,688 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:00:12,689 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:00:12,689 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:00:12,689 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:00:12,690 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:00:12,690 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:00:12,690 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:00:12,691 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:00:12,691 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:00:12,694 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:00:12,695 - PROD - ERROR - Error in production inference: 2
+2025-04-18 13:08:16,074 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:08:16,076 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:08:16,076 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:08:16,077 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:08:16,077 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:08:16,077 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:08:16,078 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:08:16,078 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:08:16,078 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:08:16,079 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:08:16,079 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:08:16,080 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:08:16,081 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'xyz', 'better', 'expected', 'earn', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:08:16,081 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:08:16,084 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'xyz', 'better', 'expected', 'earn', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:08:16,085 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'xyz', 'well', 'expect', 'earn', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:08:16,085 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:08:16,085 - DataPrepPipeline - INFO - Example - Words: ['0', 'xyz', 'well', 'expect', 'earn', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:08:16,085 - DataPrepPipeline - INFO - Example - Sequence: [5122, 1, 81, 45, 2248, 577, 1, 1, 5682]
+2025-04-18 13:08:16,085 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:08:16,086 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-18 13:10:05,475 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:10:05,477 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:10:05,477 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:10:05,478 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:10:05,478 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:10:05,478 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:10:05,479 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:10:05,479 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:10:05,479 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:10:05,480 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:10:05,480 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:10:05,481 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:10:05,481 - DataPrepPipeline - INFO - Example - Tokenized: ['0', '__placeholder_stock__', 'went', 'red', 'release', 'iphone', '6c', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:10:05,482 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:10:05,487 - FinancePreprocessing - INFO - Example - Original tokens: ['0', '__placeholder_stock__', 'went', 'red', 'release', 'iphone', '6c', 'name', 'sentence', 'dtype']
+2025-04-18 13:10:05,487 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', '_', '_', 'placeholder_stock', '_', '_', 'go', 'red', 'release', 'iphone']
+2025-04-18 13:10:05,487 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:10:05,487 - DataPrepPipeline - INFO - Example - Words: ['0', '_', '_', 'placeholder_stock', '_', '_', 'go', 'red', 'release', 'iphone']
+2025-04-18 13:10:05,487 - DataPrepPipeline - INFO - Example - Sequence: [5122, 2, 2, 3, 2, 2, 61, 782, 190, 1168]
+2025-04-18 13:10:05,488 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:10:05,488 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-18 13:10:53,784 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:10:53,786 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:10:53,786 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:10:53,787 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:10:53,787 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:10:53,787 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:10:53,788 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:10:53,788 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:10:53,789 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:10:53,789 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:10:53,789 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:10:53,790 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:10:53,791 - DataPrepPipeline - INFO - Example - Tokenized: ['0', '__placeholder_stock__', 'went', 'red', 'beginning', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:10:53,791 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:10:53,796 - FinancePreprocessing - INFO - Example - Original tokens: ['0', '__placeholder_stock__', 'went', 'red', 'beginning', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:10:53,796 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', '_', '_', 'placeholder_stock', '_', '_', 'go', 'red', 'begin', 'name']
+2025-04-18 13:10:53,796 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:10:53,796 - DataPrepPipeline - INFO - Example - Words: ['0', '_', '_', 'placeholder_stock', '_', '_', 'go', 'red', 'begin', 'name']
+2025-04-18 13:10:53,796 - DataPrepPipeline - INFO - Example - Sequence: [5122, 2, 2, 3, 2, 2, 61, 782, 465, 577]
+2025-04-18 13:10:53,797 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:10:53,797 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-18 13:11:58,388 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:11:58,390 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:11:58,390 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:11:58,391 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:11:58,391 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:11:58,391 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:11:58,392 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:11:58,392 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:11:58,392 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:11:58,393 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:11:58,393 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:11:58,394 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:11:58,395 - DataPrepPipeline - INFO - Example - Tokenized: ['0', '__placeholder_stock__', 'stock', 'realese', 'newe', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:11:58,395 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:11:58,400 - FinancePreprocessing - INFO - Example - Original tokens: ['0', '__placeholder_stock__', 'stock', 'realese', 'newe', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:11:58,400 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'realese', 'newe', 'name']
+2025-04-18 13:11:58,400 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:11:58,400 - DataPrepPipeline - INFO - Example - Words: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'realese', 'newe', 'name']
+2025-04-18 13:11:58,400 - DataPrepPipeline - INFO - Example - Sequence: [5122, 2, 2, 3, 2, 2, 56, 1, 1, 577]
+2025-04-18 13:11:58,401 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:11:58,401 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-18 13:13:32,529 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:13:32,531 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:13:32,532 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:13:32,532 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:13:32,532 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:13:32,533 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:13:32,533 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:13:32,534 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:13:32,534 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:13:32,534 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:13:32,535 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:13:32,536 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:13:32,537 - DataPrepPipeline - INFO - Example - Tokenized: ['0', '__placeholder_stock__', 'stock', 'went', 'bearish', 'realese', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:13:32,538 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:13:32,545 - FinancePreprocessing - INFO - Example - Original tokens: ['0', '__placeholder_stock__', 'stock', 'went', 'bearish', 'realese', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:13:32,545 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'go', 'bearish', 'realese']
+2025-04-18 13:13:32,546 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:13:32,546 - DataPrepPipeline - INFO - Example - Words: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'go', 'bearish', 'realese']
+2025-04-18 13:13:32,546 - DataPrepPipeline - INFO - Example - Sequence: [5122, 2, 2, 3, 2, 2, 56, 61, 636, 1]
+2025-04-18 13:13:32,547 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:13:32,547 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-18 13:13:59,612 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:13:59,615 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:13:59,616 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:13:59,616 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:13:59,616 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:13:59,617 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:13:59,618 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:13:59,618 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:13:59,618 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:13:59,619 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:13:59,619 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:13:59,620 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:13:59,621 - DataPrepPipeline - INFO - Example - Tokenized: ['0', '__placeholder_stock__', 'stock', 'went', 'red', 'realese', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:13:59,621 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:13:59,626 - FinancePreprocessing - INFO - Example - Original tokens: ['0', '__placeholder_stock__', 'stock', 'went', 'red', 'realese', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:13:59,626 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'go', 'red', 'realese']
+2025-04-18 13:13:59,626 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:13:59,626 - DataPrepPipeline - INFO - Example - Words: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'go', 'red', 'realese']
+2025-04-18 13:13:59,626 - DataPrepPipeline - INFO - Example - Sequence: [5122, 2, 2, 3, 2, 2, 56, 61, 782, 1]
+2025-04-18 13:13:59,626 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:13:59,626 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-18 13:15:00,304 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:15:00,306 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:15:00,306 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:15:00,307 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:15:00,307 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:15:00,307 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:15:00,308 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:15:00,308 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:15:00,308 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:15:00,309 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:15:00,309 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:15:00,310 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:15:00,311 - DataPrepPipeline - INFO - Example - Tokenized: ['0', '__placeholder_stock__', 'stock', 'fell', 'release', 'newe', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:15:00,311 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:15:00,316 - FinancePreprocessing - INFO - Example - Original tokens: ['0', '__placeholder_stock__', 'stock', 'fell', 'release', 'newe', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:15:00,316 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'fall', 'release', 'newe']
+2025-04-18 13:15:00,316 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:15:00,316 - DataPrepPipeline - INFO - Example - Words: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'fall', 'release', 'newe']
+2025-04-18 13:15:00,317 - DataPrepPipeline - INFO - Example - Sequence: [5122, 2, 2, 3, 2, 2, 56, 30, 190, 1]
+2025-04-18 13:15:00,317 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:15:00,317 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-18 13:16:42,126 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:16:42,128 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:16:42,128 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:16:42,129 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:16:42,129 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:16:42,129 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:16:42,130 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:16:42,130 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:16:42,131 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:16:42,131 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:16:42,131 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:16:42,132 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:16:42,133 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:16:42,133 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:16:42,137 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:16:42,137 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:16:42,137 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:16:42,137 - DataPrepPipeline - INFO - Example - Words: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:16:42,137 - DataPrepPipeline - INFO - Example - Sequence: [5122, 145, 26, 704, 272, 577, 1, 1, 5682]
+2025-04-18 13:16:42,137 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:16:42,138 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
