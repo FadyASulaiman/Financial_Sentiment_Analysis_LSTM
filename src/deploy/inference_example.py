@@ -12,3 +12,10 @@ input_text = "The development of the new factory for Tesla is going steady"
 result = analyze_sentiment(input_text)
 print(f"Predicted sentiment: {result['sentiment']}")
 print(f"Confidence: {result['confidence']:.4f}")
+
+input_text = "$AAPL stock fell after the release of the newest iphone"
+
+# Get prediction for the single string
+result = analyze_sentiment(input_text)
+print(f"Predicted sentiment: {result['sentiment']}")
+print(f"Confidence: {result['confidence']:.4f}")
