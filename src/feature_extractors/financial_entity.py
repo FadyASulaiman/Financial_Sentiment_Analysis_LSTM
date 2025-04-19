@@ -4,7 +4,9 @@ import spacy
 from typing import List, Dict, Optional
 
 from src.feature_extractors.extractor_base import FeatureExtractorBase
-from src.utils.feat_eng_pipeline_logger import logger
+from src.utils.loggers.feat_eng_pipeline_logger import logger
+from src.lexicons.financial_lexicon import FinancialLexicon as fl
+
 
 class FinancialEntityExtractor(FeatureExtractorBase):
     """
@@ -33,60 +35,10 @@ class FinancialEntityExtractor(FeatureExtractorBase):
                 subprocess.call(["python", "-m", "spacy", "download", self.spacy_model])
                 self.nlp = spacy.load(self.spacy_model)
         
-        # Common company identifiers
-        self.company_identifiers = [
-            "Inc", "Corp", "Corporation", "Ltd", "Limited", "LLC", "PLC", 
-            "Company", "Co", "Group", "Holdings", "Technologies", "Systems",
-            "International", "Enterprises", "Oyj", "HEL", "AB", "GmbH", "AG"
-        ]
-        
-        # Known major companies (can be extended)
-        self.known_companies = {
-            "IBM": "IBM",
-            "Comptel": "Comptel",
-            "YIT": "YIT Corporation",
-            "Outokumpu": "Outokumpu Technology",
-            "Tiimari": "Tiimari",
-            "Nordstjernan": "Nordstjernan",
-            "EQT": "EQT",
-            "Stora Enso": "Stora Enso Oyj",
-            "UPM-Kymmene": "UPM-Kymmene Oyj",
-            "UPM": "UPM-Kymmene Oyj",
-            "Starbucks": "Starbucks",
-            "SMH": "SMH",
-            "ZAGG": "ZAGG",
-            "Vaahto Group": "Vaahto Group",
-            "St1": "St1",
-            "Altona": "Altona",
-            "Tulla Resources": "Tulla Resources",
-            "Nokian Tyres": "Nokian Tyres",
-            "Bank of America": "Bank of America",
-            "BofA": "Bank of America",
-            "Deutsche Bank": "Deutsche Bank",
-            "ThyssenKrupp": "ThyssenKrupp",
-            "United Technologies": "United Technologies Corp",
-            "Otis": "Otis",
-            "Schindler": "Schindler AG",
-            "Kone": "Kone Oyj",
-            "Talentum": "Talentum",
-            "BIOC": "BIOC",
-            "Ragutis": "Ragutis",
-            "Olvi": "Olvi",
-            "Digia": "Digia",
-            "YHOO": "Yahoo",
-            "QQQ": "QQQ",
-            "NDX": "NDX"
-        }
-        
-        # Create a mapping from ticker to company name
-        self.ticker_to_company = {
-            "SMH": "VanEck Semiconductor ETF",
-            "ZAGG": "ZAGG Inc",
-            "BIOC": "Biocept Inc",
-            "YHOO": "Yahoo",
-            "QQQ": "Invesco QQQ ETF",
-            "NDX": "Nasdaq-100 Index"
-        }
+        # Import company identifiers, known companies and stocks
+        self.company_identifiers = fl.company_identifiers
+        self.known_companies = fl.known_companies
+        self.ticker_to_company = fl.ticker_to_company
     
     def fit(self, X, y=None):
         return self
@@ -129,10 +81,7 @@ class FinancialEntityExtractor(FeatureExtractorBase):
         return None
     
     def extract_company_spacy(self, text: str) -> Optional[str]:
-        """
-        Extract company names using spaCy NER.
-        
-        """
+        """Extract company names using spaCy NER."""
         doc = self.nlp(text)
         
         # Extract all ORG entities
@@ -145,10 +94,7 @@ class FinancialEntityExtractor(FeatureExtractorBase):
         return None
     
     def extract_company(self, text: str) -> str:
-        """
-        Main method to extract company name using all available methods.
-        
-        """
+        """Main method to extract company name using all available methods."""
         # First try to extract ticker (highest precision)
         company = self.extract_ticker(text)
         if company:
@@ -169,10 +115,7 @@ class FinancialEntityExtractor(FeatureExtractorBase):
         return "None"
     
     def transform(self, X):
-        """
-        Add a company column to the DataFrame.
-        
-        """
+        """Add a company column to the DataFrame."""
         if isinstance(X, pd.DataFrame):
             X_transformed = X.copy()
             X_transformed[self.output_column] = X_transformed[self.text_column].apply(self.extract_company)
