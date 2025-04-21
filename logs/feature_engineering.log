@@ -812,3 +812,24 @@ dtype: int64
 2025-04-18 13:16:42,137 - DataPrepPipeline - INFO - Example - Sequence: [5122, 145, 26, 704, 272, 577, 1, 1, 5682]
 2025-04-18 13:16:42,137 - FinancePreprocessing - INFO - Padding sequences to length 128
 2025-04-18 13:16:42,138 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-18 13:37:11,170 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:37:11,172 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:37:11,172 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:37:11,173 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:37:11,173 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:37:11,173 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:37:11,174 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:37:11,174 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:37:11,174 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:37:11,175 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:37:11,175 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:37:11,176 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:37:11,177 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:37:11,177 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:37:11,181 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:37:11,181 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:37:11,181 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:37:11,181 - DataPrepPipeline - INFO - Example - Words: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:37:11,181 - DataPrepPipeline - INFO - Example - Sequence: [5122, 145, 26, 704, 272, 577, 1, 1, 5682]
+2025-04-18 13:37:11,181 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:37:11,181 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
