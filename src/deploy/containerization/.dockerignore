@@ -1,3 +1,6 @@
-legacy/
+legacy
 __pycache__
 feature_extractors/retired
+
+.git
+
