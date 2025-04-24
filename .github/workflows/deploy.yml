@@ -3,7 +3,7 @@ name: Deploy Sentiment Analysis Model
 on:
   push:
     branches:
-      - main
+      - prod
 
 env:
   IMAGE_NAME: "sentiment-analysis-LSTM-model"
