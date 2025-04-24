@@ -1,11 +1,21 @@
 import os
 from typing import List, Any
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import uvicorn
 from src.deploy.inference_pipeline.sentiment_analyzer import analyze_sentiment
 
 app = FastAPI()
+
+# CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins - Modify in prod to allow requests from frontend domain only
+    allow_credentials=True,
+    allow_methods=["*"], 
+    allow_headers=["*"],
+)
 
 class TextRequest(BaseModel):
     text: str
