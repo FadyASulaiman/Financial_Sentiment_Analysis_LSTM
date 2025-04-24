@@ -918,3 +918,99 @@ class FinancialLexicon:
     TICKER_PATTERN = r'\$[A-Z]{1,5}|\b[A-Z]{2,5}\b'
     PERCENTAGE_PATTERN = r'(?:(?:\+|\-)?(?:\d+(?:\.\d+)?|\.\d+)\s*%)'
     CURRENCY_AMOUNT_PATTERN = r'(?:(?:\$|€|£|¥)?\s*\d+(?:,\d{3})*(?:\.\d+)?(?:\s*(?:million|billion|trillion|m|b|t))?(?:\s*(?:\$|€|£|¥))?)'
+
+            # Common company identifiers
+    company_identifiers = [
+            "Inc", "Corp", "Corporation", "Ltd", "Limited", "LLC", "PLC", 
+            "Company", "Co", "Group", "Holdings", "Technologies", "Systems",
+            "International", "Enterprises", "Oyj", "HEL", "AB", "GmbH", "AG"
+        ]
+        
+        # Known major companies (can be extended)
+    known_companies = {
+            "IBM": "IBM",
+            "Comptel": "Comptel",
+            "YIT": "YIT Corporation",
+            "Outokumpu": "Outokumpu Technology",
+            "Tiimari": "Tiimari",
+            "Nordstjernan": "Nordstjernan",
+            "EQT": "EQT",
+            "Stora Enso": "Stora Enso Oyj",
+            "UPM-Kymmene": "UPM-Kymmene Oyj",
+            "UPM": "UPM-Kymmene Oyj",
+            "Starbucks": "Starbucks",
+            "SMH": "SMH",
+            "ZAGG": "ZAGG",
+            "Vaahto Group": "Vaahto Group",
+            "St1": "St1",
+            "Altona": "Altona",
+            "Tulla Resources": "Tulla Resources",
+            "Nokian Tyres": "Nokian Tyres",
+            "Bank of America": "Bank of America",
+            "BofA": "Bank of America",
+            "Deutsche Bank": "Deutsche Bank",
+            "ThyssenKrupp": "ThyssenKrupp",
+            "United Technologies": "United Technologies Corp",
+            "Otis": "Otis",
+            "Schindler": "Schindler AG",
+            "Kone": "Kone Oyj",
+            "Talentum": "Talentum",
+            "BIOC": "BIOC",
+            "Ragutis": "Ragutis",
+            "Olvi": "Olvi",
+            "Digia": "Digia",
+            "YHOO": "Yahoo",
+            "QQQ": "QQQ",
+            "NDX": "NDX"
+        }
+        
+        # Create a mapping from ticker to company name
+    ticker_to_company = {
+            "SMH": "VanEck Semiconductor ETF",
+            "ZAGG": "ZAGG Inc",
+            "BIOC": "Biocept Inc",
+            "YHOO": "Yahoo",
+            "QQQ": "Invesco QQQ ETF",
+            "NDX": "Nasdaq-100 Index"
+        }
+    
+    TICKER_TO_INDUSTRY = {
+            "AAPL": "technology",
+            "MSFT": "technology",
+            "GOOGL": "technology",
+            "AMZN": "technology",
+            "META": "technology",
+            "JPM": "finance",
+            "BAC": "finance",
+            "GS": "finance",
+            "JNJ": "healthcare",
+            "PFE": "healthcare",
+            "UNH": "healthcare",
+            "XOM": "energy",
+            "CVX": "energy",
+            "NEE": "energy",
+            "WMT": "consumer_goods",
+            "PG": "consumer_goods",
+            "KO": "consumer_goods",
+            "CAT": "manufacturing", 
+            "GE": "manufacturing",
+            "MMM": "manufacturing",
+            "VZ": "telecommunications",
+            "T": "telecommunications",
+            "TMUS": "telecommunications",
+            "UPS": "transportation",
+            "FDX": "transportation",
+            "BA": "transportation",
+            "SPG": "real_estate",
+            "AMT": "real_estate",
+            "WELL": "real_estate",
+            "DIS": "media_entertainment",
+            "NFLX": "media_entertainment",
+            "CMCSA": "media_entertainment",
+            "DOW": "materials",
+            "FCX": "materials",
+            "NEM": "materials",
+            "ADM": "agriculture",
+            "DE": "agriculture",
+            "MOS": "agriculture",
+        }
