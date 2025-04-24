@@ -3,7 +3,7 @@ from typing import List, Any
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import uvicorn
-from src.deploy.sentiment_analyzer import analyze_sentiment
+from src.deploy.inference_pipeline.sentiment_analyzer import analyze_sentiment
 
 app = FastAPI()
 
@@ -15,7 +15,6 @@ class PredictionResponse(BaseModel):
 
 @app.get("/health")
 def health():
-    """Health check endpoint required by Vertex AI."""
     return {"status": "healthy"}
 
 @app.post("/predict", response_model=PredictionResponse)
