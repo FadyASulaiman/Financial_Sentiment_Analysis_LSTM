@@ -2,19 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import './App.css';
-import Lottie from 'react-lottie';
+// Comment out Lottie temporarily to test the basic functionality
+// import Lottie from 'react-lottie';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import ParticlesBg from 'particles-bg';
+// Import ParticlesBg but don't use it yet
+// import ParticlesBg from 'particles-bg';
 
-// Import Lottie animations
-import animationData from './lotties/sentiment-analysis.json';
-import loadingAnimation from './lotties/loading.json';
-import positiveAnimation from './lotties/positive.json';
-import neutralAnimation from './lotties/neutral.json';
-import negativeAnimation from './lotties/negative.json';
-
-// Register Chart.js components
+// Register Chart.js components - this is crucial
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 function App() {
@@ -120,16 +115,16 @@ function App() {
     }
   };
   
-  const getSentimentAnimation = (sentiment) => {
+  const getSentimentEmoji = (sentiment) => {
     switch (sentiment) {
       case 'positive':
-        return positiveAnimation;
+        return <i className="fa-solid fa-check"></i>;
       case 'neutral':
-        return neutralAnimation;
+        return <i className="fa-solid fa-minus"></i>;
       case 'negative':
-        return negativeAnimation;
+        return <i className="fa-solid fa-xmark"></i>;
       default:
-        return positiveAnimation;
+        return <i className="fa-solid fa-question"></i>;
     }
   };
   
@@ -146,19 +141,27 @@ function App() {
     }
   };
   
-  const getLottieOptions = (animData, loop = true) => {
-    return {
-      loop: loop,
-      autoplay: true,
-      animationData: animData,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice'
-      }
-    };
-  };
-  
   const getChartData = () => {
-    if (!result) return null;
+    if (!result) return {
+      labels: ['Negative', 'Neutral', 'Positive'],
+      datasets: [
+        {
+          label: 'Sentiment Probability',
+          data: [0, 0, 0],
+          backgroundColor: [
+            'rgba(239, 68, 68, 0.7)',
+            'rgba(100, 116, 139, 0.7)',
+            'rgba(34, 197, 94, 0.7)',
+          ],
+          borderColor: [
+            'rgb(239, 68, 68)',
+            'rgb(100, 116, 139)',
+            'rgb(34, 197, 94)',
+          ],
+          borderWidth: 1,
+        },
+      ],
+    };
     
     return {
       labels: ['Negative', 'Neutral', 'Positive'],
@@ -246,7 +249,8 @@ function App() {
   
   return (
     <>
-      <ParticlesBg type="cobweb" bg={true} color="#6366f1" num={100} />
+      {/* We'll add ParticlesBg back later */}
+      {/* <ParticlesBg type="cobweb" bg={true} color="#6366f1" num={100} /> */}
       
       <nav className={`navbar ${hasScrolled ? 'navbar-scrolled' : ''}`}>
         <div className="nav-container">
@@ -286,7 +290,10 @@ function App() {
             </div>
           </div>
           <div className="hero-animation" data-aos="zoom-in" data-aos-delay="300">
-            <Lottie options={getLottieOptions(animationData)} height={400} width={400} />
+            {/* Replace Lottie with a simple placeholder for now */}
+            <div style={{ width: 400, height: 400, backgroundColor: 'rgba(99, 102, 241, 0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <i className="fa-solid fa-brain" style={{ fontSize: '8rem', color: 'var(--primary)' }}></i>
+            </div>
           </div>
         </div>
       )}
@@ -340,7 +347,8 @@ function App() {
           <section className="card" data-aos="fade-up">
             <div className="loader-container">
               <div className="loader-animation">
-                <Lottie options={getLottieOptions(loadingAnimation)} height={150} width={150} />
+                {/* Replace Lottie with a simple spinner */}
+                <div className="loader-spinner"></div>
               </div>
               <div className="loader-steps">
                 {steps.map((step, index) => (
@@ -369,12 +377,8 @@ function App() {
         {result && (
           <section className="card results-container" ref={chartRef} data-aos="fade-up">
             <div className={`sentiment-result result-${result.sentiment}`}>
-              <div className="result-animation">
-                <Lottie 
-                  options={getLottieOptions(getSentimentAnimation(result.sentiment), false)} 
-                  height={120} 
-                  width={120} 
-                />
+              <div className="sentiment-icon sentiment-icon-${result.sentiment}">
+                {getSentimentEmoji(result.sentiment)}
               </div>
               <div className="sentiment-content">
                 <h3>{getSentimentTitle(result.sentiment)}</h3>
