@@ -5,3 +5,4 @@ mlruns/
 *.keras
 output/model
 src/deploy/containerization/artifacts
+node_modules
