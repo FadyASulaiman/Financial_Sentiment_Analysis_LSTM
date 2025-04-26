@@ -2,14 +2,19 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import './App.css';
-// Comment out Lottie temporarily to test the basic functionality
-// import Lottie from 'react-lottie';
+import Lottie from 'react-lottie';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-// Import ParticlesBg but don't use it yet
-// import ParticlesBg from 'particles-bg';
+import ParticlesBg from 'particles-bg';
 
-// Register Chart.js components - this is crucial
+// Import Lottie animations
+import animationData from './lotties/sentiment-analysis.json';
+import loadingAnimation from './lotties/loading.json';
+import positiveAnimation from './lotties/positive.json';
+import neutralAnimation from './lotties/neutral.json';
+import negativeAnimation from './lotties/negative.json';
+
+// Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 function App() {
@@ -23,7 +28,66 @@ function App() {
   
   const analyzeRef = useRef(null);
   const chartRef = useRef(null);
-  
+  const loaderRef = useRef(null);
+
+    // Add these new state variables at the beginning of your App component
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [isBackdropVisible, setIsBackdropVisible] = useState(false);
+  // Add this state to track active section
+  const [activeSection, setActiveSection] = useState('hero');
+
+  // Add this useEffect to detect which section is in view
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 100;
+      
+      // Get positions of different sections
+      const heroSection = document.querySelector('.hero-section')?.offsetTop || 0;
+      const featuresSection = document.getElementById('features')?.offsetTop || 0;
+      const analyzeSection = document.getElementById('analyze')?.offsetTop || 0;
+      const aboutSection = document.getElementById('about')?.offsetTop || 0;
+      
+      // Determine which section is currently in view
+      if (scrollPosition < featuresSection) {
+        setActiveSection('hero');
+      } else if (scrollPosition < analyzeSection) {
+        setActiveSection('features');
+      } else if (scrollPosition < aboutSection) {
+        setActiveSection('analyze');
+      } else {
+        setActiveSection('about');
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Add this function to toggle the mobile menu
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+    setIsBackdropVisible(!menuOpen);
+    
+    // Prevent scrolling when menu is open
+    document.body.style.overflow = !menuOpen ? 'hidden' : '';
+  };
+
+  {isBackdropVisible && (
+    <div 
+      className="mobile-backdrop" 
+      onClick={() => {
+        setMenuOpen(false);
+        setIsBackdropVisible(false);
+        document.body.style.overflow = '';
+      }}
+    />
+  )}
+
+  // Add this function to close the menu when a link is clicked
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+    
   // Initialize AOS animations
   useEffect(() => {
     AOS.init({
@@ -55,13 +119,14 @@ function App() {
     let timer;
     if (isAnalyzing && currentStep < steps.length) {
       timer = setTimeout(() => {
-        setCurrentStep(prevStep => prevStep + 1);
-        
-        // When all steps are complete, make the actual API call
-        if (currentStep === steps.length - 1) {
+        // Make the actual API call
+        if (currentStep == 0) {
           fetchSentimentAnalysis();
         }
-      }, 2500);
+        setCurrentStep(prevStep => prevStep + 1);
+        
+        
+      }, 3000);
     }
     
     return () => clearTimeout(timer);
@@ -84,6 +149,13 @@ function App() {
     setCurrentStep(0);
     setResult(null);
     setError(null);
+    
+    // Scroll to the loading section
+    setTimeout(() => {
+      if (loaderRef.current) {
+        loaderRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
   
   const fetchSentimentAnalysis = async () => {
@@ -104,6 +176,7 @@ function App() {
       setResult(data.predictions[0]);
       setIsAnalyzing(false);
       
+      // Scroll to results
       if (chartRef.current) {
         setTimeout(() => {
           chartRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -115,16 +188,16 @@ function App() {
     }
   };
   
-  const getSentimentEmoji = (sentiment) => {
+  const getSentimentAnimation = (sentiment) => {
     switch (sentiment) {
       case 'positive':
-        return <i className="fa-solid fa-check"></i>;
+        return positiveAnimation;
       case 'neutral':
-        return <i className="fa-solid fa-minus"></i>;
+        return neutralAnimation;
       case 'negative':
-        return <i className="fa-solid fa-xmark"></i>;
+        return negativeAnimation;
       default:
-        return <i className="fa-solid fa-question"></i>;
+        return positiveAnimation;
     }
   };
   
@@ -139,6 +212,17 @@ function App() {
       default:
         return 'Unknown Sentiment';
     }
+  };
+  
+  const getLottieOptions = (animData, loop = true) => {
+    return {
+      loop: loop,
+      autoplay: true,
+      animationData: animData,
+      rendererSettings: {
+        preserveAspectRatio: 'xMidYMid slice'
+      }
+    };
   };
   
   const getChartData = () => {
@@ -249,20 +333,33 @@ function App() {
   
   return (
     <>
-      {/* We'll add ParticlesBg back later */}
-      {/* <ParticlesBg type="cobweb" bg={true} color="#6366f1" num={100} /> */}
-      
+      <ParticlesBg type="cobweb" bg={true} color="#6366f1" num={80} />
       <nav className={`navbar ${hasScrolled ? 'navbar-scrolled' : ''}`}>
         <div className="nav-container">
           <div className="nav-logo">
             <i className="fa-solid fa-brain"></i>
             <span>SentimentAI</span>
           </div>
-          <div className="nav-links">
-            <a href="#features" className="nav-link">Features</a>
-            <a href="#analyze" className="nav-link">Try It</a>
-            <a href="#about" className="nav-link">About</a>
-            <button className="nav-button" onClick={scrollToAnalyze}>
+          
+          <div className="hamburger" onClick={toggleMenu}>
+            <i className={`fa-solid ${menuOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
+          </div>    
+
+          {menuOpen && (
+            <div 
+              className="mobile-backdrop" 
+              onClick={() => {
+                setMenuOpen(false);
+                document.body.style.overflow = '';
+              }}
+            />
+          )}
+        
+          <div className={`nav-links ${menuOpen ? 'nav-active' : ''}`}>
+          <a href="#features" className={`nav-link ${activeSection === 'features' ? 'active' : ''}`} onClick={closeMenu}>Features</a>
+          <a href="#analyze" className={`nav-link ${activeSection === 'analyze' ? 'active' : ''}`} onClick={closeMenu}>Try It</a>
+          <a href="#about" className={`nav-link ${activeSection === 'about' ? 'active' : ''}`} onClick={closeMenu}>About</a>
+            <button className="nav-button" onClick={() => { scrollToAnalyze(); closeMenu(); }}>
               Analyze Now
               <i className="fa-solid fa-arrow-right"></i>
             </button>
@@ -290,10 +387,7 @@ function App() {
             </div>
           </div>
           <div className="hero-animation" data-aos="zoom-in" data-aos-delay="300">
-            {/* Replace Lottie with a simple placeholder for now */}
-            <div style={{ width: 400, height: 400, backgroundColor: 'rgba(99, 102, 241, 0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <i className="fa-solid fa-brain" style={{ fontSize: '8rem', color: 'var(--primary)' }}></i>
-            </div>
+            <Lottie options={getLottieOptions(animationData)} height={400} width={400} />
           </div>
         </div>
       )}
@@ -344,11 +438,10 @@ function App() {
         </section>
         
         {isAnalyzing && (
-          <section className="card" data-aos="fade-up">
+          <section className="card" ref={loaderRef} data-aos="fade-up">
             <div className="loader-container">
               <div className="loader-animation">
-                {/* Replace Lottie with a simple spinner */}
-                <div className="loader-spinner"></div>
+                <Lottie options={getLottieOptions(loadingAnimation)} height={150} width={150} />
               </div>
               <div className="loader-steps">
                 {steps.map((step, index) => (
@@ -377,8 +470,12 @@ function App() {
         {result && (
           <section className="card results-container" ref={chartRef} data-aos="fade-up">
             <div className={`sentiment-result result-${result.sentiment}`}>
-              <div className="sentiment-icon sentiment-icon-${result.sentiment}">
-                {getSentimentEmoji(result.sentiment)}
+              <div className="result-animation">
+                <Lottie 
+                  options={getLottieOptions(getSentimentAnimation(result.sentiment), false)} 
+                  height={120} 
+                  width={120} 
+                />
               </div>
               <div className="sentiment-content">
                 <h3>{getSentimentTitle(result.sentiment)}</h3>
@@ -387,7 +484,10 @@ function App() {
                 <div className="confidence-bar">
                   <div 
                     className={`confidence-fill confidence-fill-${result.sentiment}`} 
-                    style={{ width: `${result.confidence * 100}%` }}
+                    style={{ 
+                      '--final-width': `${result.confidence * 100}%`,
+                      width: `${result.confidence * 100}%` 
+                    }}
                   ></div>
                 </div>
               </div>
