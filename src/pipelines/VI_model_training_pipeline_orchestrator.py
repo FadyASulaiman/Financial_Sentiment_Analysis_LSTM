@@ -45,16 +45,7 @@ class SentimentModelTrainer:
             
         
     def prepare_embedding_matrix(self, word_index, embedding_path, embedding_dim=100):
-        """Prepare embedding matrix from pre-trained embeddings
-        
-        Args:
-            word_index: Word-to-index mapping
-            embedding_path: Path to pre-trained embeddings
-            embedding_dim: Embedding dimension
-            
-        Returns:
-            Embedding matrix
-        """
+        """Prepare embedding matrix from pre-trained embeddings"""
         logger.info(f"Loading embeddings from {embedding_path}")
         
         # Initialize embedding matrix
@@ -88,11 +79,7 @@ class SentimentModelTrainer:
 
 
     def train(self, config=None):
-        """Train the model
-        
-        Args:
-            config: Model configuration
-        """
+        """Train the model"""
         if config is None:
             config = {
                 'embedding_dim': 100,
@@ -188,7 +175,7 @@ class SentimentModelTrainer:
             metrics = model.evaluate(X_test, y_test)
             
             # Save model
-            model_path = model.save(os.path.join(self.model_dir, f"lstm_sentiment_{run_id[:8]}.h5"))
+            model_path = model.save(os.path.join(self.model_dir, f"lstm_sentiment_{run_id[:8]}.keras"))
             
             # Log to MLflow
             model.log_to_mlflow(run_id)

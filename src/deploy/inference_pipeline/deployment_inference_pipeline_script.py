@@ -12,11 +12,6 @@ import keras
 class ProductionPredictor:
     def __init__(self):
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        base_dir = os.path.dirname(script_dir)
-        # For dockerization
-        # self.fe_pipeline_path = "inference_pipeline/artifacts/feature_pipeline.pkl"
-        logger.info(base_dir)
-        logger.info(script_dir)
 
         self.fe_pipeline_path = os.path.join(script_dir, "artifacts", "feature_pipeline.pkl")
         self.preprocessing_pipeline_path = os.path.join(script_dir, "artifacts", "cleaning_pipeline.pkl")
@@ -30,7 +25,6 @@ class ProductionPredictor:
 
         """
         try:
-
             # Track start time
             start_time = datetime.now()
 

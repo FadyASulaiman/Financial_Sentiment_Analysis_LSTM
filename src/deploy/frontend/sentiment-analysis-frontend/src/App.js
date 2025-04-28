@@ -120,11 +120,10 @@ function App() {
     if (isAnalyzing && currentStep < steps.length) {
       timer = setTimeout(() => {
         // Make the actual API call
-        if (currentStep == 0) {
+        if (currentStep === 0) {
           fetchSentimentAnalysis();
         }
         setCurrentStep(prevStep => prevStep + 1);
-        
         
       }, 3000);
     }
@@ -338,7 +337,7 @@ function App() {
         <div className="nav-container">
           <div className="nav-logo">
             <i className="fa-solid fa-brain"></i>
-            <span>SentimentAI</span>
+            <span>By Fady A. Sulaiman</span>
           </div>
           
           <div className="hamburger" onClick={toggleMenu}>
@@ -372,8 +371,7 @@ function App() {
           <div className="hero-content">
             <h1 data-aos="fade-up">Sentiment Analysis <span className="gradient-text">Reimagined</span></h1>
             <p data-aos="fade-up" data-aos-delay="100">
-              Harness the power of advanced AI to analyze sentiment in any text.
-              Get instant, accurate insights with our state-of-the-art machine learning model.
+              Harnessing the power of a bidirectional LSTM architecture and trained on a large corpus of financial headlines, the model analyzes even complex financial sentiment.
             </p>
             <div className="hero-buttons" data-aos="fade-up" data-aos-delay="200">
               <button className="hero-button primary" onClick={scrollToAnalyze}>
@@ -394,20 +392,16 @@ function App() {
       
       <div className="stats-banner">
         <div className="stat-item" data-aos="fade-up" data-aos-delay="100">
-          <div className="stat-number">99.4%</div>
+          <div className="stat-number">80.1%</div>
           <div className="stat-label">Accuracy</div>
-        </div>
-        <div className="stat-item" data-aos="fade-up" data-aos-delay="200">
-          <div className="stat-number">250ms</div>
-          <div className="stat-label">Response Time</div>
         </div>
         <div className="stat-item" data-aos="fade-up" data-aos-delay="300">
           <div className="stat-number">3</div>
           <div className="stat-label">Sentiment Classes</div>
         </div>
         <div className="stat-item" data-aos="fade-up" data-aos-delay="400">
-          <div className="stat-number">10M+</div>
-          <div className="stat-label">Analyses Run</div>
+          <div className="stat-number">LSTM</div>
+          <div className="stat-label">Architecture</div>
         </div>
       </div>
       
@@ -416,15 +410,15 @@ function App() {
           <div className="card-header">
             <h2 className="card-title">
               <i className="fa-solid fa-magnifying-glass"></i>
-              Text Analysis
+              Financial Text Analysis
             </h2>
-            <p className="card-subtitle">Enter any text below to analyze its sentiment</p>
+            <p className="card-subtitle">Enter any financial headline below to analyze its sentiment</p>
           </div>
           <form onSubmit={handleSubmit} className="input-area">
             <textarea
               value={text}
               onChange={(e) => setText(e.target.value)}
-              placeholder="Enter text to analyze sentiment... (e.g., 'The product exceeded my expectations and I'm very satisfied with my purchase.')"
+              placeholder="Enter text to analyze sentiment... (e.g., 'Company XYZ loses 10% of it's market cap as economical crisis continues.')"
               disabled={isAnalyzing}
               required
             />

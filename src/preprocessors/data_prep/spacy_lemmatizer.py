@@ -1,4 +1,3 @@
-import os
 import pandas as pd
 import spacy
 from src.preprocessors.data_preprocessors.base_preprocessor import PreprocessorBase
@@ -17,7 +16,7 @@ class SpacyLemmatizer(PreprocessorBase):
         """Load spaCy model on first fit"""
         if self.nlp is None:
             self.nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
-            # Increase max_length for longer financial headlines
+            # Increase for longer financial headlines
             self.nlp.max_length = 1500000
         return self
     
