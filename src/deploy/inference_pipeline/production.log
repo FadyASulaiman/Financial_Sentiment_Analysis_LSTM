@@ -1,0 +1,25 @@
+2025-04-22 15:57:16,491 - PROD - INFO - /Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/deploy
+2025-04-22 15:57:16,491 - PROD - INFO - /Users/Fedo/Development/Review_Sentiment_Analysis_Proj/src/deploy/inference_pipeline
+2025-04-22 15:57:35,370 - PROD - INFO - Unpickling completed in 18.88 seconds
+2025-04-22 15:57:38,111 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-22 15:57:38,113 - FinancePreprocessing - INFO - Removing URLs
+2025-04-22 15:57:38,113 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-22 15:57:38,113 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-22 15:57:38,114 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-22 15:57:38,114 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-22 15:57:38,115 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-22 15:57:38,115 - FinancePreprocessing - INFO - Removing special characters
+2025-04-22 15:57:38,115 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-22 15:57:38,115 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-22 15:57:38,116 - FinancePreprocessing - INFO - Removing stop words
+2025-04-22 15:57:38,116 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-22 15:57:38,117 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'total', 'earnings', 'tesla', 'rise', 'q', 'name', 'sentence', 'dtype', 'object']
+2025-04-22 15:57:38,117 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-22 15:57:38,121 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'total', 'earnings', 'tesla', 'rise', 'q', 'name', 'sentence', 'dtype', 'object']
+2025-04-22 15:57:38,122 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'total', 'earning', 'tesla', 'rise', 'q', 'name', 'sentence', 'dtype', 'object']
+2025-04-22 15:57:38,122 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-22 15:57:38,122 - DataPrepPipeline - INFO - Example - Words: ['0', 'total', 'earning', 'tesla', 'rise', 'q', 'name', 'sentence', 'dtype', 'object']
+2025-04-22 15:57:38,122 - DataPrepPipeline - INFO - Example - Sequence: [5122, 14, 84, 272, 36, 4299, 577, 1, 1, 5682]
+2025-04-22 15:57:38,122 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-22 15:57:38,122 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-22 15:57:38,480 - PROD - INFO - Inference completed in 21.99 seconds

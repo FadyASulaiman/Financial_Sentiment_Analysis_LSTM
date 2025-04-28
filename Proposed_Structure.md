@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+### Proposed project structure:
+=======
 Proposed project structure:
+>>>>>>> main
 
 **1. Data acquisition:** The papers mentioned that they had data over 10,000 examples, this amount of data is supposed to be publicly accessible.
 
@@ -70,3 +74,4 @@ Proposed project structure:
 **12. Showcasing:** Canva, through a video demo
 **13. Writeup:** Throughout the project we have to document everything to make the writeup easier.
 
+P.S: This proposed structure was written very early in the project lifetime. not everything here was applied. Many changes occured to this structure, for the actual implemented details, refer to the readme.

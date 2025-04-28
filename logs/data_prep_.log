@@ -1,0 +1,175 @@
+2025-04-12 11:58:30,662 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-12 12:02:33,524 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-12 12:02:49,933 - DataPrepPipeline - INFO - Processing data from data/feature_engineered_data.csv
+2025-04-12 12:02:50,089 - DataPrepPipeline - INFO - Started MLflow run with ID: bf838e89b8a042c3b8cb28708179639b
+2025-04-12 12:02:50,092 - DataPrepPipeline - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-12 12:02:50,127 - DataPrepPipeline - INFO - Building preprocessing pipeline
+2025-04-12 12:02:50,129 - DataPrepPipeline - INFO - Loading FinBERT tokenizer from ProsusAI/finbert
+2025-04-12 12:03:00,115 - DataPrepPipeline - INFO - Tokenizing text using FinBERT tokenizer
+2025-04-12 12:03:02,043 - FinancePreprocessing - INFO - Loading spaCy model en_core_web_sm
+2025-04-12 12:03:02,578 - FinancePreprocessing - INFO - Lemmatizing text using spaCy
+2025-04-12 12:03:18,825 - FinancePreprocessing - INFO - Building vocabulary from tokens
+2025-04-12 12:03:18,843 - FinancePreprocessing - INFO - Vocabulary size: 6909
+2025-04-12 12:03:18,844 - FinancePreprocessing - INFO - Padding/truncating sequences to length 128
+2025-04-12 12:03:18,947 - DataPrepPipeline - INFO - Data Preparation completed in 28.82 seconds
+2025-04-12 12:03:18,949 - DataPrepPipeline - ERROR - Error in preprocessing: Per-column arrays must each be 1-dimensional
+2025-04-12 12:03:18,949 - DataPrepPipeline - ERROR - Error preparing data: Per-column arrays must each be 1-dimensional
+2025-04-12 12:03:59,722 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-12 12:04:06,796 - DataPrepPipeline - INFO - Processing data from data/feature_engineered_data.csv
+2025-04-12 12:04:06,887 - DataPrepPipeline - INFO - Started MLflow run with ID: 4a69299411d5487cafce43ed8456c76e
+2025-04-12 12:04:06,890 - DataPrepPipeline - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-12 12:04:06,912 - DataPrepPipeline - INFO - Building preprocessing pipeline
+2025-04-12 12:04:06,913 - FinancePreprocessing - INFO - Loading spaCy model en_core_web_sm
+2025-04-12 12:04:07,332 - FinancePreprocessing - INFO - Lemmatizing text using spaCy
+2025-04-12 12:04:37,855 - DataPrepPipeline - INFO - Loading FinBERT tokenizer from ProsusAI/finbert
+2025-04-12 12:04:38,186 - DataPrepPipeline - INFO - Tokenizing text using FinBERT tokenizer
+2025-04-12 12:04:38,188 - DataPrepPipeline - ERROR - Error in preprocessing: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+2025-04-12 12:04:38,188 - DataPrepPipeline - ERROR - Error preparing data: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+2025-04-12 13:40:50,272 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-12 13:41:00,945 - DataPrepPipeline - INFO - Processing data from data/feature_engineered_data.csv
+2025-04-12 13:41:01,063 - DataPrepPipeline - INFO - Started MLflow run with ID: 0abde34d24914928bc6fda8cd1609f31
+2025-04-12 13:41:01,067 - DataPrepPipeline - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-12 13:41:01,088 - DataPrepPipeline - INFO - Building preprocessing pipeline
+2025-04-12 13:41:01,090 - FinancePreprocessing - INFO - Loading spaCy model en_core_web_sm
+2025-04-12 13:41:01,542 - FinancePreprocessing - INFO - Lemmatizing text using spaCy
+2025-04-12 13:41:34,444 - DataPrepPipeline - INFO - Loading FinBERT tokenizer from ProsusAI/finbert
+2025-04-12 13:41:40,854 - DataPrepPipeline - INFO - Tokenizing text using FinBERT tokenizer
+2025-04-12 13:41:41,256 - FinancePreprocessing - INFO - Building vocabulary from tokens
+2025-04-12 13:41:41,258 - FinancePreprocessing - INFO - Vocabulary size: 59
+2025-04-12 13:41:41,258 - FinancePreprocessing - INFO - Padding/truncating sequences to length 128
+2025-04-12 13:41:41,278 - DataPrepPipeline - INFO - Data Preparation completed in 40.19 seconds
+2025-04-12 13:41:41,281 - DataPrepPipeline - ERROR - Error in preprocessing: Per-column arrays must each be 1-dimensional
+2025-04-12 13:41:41,281 - DataPrepPipeline - ERROR - Error preparing data: Per-column arrays must each be 1-dimensional
+2025-04-12 13:44:07,887 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-12 13:44:15,945 - DataPrepPipeline - INFO - Processing data from data/feature_engineered_data.csv
+2025-04-12 13:44:16,043 - DataPrepPipeline - INFO - Started MLflow run with ID: 7241f077ae5c4f6c8d0bf116fd934184
+2025-04-12 13:44:16,046 - DataPrepPipeline - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-12 13:44:16,068 - DataPrepPipeline - INFO - Building preprocessing pipeline
+2025-04-12 13:44:16,070 - FinancePreprocessing - INFO - Loading spaCy model en_core_web_sm
+2025-04-12 13:44:16,515 - FinancePreprocessing - INFO - Lemmatizing text using spaCy
+2025-04-12 13:44:52,136 - DataPrepPipeline - ERROR - Error in preprocessing: can only concatenate str (not "list") to str
+2025-04-12 13:44:52,136 - DataPrepPipeline - ERROR - Error preparing data: can only concatenate str (not "list") to str
+2025-04-12 13:46:36,743 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-12 13:46:44,640 - DataPrepPipeline - INFO - Processing data from data/feature_engineered_data.csv
+2025-04-12 13:46:44,751 - DataPrepPipeline - INFO - Started MLflow run with ID: be57f4bcedac4f33b5054f1479769a9f
+2025-04-12 13:46:44,754 - DataPrepPipeline - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-12 13:46:44,777 - DataPrepPipeline - INFO - Building preprocessing pipeline
+2025-04-12 13:46:44,778 - FinancePreprocessing - INFO - Loading spaCy model en_core_web_sm
+2025-04-12 13:46:45,234 - FinancePreprocessing - INFO - Lemmatizing text using spaCy
+2025-04-12 13:47:19,096 - FinancePreprocessing - INFO - Lemmatized['$', 'e', 'S', 'I', '  ', 'o', 'n', '  ', 'l', 'o', 'w', 's', ',', '  ', 'd', 'o', 'w', 'n', '  ', '$', '1', '.', '5', '0', '  ', 't', 'o', '  ', '$', '2', '.', '5', '0', '  ', 'B', 'K', '  ', 'a', '  ', 'r', 'e', 'a', 'l', '  ', 'p', 'o', 's', 's', 'i', 'b', 'I', 'l', 'I', 't', 'y']
+2025-04-12 13:47:19,096 - DataPrepPipeline - INFO - Loading FinBERT tokenizer from ProsusAI/finbert
+2025-04-12 13:47:19,594 - DataPrepPipeline - INFO - Tokenizing text using FinBERT tokenizer
+2025-04-12 13:47:19,594 - DataPrepPipeline - INFO - 0    [t, h, e,   , G, e, o, S, o, l, u, t, I, o, n,...
+Name: Sentence, dtype: object
+2025-04-12 13:47:19,596 - DataPrepPipeline - INFO - 0    [t, h, e,   , G, e, o, S, o, l, u, t, I, o, n,...
+Name: Sentence, dtype: object
+2025-04-12 13:47:19,598 - DataPrepPipeline - ERROR - Error in preprocessing: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+2025-04-12 13:47:19,598 - DataPrepPipeline - ERROR - Error preparing data: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+2025-04-12 13:48:54,891 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-12 13:49:03,115 - DataPrepPipeline - INFO - Processing data from data/feature_engineered_data.csv
+2025-04-12 13:49:03,221 - DataPrepPipeline - INFO - Started MLflow run with ID: 7c10e4671f114cab9065ee8fcb160dc7
+2025-04-12 13:49:03,227 - DataPrepPipeline - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-12 13:49:03,259 - DataPrepPipeline - INFO - Building preprocessing pipeline
+2025-04-12 13:49:03,260 - DataPrepPipeline - INFO - Loading FinBERT tokenizer from ProsusAI/finbert
+2025-04-12 13:49:03,666 - DataPrepPipeline - INFO - Tokenizing text using FinBERT tokenizer
+2025-04-12 13:49:03,666 - DataPrepPipeline - INFO - 0    The GeoSolutions technology will leverage Bene...
+Name: Sentence, dtype: object
+2025-04-12 13:49:03,667 - DataPrepPipeline - INFO - 0    The GeoSolutions technology will leverage Bene...
+Name: Sentence, dtype: object
+2025-04-12 13:49:05,696 - FinancePreprocessing - INFO - Loading spaCy model en_core_web_sm
+2025-04-12 13:49:06,142 - FinancePreprocessing - INFO - Lemmatizing text using spaCy
+2025-04-12 13:49:25,278 - FinancePreprocessing - INFO - Lemmatized['<', 'start', '>', '$', 'es', '#', '#', 'I', 'on', 'low', '#', '#', 's', ',', 'down', '$', '1', '.', '50', 'to', '$', '2', '.', '50', 'bk', 'a', 'real', 'possibility', '<', 'end', '>']
+2025-04-12 13:49:25,281 - FinancePreprocessing - INFO - Building vocabulary from tokens
+2025-04-12 13:49:25,303 - FinancePreprocessing - INFO - Vocabulary size: 6909
+2025-04-12 13:49:25,304 - FinancePreprocessing - INFO - Padding/truncating sequences to length 128
+2025-04-12 13:49:25,377 - DataPrepPipeline - INFO - Data Preparation completed in 22.12 seconds
+2025-04-12 13:49:25,379 - DataPrepPipeline - ERROR - Error in preprocessing: Per-column arrays must each be 1-dimensional
+2025-04-12 13:49:25,379 - DataPrepPipeline - ERROR - Error preparing data: Per-column arrays must each be 1-dimensional
+2025-04-12 13:50:57,141 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-12 13:51:04,747 - DataPrepPipeline - INFO - Processing data from data/feature_engineered_data.csv
+2025-04-12 13:51:04,844 - DataPrepPipeline - INFO - Started MLflow run with ID: 25c09b27ddef409fb2c7003aa6f9e594
+2025-04-12 13:51:04,847 - DataPrepPipeline - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-12 13:51:04,868 - DataPrepPipeline - INFO - Building preprocessing pipeline
+2025-04-12 13:51:04,869 - DataPrepPipeline - INFO - Loading FinBERT tokenizer from ProsusAI/finbert
+2025-04-12 13:51:05,605 - DataPrepPipeline - INFO - Tokenizing text using FinBERT tokenizer
+2025-04-12 13:51:05,605 - DataPrepPipeline - INFO - 0    The GeoSolutions technology will leverage Bene...
+Name: Sentence, dtype: object
+2025-04-12 13:51:07,573 - DataPrepPipeline - INFO - ['<', 'start', '>', 'the', 'geo', '##sol', '##ution', '##s', 'technology', 'will', 'leverage', 'ben', '##ef', '##on', "'", 's', 'gps', 'solutions', 'by', 'providing', 'location', 'based', 'search', 'technology', ',', 'a', 'communities', 'platform', ',', 'location', 'relevant', 'multimedia', 'content', 'and', 'a', 'new', 'and', 'powerful', 'commercial', 'model', '.', '<', 'end', '>']
+2025-04-12 13:51:07,575 - FinancePreprocessing - INFO - Loading spaCy model en_core_web_sm
+2025-04-12 13:51:08,027 - FinancePreprocessing - INFO - Lemmatizing text using spaCy
+2025-04-12 13:51:26,597 - FinancePreprocessing - INFO - Lemmatized['<', 'start', '>', '$', 'es', '#', '#', 'I', 'on', 'low', '#', '#', 's', ',', 'down', '$', '1', '.', '50', 'to', '$', '2', '.', '50', 'bk', 'a', 'real', 'possibility', '<', 'end', '>']
+2025-04-12 13:51:26,600 - FinancePreprocessing - INFO - Building vocabulary from tokens
+2025-04-12 13:51:26,625 - FinancePreprocessing - INFO - Vocabulary size: 6909
+2025-04-12 13:51:26,627 - FinancePreprocessing - INFO - Padding/truncating sequences to length 128
+2025-04-12 13:51:26,699 - DataPrepPipeline - INFO - Data Preparation completed in 21.83 seconds
+2025-04-12 13:51:26,701 - DataPrepPipeline - ERROR - Error in preprocessing: Per-column arrays must each be 1-dimensional
+2025-04-12 13:51:26,701 - DataPrepPipeline - ERROR - Error preparing data: Per-column arrays must each be 1-dimensional
+2025-04-12 13:54:34,957 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-12 13:54:42,958 - DataPrepPipeline - INFO - Processing data from data/feature_engineered_data.csv
+2025-04-12 13:54:43,055 - DataPrepPipeline - INFO - Started MLflow run with ID: d83aa65ed38e4e2e8f1c3d0e586336fc
+2025-04-12 13:54:43,058 - DataPrepPipeline - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-12 13:54:43,080 - DataPrepPipeline - INFO - Building preprocessing pipeline
+2025-04-12 13:54:43,082 - DataPrepPipeline - INFO - Loading FinBERT tokenizer from ProsusAI/finbert
+2025-04-12 13:54:43,429 - DataPrepPipeline - INFO - Tokenizing text using FinBERT tokenizer
+2025-04-12 13:54:43,430 - DataPrepPipeline - INFO - 0    The GeoSolutions technology will leverage Bene...
+Name: Sentence, dtype: object
+2025-04-12 13:54:45,460 - DataPrepPipeline - INFO - ['<', 'start', '>', 'the', 'geo', '##sol', '##ution', '##s', 'technology', 'will', 'leverage', 'ben', '##ef', '##on', "'", 's', 'gps', 'solutions', 'by', 'providing', 'location', 'based', 'search', 'technology', ',', 'a', 'communities', 'platform', ',', 'location', 'relevant', 'multimedia', 'content', 'and', 'a', 'new', 'and', 'powerful', 'commercial', 'model', '.', '<', 'end', '>']
+2025-04-12 13:54:45,462 - FinancePreprocessing - INFO - Loading spaCy model en_core_web_sm
+2025-04-12 13:54:46,065 - FinancePreprocessing - INFO - Lemmatizing text using spaCy
+2025-04-12 13:55:04,001 - FinancePreprocessing - INFO - Lemmatized['<', 'start', '>', 'the', 'geo', '#', '#', 'sol', '#', '#', 'ution', '#', '#', 's', 'technology', 'will', 'leverage', 'ben', '#', '#', 'ef', '#', '#', 'on', "'", 's', 'gps', 'solution', 'by', 'provide', 'location', 'base', 'search', 'technology', ',', 'a', 'community', 'platform', ',', 'location', 'relevant', 'multimedia', 'content', 'and', 'a', 'new', 'and', 'powerful', 'commercial', 'model', '.', '<', 'end', '>']
+2025-04-12 13:55:04,004 - FinancePreprocessing - INFO - Building vocabulary from tokens
+2025-04-12 13:55:04,025 - FinancePreprocessing - INFO - Vocabulary size: 6909
+2025-04-12 13:55:04,026 - FinancePreprocessing - INFO - Padding/truncating sequences to length 128
+2025-04-12 13:55:04,095 - DataPrepPipeline - INFO - Data Preparation completed in 21.01 seconds
+2025-04-12 13:55:04,097 - DataPrepPipeline - ERROR - Error in preprocessing: Per-column arrays must each be 1-dimensional
+2025-04-12 13:55:04,097 - DataPrepPipeline - ERROR - Error preparing data: Per-column arrays must each be 1-dimensional
+2025-04-12 14:16:57,511 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-12 14:17:06,653 - DataPrepPipeline - INFO - Processing data from data/feature_engineered_data.csv
+2025-04-12 14:17:06,746 - DataPrepPipeline - INFO - Started MLflow run with ID: c2c127272cbc4262a834e0448fc75947
+2025-04-12 14:17:06,749 - DataPrepPipeline - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-12 14:17:06,768 - DataPrepPipeline - INFO - Building preprocessing pipeline
+2025-04-12 14:17:06,768 - FinancePreprocessing - INFO - Loading spaCy model for lemmatization
+2025-04-12 14:17:06,769 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-12 14:17:07,382 - DataPrepPipeline - INFO - Example - Tokenized: ['The', 'GeoSolutions', 'technology', 'will', 'leverage', 'Benefon', "'s", 'GPS', 'solutions', 'by', 'providing', 'Location', 'Based', 'Search', 'Technology', ',', 'a', 'Communities', 'Platform', ',', 'location', 'relevant', 'multimedia', 'content', 'and', 'a', 'new', 'and', 'powerful', 'commercial', 'model', '.']
+2025-04-12 14:17:07,835 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-12 14:17:21,324 - FinancePreprocessing - INFO - Example - Original tokens: ['The', 'GeoSolutions', 'technology', 'will', 'leverage', 'Benefon', "'s", 'GPS', 'solutions', 'by']
+2025-04-12 14:17:21,324 - FinancePreprocessing - INFO - Example - Lemmatized: ['the', 'GeoSolutions', 'technology', 'will', 'leverage', 'Benefon', "'s", 'gps', 'solution', 'by']
+2025-04-12 14:17:21,326 - DataPrepPipeline - INFO - Building vocabulary
+2025-04-12 14:17:21,344 - DataPrepPipeline - INFO - Total unique words: 12348
+2025-04-12 14:17:21,346 - DataPrepPipeline - INFO - Words with count >= 2: 5800
+2025-04-12 14:17:21,348 - DataPrepPipeline - INFO - Final vocabulary size: 5802
+2025-04-12 14:17:21,349 - DataPrepPipeline - INFO - Most common words: [('the', 6101), ('.', 5158), (',', 4803), ('of', 3330), ('in', 3147), ('to', 2806), ('be', 2544), ('and', 2520), ('a', 1858), ('-', 1857)]
+2025-04-12 14:17:21,350 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-12 14:17:21,371 - DataPrepPipeline - INFO - Example - Words: ['the', 'GeoSolutions', 'technology', 'will', 'leverage', 'Benefon', "'s", 'gps', 'solution', 'by']
+2025-04-12 14:17:21,371 - DataPrepPipeline - INFO - Example - Sequence: [2, 3807, 150, 21, 3005, 1322, 15, 2521, 112, 26]
+2025-04-12 14:17:21,373 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-12 14:17:21,390 - FinancePreprocessing - INFO - Padded sequences shape: (5842, 128)
+2025-04-12 14:17:21,391 - DataPrepPipeline - INFO - Data Preparation completed in 14.62 seconds
+2025-04-12 14:17:21,393 - DataPrepPipeline - ERROR - Error in preprocessing: Per-column arrays must each be 1-dimensional
+2025-04-12 14:17:21,393 - DataPrepPipeline - ERROR - Error preparing data: Per-column arrays must each be 1-dimensional
+2025-04-12 14:24:32,509 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-12 14:24:41,213 - DataPrepPipeline - INFO - Processing data from data/feature_engineered_data.csv
+2025-04-12 14:24:41,311 - DataPrepPipeline - INFO - Started MLflow run with ID: 62773d2081f040458f3f091c16442e6a
+2025-04-12 14:24:41,314 - DataPrepPipeline - INFO - Loading data from data/feature_engineered_data.csv
+2025-04-12 14:24:41,336 - DataPrepPipeline - INFO - Building preprocessing pipeline
+2025-04-12 14:24:41,336 - FinancePreprocessing - INFO - Loading spaCy model for lemmatization
+2025-04-12 14:24:41,337 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-12 14:24:41,951 - DataPrepPipeline - INFO - Example - Tokenized: ['The', 'GeoSolutions', 'technology', 'will', 'leverage', 'Benefon', "'s", 'GPS', 'solutions', 'by', 'providing', 'Location', 'Based', 'Search', 'Technology', ',', 'a', 'Communities', 'Platform', ',', 'location', 'relevant', 'multimedia', 'content', 'and', 'a', 'new', 'and', 'powerful', 'commercial', 'model', '.']
+2025-04-12 14:24:42,611 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-12 14:24:56,325 - FinancePreprocessing - INFO - Example - Original tokens: ['The', 'GeoSolutions', 'technology', 'will', 'leverage', 'Benefon', "'s", 'GPS', 'solutions', 'by']
+2025-04-12 14:24:56,325 - FinancePreprocessing - INFO - Example - Lemmatized: ['the', 'GeoSolutions', 'technology', 'will', 'leverage', 'Benefon', "'s", 'gps', 'solution', 'by']
+2025-04-12 14:24:56,327 - DataPrepPipeline - INFO - Building vocabulary
+2025-04-12 14:24:56,345 - DataPrepPipeline - INFO - Total unique words: 12348
+2025-04-12 14:24:56,346 - DataPrepPipeline - INFO - Words with count >= 2: 5800
+2025-04-12 14:24:56,349 - DataPrepPipeline - INFO - Final vocabulary size: 5802
+2025-04-12 14:24:56,350 - DataPrepPipeline - INFO - Most common words: [('the', 6101), ('.', 5158), (',', 4803), ('of', 3330), ('in', 3147), ('to', 2806), ('be', 2544), ('and', 2520), ('a', 1858), ('-', 1857)]
+2025-04-12 14:24:56,351 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-12 14:24:56,371 - DataPrepPipeline - INFO - Example - Words: ['the', 'GeoSolutions', 'technology', 'will', 'leverage', 'Benefon', "'s", 'gps', 'solution', 'by']
+2025-04-12 14:24:56,371 - DataPrepPipeline - INFO - Example - Sequence: [2, 3807, 150, 21, 3005, 1322, 15, 2521, 112, 26]
+2025-04-12 14:24:56,374 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-12 14:24:56,391 - FinancePreprocessing - INFO - Padded sequences shape: (5842, 128)
+2025-04-12 14:24:56,393 - DataPrepPipeline - INFO - Data Preparation completed in 15.05 seconds
+2025-04-12 14:24:56,399 - DataPrepPipeline - INFO - Processed arrays saved to data/processed/processed_arrays.npz
+2025-04-12 14:24:56,553 - DataPrepPipeline - INFO - Data prepping pipeline serialized to data/processed/data_prep_pipeline.pkl
+2025-04-12 14:24:56,566 - DataPrepPipeline - INFO - Data preparation complete. Processed 5842 samples.
+2025-04-12 14:24:56,566 - DataPrepPipeline - INFO - X shape: (5842, 128), y shape: (5842,)

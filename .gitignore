@@ -1,3 +1,9 @@
 data
 cache
-src/__pycache__
+__pycache__/
+mlruns/
+*.keras
+*.pkl
+output/model
+src/deploy/containerization/artifacts
+node_modules

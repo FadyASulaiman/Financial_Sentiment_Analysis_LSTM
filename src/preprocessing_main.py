@@ -1,0 +1,26 @@
+import os
+from src.utils.constants import MAX_SEQUENCE_LENGTH
+from src.utils.loggers.preprocessing_logger import logger
+from src.pipelines.II_preprocessing_orchestrator import DataCleaningOrchestrator
+
+
+def main():
+    """Main entry point for the preprocessing pipeline."""
+
+    data_path = "data/feature_engineered_data.csv"
+    output_dir = os.path.dirname(data_path)
+    
+    try:
+        # Create preprocessor
+        preprocessor = DataCleaningOrchestrator(max_sequence_length=MAX_SEQUENCE_LENGTH)
+
+        # Preprocess data
+        processed_df = preprocessor.preprocess(data_path=data_path, output_dir=output_dir)
+
+        logger.info("Preprocessing completed successfully")
+    except Exception as e:
+        logger.error(f"Error in main: {str(e)}")
+        raise
+
+if __name__ == "__main__":
+    main()

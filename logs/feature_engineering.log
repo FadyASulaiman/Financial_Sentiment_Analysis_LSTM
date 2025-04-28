@@ -1,0 +1,835 @@
+2025-04-02 15:14:58,444 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:15:04,373 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:15:04,383 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:15:04,390 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:15:04,397 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:15:04,805 - src.utils.feat_eng_pipeline_logger - ERROR - Error in feature engineering pipeline: Could not find experiment with ID 0
+2025-04-02 15:15:04,805 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: Could not find experiment with ID 0
+2025-04-02 15:16:49,555 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:16:53,584 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:16:53,594 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:16:53,600 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:16:53,607 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:16:53,980 - src.utils.feat_eng_pipeline_logger - ERROR - Error in feature engineering pipeline: Could not find experiment with ID 0
+2025-04-02 15:16:53,980 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: Could not find experiment with ID 0
+2025-04-02 15:19:38,568 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:19:44,229 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:19:44,239 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:19:44,246 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:19:44,254 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:19:44,736 - src.utils.feat_eng_pipeline_logger - ERROR - Error in RelativeChangeExtractor: expected string or bytes-like object, got 'float'
+2025-04-02 15:19:44,737 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:19:44,738 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:19:44,738 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:19:44,739 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:19:44,739 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:19:44,740 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:19:44,741 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:19:44,750 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:19:44,846 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 0 features.
+2025-04-02 15:19:44,848 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: [Errno 21] Is a directory: 'data'
+2025-04-02 15:23:13,190 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:23:17,674 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:23:17,684 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:23:17,690 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:23:17,698 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:23:18,124 - src.utils.feat_eng_pipeline_logger - ERROR - Error in RelativeChangeExtractor: expected string or bytes-like object, got 'float'
+2025-04-02 15:23:18,124 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:23:18,125 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:23:18,125 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:23:18,125 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:23:18,126 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:23:18,126 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:23:18,127 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:23:18,135 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:23:18,215 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 0 features.
+2025-04-02 15:23:18,218 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:23:18,219 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 15:23:18,219 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving configuration: [Errno 2] No such file or directory: ''
+2025-04-02 15:24:24,134 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:24:28,297 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:24:28,306 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:24:28,306 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: cannot access local variable 'config_path' where it is not associated with a value
+2025-04-02 15:24:49,115 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:24:53,028 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:24:53,038 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:24:53,038 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: cannot access local variable 'config_path' where it is not associated with a value
+2025-04-02 15:25:27,429 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:25:31,342 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:25:31,351 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:25:31,357 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:25:31,365 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:25:31,784 - src.utils.feat_eng_pipeline_logger - ERROR - Error in RelativeChangeExtractor: expected string or bytes-like object, got 'float'
+2025-04-02 15:25:31,785 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:25:31,785 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:25:31,785 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:25:31,786 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:25:31,787 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:25:31,787 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:25:31,788 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:25:31,798 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:25:31,878 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 0 features.
+2025-04-02 15:25:31,881 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:25:31,882 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 15:25:31,882 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving configuration: [Errno 2] No such file or directory: ''
+2025-04-02 15:26:28,775 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:26:32,925 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:26:32,934 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:26:32,941 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:26:32,948 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:26:33,374 - src.utils.feat_eng_pipeline_logger - ERROR - Error in RelativeChangeExtractor: expected string or bytes-like object, got 'float'
+2025-04-02 15:26:33,375 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:26:33,375 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:26:33,375 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:26:33,375 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:26:33,376 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:26:33,376 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:26:33,377 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:26:33,386 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:26:33,469 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 0 features.
+2025-04-02 15:26:33,472 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:26:33,472 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 15:31:19,791 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:31:23,935 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:31:23,945 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:31:23,945 - src.utils.feat_eng_pipeline_logger - INFO - Columns in the dataset: ['Sentence', 'Sentiment']
+2025-04-02 15:31:23,946 - src.utils.feat_eng_pipeline_logger - INFO - Data types: Sentence     object
+Sentiment    object
+dtype: object
+2025-04-02 15:31:23,947 - src.utils.feat_eng_pipeline_logger - INFO - NaN values: Sentence     1
+Sentiment    0
+dtype: int64
+2025-04-02 15:31:23,953 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:31:23,960 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:31:24,395 - src.utils.feat_eng_pipeline_logger - ERROR - Error in RelativeChangeExtractor: expected string or bytes-like object, got 'float'
+2025-04-02 15:31:24,396 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:31:24,396 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:31:24,397 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:31:24,398 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:31:24,399 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:31:24,399 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:31:24,400 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:31:24,408 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:31:24,500 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 0 features.
+2025-04-02 15:31:24,503 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:31:24,503 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 15:37:32,394 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:37:36,590 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:37:36,600 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:37:36,608 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:37:36,616 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:37:37,530 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:37:37,530 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:37:37,531 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:37:37,532 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:37:37,532 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:37:37,533 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:37:37,533 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:37:37,539 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:37:37,603 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 0 features.
+2025-04-02 15:37:37,605 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:37:37,606 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 15:48:42,413 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:48:49,818 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:48:49,833 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:48:49,848 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:48:49,856 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:48:50,935 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:48:50,935 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:48:50,936 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:48:50,937 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:48:50,937 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:48:50,938 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:48:50,938 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:48:50,944 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:48:51,011 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 1 features.
+2025-04-02 15:48:51,016 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:48:51,016 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 15:50:17,391 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:50:22,752 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:50:22,763 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:50:22,772 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:50:22,780 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:50:23,884 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:50:23,884 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:50:23,885 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:50:23,886 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:50:23,886 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:50:23,887 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:50:23,887 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:50:23,893 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:50:23,956 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 1 features.
+2025-04-02 15:50:23,961 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:50:23,962 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 15:51:42,984 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:51:47,675 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:51:47,684 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:51:47,692 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:51:47,699 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:51:48,416 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: 'Sentence'
+2025-04-02 15:51:48,416 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: 'Sentence'
+2025-04-02 15:51:48,417 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:51:48,418 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:51:48,418 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:51:48,418 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:51:48,419 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:51:48,424 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:51:48,491 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 1 features.
+2025-04-02 15:51:48,494 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:51:48,494 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 15:58:23,105 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 15:58:27,117 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 15:58:27,126 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 15:58:27,134 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 15:58:27,141 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 15:58:27,862 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: The 'ngram_range' parameter of TfidfVectorizer must be an instance of 'tuple'. Got [1, 3] instead.
+2025-04-02 15:58:27,908 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: The TF-IDF vectorizer is not fitted
+2025-04-02 15:58:27,909 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 15:58:27,910 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 15:58:27,910 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 15:58:27,910 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 15:58:27,911 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 15:58:27,916 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 15:58:27,983 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 1 features.
+2025-04-02 15:58:27,987 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 15:58:27,987 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 16:00:16,738 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 16:00:21,537 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 16:00:21,547 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 16:00:21,555 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 16:00:21,564 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 16:00:22,350 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.fit: The 'ngram_range' parameter of TfidfVectorizer must be an instance of 'tuple'. Got '(1, 3)' instead.
+2025-04-02 16:00:22,394 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.transform: The TF-IDF vectorizer is not fitted
+2025-04-02 16:00:22,395 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 16:00:22,396 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 16:00:22,396 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 16:00:22,396 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 16:00:22,397 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 16:00:22,403 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialNGramExtractor.get_feature_names: Vocabulary not fitted or provided
+2025-04-02 16:00:22,474 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 1 features.
+2025-04-02 16:00:22,479 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 16:00:22,479 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 16:02:03,969 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 16:02:09,885 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 16:02:09,894 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 16:02:09,903 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 16:02:09,910 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 16:02:11,583 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-02 16:02:11,595 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialPerformanceIndicatorExtractor: 'Sentence'
+2025-04-02 16:02:11,595 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-02 16:02:11,596 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: 'Sentence'
+2025-04-02 16:02:11,597 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 16:02:11,673 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 1 features.
+2025-04-02 16:02:11,678 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 16:02:11,679 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 16:05:44,664 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 16:05:48,785 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 16:05:48,794 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 16:05:48,802 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 16:05:48,809 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 16:06:17,050 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: "['industry_industrial'] not in index"
+2025-04-02 16:06:17,062 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-02 16:06:17,137 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 1 features.
+2025-04-02 16:06:17,143 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 16:06:17,143 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-02 16:07:59,899 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-02 16:08:06,075 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-02 16:08:06,089 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-02 16:08:06,098 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-02 16:08:06,106 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-02 16:08:41,291 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: "['industry_industrial'] not in index"
+2025-04-02 16:08:43,738 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 3811 features.
+2025-04-02 16:08:53,443 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-02 16:08:53,443 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-03 14:40:30,942 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-03 14:40:39,603 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-03 14:40:39,618 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-03 14:40:39,630 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-03 14:40:39,996 - src.utils.feat_eng_pipeline_logger - INFO - Loaded custom financial lexicon from src/lexicons/financial_lexicon.json
+2025-04-03 14:40:39,996 - src.utils.feat_eng_pipeline_logger - INFO - FinVADER sentiment analyzer initialized
+2025-04-03 14:40:39,997 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: Can't instantiate abstract class FinancialEntityExtractor with abstract method transform
+2025-04-03 14:41:20,193 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-03 14:41:24,966 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-03 14:41:24,975 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-03 14:41:24,984 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-03 14:41:26,239 - src.utils.feat_eng_pipeline_logger - INFO - Loaded custom financial lexicon from src/lexicons/financial_lexicon.json
+2025-04-03 14:41:26,240 - src.utils.feat_eng_pipeline_logger - INFO - FinVADER sentiment analyzer initialized
+2025-04-03 14:41:26,248 - src.utils.feat_eng_pipeline_logger - INFO - Loaded custom financial lexicon from src/lexicons/financial_lexicon.json
+2025-04-03 14:41:26,248 - src.utils.feat_eng_pipeline_logger - INFO - FinVADER sentiment analyzer initialized
+2025-04-03 14:41:26,250 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-03 14:57:32,033 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-03 14:57:32,034 - src.utils.feat_eng_pipeline_logger - ERROR - Error in GrowthDeclineQuantifier: 'Sentence'
+2025-04-03 14:57:32,035 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinVADERSentimentExtractor: 'Sentence'
+2025-04-03 14:57:32,035 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'Sentence'
+2025-04-03 14:57:32,036 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-03 14:57:32,036 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEventClassifier: 'Sentence'
+2025-04-03 14:57:32,100 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 1 features.
+2025-04-03 14:57:32,118 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-03 14:57:32,118 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-03 15:18:51,924 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-03 15:19:00,385 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-03 15:19:00,397 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-03 15:19:00,406 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-03 15:19:00,882 - src.utils.feat_eng_pipeline_logger - INFO - Loaded custom financial lexicon from src/lexicons/financial_lexicon.json
+2025-04-03 15:19:00,883 - src.utils.feat_eng_pipeline_logger - INFO - FinVADER sentiment analyzer initialized
+2025-04-03 15:19:00,892 - src.utils.feat_eng_pipeline_logger - INFO - Loaded custom financial lexicon from src/lexicons/financial_lexicon.json
+2025-04-03 15:19:00,892 - src.utils.feat_eng_pipeline_logger - INFO - FinVADER sentiment analyzer initialized
+2025-04-03 15:19:00,896 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-03 15:34:02,069 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'FinancialEntityExtractor' object has no attribute 'nlp'
+2025-04-03 15:49:40,285 - src.utils.feat_eng_pipeline_logger - ERROR - Error in FinancialEntityExtractor: 'FinancialEntityExtractor' object has no attribute 'nlp'
+2025-04-03 15:49:42,288 - src.utils.feat_eng_pipeline_logger - ERROR - Error in feature engineering pipeline: cannot reindex on an axis with duplicate labels
+2025-04-03 15:49:42,292 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: cannot reindex on an axis with duplicate labels
+2025-04-04 11:12:49,887 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 11:14:06,202 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 11:15:02,188 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 11:15:06,684 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/cleaned_data.csv
+2025-04-04 11:15:06,696 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-04 11:15:06,709 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-04 11:20:44,645 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-04 11:21:11,397 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 3 features.
+2025-04-04 11:21:11,423 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-04 11:21:11,424 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-04 11:23:43,908 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 11:23:49,891 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-04 11:23:49,909 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-04 11:23:49,920 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-04 11:23:51,513 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-04 11:24:18,606 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 3 features.
+2025-04-04 11:24:18,629 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-04 11:24:18,630 - src.utils.feat_eng_pipeline_logger - ERROR - Error saving pipeline: [Errno 2] No such file or directory: ''
+2025-04-04 11:34:46,303 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 11:34:51,504 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-04 11:34:51,515 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-04 11:34:51,523 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-04 11:34:53,101 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-04 11:35:22,051 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 3 features.
+2025-04-04 11:35:22,075 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-04 11:35:25,662 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_V1.pkl
+2025-04-04 11:36:41,076 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 11:36:46,697 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-04 11:36:46,713 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-04 11:36:46,723 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-04 11:36:48,401 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-04 11:37:15,319 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 3 features.
+2025-04-04 11:37:15,343 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-04 11:37:18,424 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-04 13:13:45,021 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 13:13:53,078 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-04 13:13:53,104 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-04 13:13:53,120 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-04 13:14:25,049 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-04 13:15:23,616 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-04 13:15:23,651 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-04 13:15:28,818 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-04 16:42:44,180 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 16:42:54,852 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-04 16:42:54,887 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-04 16:42:54,905 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-04 16:42:59,086 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-04 16:44:47,039 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-04 16:44:47,088 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-04 16:44:54,477 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-04 16:56:20,600 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 16:56:40,524 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-04 16:56:45,793 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-04 16:56:45,813 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-04 16:56:45,826 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-04 16:56:48,709 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-04 16:57:34,323 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-04 16:57:34,360 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-04 16:57:38,962 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-05 10:23:26,976 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-05 10:23:40,437 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-05 10:23:40,456 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-05 10:23:40,472 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-05 10:23:42,864 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: not enough values to unpack (expected 3, got 2)
+2025-04-05 10:28:33,330 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-05 10:28:53,362 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-05 10:28:56,890 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-05 10:28:56,902 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-05 10:28:56,913 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-05 10:28:58,962 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-05 10:29:33,537 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-05 10:29:33,567 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-05 10:29:37,190 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-05 10:44:45,461 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-05 10:45:23,356 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-05 10:45:26,731 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-05 10:45:26,747 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-05 10:45:26,756 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-05 10:45:28,778 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-05 10:46:06,243 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-05 10:46:06,269 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-05 10:46:09,609 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-05 10:59:59,798 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-05 11:00:04,621 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-05 11:00:04,635 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-05 11:00:04,645 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-05 11:00:06,783 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-05 11:00:45,405 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-05 11:00:45,432 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-05 11:00:49,169 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 11:09:32,427 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:09:46,577 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 11:09:46,643 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 11:09:46,660 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 11:09:48,909 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 11:10:27,631 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 11:10:27,663 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 11:10:32,267 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 11:13:45,678 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:14:13,417 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:14:17,669 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 11:14:17,686 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 11:14:17,695 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 11:14:20,558 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 11:14:52,465 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 11:14:52,493 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 11:14:55,956 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 11:26:21,832 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:26:28,027 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 11:26:28,046 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 11:26:28,056 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 11:26:30,217 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 11:27:40,080 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 11:27:40,105 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 11:27:44,302 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 11:32:50,504 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:32:56,549 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 11:32:56,567 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 11:32:56,578 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 11:32:58,270 - src.utils.feat_eng_pipeline_logger - ERROR - Error in main execution: Can't instantiate abstract class FinancialEventClassifier with abstract methods fit, transform
+2025-04-07 11:33:33,803 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:33:39,034 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 11:33:39,047 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 11:33:39,056 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 11:33:40,973 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 11:34:48,393 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 11:34:48,419 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 11:34:52,960 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 11:35:39,684 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:35:45,969 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 11:35:45,987 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 11:35:45,997 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 11:35:48,141 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 11:36:23,746 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 11:36:23,773 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 11:36:27,095 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 11:57:43,485 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:57:51,017 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 11:57:51,037 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 11:57:51,049 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 11:57:53,021 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 11:58:32,640 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 11:58:32,666 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 11:58:36,281 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 11:59:39,700 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 11:59:46,338 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 11:59:46,357 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 11:59:46,369 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 11:59:48,421 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 12:00:23,634 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 12:00:23,662 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 12:00:28,569 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 16:54:24,617 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 16:54:32,019 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 16:54:32,040 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 16:54:32,052 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 16:54:34,618 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 16:55:18,692 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 16:55:18,727 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 16:55:23,266 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 17:03:52,535 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 17:03:58,375 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 17:03:58,394 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 17:03:58,404 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 17:04:01,383 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 17:04:38,360 - src.utils.feat_eng_pipeline_logger - ERROR - Error in IndustrySectorCategorizer: "['industry_industrial'] not in index"
+2025-04-07 17:04:38,430 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 4 features.
+2025-04-07 17:04:38,457 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 17:04:42,360 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-07 17:08:30,078 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-07 17:08:37,643 - src.utils.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-07 17:08:37,663 - src.utils.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-07 17:08:37,673 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-07 17:08:39,669 - src.utils.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-07 17:09:17,085 - src.utils.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-07 17:09:17,114 - src.utils.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-07 17:09:21,168 - src.utils.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-17 13:22:33,976 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-17 13:23:05,110 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-17 13:23:05,134 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-17 13:23:05,146 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-17 13:23:07,322 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-17 13:23:44,146 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-17 13:23:44,182 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-17 13:23:48,178 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-17 16:41:25,835 - PROD - INFO - Pipeline paths saved to output/prod_inference/pipeline_paths.pkl
+2025-04-17 16:41:25,836 - PROD - INFO - Sentiment analyzer wrapper saved to output/prod_inference/sentiment_analyzer.py
+2025-04-17 16:41:25,836 - PROD - INFO - Example usage code saved to output/prod_inference/inference_example.py
+2025-04-17 16:45:58,603 - PROD - ERROR - Error in production inference: [Errno 2] No such file or directory: ' data/feature_pipeline_v1.0.0.pkl'
+2025-04-17 16:56:32,254 - PROD - INFO - Pipeline paths saved to output/prod_inference/pipeline_paths.pkl
+2025-04-17 16:56:32,255 - PROD - INFO - Sentiment analyzer wrapper saved to output/prod_inference/sentiment_analyzer.py
+2025-04-17 16:56:32,255 - PROD - INFO - Example usage code saved to output/prod_inference/inference_example.py
+2025-04-17 16:59:48,222 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-17 17:03:14,941 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-17 17:05:57,514 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-17 17:16:38,450 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-17 17:18:15,659 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-17 17:20:06,025 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 10:52:51,086 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:00:54,407 - PROD - ERROR - Error in production inference: 'FinancialEventClassifier' object has no attribute 'CONTEXT_PATTERNS'
+2025-04-18 11:01:42,165 - PROD - ERROR - Error in production inference: 'FinancialEventClassifier' object has no attribute 'CONTEXT_PATTERNS'
+2025-04-18 11:03:14,324 - PROD - ERROR - Error in production inference: 'FinancialEventClassifier' object has no attribute 'CONTEXT_PATTERNS'
+2025-04-18 11:03:51,818 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:03:55,596 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:03:55,614 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:03:55,624 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:04:02,505 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 11:04:29,398 - src.utils.loggers.feat_eng_pipeline_logger - ERROR - Error in feature engineering pipeline: 'str' object has no attribute 'findall'
+2025-04-18 11:04:29,402 - src.utils.loggers.feat_eng_pipeline_logger - ERROR - Error in main execution: 'str' object has no attribute 'findall'
+2025-04-18 11:07:51,250 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:07:55,410 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:07:55,424 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:07:55,432 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:07:57,076 - src.utils.loggers.feat_eng_pipeline_logger - ERROR - Error in main execution: not enough values to unpack (expected 2, got 1)
+2025-04-18 11:08:34,732 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:08:38,951 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:08:38,964 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:08:38,974 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:08:40,653 - src.utils.loggers.feat_eng_pipeline_logger - ERROR - Error in main execution: not enough values to unpack (expected 2, got 1)
+2025-04-18 11:10:11,454 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:10:15,535 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:10:15,548 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:10:15,558 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:10:42,430 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 11:11:09,978 - src.utils.loggers.feat_eng_pipeline_logger - ERROR - Error in feature engineering pipeline: 'str' object has no attribute 'findall'
+2025-04-18 11:11:09,980 - src.utils.loggers.feat_eng_pipeline_logger - ERROR - Error in main execution: 'str' object has no attribute 'findall'
+2025-04-18 11:16:53,795 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:16:59,935 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:16:59,951 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:16:59,979 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:17:01,860 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 11:17:39,073 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-18 11:17:39,105 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-18 11:17:42,257 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-18 11:18:10,347 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:19:28,983 - PROD - ERROR - Error in production inference: cannot process flags argument with a compiled pattern
+2025-04-18 11:20:31,996 - PROD - ERROR - Error in production inference: cannot process flags argument with a compiled pattern
+2025-04-18 11:29:10,742 - PROD - ERROR - Error in production inference: cannot process flags argument with a compiled pattern
+2025-04-18 11:30:05,121 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:30:34,694 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:33:58,579 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:34:02,572 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:34:02,590 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:34:02,600 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:34:04,645 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 11:34:42,615 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-18 11:34:42,644 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-18 11:34:45,668 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-18 11:35:08,915 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:41:03,736 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:41:07,635 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:41:07,652 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:41:07,662 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:41:14,807 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 11:41:52,357 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-18 11:41:52,383 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-18 11:41:55,235 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-18 11:42:20,549 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:44:19,525 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:47:30,602 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:48:56,174 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:52:45,978 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:53:32,597 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:53:36,540 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:53:36,556 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:53:36,565 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:53:38,490 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 11:54:21,472 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-18 11:54:21,500 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-18 11:54:24,450 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-18 11:55:13,640 - PROD - ERROR - Error in production inference: 'str' object has no attribute 'findall'
+2025-04-18 11:56:09,808 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 11:56:16,103 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 11:56:16,120 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 11:56:16,130 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 11:56:18,162 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 11:57:03,833 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-18 11:57:03,895 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-18 11:57:06,963 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-18 12:11:23,475 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 12:11:29,869 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 12:11:29,887 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 12:11:29,896 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 12:11:32,021 - src.utils.loggers.feat_eng_pipeline_logger - ERROR - Error in main execution: 'str' object has no attribute 'pattern'
+2025-04-18 12:12:55,780 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 12:12:59,656 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 12:12:59,671 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 12:12:59,679 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 12:13:02,095 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 12:13:42,236 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-18 12:13:42,264 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-18 12:13:45,343 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-18 12:14:05,304 - numexpr.utils - INFO - NumExpr defaulting to 12 threads.
+2025-04-18 12:14:11,531 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loading data from data/data.csv
+2025-04-18 12:14:11,548 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Loaded 5842 rows and 2 columns
+2025-04-18 12:14:11,558 - src.config.config_loader - INFO - Loaded configuration from src/config/config.yaml
+2025-04-18 12:14:13,549 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Starting feature engineering process...
+2025-04-18 12:14:53,066 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Feature engineering completed. Generated 5 features.
+2025-04-18 12:14:53,092 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Saved transformed data to data/feature_engineered_data.csv
+2025-04-18 12:14:56,072 - src.utils.loggers.feat_eng_pipeline_logger - INFO - Pipeline saved to data/feature_pipeline_v1.0.0.pkl
+2025-04-18 12:15:39,581 - FinancePreprocessing - INFO - Started MLflow run with ID: 5023e521685a4113ba030fe284a76ec4
+2025-04-18 12:15:39,587 - FinancePreprocessing - ERROR - Error in text cleaning: 'Sentiment'
+2025-04-18 12:15:39,587 - PROD - ERROR - Error in production inference: 'Sentiment'
+2025-04-18 12:47:45,544 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 12:47:45,547 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 12:47:45,547 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 12:47:45,547 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 12:47:45,548 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 12:47:45,548 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 12:47:45,549 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 12:47:45,549 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 12:47:45,549 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 12:47:45,549 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 12:47:45,550 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 12:47:45,550 - PROD - ERROR - Error in production inference: 'Series' object has no attribute 'columns'
+2025-04-18 12:51:05,142 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 12:51:05,144 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 12:51:05,145 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 12:51:05,145 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 12:51:05,145 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 12:51:05,146 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 12:51:05,146 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 12:51:05,146 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 12:51:05,147 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 12:51:05,147 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 12:51:05,147 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 12:51:05,148 - PROD - ERROR - Error in production inference: 'Series' object has no attribute 'columns'
+2025-04-18 12:52:59,313 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 12:52:59,315 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 12:52:59,316 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 12:52:59,316 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 12:52:59,316 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 12:52:59,317 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 12:52:59,317 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 12:52:59,317 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 12:52:59,318 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 12:52:59,318 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 12:52:59,318 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 12:52:59,319 - PROD - ERROR - Error in production inference: 'Series' object has no attribute 'columns'
+2025-04-18 12:58:11,193 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 12:58:11,195 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 12:58:11,196 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 12:58:11,196 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 12:58:11,197 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 12:58:11,197 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 12:58:11,198 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 12:58:11,198 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 12:58:11,198 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 12:58:11,199 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 12:58:11,199 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 12:58:11,200 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 12:58:11,201 - PROD - ERROR - Error in production inference: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-04-18 13:00:12,686 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:00:12,688 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:00:12,688 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:00:12,689 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:00:12,689 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:00:12,689 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:00:12,690 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:00:12,690 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:00:12,690 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:00:12,691 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:00:12,691 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:00:12,694 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:00:12,695 - PROD - ERROR - Error in production inference: 2
+2025-04-18 13:08:16,074 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:08:16,076 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:08:16,076 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:08:16,077 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:08:16,077 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:08:16,077 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:08:16,078 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:08:16,078 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:08:16,078 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:08:16,079 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:08:16,079 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:08:16,080 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:08:16,081 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'xyz', 'better', 'expected', 'earn', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:08:16,081 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:08:16,084 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'xyz', 'better', 'expected', 'earn', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:08:16,085 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'xyz', 'well', 'expect', 'earn', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:08:16,085 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:08:16,085 - DataPrepPipeline - INFO - Example - Words: ['0', 'xyz', 'well', 'expect', 'earn', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:08:16,085 - DataPrepPipeline - INFO - Example - Sequence: [5122, 1, 81, 45, 2248, 577, 1, 1, 5682]
+2025-04-18 13:08:16,085 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:08:16,086 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-18 13:10:05,475 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:10:05,477 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:10:05,477 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:10:05,478 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:10:05,478 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:10:05,478 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:10:05,479 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:10:05,479 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:10:05,479 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:10:05,480 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:10:05,480 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:10:05,481 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:10:05,481 - DataPrepPipeline - INFO - Example - Tokenized: ['0', '__placeholder_stock__', 'went', 'red', 'release', 'iphone', '6c', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:10:05,482 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:10:05,487 - FinancePreprocessing - INFO - Example - Original tokens: ['0', '__placeholder_stock__', 'went', 'red', 'release', 'iphone', '6c', 'name', 'sentence', 'dtype']
+2025-04-18 13:10:05,487 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', '_', '_', 'placeholder_stock', '_', '_', 'go', 'red', 'release', 'iphone']
+2025-04-18 13:10:05,487 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:10:05,487 - DataPrepPipeline - INFO - Example - Words: ['0', '_', '_', 'placeholder_stock', '_', '_', 'go', 'red', 'release', 'iphone']
+2025-04-18 13:10:05,487 - DataPrepPipeline - INFO - Example - Sequence: [5122, 2, 2, 3, 2, 2, 61, 782, 190, 1168]
+2025-04-18 13:10:05,488 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:10:05,488 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-18 13:10:53,784 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:10:53,786 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:10:53,786 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:10:53,787 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:10:53,787 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:10:53,787 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:10:53,788 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:10:53,788 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:10:53,789 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:10:53,789 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:10:53,789 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:10:53,790 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:10:53,791 - DataPrepPipeline - INFO - Example - Tokenized: ['0', '__placeholder_stock__', 'went', 'red', 'beginning', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:10:53,791 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:10:53,796 - FinancePreprocessing - INFO - Example - Original tokens: ['0', '__placeholder_stock__', 'went', 'red', 'beginning', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:10:53,796 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', '_', '_', 'placeholder_stock', '_', '_', 'go', 'red', 'begin', 'name']
+2025-04-18 13:10:53,796 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:10:53,796 - DataPrepPipeline - INFO - Example - Words: ['0', '_', '_', 'placeholder_stock', '_', '_', 'go', 'red', 'begin', 'name']
+2025-04-18 13:10:53,796 - DataPrepPipeline - INFO - Example - Sequence: [5122, 2, 2, 3, 2, 2, 61, 782, 465, 577]
+2025-04-18 13:10:53,797 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:10:53,797 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-18 13:11:58,388 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:11:58,390 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:11:58,390 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:11:58,391 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:11:58,391 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:11:58,391 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:11:58,392 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:11:58,392 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:11:58,392 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:11:58,393 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:11:58,393 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:11:58,394 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:11:58,395 - DataPrepPipeline - INFO - Example - Tokenized: ['0', '__placeholder_stock__', 'stock', 'realese', 'newe', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:11:58,395 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:11:58,400 - FinancePreprocessing - INFO - Example - Original tokens: ['0', '__placeholder_stock__', 'stock', 'realese', 'newe', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:11:58,400 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'realese', 'newe', 'name']
+2025-04-18 13:11:58,400 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:11:58,400 - DataPrepPipeline - INFO - Example - Words: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'realese', 'newe', 'name']
+2025-04-18 13:11:58,400 - DataPrepPipeline - INFO - Example - Sequence: [5122, 2, 2, 3, 2, 2, 56, 1, 1, 577]
+2025-04-18 13:11:58,401 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:11:58,401 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-18 13:13:32,529 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:13:32,531 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:13:32,532 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:13:32,532 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:13:32,532 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:13:32,533 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:13:32,533 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:13:32,534 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:13:32,534 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:13:32,534 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:13:32,535 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:13:32,536 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:13:32,537 - DataPrepPipeline - INFO - Example - Tokenized: ['0', '__placeholder_stock__', 'stock', 'went', 'bearish', 'realese', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:13:32,538 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:13:32,545 - FinancePreprocessing - INFO - Example - Original tokens: ['0', '__placeholder_stock__', 'stock', 'went', 'bearish', 'realese', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:13:32,545 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'go', 'bearish', 'realese']
+2025-04-18 13:13:32,546 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:13:32,546 - DataPrepPipeline - INFO - Example - Words: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'go', 'bearish', 'realese']
+2025-04-18 13:13:32,546 - DataPrepPipeline - INFO - Example - Sequence: [5122, 2, 2, 3, 2, 2, 56, 61, 636, 1]
+2025-04-18 13:13:32,547 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:13:32,547 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-18 13:13:59,612 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:13:59,615 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:13:59,616 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:13:59,616 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:13:59,616 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:13:59,617 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:13:59,618 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:13:59,618 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:13:59,618 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:13:59,619 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:13:59,619 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:13:59,620 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:13:59,621 - DataPrepPipeline - INFO - Example - Tokenized: ['0', '__placeholder_stock__', 'stock', 'went', 'red', 'realese', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:13:59,621 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:13:59,626 - FinancePreprocessing - INFO - Example - Original tokens: ['0', '__placeholder_stock__', 'stock', 'went', 'red', 'realese', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:13:59,626 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'go', 'red', 'realese']
+2025-04-18 13:13:59,626 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:13:59,626 - DataPrepPipeline - INFO - Example - Words: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'go', 'red', 'realese']
+2025-04-18 13:13:59,626 - DataPrepPipeline - INFO - Example - Sequence: [5122, 2, 2, 3, 2, 2, 56, 61, 782, 1]
+2025-04-18 13:13:59,626 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:13:59,626 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-18 13:15:00,304 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:15:00,306 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:15:00,306 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:15:00,307 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:15:00,307 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:15:00,307 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:15:00,308 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:15:00,308 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:15:00,308 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:15:00,309 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:15:00,309 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:15:00,310 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:15:00,311 - DataPrepPipeline - INFO - Example - Tokenized: ['0', '__placeholder_stock__', 'stock', 'fell', 'release', 'newe', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:15:00,311 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:15:00,316 - FinancePreprocessing - INFO - Example - Original tokens: ['0', '__placeholder_stock__', 'stock', 'fell', 'release', 'newe', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:15:00,316 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'fall', 'release', 'newe']
+2025-04-18 13:15:00,316 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:15:00,316 - DataPrepPipeline - INFO - Example - Words: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'fall', 'release', 'newe']
+2025-04-18 13:15:00,317 - DataPrepPipeline - INFO - Example - Sequence: [5122, 2, 2, 3, 2, 2, 56, 30, 190, 1]
+2025-04-18 13:15:00,317 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:15:00,317 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-18 13:16:42,126 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:16:42,128 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:16:42,128 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:16:42,129 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:16:42,129 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:16:42,129 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:16:42,130 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:16:42,130 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:16:42,131 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:16:42,131 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:16:42,131 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:16:42,132 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:16:42,133 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:16:42,133 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:16:42,137 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:16:42,137 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:16:42,137 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:16:42,137 - DataPrepPipeline - INFO - Example - Words: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:16:42,137 - DataPrepPipeline - INFO - Example - Sequence: [5122, 145, 26, 704, 272, 577, 1, 1, 5682]
+2025-04-18 13:16:42,137 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:16:42,138 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-18 13:37:11,170 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-18 13:37:11,172 - FinancePreprocessing - INFO - Removing URLs
+2025-04-18 13:37:11,172 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-18 13:37:11,173 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-18 13:37:11,173 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-18 13:37:11,173 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-18 13:37:11,174 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-18 13:37:11,174 - FinancePreprocessing - INFO - Removing special characters
+2025-04-18 13:37:11,174 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-18 13:37:11,175 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-18 13:37:11,175 - FinancePreprocessing - INFO - Removing stop words
+2025-04-18 13:37:11,176 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-18 13:37:11,177 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:37:11,177 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-18 13:37:11,181 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:37:11,181 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:37:11,181 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-18 13:37:11,181 - DataPrepPipeline - INFO - Example - Words: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-18 13:37:11,181 - DataPrepPipeline - INFO - Example - Sequence: [5122, 145, 26, 704, 272, 577, 1, 1, 5682]
+2025-04-18 13:37:11,181 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-18 13:37:11,181 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)

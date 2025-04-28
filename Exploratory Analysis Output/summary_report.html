@@ -1,0 +1,125 @@
+
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Finance Sentiment EDA - Summary Report</title>
+                <style>
+                    body { font-family: Arial, sans-serif; margin: 20px; }
+                    h1, h2, h3 { color: #2c3e50; }
+                    .container { max-width: 1200px; margin: 0 auto; }
+                    .section { margin-bottom: 30px; }
+                    img { max-width: 100%; height: auto; border: 1px solid #ddd; }
+                    pre { background-color: #f5f5f5; padding: 10px; overflow: auto; }
+                    table { border-collapse: collapse; width: 100%; }
+                    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                    th { background-color: #f2f2f2; }
+                    .insights { background-color: #f9f9f9; padding: 15px; border-left: 4px solid #2c3e50; }
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <h1>Finance Sentiment EDA - Summary Report</h1>
+                    <p>Generated on 2025-03-28 12:09:12</p>
+                    
+                    <div class="section">
+                        <h2>Key Insights</h2>
+                        <div class="insights">
+                            <pre>1. Dominant sentiment: Neutral (53.6% of samples)
+2. Longest text on average: Neutral (123.1 characters)
+3. Shortest text on average: Negative (105.3 characters)
+4. Most words on average: Neutral (22.1 words)
+5. Fewest words on average: Negative (19.3 words)
+6. Most common words overall: eur, company, sale, profit, finnish
+7. Words unique to Positive sentiment: rose, increased
+8. Words unique to Negative sentiment: loss, compared, decreased, first, oyj
+9. Words unique to Neutral sentiment: finland, business, also
+</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2>Sentiment Distribution</h2>
+                        <img src="sentiment_distribution.png" alt="Sentiment Distribution">
+                    </div>
+                    
+                    <div class="section">
+                        <h2>Word Clouds</h2>
+                        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            
+                            <div>
+                                <h3>Positive Sentiment</h3>
+                                <img src="wordcloud_positive.png" alt="Word Cloud for positive Sentiment">
+                            </div>
+                    
+                            <div>
+                                <h3>Negative Sentiment</h3>
+                                <img src="wordcloud_negative.png" alt="Word Cloud for negative Sentiment">
+                            </div>
+                    
+                            <div>
+                                <h3>Neutral Sentiment</h3>
+                                <img src="wordcloud_neutral.png" alt="Word Cloud for neutral Sentiment">
+                            </div>
+                    
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2>Most Common Words by Sentiment</h2>
+                        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            
+                            <div>
+                                <h3>Positive Sentiment</h3>
+                                <img src="common_words_positive.png" alt="Common Words for positive Sentiment">
+                            </div>
+                    
+                            <div>
+                                <h3>Negative Sentiment</h3>
+                                <img src="common_words_negative.png" alt="Common Words for negative Sentiment">
+                            </div>
+                    
+                            <div>
+                                <h3>Neutral Sentiment</h3>
+                                <img src="common_words_neutral.png" alt="Common Words for neutral Sentiment">
+                            </div>
+                    
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2>Text Length Distribution</h2>
+                        <div>
+                            <img src="text_length_distribution.png" alt="Text Length Distribution">
+                        </div>
+                        <div>
+                            <img src="text_length_violin.png" alt="Text Length Violin Plot">
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2>Word Count Distribution</h2>
+                        <div>
+                            <img src="word_count_distribution.png" alt="Word Count Distribution">
+                        </div>
+                        <div>
+                            <img src="word_count_histogram.png" alt="Word Count Histogram">
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2>Distinctive Features</h2>
+                        <div>
+                            <img src="distinctive_features.png" alt="Distinctive Features">
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2>Correlation Analysis</h2>
+                        <div>
+                            <img src="correlation_heatmap.png" alt="Correlation Heatmap">
+                        </div>
+                    </div>
+                </div>
+            </body>
+            </html>
+            

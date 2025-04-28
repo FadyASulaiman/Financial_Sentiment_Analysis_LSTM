@@ -1,0 +1,12 @@
+scikit-learn>=1.6.1
+numpy>=1.26.4
+pandas>=2.2.3
+nltk>=3.9.1
+beautifulsoup4>=4.12.3
+spacy>=3.7.2
+scikit-optimize>=0.10.2
+fastapi>=0.115.12
+uvicorn>=0.34.2
+tqdm>=4.66.5
+pydantic>=2.10.3
+python-dateutil>=2.9.0

@@ -1,0 +1,14 @@
+Metric,Value
+Total samples,5842
+neutral samples,3130
+positive samples,1852
+negative samples,860
+neutral percentage,53.58%
+positive percentage,31.70%
+negative percentage,14.72%
+Avg text length,117.02
+Min text length,9
+Max text length,315
+Avg word count,21.00
+Min word count,2
+Max word count,81

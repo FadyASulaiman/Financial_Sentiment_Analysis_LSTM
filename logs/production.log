@@ -1,0 +1,322 @@
+2025-04-19 09:14:49,123 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-19 09:14:49,125 - FinancePreprocessing - INFO - Removing URLs
+2025-04-19 09:14:49,125 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-19 09:14:49,126 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-19 09:14:49,126 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-19 09:14:49,126 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-19 09:14:49,127 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-19 09:14:49,127 - FinancePreprocessing - INFO - Removing special characters
+2025-04-19 09:14:49,127 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-19 09:14:49,128 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-19 09:14:49,128 - FinancePreprocessing - INFO - Removing stop words
+2025-04-19 09:14:49,129 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-19 09:14:49,129 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:14:49,129 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-19 09:14:49,133 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:14:49,133 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:14:49,133 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-19 09:14:49,134 - DataPrepPipeline - INFO - Example - Words: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:14:49,134 - DataPrepPipeline - INFO - Example - Sequence: [5122, 145, 26, 704, 272, 577, 1, 1, 5682]
+2025-04-19 09:14:49,134 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-19 09:14:49,134 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-19 09:17:39,153 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-19 09:17:39,155 - FinancePreprocessing - INFO - Removing URLs
+2025-04-19 09:17:39,156 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-19 09:17:39,156 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-19 09:17:39,156 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-19 09:17:39,157 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-19 09:17:39,157 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-19 09:17:39,157 - FinancePreprocessing - INFO - Removing special characters
+2025-04-19 09:17:39,158 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-19 09:17:39,158 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-19 09:17:39,158 - FinancePreprocessing - INFO - Removing stop words
+2025-04-19 09:17:39,159 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-19 09:17:39,160 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:17:39,160 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-19 09:17:39,163 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:17:39,164 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:17:39,164 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-19 09:17:39,164 - DataPrepPipeline - INFO - Example - Words: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:17:39,164 - DataPrepPipeline - INFO - Example - Sequence: [5122, 145, 26, 704, 272, 577, 1, 1, 5682]
+2025-04-19 09:17:39,164 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-19 09:17:39,164 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-19 09:17:39,468 - PROD - INFO - Inference completed in 12.36 seconds
+2025-04-19 09:19:01,511 - PROD - INFO - Unpickling completed in 8.19 seconds
+2025-04-19 09:19:03,898 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-19 09:19:03,901 - FinancePreprocessing - INFO - Removing URLs
+2025-04-19 09:19:03,901 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-19 09:19:03,901 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-19 09:19:03,901 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-19 09:19:03,902 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-19 09:19:03,902 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-19 09:19:03,903 - FinancePreprocessing - INFO - Removing special characters
+2025-04-19 09:19:03,903 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-19 09:19:03,903 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-19 09:19:03,904 - FinancePreprocessing - INFO - Removing stop words
+2025-04-19 09:19:03,904 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-19 09:19:03,905 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:19:03,905 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-19 09:19:03,909 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:19:03,909 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:19:03,909 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-19 09:19:03,909 - DataPrepPipeline - INFO - Example - Words: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:19:03,909 - DataPrepPipeline - INFO - Example - Sequence: [5122, 145, 26, 704, 272, 577, 1, 1, 5682]
+2025-04-19 09:19:03,909 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-19 09:19:03,910 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-19 09:19:04,164 - PROD - INFO - Inference completed in 10.84 seconds
+2025-04-19 09:20:23,566 - PROD - INFO - Unpickling completed in 7.85 seconds
+2025-04-19 09:20:25,953 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-19 09:20:25,955 - FinancePreprocessing - INFO - Removing URLs
+2025-04-19 09:20:25,955 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-19 09:20:25,956 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-19 09:20:25,956 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-19 09:20:25,956 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-19 09:20:25,957 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-19 09:20:25,957 - FinancePreprocessing - INFO - Removing special characters
+2025-04-19 09:20:25,958 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-19 09:20:25,958 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-19 09:20:25,958 - FinancePreprocessing - INFO - Removing stop words
+2025-04-19 09:20:25,959 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-19 09:20:25,959 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:20:25,960 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-19 09:20:25,963 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:20:25,963 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:20:25,963 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-19 09:20:25,964 - DataPrepPipeline - INFO - Example - Words: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:20:25,964 - DataPrepPipeline - INFO - Example - Sequence: [5122, 145, 26, 704, 272, 577, 1, 1, 5682]
+2025-04-19 09:20:25,964 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-19 09:20:25,964 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-19 09:20:26,220 - PROD - INFO - Inference completed in 10.50 seconds
+2025-04-19 09:20:30,578 - PROD - INFO - Unpickling completed in 4.36 seconds
+2025-04-19 09:20:30,581 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-19 09:20:30,582 - FinancePreprocessing - INFO - Removing URLs
+2025-04-19 09:20:30,582 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-19 09:20:30,583 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-19 09:20:30,583 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-19 09:20:30,583 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-19 09:20:30,584 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-19 09:20:30,584 - FinancePreprocessing - INFO - Removing special characters
+2025-04-19 09:20:30,584 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-19 09:20:30,584 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-19 09:20:30,585 - FinancePreprocessing - INFO - Removing stop words
+2025-04-19 09:20:30,585 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-19 09:20:30,586 - DataPrepPipeline - INFO - Example - Tokenized: ['0', '__placeholder_stock__', 'stock', 'fell', 'release', 'newe', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:20:30,586 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-19 09:20:30,589 - FinancePreprocessing - INFO - Example - Original tokens: ['0', '__placeholder_stock__', 'stock', 'fell', 'release', 'newe', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:20:30,590 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'fall', 'release', 'newe']
+2025-04-19 09:20:30,590 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-19 09:20:30,590 - DataPrepPipeline - INFO - Example - Words: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'fall', 'release', 'newe']
+2025-04-19 09:20:30,590 - DataPrepPipeline - INFO - Example - Sequence: [5122, 2, 2, 3, 2, 2, 56, 30, 190, 1]
+2025-04-19 09:20:30,590 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-19 09:20:30,590 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-19 09:20:30,815 - PROD - INFO - Inference completed in 4.60 seconds
+2025-04-19 09:21:28,615 - PROD - INFO - Unpickling completed in 8.98 seconds
+2025-04-19 09:21:30,981 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-19 09:21:30,983 - FinancePreprocessing - INFO - Removing URLs
+2025-04-19 09:21:30,984 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-19 09:21:30,984 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-19 09:21:30,984 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-19 09:21:30,985 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-19 09:21:30,985 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-19 09:21:30,986 - FinancePreprocessing - INFO - Removing special characters
+2025-04-19 09:21:30,986 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-19 09:21:30,986 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-19 09:21:30,986 - FinancePreprocessing - INFO - Removing stop words
+2025-04-19 09:21:30,987 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-19 09:21:30,988 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:21:30,988 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-19 09:21:30,991 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:21:30,991 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:21:30,992 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-19 09:21:30,992 - DataPrepPipeline - INFO - Example - Words: ['0', 'development', 'new', 'factory', 'tesla', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:21:30,992 - DataPrepPipeline - INFO - Example - Sequence: [5122, 145, 26, 704, 272, 577, 1, 1, 5682]
+2025-04-19 09:21:30,992 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-19 09:21:30,993 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-19 09:21:31,241 - PROD - INFO - Inference completed in 11.60 seconds
+2025-04-19 09:21:35,366 - PROD - INFO - Unpickling completed in 4.13 seconds
+2025-04-19 09:21:35,369 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-19 09:21:35,370 - FinancePreprocessing - INFO - Removing URLs
+2025-04-19 09:21:35,370 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-19 09:21:35,371 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-19 09:21:35,371 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-19 09:21:35,371 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-19 09:21:35,371 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-19 09:21:35,372 - FinancePreprocessing - INFO - Removing special characters
+2025-04-19 09:21:35,372 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-19 09:21:35,372 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-19 09:21:35,372 - FinancePreprocessing - INFO - Removing stop words
+2025-04-19 09:21:35,373 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-19 09:21:35,373 - DataPrepPipeline - INFO - Example - Tokenized: ['0', '__placeholder_stock__', 'stock', 'took', 'hit', 'release', 'th', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 09:21:35,373 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-19 09:21:35,376 - FinancePreprocessing - INFO - Example - Original tokens: ['0', '__placeholder_stock__', 'stock', 'took', 'hit', 'release', 'th', 'name', 'sentence', 'dtype']
+2025-04-19 09:21:35,377 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'take', 'hit', 'release']
+2025-04-19 09:21:35,377 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-19 09:21:35,377 - DataPrepPipeline - INFO - Example - Words: ['0', '_', '_', 'placeholder_stock', '_', '_', 'stock', 'take', 'hit', 'release']
+2025-04-19 09:21:35,377 - DataPrepPipeline - INFO - Example - Sequence: [5122, 2, 2, 3, 2, 2, 56, 92, 180, 190]
+2025-04-19 09:21:35,377 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-19 09:21:35,378 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-19 09:21:35,600 - PROD - INFO - Inference completed in 4.36 seconds
+2025-04-19 10:40:57,528 - PROD - INFO - Unpickling completed in 12.66 seconds
+2025-04-19 10:40:57,543 - PROD - ERROR - Error in production inference: expected string or bytes-like object, got 'list'
+2025-04-19 10:44:02,557 - PROD - INFO - Unpickling completed in 9.23 seconds
+2025-04-19 10:44:05,285 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-19 10:44:05,288 - FinancePreprocessing - INFO - Removing URLs
+2025-04-19 10:44:05,289 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-19 10:44:05,289 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-19 10:44:05,289 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-19 10:44:05,290 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-19 10:44:05,291 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-19 10:44:05,291 - FinancePreprocessing - INFO - Removing special characters
+2025-04-19 10:44:05,292 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-19 10:44:05,292 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-19 10:44:05,292 - FinancePreprocessing - INFO - Removing stop words
+2025-04-19 10:44:05,293 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-19 10:44:05,294 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'apple', 'stock', 'fell', 'latest', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:44:05,294 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-19 10:44:05,298 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'apple', 'stock', 'fell', 'latest', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:44:05,299 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'apple', 'stock', 'fall', 'late', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:44:05,299 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-19 10:44:05,299 - DataPrepPipeline - INFO - Example - Words: ['0', 'apple', 'stock', 'fall', 'late', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:44:05,299 - DataPrepPipeline - INFO - Example - Sequence: [5122, 582, 56, 30, 662, 1696, 577, 1, 1, 5682]
+2025-04-19 10:44:05,300 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-19 10:44:05,300 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-19 10:44:05,727 - PROD - INFO - Inference completed in 12.40 seconds
+2025-04-19 10:46:42,530 - PROD - INFO - Unpickling completed in 8.42 seconds
+2025-04-19 10:46:45,182 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-19 10:46:45,184 - FinancePreprocessing - INFO - Removing URLs
+2025-04-19 10:46:45,185 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-19 10:46:45,185 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-19 10:46:45,185 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-19 10:46:45,186 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-19 10:46:45,186 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-19 10:46:45,186 - FinancePreprocessing - INFO - Removing special characters
+2025-04-19 10:46:45,187 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-19 10:46:45,187 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-19 10:46:45,187 - FinancePreprocessing - INFO - Removing stop words
+2025-04-19 10:46:45,188 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-19 10:46:45,188 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'apple', 'stock', 'fell', 'latest', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:46:45,189 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-19 10:46:45,192 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'apple', 'stock', 'fell', 'latest', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:46:45,192 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'apple', 'stock', 'fall', 'late', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:46:45,193 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-19 10:46:45,193 - DataPrepPipeline - INFO - Example - Words: ['0', 'apple', 'stock', 'fall', 'late', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:46:45,193 - DataPrepPipeline - INFO - Example - Sequence: [5122, 582, 56, 30, 662, 1696, 577, 1, 1, 5682]
+2025-04-19 10:46:45,193 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-19 10:46:45,193 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-19 10:46:45,457 - PROD - INFO - Inference completed in 11.35 seconds
+2025-04-19 10:47:18,984 - PROD - INFO - Unpickling completed in 4.48 seconds
+2025-04-19 10:47:18,992 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-19 10:47:18,994 - FinancePreprocessing - INFO - Removing URLs
+2025-04-19 10:47:18,994 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-19 10:47:18,995 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-19 10:47:18,995 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-19 10:47:18,995 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-19 10:47:18,996 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-19 10:47:18,996 - FinancePreprocessing - INFO - Removing special characters
+2025-04-19 10:47:18,996 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-19 10:47:18,996 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-19 10:47:18,996 - FinancePreprocessing - INFO - Removing stop words
+2025-04-19 10:47:18,997 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-19 10:47:18,997 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'apple', 'stock', 'fell', 'latest', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:47:18,997 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-19 10:47:19,001 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'apple', 'stock', 'fell', 'latest', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:47:19,001 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'apple', 'stock', 'fall', 'late', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:47:19,001 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-19 10:47:19,001 - DataPrepPipeline - INFO - Example - Words: ['0', 'apple', 'stock', 'fall', 'late', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:47:19,001 - DataPrepPipeline - INFO - Example - Sequence: [5122, 582, 56, 30, 662, 1696, 577, 1, 1, 5682]
+2025-04-19 10:47:19,001 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-19 10:47:19,001 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-19 10:47:19,236 - PROD - INFO - Inference completed in 4.74 seconds
+2025-04-19 10:47:31,266 - PROD - INFO - Unpickling completed in 4.44 seconds
+2025-04-19 10:47:31,275 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-19 10:47:31,277 - FinancePreprocessing - INFO - Removing URLs
+2025-04-19 10:47:31,277 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-19 10:47:31,277 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-19 10:47:31,277 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-19 10:47:31,278 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-19 10:47:31,278 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-19 10:47:31,278 - FinancePreprocessing - INFO - Removing special characters
+2025-04-19 10:47:31,278 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-19 10:47:31,279 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-19 10:47:31,279 - FinancePreprocessing - INFO - Removing stop words
+2025-04-19 10:47:31,279 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-19 10:47:31,279 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'apple', 'stock', 'fell', 'latest', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:47:31,280 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-19 10:47:31,283 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'apple', 'stock', 'fell', 'latest', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:47:31,283 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'apple', 'stock', 'fall', 'late', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:47:31,283 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-19 10:47:31,283 - DataPrepPipeline - INFO - Example - Words: ['0', 'apple', 'stock', 'fall', 'late', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:47:31,283 - DataPrepPipeline - INFO - Example - Sequence: [5122, 582, 56, 30, 662, 1696, 577, 1, 1, 5682]
+2025-04-19 10:47:31,283 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-19 10:47:31,283 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-19 10:47:31,517 - PROD - INFO - Inference completed in 4.69 seconds
+2025-04-19 10:48:14,584 - PROD - INFO - Unpickling completed in 4.55 seconds
+2025-04-19 10:48:14,593 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-19 10:48:14,594 - FinancePreprocessing - INFO - Removing URLs
+2025-04-19 10:48:14,595 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-19 10:48:14,595 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-19 10:48:14,595 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-19 10:48:14,595 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-19 10:48:14,596 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-19 10:48:14,596 - FinancePreprocessing - INFO - Removing special characters
+2025-04-19 10:48:14,596 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-19 10:48:14,596 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-19 10:48:14,596 - FinancePreprocessing - INFO - Removing stop words
+2025-04-19 10:48:14,597 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-19 10:48:14,597 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'apple', 'stock', 'fell', 'latest', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:48:14,597 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-19 10:48:14,601 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'apple', 'stock', 'fell', 'latest', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:48:14,601 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'apple', 'stock', 'fall', 'late', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:48:14,601 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-19 10:48:14,601 - DataPrepPipeline - INFO - Example - Words: ['0', 'apple', 'stock', 'fall', 'late', 'event', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 10:48:14,601 - DataPrepPipeline - INFO - Example - Sequence: [5122, 582, 56, 30, 662, 1696, 577, 1, 1, 5682]
+2025-04-19 10:48:14,601 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-19 10:48:14,601 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-19 10:48:14,833 - PROD - INFO - Inference completed in 4.80 seconds
+2025-04-19 11:04:03,396 - PROD - INFO - Unpickling completed in 4.61 seconds
+2025-04-19 11:04:03,406 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-19 11:04:03,408 - FinancePreprocessing - INFO - Removing URLs
+2025-04-19 11:04:03,408 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-19 11:04:03,408 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-19 11:04:03,408 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-19 11:04:03,408 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-19 11:04:03,409 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-19 11:04:03,409 - FinancePreprocessing - INFO - Removing special characters
+2025-04-19 11:04:03,409 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-19 11:04:03,409 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-19 11:04:03,409 - FinancePreprocessing - INFO - Removing stop words
+2025-04-19 11:04:03,410 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-19 11:04:03,410 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'total', 'earnings', 'tesla', 'rise', 'q', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 11:04:03,410 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-19 11:04:03,413 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'total', 'earnings', 'tesla', 'rise', 'q', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 11:04:03,414 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'total', 'earning', 'tesla', 'rise', 'q', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 11:04:03,414 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-19 11:04:03,414 - DataPrepPipeline - INFO - Example - Words: ['0', 'total', 'earning', 'tesla', 'rise', 'q', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 11:04:03,414 - DataPrepPipeline - INFO - Example - Sequence: [5122, 14, 84, 272, 36, 4299, 577, 1, 1, 5682]
+2025-04-19 11:04:03,414 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-19 11:04:03,415 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-19 11:04:03,641 - tensorflow - WARNING - 5 out of the last 5 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x1c5572c00> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+2025-04-19 11:04:03,643 - PROD - INFO - Inference completed in 4.86 seconds
+2025-04-19 13:19:06,646 - PROD - INFO - Unpickling completed in 10.13 seconds
+2025-04-19 13:19:09,320 - FinancePreprocessing - INFO - Removing HTML tags
+2025-04-19 13:19:09,322 - FinancePreprocessing - INFO - Removing URLs
+2025-04-19 13:19:09,323 - FinancePreprocessing - INFO - Replacing currency symbols/abbreviations
+2025-04-19 13:19:09,323 - FinancePreprocessing - INFO - Replacing stock tickers
+2025-04-19 13:19:09,323 - FinancePreprocessing - INFO - Normalizing date and time expressions
+2025-04-19 13:19:09,324 - FinancePreprocessing - INFO - Normalizing numeric expressions
+2025-04-19 13:19:09,324 - FinancePreprocessing - INFO - Removing punctuation marks
+2025-04-19 13:19:09,325 - FinancePreprocessing - INFO - Removing special characters
+2025-04-19 13:19:09,325 - FinancePreprocessing - INFO - Normalizing whitespace
+2025-04-19 13:19:09,325 - FinancePreprocessing - INFO - Lowercasing text
+2025-04-19 13:19:09,325 - FinancePreprocessing - INFO - Removing stop words
+2025-04-19 13:19:09,326 - DataPrepPipeline - INFO - Tokenizing text
+2025-04-19 13:19:09,327 - DataPrepPipeline - INFO - Example - Tokenized: ['0', 'total', 'earnings', 'tesla', 'rise', 'q', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 13:19:09,327 - FinancePreprocessing - INFO - Lemmatizing text
+2025-04-19 13:19:09,331 - FinancePreprocessing - INFO - Example - Original tokens: ['0', 'total', 'earnings', 'tesla', 'rise', 'q', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 13:19:09,331 - FinancePreprocessing - INFO - Example - Lemmatized: ['0', 'total', 'earning', 'tesla', 'rise', 'q', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 13:19:09,332 - DataPrepPipeline - INFO - Converting texts to sequences
+2025-04-19 13:19:09,332 - DataPrepPipeline - INFO - Example - Words: ['0', 'total', 'earning', 'tesla', 'rise', 'q', 'name', 'sentence', 'dtype', 'object']
+2025-04-19 13:19:09,332 - DataPrepPipeline - INFO - Example - Sequence: [5122, 14, 84, 272, 36, 4299, 577, 1, 1, 5682]
+2025-04-19 13:19:09,332 - FinancePreprocessing - INFO - Padding sequences to length 128
+2025-04-19 13:19:09,332 - FinancePreprocessing - INFO - Padded sequences shape: (1, 128)
+2025-04-19 13:19:09,592 - PROD - INFO - Inference completed in 13.08 seconds

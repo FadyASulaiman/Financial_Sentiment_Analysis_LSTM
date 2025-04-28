@@ -1,0 +1,5 @@
+src/legacy/
+__pycache__
+src/feature_extractors/retired/
+.git
+src/deploy/frontend/
