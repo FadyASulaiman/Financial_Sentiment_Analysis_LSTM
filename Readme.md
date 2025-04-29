@@ -121,7 +121,7 @@ print(f"Sentiment: {result['sentiment']}, Confidence: {result['confidence']:.2f}
 
 ### Web Interface
 
-A user-friendly interface is available at [https://finsentiment.yourdomain.com](https://finsentiment.yourdomain.com) where you can:
+A user-friendly interface is available at [https://finsentiment.yourdomain.com](https://lstm-sentiment-analysis-457012.web.app) where you can:
 - Enter financial news headlines
 - Get instant sentiment predictions
 - View confidence scores and visualizations
@@ -153,13 +153,13 @@ This project was developed over a two-month period. Development phases include:
 
 For questions, feedback, or collaboration opportunities:
 
-- LinkedIn: [LinkedIn Profile](https://linkedin.com/in/yourusername)
+- LinkedIn: [LinkedIn Profile](https://linkedin.com/in/fady-a-sulaiman-b1aaa1293)
 - Email: Sulaiman.a.fady@gmail.com
 
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. I'd be more than happy if you use, modify, and distribute this code as long as appropriate credit is given for the original work.
+This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details. I'd be more than happy if you use, modify, and distribute this code as long as appropriate credit is given for the original work.
 
 ---
 
