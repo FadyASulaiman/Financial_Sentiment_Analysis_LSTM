@@ -2,9 +2,11 @@
 
 [Financial Sentiment Analysis](https://img.shields.io/badge/NLP-Sentiment%20Analysis-blue)
 [TensorFlow](https://img.shields.io/badge/TensorFlow-2.16%2B-orange)
-[Accuracy](https://img.shields.io/badge/Accuracy-80.2%25-brightgreen)
+[Accuracy](https://img.shields.io/badge/Accuracy-80.1%25-brightgreen)
 
-An advanced deep learning model that accurately classifies financial news headlines into positive, neutral, or negative sentiment using a Bidirectional LSTM architecture enhanced with Hugging Face embeddings and synthetic data generation.
+An advanced deep learning model that accurately classifies financial news headlines into positive, neutral, or negative sentiment using a Bidirectional LSTM architecture enhanced with synthetic data generation.
+By: Fady A. Sulaiman
+
 
 ## 📊 Performance Highlights
 
@@ -20,6 +22,8 @@ The model achieves **80.1% accuracy** on financial sentiment classification with
 ## 🔍 Project Overview
 
 This project addresses the challenge of sentiment analysis in financial news, which is fundamentally different from general sentiment analysis due to domain-specific language and implications. By accurately classifying financial headlines, this model can provide valuable insights for financial decision-making and market trend analysis.
+
+A full documentation and technical writeup of the project can be found here: [LSTM SA Full Technical Writeup & Documentation](https://docs.google.com/document/d/1Y9H_GNVjhrqdtFun0WQn5J4ES4tNN5qE5POqFPP3lO4/edit?usp=sharing)
 
 ### Key Features:
 
