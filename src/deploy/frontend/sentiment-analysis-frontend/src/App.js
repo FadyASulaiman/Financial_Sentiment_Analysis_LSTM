@@ -337,7 +337,7 @@ function App() {
         <div className="nav-container">
           <div className="nav-logo">
             <i className="fa-solid fa-brain"></i>
-            <span>By Fady A. Sulaiman</span>
+            <span>FinSentiment</span>
           </div>
           
           <div className="hamburger" onClick={toggleMenu}>
@@ -378,9 +378,11 @@ function App() {
                 Try It Now
                 <i className="fa-solid fa-rocket"></i>
               </button>
-              <a href="#features" className="hero-button secondary">
-                Explore Features
-                <i className="fa-solid fa-arrow-right"></i>
+              <a href="#" className="hero-button secondary" disabled="true">
+                <b>
+                By Fady A. Sulaiman
+                </b>
+                {/* <i className="fa-solid fa-arrow-right"></i> */}
               </a>
             </div>
           </div>
@@ -609,34 +611,22 @@ function App() {
             Use Cases
           </h2>
           <div className="use-cases-grid">
-            <div className="use-case" data-aos="zoom-in" data-aos-delay="100">
-              <div className="use-case-icon">
-                <i className="fa-solid fa-comments"></i>
-              </div>
-              <h3>Customer Feedback</h3>
-              <p>Analyze customer reviews and feedback to understand satisfaction levels and identify areas for improvement.</p>
-            </div>
+
             <div className="use-case" data-aos="zoom-in" data-aos-delay="200">
               <div className="use-case-icon">
                 <i className="fa-solid fa-newspaper"></i>
               </div>
               <h3>Media Monitoring</h3>
-              <p>Track sentiment in news articles and social media to gauge public perception of your brand or product.</p>
+              <p>Track sentiment in news articles and social media to gauge public perception of a brand or product.</p>
             </div>
             <div className="use-case" data-aos="zoom-in" data-aos-delay="300">
               <div className="use-case-icon">
                 <i className="fa-solid fa-chart-pie"></i>
               </div>
-              <h3>Market Research</h3>
-              <p>Understand market trends and consumer opinions by analyzing large volumes of text data quickly.</p>
+              <h3>Financial Decision-Making</h3>
+              <p>Understand market trends and take financial decisions according to sentiment of current news headlines</p>
             </div>
-            <div className="use-case" data-aos="zoom-in" data-aos-delay="400">
-              <div className="use-case-icon">
-                <i className="fa-solid fa-headset"></i>
-              </div>
-              <h3>Support Interactions</h3>
-              <p>Monitor customer support conversations to identify and prioritize negative interactions that need attention.</p>
-            </div>
+
           </div>
         </section>
         
@@ -676,61 +666,53 @@ function App() {
           <div className="footer-brand">
             <div className="footer-logo">
               <i className="fa-solid fa-brain"></i>
-              <span>SentimentAI</span>
+              <span>FinSentiment</span>
             </div>
-            <p>Advanced sentiment analysis powered by cutting-edge AI technology.</p>
+            <p>Advanced financial sentiment analysis powered by cutting-edge AI technology.</p>
           </div>
           
           <div className="footer-links">
-            <div className="footer-links-column">
-              <h3>Quick Links</h3>
-              <a href="#features">Features</a>
-              <a href="#how-it-works">How It Works</a>
-              <a href="#use-cases">Use Cases</a>
-              <a href="#about">About</a>
-            </div>
             
             <div className="footer-links-column">
               <h3>Resources</h3>
               <a href="#">Documentation</a>
-              <a href="#">API Reference</a>
-              <a href="#">Tutorials</a>
-              <a href="#">Blog</a>
             </div>
             
             <div className="footer-links-column">
               <h3>Contact</h3>
-              <a href="mailto:your.email@example.com">
+              <a href="mailto:sulaiman.a.fady@gmail.com">
                 <i className="fa-solid fa-envelope"></i>
-                your.email@example.com
+                Sulaiman.a.fady@gmail.com
               </a>
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/FadyASulaiman/Financial_Sentiment_Analysis_LSTM" target="_blank" rel="noopener noreferrer">
                 <i className="fa-brands fa-github"></i>
-                GitHub
+                Project GitHub Repo
               </a>
-              <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+              <a href="https://linkedin.com/in/fady-a-sulaiman-b1aaa1293" target="_blank" rel="noopener noreferrer">
                 <i className="fa-brands fa-linkedin-in"></i>
-                LinkedIn
+                My LinkedIn
               </a>
-              <a href="#">
-                <i className="fa-solid fa-phone"></i>
-                +1 (555) 123-4567
-              </a>
+
             </div>
+
+            <div className="footer-links-column">
+              <h3>Quick Links</h3>
+              <a href="#features">Features</a>
+              <a href="#how-it-works">How It Works</a>
+              <a href="#about">About</a>
+            </div>
+            
           </div>
         </div>
         
         <div className="footer-bottom">
-          <p className="copyright">© {new Date().getFullYear()} SentimentAI. All rights reserved.</p>
+          <p className="copyright">© {new Date().getFullYear()} FinSentiment. All rights reserved.</p>
           <div className="footer-social">
-            <a href="https://github.com/yourusername" className="social-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/FadyASulaiman" className="social-link" target="_blank" rel="noopener noreferrer">
               <i className="fa-brands fa-github"></i>
             </a>
-            <a href="https://linkedin.com/in/yourusername" className="social-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://linkedin.com/in/fady-a-sulaiman-b1aaa1293" className="social-link" target="_blank" rel="noopener noreferrer">
               <i className="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a href="#" className="social-link">
-              <i className="fa-brands fa-twitter"></i>
             </a>
           </div>
         </div>
