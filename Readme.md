@@ -32,7 +32,7 @@ This project addresses the challenge of sentiment analysis in financial news, wh
 - **Context-Aware Embeddings**: Leverages Hugging Face pre-trained embeddings
 - **Synthetic Data Generation**: Uses transformer models to create balanced, high-quality training data
 - **Production-Ready Deployment**: Fully containerized solution deployed on Google Cloud Platform
-- **Interactive UI**: Elegant frontend interface for real-time sentiment predictions
+- **Interactive UI**: Elegant frontend interface for real-time sentiment predictions. Found here: [https://lstm-sentiment-analysis-457012.web.app](https://lstm-sentiment-analysis-457012.web.app)
 
 ## 🛠️ Technical Implementation
 
@@ -119,7 +119,7 @@ analyzer = SentimentAnalyzer()
 result = analyzer.predict("Tech stocks surge after positive earnings report")
 print(f"Sentiment: {result['sentiment']}, Confidence: {result['confidence']:.2f}")
 ```
-A full inference and deployment guide can be found at: src/deploy/Readme.md
+A full inference and deployment guide can be found at: *src/deploy/Readme.md*
 
 ### Web Interface
 
