@@ -21,3 +21,9 @@ input_text = "$AAPL stock fell after the release of the newest iphone"
 result = analyze_sentiment(input_text)
 print(f"Predicted sentiment: {result['sentiment']}")
 print(f"Confidence: {result['confidence']:.4f}")
+
+
+#Other Positive, Neutral and Negative examples
+# "XY inc. Net sales increased 25% from last year"
+# "XY inc. is building a new factory in Arizona"
+# "Fall of XY inc. stock after failed product release"

@@ -4,9 +4,11 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import uvicorn
+from src.deploy.inference_pipeline.deployment_inference_pipeline_script import ProductionPredictor
 from src.deploy.inference_pipeline.sentiment_analyzer import analyze_sentiment
 
 app = FastAPI()
+p = ProductionPredictor()
 
 # CORS middleware
 app.add_middleware(
@@ -33,7 +35,7 @@ def prediction(request: TextRequest):
     if not request.text:
         raise HTTPException(status_code=400, detail="No text provided")
     
-    predictions = analyze_sentiment(request.text)
+    predictions = p.production_inference_pipeline(request.text)
     return PredictionResponse(predictions=[predictions])
 
 if __name__ == "__main__":

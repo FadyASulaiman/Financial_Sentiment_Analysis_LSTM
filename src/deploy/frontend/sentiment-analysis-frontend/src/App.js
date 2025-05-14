@@ -125,7 +125,7 @@ function App() {
         }
         setCurrentStep(prevStep => prevStep + 1);
         
-      }, 3000);
+      }, 2000);
     }
     
     return () => clearTimeout(timer);
@@ -137,6 +137,12 @@ function App() {
       if (analyzeRef.current) {
         analyzeRef.current.scrollIntoView({ behavior: 'smooth' });
       }
+    }, 100);
+  };
+  const redirectToLinkedIn = () => {
+    setShowHero(false);
+    setTimeout(() => {
+      window.location.href = "https://linkedin.com/in/fady-a-sulaiman-b1aaa1293";
     }, 100);
   };
   
@@ -337,7 +343,7 @@ function App() {
         <div className="nav-container">
           <div className="nav-logo">
             <i className="fa-solid fa-brain"></i>
-            <span>By Fady A. Sulaiman</span>
+            <span>FinSentiment</span>
           </div>
           
           <div className="hamburger" onClick={toggleMenu}>
@@ -378,9 +384,11 @@ function App() {
                 Try It Now
                 <i className="fa-solid fa-rocket"></i>
               </button>
-              <a href="#features" className="hero-button secondary">
-                Explore Features
-                <i className="fa-solid fa-arrow-right"></i>
+              <a href="#" className="hero-button secondary" disabled="true">
+                <b>
+                By Fady A. Sulaiman
+                </b>
+                {/* <i className="fa-solid fa-arrow-right"></i> */}
               </a>
             </div>
           </div>
@@ -400,7 +408,7 @@ function App() {
           <div className="stat-label">Sentiment Classes</div>
         </div>
         <div className="stat-item" data-aos="fade-up" data-aos-delay="400">
-          <div className="stat-number">LSTM</div>
+          <div className="stat-number">Bi-LSTM</div>
           <div className="stat-label">Architecture</div>
         </div>
       </div>
@@ -500,7 +508,7 @@ function App() {
             Advanced Sentiment Analysis Features
           </h2>
           <p className="section-subtitle">
-            Our model provides cutting-edge sentiment analysis capabilities powered by the latest advancements in AI
+            The model provides cutting-edge sentiment analysis capabilities powered by the latest advancements in AI
           </p>
           
           <div className="features-grid">
@@ -510,7 +518,7 @@ function App() {
               </div>
               <h3 className="feature-title">High Accuracy</h3>
               <p className="feature-description">
-                Our model achieves exceptional accuracy rates on benchmark datasets, consistently outperforming traditional sentiment analysis approaches.
+                The model achieves exceptional accuracy rates on benchmark datasets, consistently outperforming traditional sentiment analysis approaches.
               </p>
             </div>
             
@@ -528,9 +536,9 @@ function App() {
               <div className="feature-icon">
                 <i className="fa-solid fa-bolt-lightning"></i>
               </div>
-              <h3 className="feature-title">Real-Time Analysis</h3>
+              <h3 className="feature-title">SMOTE Data Augmentation</h3>
               <p className="feature-description">
-                Optimized for speed, our sentiment analysis model delivers results within milliseconds, making it perfect for real-time applications.
+                Utilized a Hybrid approach of traditional and context-aware data augmentation techniques to improve model performance from 49% to 79% on minority class.
               </p>
             </div>
             
@@ -576,28 +584,28 @@ function App() {
               <div className="step-number">1</div>
               <div className="step-content">
                 <h3>Input Text</h3>
-                <p>Enter any text you want to analyze for sentiment, from customer reviews to social media posts.</p>
+                <p>Enter any financial news text you want to analyze for sentiment, from official headlines to social media posts.</p>
               </div>
             </div>
             <div className="step" data-aos="fade-right" data-aos-delay="200">
               <div className="step-number">2</div>
               <div className="step-content">
                 <h3>Advanced Processing</h3>
-                <p>Our model processes the text using advanced NLP techniques, including tokenization and encoding.</p>
+                <p>The preprocessing pipelines model processes the text using advanced NLP techniques, including NER, tokenization and encoding.</p>
               </div>
             </div>
             <div className="step" data-aos="fade-right" data-aos-delay="300">
               <div className="step-number">3</div>
               <div className="step-content">
-                <h3>AI Analysis</h3>
-                <p>Our deep learning model analyzes the text to determine sentiment polarity and confidence scores.</p>
+                <h3>Inference Generation</h3>
+                <p>The Bidirectional LSTM model analyzes the text to determine sentiment class and confidence scores.</p>
               </div>
             </div>
             <div className="step" data-aos="fade-right" data-aos-delay="400">
               <div className="step-number">4</div>
               <div className="step-content">
                 <h3>Receive Results</h3>
-                <p>Get detailed results showing sentiment classification, confidence scores, and probability breakdown.</p>
+                <p>The REST API delivers detailed results showing sentiment classification and confidence score</p>
               </div>
             </div>
           </div>
@@ -609,50 +617,42 @@ function App() {
             Use Cases
           </h2>
           <div className="use-cases-grid">
-            <div className="use-case" data-aos="zoom-in" data-aos-delay="100">
-              <div className="use-case-icon">
-                <i className="fa-solid fa-comments"></i>
-              </div>
-              <h3>Customer Feedback</h3>
-              <p>Analyze customer reviews and feedback to understand satisfaction levels and identify areas for improvement.</p>
-            </div>
+
             <div className="use-case" data-aos="zoom-in" data-aos-delay="200">
               <div className="use-case-icon">
                 <i className="fa-solid fa-newspaper"></i>
               </div>
               <h3>Media Monitoring</h3>
-              <p>Track sentiment in news articles and social media to gauge public perception of your brand or product.</p>
+              <p>Track sentiment in financial news articles and social media to gauge public perception of a brand or product.</p>
             </div>
             <div className="use-case" data-aos="zoom-in" data-aos-delay="300">
               <div className="use-case-icon">
                 <i className="fa-solid fa-chart-pie"></i>
               </div>
-              <h3>Market Research</h3>
-              <p>Understand market trends and consumer opinions by analyzing large volumes of text data quickly.</p>
+              <h3>Financial Decision-Making</h3>
+              <p>Understand market trends and take financial decisions according to sentiment of current news headlines</p>
             </div>
-            <div className="use-case" data-aos="zoom-in" data-aos-delay="400">
-              <div className="use-case-icon">
-                <i className="fa-solid fa-headset"></i>
-              </div>
-              <h3>Support Interactions</h3>
-              <p>Monitor customer support conversations to identify and prioritize negative interactions that need attention.</p>
-            </div>
+
           </div>
         </section>
         
         <section id="about" className="about-section" data-aos="fade-up">
           <div className="about-content">
-            <h2 className="section-title">About Our Technology</h2>
+            <h2 className="section-title">About The Technology</h2>
             <p>
-              Our sentiment analysis model is built on a state-of-the-art deep learning architecture, trained on millions of labeled text examples across diverse domains. The model uses advanced natural language processing techniques to understand context, detect subtle linguistic cues, and accurately classify sentiment.
+              The financial sentiment analysis model is built on a state-of-the-art deep learning architecture, trained on thousands of labeled text examples across three sentiment classes. The model uses advanced natural language processing techniques to understand context, detect subtle linguistic cues, and accurately classify sentiment.
             </p>
             <p>
-              The API delivers fast, reliable results with detailed confidence scores, making it perfect for integration into applications, dashboards, or automated workflows.
+              Detailed info about the architecture, technical decisions and full architecture breakdown can be found in the GitHub Repo Readme and the detailed project writeup referenced within. (Link below)
+            </p>
+            <p>
+              The GCP deployed model and API delivers fast, reliable results with detailed confidence scores, making it perfect for integration into applications, dashboards, or automated workflows.
             </p>
             <div className="tech-stack">
               <span className="tech-badge">Deep Learning</span>
               <span className="tech-badge">NLP</span>
-              <span className="tech-badge">Transfer Learning</span>
+              <span className="tech-badge">LSTM Architecture</span>
+              <span className="tech-badge">SMOTE</span>
               <span className="tech-badge">REST API</span>
               <span className="tech-badge">Cloud Hosted</span>
             </div>
@@ -661,10 +661,10 @@ function App() {
         
         <section className="cta-section" data-aos="fade-up">
           <div className="cta-content">
-            <h2>Ready to analyze your text?</h2>
-            <p>Try our sentiment analysis tool now and get instant insights.</p>
-            <button className="cta-button" onClick={scrollToAnalyze}>
-              Start Analyzing
+            <h2>Wanna Chat?</h2>
+            <p>Connect with me on LinkedIn to discuss insights, feedback or opportunities.</p>
+            <button className="cta-button" onClick={redirectToLinkedIn}>
+              My LNKDN profile
               <i className="fa-solid fa-arrow-right"></i>
             </button>
           </div>
@@ -676,61 +676,53 @@ function App() {
           <div className="footer-brand">
             <div className="footer-logo">
               <i className="fa-solid fa-brain"></i>
-              <span>SentimentAI</span>
+              <span>FinSentiment</span>
             </div>
-            <p>Advanced sentiment analysis powered by cutting-edge AI technology.</p>
+            <p>Advanced financial sentiment analysis powered by cutting-edge AI technology.</p>
           </div>
           
           <div className="footer-links">
-            <div className="footer-links-column">
-              <h3>Quick Links</h3>
-              <a href="#features">Features</a>
-              <a href="#how-it-works">How It Works</a>
-              <a href="#use-cases">Use Cases</a>
-              <a href="#about">About</a>
-            </div>
             
             <div className="footer-links-column">
               <h3>Resources</h3>
               <a href="#">Documentation</a>
-              <a href="#">API Reference</a>
-              <a href="#">Tutorials</a>
-              <a href="#">Blog</a>
             </div>
             
             <div className="footer-links-column">
               <h3>Contact</h3>
-              <a href="mailto:your.email@example.com">
+              <a href="mailto:sulaiman.a.fady@gmail.com">
                 <i className="fa-solid fa-envelope"></i>
-                your.email@example.com
+                Sulaiman.a.fady@gmail.com
               </a>
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/FadyASulaiman/Financial_Sentiment_Analysis_LSTM" target="_blank" rel="noopener noreferrer">
                 <i className="fa-brands fa-github"></i>
-                GitHub
+                Project GitHub Repo
               </a>
-              <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+              <a href="https://linkedin.com/in/fady-a-sulaiman-b1aaa1293" target="_blank" rel="noopener noreferrer">
                 <i className="fa-brands fa-linkedin-in"></i>
-                LinkedIn
+                My LinkedIn
               </a>
-              <a href="#">
-                <i className="fa-solid fa-phone"></i>
-                +1 (555) 123-4567
-              </a>
+
             </div>
+
+            <div className="footer-links-column">
+              <h3>Quick Links</h3>
+              <a href="#features">Features</a>
+              <a href="#how-it-works">How It Works</a>
+              <a href="#about">About</a>
+            </div>
+            
           </div>
         </div>
         
         <div className="footer-bottom">
-          <p className="copyright">© {new Date().getFullYear()} SentimentAI. All rights reserved.</p>
+          <p className="copyright">© {new Date().getFullYear()} FinSentiment. All rights reserved.</p>
           <div className="footer-social">
-            <a href="https://github.com/yourusername" className="social-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/FadyASulaiman" className="social-link" target="_blank" rel="noopener noreferrer">
               <i className="fa-brands fa-github"></i>
             </a>
-            <a href="https://linkedin.com/in/yourusername" className="social-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://linkedin.com/in/fady-a-sulaiman-b1aaa1293" className="social-link" target="_blank" rel="noopener noreferrer">
               <i className="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a href="#" className="social-link">
-              <i className="fa-brands fa-twitter"></i>
             </a>
           </div>
         </div>

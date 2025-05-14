@@ -1,7 +1,8 @@
 from datetime import datetime
 import os
-import pickle
 
+
+import joblib
 import numpy as np
 import pandas as pd
 
@@ -17,48 +18,66 @@ class ProductionPredictor:
         self.preprocessing_pipeline_path = os.path.join(script_dir, "artifacts", "cleaning_pipeline.pkl")
         self.data_prep_pipeline_path = os.path.join(script_dir, "artifacts", "data_prep_pipeline.pkl") 
         self.model_path = os.path.join(script_dir, "artifacts", "lstm_sentiment_80_acc.keras")
+        self.unified_pipeline_path = os.path.join(script_dir, "artifacts", "unified_pipeline.joblib")
+        
+        self.unified_pipeline = joblib.load(self.unified_pipeline_path)
+        self.model = keras.models.load_model(self.model_path)
 
     def production_inference_pipeline(self, input_text, text_column='Sentence'):
         """
         Production inference pipeline that processes a single text string
         through all preprocessing steps and returns model predictions
-
         """
         try:
             # Track start time
             start_time = datetime.now()
 
-            # Load pipelines & model
-            with open(self.fe_pipeline_path, 'rb') as f:
-                fe_pipeline = pickle.load(f)
-                
-            with open(self.preprocessing_pipeline_path, 'rb') as f:
-                preprocessing_pipeline = pickle.load(f)
-                
-            with open(self.data_prep_pipeline_path, 'rb') as f:
-                data_prep_pipeline = pickle.load(f)
-            
-            model = keras.models.load_model(self.model_path)
 
-            # Track un-pickling end time and duration
+            if self.unified_pipeline is None:
+                # Load unified pipeline
+                logger.info(f"Loading unified pipeline from {self.unified_pipeline_path}")
+                self.unified_pipeline = joblib.load(self.unified_pipeline_path)
+                
+            if self.model is None:
+                # Load model
+                logger.info(f"Loading model from {self.model_path}")
+                self.model = keras.models.load_model(self.model_path)
+
+            # Track loading end time and duration
             end_time_first = datetime.now()
-            processing_duration_f = (end_time_first - start_time).total_seconds()
-            logger.info(f"Unpickling completed in {processing_duration_f:.2f} seconds")
+            loading_duration = (end_time_first - start_time).total_seconds()
+            logger.info(f"Loading completed in {loading_duration:.2f} seconds")
             
             # Start preprocessing
             input_data = pd.DataFrame({text_column: [input_text]})
 
-            # Step 1: Feature Engineering
-            fe_data = fe_pipeline.transform(input_data)
+            # Process through feature engineering pipeline
+            logger.info("Applying feature engineering transformation")
+            fe_data = self.unified_pipeline['feature_engineering'].transform(input_data)
             
-            # Step 2: Text Preprocessing
-            preprocessed_data = preprocessing_pipeline.transform(fe_data)
-
-            # Step 3: Data Preparation
-            X = data_prep_pipeline.transform(preprocessed_data["Sentence"])
+            # Ensure the text column is preserved
+            if text_column not in fe_data.columns:
+                fe_data[text_column] = input_data[text_column]
             
-            # Step 4: Model Prediction
-            predictions = model.predict(X)
+            # Process through data cleaning pipeline
+            logger.info("Applying data cleaning transformation")
+            cleaned_sentences = self.unified_pipeline['data_cleaning'].transform(fe_data[text_column])
+            
+            # Create DataFrame with cleaned text
+            cleaned_data = pd.DataFrame({text_column: cleaned_sentences})
+            
+            # Process through data preparation pipeline
+            logger.info("Applying data preparation transformation")
+            X = self.unified_pipeline['data_preparation'].transform(cleaned_data[text_column])
+            
+            # Ensure X is in the right shape for model prediction
+            X = np.array(X)
+            if len(X.shape) == 1:
+                X = X.reshape(1, -1)  # Add batch dimension if needed
+            
+            # Model Prediction
+            logger.info("Running model prediction")
+            predictions = self.model.predict(X)
             
             # Convert predictions to human-readable format
             sentiment_mapping = {0: 'negative', 1: 'neutral', 2: 'positive'}
@@ -69,7 +88,9 @@ class ProductionPredictor:
                 'confidence': confidence,
                 'raw_predictions': predictions[0].tolist()
             }
-            print(result)
+            
+            logger.info(result)
+
             # Track end time and duration
             end_time = datetime.now()
             processing_duration = (end_time - start_time).total_seconds()
